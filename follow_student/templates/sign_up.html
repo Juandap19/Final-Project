@@ -1,0 +1,11 @@
+{% block content %}
+<b>{{ title }}</b>
+
+<br>
+<br>
+<form method = "POST">
+    {% csrf_token %}
+    {{ form }}
+    <button>registrate mamahuevo</button>
+</form>
+{% endblock %}
