@@ -6,26 +6,26 @@
 
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
 | --- | --- | --- | --- |
-| 19/09/23 | Nada | Ninguno | Iniciar el sprint |
+| 19/09/23 | No aplica | Ninguno | Iniciar el sprint |
 
 ## Juan David Patiño
 
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
 | --- | --- | --- | --- |
-| 19/09/23 | Nada | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
+| 19/09/23 | No aplica | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
 
 ## Daniel Montezuma
 
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
 | --- | --- | --- | --- |
-| 19/09/23 | Nada | Ninguno | Identificar posibles obstaculos y riesgos |
+| 19/09/23 | No aplica | Ninguno | Identificar posibles obstaculos y riesgos |
 
 
-## Nombre
+## Darwin
 
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
 | --- | --- | --- | --- |
-| 19/09/23 |  |  |  |
+| 19/09/23 | No aplica | Ninguno | Corregir HU |
 
 ## Nombre
 
