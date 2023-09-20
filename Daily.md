@@ -17,8 +17,9 @@
 ## Daniel Montezuma
 
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
-| --- | Nada | Ninguno | Identificar posibles obstaculos y riesgos |
-| 19/09/23 |  |  |  |
+| --- | --- | --- | --- |
+| 19/09/23 | Nada | Ninguno | Identificar posibles obstaculos y riesgos |
+
 
 ## Nombre
 
