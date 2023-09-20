@@ -27,8 +27,8 @@
 | --- | --- | --- | --- |
 | 19/09/23 | No aplica | Ninguno | Corregir HU |
 
-## Nombre
+## Diego Zuñiga
 
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
 | --- | --- | --- | --- |
-| 19/09/23 |  |  |  |
+| 19/09/23 | No aplica | Ninguno | Nada |
