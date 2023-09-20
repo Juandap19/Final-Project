@@ -8,11 +8,11 @@
 | --- | --- | --- | --- |
 | 19/09/23 | Nada | Ninguno | Iniciar el sprint |
 
-## Nombre
+## Juan David Patiño
 
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
 | --- | --- | --- | --- |
-| 19/09/23 |  |  |  |
+| 19/09/23 | Nada | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
 
 ## Nombre
 
