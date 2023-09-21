@@ -27,6 +27,7 @@
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
 | --- | --- | --- | --- |
 | 19/09/23 | No aplica | Ninguno | Corregir HU |
+| 20/09/23 | Corregir HU | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
 
 ## Diego Zuñiga
 
