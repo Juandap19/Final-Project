@@ -20,6 +20,7 @@
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
 | --- | --- | --- | --- |
 | 19/09/23 | No aplica | Ninguno | Identificar posibles obstaculos y riesgos |
+| 20/09/23 | Identificar posibles obstaculos y riesgos | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
 
 
 ## Darwin
