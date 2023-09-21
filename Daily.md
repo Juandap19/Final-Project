@@ -1,12 +1,11 @@
 # Daily
 
-# Dailys
-
 ## Juan Felipe Madrid
 
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
 | --- | --- | --- | --- |
 | 19/09/23 | No aplica | Ninguno | Iniciar el sprint |
+| 20/09/23 | Iniciar el sprint | Ninguno | Nada |
 
 ## Juan David Patiño
 
