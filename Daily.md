@@ -12,7 +12,8 @@
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
 | --- | --- | --- | --- |
 | 19/09/23 | No aplica | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
-| 20/09/23 | No aplica | Ninguno | Nada |
+| 20/09/23 | Consultar herramientas| Ninguno | Nada |
+| 20/09/23 | nada | Ninguno | Agregando a los apoyos visuales una mejora de UI y UX |
 
 
 ## Daniel Montezuma
