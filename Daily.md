@@ -33,6 +33,7 @@
 | 19/09/23 | No aplica | Ninguno | Corregir HU |
 | 20/09/23 | Corregir HU | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
 | 21/09/23 | Consultar herramientas utiles para el desarrollo del sprint | Ninguno | Realizar prueba de carga de datos desde archivo xlsx |
+| 22/09/23 |  Realizar prueba de carga de datos desde archivo xlsx | Que tuve dos parciales | Estar triste |
 
 ## Diego Zuñiga
 
