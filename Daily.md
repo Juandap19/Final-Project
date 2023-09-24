@@ -8,6 +8,8 @@
 | 20/09/23 | Iniciar el sprint | Ninguno | Nada |
 | 21/09/23 | Nada| No tengo mucho conocimiento de html | Revisión mockups para realizar una planeacion de su diseño |
 | 22/09/23 |  Revisión mockups para realizar una planeacion de su diseño | no tuve mucho tiempo porque hice dos parciales| empezar a buscar informacion de como realizar el hmtl |
+| 23/09/23 | No aplica | Ninguno | Nada |
+| 24/09/23 | No aplica | Ninguno | Reunion con el grupo para sincronizar problemas, falto PATIÑO |
 ## Juan David Patiño
 
 | Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
