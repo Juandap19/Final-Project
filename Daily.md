@@ -26,6 +26,9 @@
 | 19/09/23 | No aplica | Ninguno | Identificar posibles obstaculos y riesgos |
 | 20/09/23 | Identificar posibles obstaculos y riesgos | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
 | 21/09/23 | Consultar herramientas utiles para el desarrollo del sprint | Ninguno | Revisión mockups |
+| 22/09/23 | Revisión mockupst | Ninguno | Nada |
+| 23/09/23 | Nada | Semana de parciales | Inicio registro de estudiantes |
+| 24/09/23 | Revisión mockups | Ninguno | Reuniòn con el equipo |
 
 
 ## Darwin
