@@ -4,6 +4,7 @@
 ## Fecha 19/09/23
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
 | Juan Felipe Madrid | No aplica | Ninguno | Iniciar el sprint |
 | Juan David Patiño | No aplica | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
 | Daniel Montezuma | No aplica | Ninguno | Identificar posibles obstaculos y riesgos |
