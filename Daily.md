@@ -62,7 +62,7 @@
 |---|---|---|---|
 | Juan Felipe Madrid | No aplica | Ninguno | Reunion con el grupo para sincronizar problemas|
 | Juan David Patiño | No aplica | Ninguno | Nada |
-| Daniel Montezuma | Revisión mockups | Ninguno | Reuniòn con el equipo |
+| Daniel Montezuma | Inicio registro de estudiantes | Ninguno | Reunión con el equipo |
 | Darwin | No aplica | Ninguno | Reunion con el grupo|
 | Diego Zuñiga | No aplica | Ninguno |Reunion con el grupo|
 
@@ -72,3 +72,5 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid| No aplica | Ninguno |Revision de avances, inicio de de creacion de pantalla de reporte |
+| Juan David Patiño | --- | --- | --- |
+| Daniel Montezuma | Reunión con el equipo | Ninguno | Rvisión de avances, continuación pantalla registro estudiantes |
