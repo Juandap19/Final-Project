@@ -1,57 +1,73 @@
 # Daily
 
-## Juan Felipe Madrid
 
-| Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
-| --- | --- | --- | --- |
-| 19/09/23 | No aplica | Ninguno | Iniciar el sprint |
-| 20/09/23 | Iniciar el sprint | Ninguno | Nada |
-| 21/09/23 | Nada| No tengo mucho conocimiento de html | Revisión mockups para realizar una planeacion de su diseño |
-| 22/09/23 |  Revisión mockups para realizar una planeacion de su diseño | no tuve mucho tiempo porque hice dos parciales| empezar a buscar informacion de como realizar el hmtl |
-| 23/09/23 | No aplica | Ninguno | Nada |
-| 24/09/23 | No aplica | Ninguno | Reunion con el grupo para sincronizar problemas, falto PATIÑO |
-## Juan David Patiño
+## Fecha 19/09/23
 
-| Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
-| --- | --- | --- | --- |
-| 19/09/23 | No aplica | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
-| 20/09/23 | Consultar herramientas| Ninguno | Nada |
-| 21/09/23 | nada | Ninguno | Agregando a los apoyos visuales una mejora de UI y UX |
-| 22/09/23 | No aplica | Ninguno | Nada |
-| 23/09/23 | No aplica | Ninguno | Nada |
-| 24/09/23 | No aplica | Ninguno | Falte a la reunion |
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+| Juan Felipe Madrid | No aplica | Ninguno | Iniciar el sprint |
+| Juan David Patiño | No aplica | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
+| Daniel Montezuma | No aplica | Ninguno | Identificar posibles obstaculos y riesgos |
+| Darwin| No aplica | Ninguno | Corregir HU |
+| Diego Zuñiga | No aplica | Ninguno | Nada |
 
 
-## Daniel Montezuma
+## Fecha 20/09/23
 
-| Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
-| --- | --- | --- | --- |
-| 19/09/23 | No aplica | Ninguno | Identificar posibles obstaculos y riesgos |
-| 20/09/23 | Identificar posibles obstaculos y riesgos | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
-| 21/09/23 | Consultar herramientas utiles para el desarrollo del sprint | Ninguno | Revisión mockups |
-| 22/09/23 | Revisión mockupst | Ninguno | Nada |
-| 23/09/23 | Nada | Semana de parciales | Inicio registro de estudiantes |
-| 24/09/23 | Revisión mockups | Ninguno | Reuniòn con el equipo |
-
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid | Iniciar el sprint | Ninguno | Nada |
+| Juan David Patiño| Consultar herramientas| Ninguno | Nada |
+| Daniel Montezuma | Identificar posibles obstaculos y riesgos | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
+| Darwin | Corregir HU | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
+| Diego Zuñiga | No aplica | Ninguno | Nada |
 
 
-## Darwin
+## Fecha 21/09/23
 
-| Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
-| --- | --- | --- | --- |
-| 19/09/23 | No aplica | Ninguno | Corregir HU |
-| 20/09/23 | Corregir HU | Ninguno | Consultar herramientas utiles para el desarrollo del sprint |
-| 21/09/23 | Consultar herramientas utiles para el desarrollo del sprint | Ninguno | Realizar prueba de carga de datos desde archivo xlsx |
-| 22/09/23 |  Realizar prueba de carga de datos desde archivo xlsx | Que tuve dos parciales | Estar triste |
-| 23/09/23 | No aplica | Ninguno | Nada |
-| 24/09/23 | No aplica | Ninguno | Reunion con el grupo, sin PATIÑO|
-## Diego Zuñiga
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid | Nada| No tengo mucho conocimiento de html | Revisión mockups para realizar una planeacion de su diseño |
+| Juan David Patiño | nada | Ninguno | Agregando a los apoyos visuales una mejora de UI y UX |
+| Daniel Montezuma | Consultar herramientas utiles para el desarrollo del sprint | Ninguno | Revisión mockups |
+| Darwin | Consultar herramientas utiles para el desarrollo del sprint | Ninguno | Realizar prueba de carga de datos desde archivo xlsx |
+| Diego Zuñiga | No aplica | Ninguno | Nada |
 
-| Fecha | ¿Que hice ayer? | ¿Que Problemas Tuve? | ¿Que haré hoy? |
-| --- | --- | --- | --- |
-| 19/09/23 | No aplica | Ninguno | Nada |
-| 20/09/23 | No aplica | Ninguno | Nada |
-| 21/09/23 | No aplica | Ninguno | Nada |
-| 22/09/23 | No aplica | Ninguno | Nada |
-| 23/09/23 | No aplica | Ninguno | Nada |
-| 24/09/23 | No aplica | Ninguno |Reunion con el grupo, sin PATIÑO|
+
+## Fecha 22/09/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid|  Revisión mockups para realizar una planeacion de su diseño | no tuve mucho tiempo porque hice dos parciales| empezar a buscar informacion de como realizar el hmtl |
+| Juan David Patiño | No aplica | Ninguno | Nada |
+| Daniel Montezuma | Revisión mockupst | Ninguno | Nada |
+| Darwin |  Realizar prueba de carga de datos desde archivo xlsx | Que tuve dos parciales | Estar triste |
+| Diego Zuñiga | No aplica | Ninguno | Nada |
+
+
+## Fecha 23/09/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid | No aplica | Ninguno | Nada |
+| Juan David Patiño | No aplica | Ninguno | Nada |
+| Daniel Montezuma | Nada | Semana de parciales | Inicio registro de estudiantes |
+| Darwin | No aplica | Ninguno | Nada |
+| Diego Zuñiga | No aplica | Ninguno | Nada |
+
+
+## Fecha 24/09/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid | No aplica | Ninguno | Reunion con el grupo para sincronizar problemas|
+| Juan David Patiño | No aplica | Ninguno | Nada |
+| Daniel Montezuma | Revisión mockups | Ninguno | Reuniòn con el equipo |
+| Darwin | No aplica | Ninguno | Reunion con el grupo|
+| Diego Zuñiga | No aplica | Ninguno |Reunion con el grupo|
+
+
+## Fecha 25/09/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid| No aplica | Ninguno |Revision de avances, inicio de de creacion de pantalla de reporte |
