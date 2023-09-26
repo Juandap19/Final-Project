@@ -72,6 +72,6 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid| No aplica | Ninguno |Revision de avances, inicio de de creacion de pantalla de reporte |
-| Juan David Patiño | --- | --- | --- |
-| Daniel Montezuma | Reunión con el equipo | Ninguno | Rvisión de avances, continuación pantalla registro estudiantes |
+| Juan David Patiño | No aplica| Ninguno | Inicio de HTML y CSS de las pantallas de cargar informacion |
+| Daniel Montezuma | Reunión con el equipo | Ninguno | Revisión de avances, continuación pantalla registro estudiantes |
 | Diego Mueses Zuñiga | Reunion con el equipo | Ninguno | Creacion del Sing-in (funcional) y un layout que contenga el sidebar y navbar de la aplicacion |
