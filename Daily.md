@@ -74,3 +74,4 @@
 | Juan Felipe Madrid| No aplica | Ninguno |Revision de avances, inicio de de creacion de pantalla de reporte |
 | Juan David Patiño | --- | --- | --- |
 | Daniel Montezuma | Reunión con el equipo | Ninguno | Rvisión de avances, continuación pantalla registro estudiantes |
+| Diego Mueses Zuñiga | Reunion con el equipo | Ninguno | Creacion del Sing-in (funcional) y un layout que contenga el sidebar y navbar de la aplicacion |
