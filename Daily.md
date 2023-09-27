@@ -75,6 +75,7 @@
 | Juan David Patiño | No aplica| Ninguno | Inicio de HTML y CSS de las pantallas de cargar informacion |
 | Daniel Montezuma | Reunión con el equipo | Ninguno | Revisión de avances, continuación pantalla registro estudiantes |
 | Diego Mueses Zuñiga | Reunion con el equipo | Ninguno | Creacion del Sing-in (funcional) y un layout que contenga el sidebar y navbar de la aplicacion |
+| Darwin Lenis | Reunion con el equipo | Ninguno | Inicio de HTML de las pantallas de cargar informacion |
 
 ## Fecha 26/09/23
 
@@ -84,3 +85,4 @@
 | Juan David Patiño |  Inicio de HTML y CSS de las pantallas de cargar informacion | Encontrar la solución de como puedo ahorrar pantallas aplicacndo un if con ninja y verificaciones |Programando las condiciones para poder terminar el HTML |
 | Daniel Montezuma | Revisión de avances, continuación pantalla registro estudiantes | Ninguno |   Aplicar estilos a pantalla de registro estudiantes |
 | Diego Mueses Zuñiga | --- | --- |--- |
+| Darwin Lenis | Inicio de HTML de las pantallas de cargar informacion | Ninguno | HTML de cargar informacion terminado e incio de CSS |
