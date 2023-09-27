@@ -81,6 +81,6 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid| --- | --- |--- |
-| Juan David Patiño | --- | --- |--- |
+| Juan David Patiño |  Inicio de HTML y CSS de las pantallas de cargar informacion | Encontrar la solución de como puedo ahorrar pantallas aplicacndo un if con ninja y verificaciones |Programando las condiciones para poder terminar el HTML |
 | Daniel Montezuma | Revisión de avances, continuación pantalla registro estudiantes | Ninguno |   Aplicar estilos a pantalla de registro estudiantes |
 | Diego Mueses Zuñiga | --- | --- |--- |
