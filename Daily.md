@@ -86,3 +86,13 @@
 | Daniel Montezuma | Revisión de avances, continuación pantalla registro estudiantes | Ninguno |   Aplicar estilos a pantalla de registro estudiantes |
 | Diego Mueses Zuñiga | --- | --- |--- |
 | Darwin Lenis | Inicio de HTML de las pantallas de cargar informacion | Ninguno | HTML de cargar informacion terminado e incio de CSS |
+
+## Fecha 27/09/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid| --- |--- |--- |
+| Juan David Patiño |  --- | --- |--- |
+| Daniel Montezuma | Aplicar estilos a pantalla de registro estudiantes | Ninguno | Terminando detalles en la pantalla de registro estudiantes (sidebar, navbar y estilos) |
+| Diego Mueses Zuñiga | --- | --- |--- |
+| Darwin Lenis | --- | --- | --- |
