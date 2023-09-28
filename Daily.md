@@ -94,5 +94,5 @@
 | Juan Felipe Madrid| --- |--- |--- |
 | Juan David Patiño |  --- | --- |--- |
 | Daniel Montezuma | Aplicar estilos a pantalla de registro estudiantes | Ninguno | Terminando detalles en la pantalla de registro estudiantes (sidebar, navbar y estilos) |
-| Diego Mueses Zuñiga | --- | --- |--- |
+| Diego Mueses Zuñiga | Revise la documentacion de bootstrap | No pude seguir con el Sing-in y el layout del sidebar y navbar por no saber bootstrap | Terminar de pasar el login y el layout del sidebar y navbar 100% a boostrap |
 | Darwin Lenis | --- | --- | --- |
