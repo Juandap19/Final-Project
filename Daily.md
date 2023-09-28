@@ -95,4 +95,4 @@
 | Juan David Patiño |  --- | --- |--- |
 | Daniel Montezuma | Aplicar estilos a pantalla de registro estudiantes | Ninguno | Terminando detalles en la pantalla de registro estudiantes (sidebar, navbar y estilos) |
 | Diego Mueses Zuñiga | Revise la documentacion de bootstrap | No pude seguir con el Sing-in y el layout del sidebar y navbar por no saber bootstrap | Terminar de pasar el login y el layout del sidebar y navbar 100% a boostrap |
-| Darwin Lenis | --- | --- | --- |
+| Darwin Lenis | HTML de cargar informacion terminado e incio de CSS | La informacion contenida en los archivos xlsx no se carga en la base de datos | Realizar el backend que permita la carga de informacion a la base de datos con pandas |
