@@ -91,7 +91,7 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-| Juan Felipe Madrid| --- |--- |--- |
+| Juan Felipe Madrid|Inicio de codigo para generar reporte academico|Tengo complicaciones con la seleccion de estudiantes para generar el reporte, ya que como se tiene la funcionalidad de poder elegir varios para generarles el reporte, complica de manera amplia la ejecucion del codigo|realizando el codigo para poder seleccionar varios estudiantes y realizarles su reporte |
 | Juan David Patiño |  --- | --- |--- |
 | Daniel Montezuma | Aplicar estilos a pantalla de registro estudiantes | Ninguno | Terminando detalles en la pantalla de registro estudiantes (sidebar, navbar y estilos) |
 | Diego Mueses Zuñiga | Revise la documentacion de bootstrap | No pude seguir con el Sing-in y el layout del sidebar y navbar por no saber bootstrap | Terminar de pasar el login y el layout del sidebar y navbar 100% a boostrap |
