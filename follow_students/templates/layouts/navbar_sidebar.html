@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de control</title>
+
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'styles/navbar_sidebar_styles.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <main class="container-fluid">
+
+        <div class="row">
+            <aside class="col-2 sidebar collapse d-lg-flex flex-column p-3" id="myNavBar">
+                <img class="img-fluid d-lg-block d-none" src="{% static 'images/logo_ICESI.png' %}" alt="Logo de ICESI">
+                
+                <div class="links mt-5 d-flex flex-column gap-3">
+                    <article class="d-flex align-items-center"><i class='bx bxs-dashboard position-absolute'></i><a class="text-decoration-none text-black py-2" href="">Panel de control</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bx-user-plus position-absolute'></i><a class="text-decoration-none text-black py-2" href="">Registrar estudiante</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bxs-cog position-absolute'></i><a class="text-decoration-none text-black py-2" href="">Gestionar estudiante</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bxs-file-blank position-absolute'></i><a class="text-decoration-none text-black py-2" href="">Generar reporte</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-black py-2" href="">Cargar informacion</a></article>
+                </div>
+    
+                <div>
+                    <h5 class="text-center">{ Rol }</h5>
+    
+                    <div class="pb-1 divisor"></div>
+    
+                    <p class="d-flex align-items-center mt-3"><i class='bx bxs-user'></i> <span class="mx-2">{{ user.username }}</span></p>
+    
+                    <button class="btn btn-danger container-fluid">Cerrar Sesion</button>
+                </div>
+            </aside>
+            <nav class="col-12 col-lg-10 navbar px-lg-3 px-4 text-white d-flex justify-content-lg-end">
+                <div class="navbar-header d-lg-none d-block">
+                    <button type="button" class="border-0 d-flex flex-column gap-1 navbar-toggler bg-transparent py-1 px-2" data-bs-toggle="collapse" data-bs-target="#myNavBar">
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="d-flex flex-row gap-3">
+                    <div class="btn-group">
+                        <button type="button" class="d-flex align-items-center border-0 bg-transparent dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class='bx bxs-bell text-white'></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <div class="dropdown-header">4 notificaciones nuevas</div>
+                            <li><a class="dropdown-item" href="">Cancelacion</a></li>
+                            <li><a class="dropdown-item" href="">Cancelacion</a></li>
+                            <li><a class="dropdown-item" href="">Cancelacion</a></li>
+                            <li><a class="dropdown-item" href="">Cancelacion</a></li>
+                            <li><a class="dropdown-item" href="">Cancelacion</a></li>
+                            <div class="dropdown-menu-footer">
+                                <a href="#" class="dropdown-header text-decoration-none text-black text-muted">Mostrar todas las notificaciones</a>
+                            </div>
+                        </ul>
+                    </div>
+                    <button type="button" class="border-0 bg-transparent d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalUser" id="modalInput">
+                        <i class="text-white bx bxs-user-circle"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <article class="col-12 col-lg-10 main_content pt-5">
+                {% block main_content %}
+    
+                {% endblock %}
+            </article>
+        </div>
+
+    </main>
+
+    <div class="modal" id="modalUser" tabindex="-1" aria-labelledby="lblUser" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="lblUser">Cambiar contraseña</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST">
+                        <label for="" class="d-block">Contraseña actual</label>
+                        <input type="password" class="mb-2 container-fluid">
+                        <label for="" class="d-block ">Nueva contraseña</label>
+                        <input type="password" class="container-fluid">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary">Cambiar contraseña</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
