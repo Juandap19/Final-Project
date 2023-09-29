@@ -1,0 +1,52 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+{% load static %}
+{% block main_content %}
+
+<html>
+    <head></head>
+    <body>
+        <div class="header">
+            <h3>CARGAR INFORMACION</h3>
+        </div>
+        <a href="{% static 'excel_format/format.xlsx' %}" download="format.xlsx">
+            <button class="download-button">Descargar Formato</button>
+        </a>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Peso</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="upload-area">
+            <form method="POST" enctype="multipart/form-data">
+                {{form.as_p}}
+                <div class="send"> {% csrf_token %} <button class="send-button">Enviar</button> </div>
+
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                {% if messages %}
+                    {% for m in messages%}
+                        <script>
+                            Swal.fire{
+                                "title": "Advertencia",
+                                "text": {{m}},
+                                "icon": "success"
+                            }
+                        </script>
+                    {% endfor %}
+                {% endif %}
+
+            </form> 
+        </div>
+        
+    </body>
+</html>
+
+
+{% endblock %}
