@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesion</title>
+
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'styles/login_styles.css' %}">
+</head>
+<body class="d-flex pt-5 pb-5 justify-content-center align-content-center">
+
+    <main class="container bg-white">
+
+        <div class="row">
+            <section class="col-12 col-xxl-4 col-xl-5 col-lg-6 p-4">
+                <img class="img-fluid mb-5" src="{% static 'images/logo_ICESI.png' %}" alt="Logo de ICESI" width="250px">
+    
+                <article class="form_login p-sm-5 pt-5">
+                    <h2 class="mb-4">¡ Bienvenido !</h2>
+                
+                    <p class="mb-4 text-muted">Por favor ingresa la informacion de tu cuenta.</p>
+    
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_div }}
+                        <div class="d-flex justify-content-end">
+                            <a href="/" class="d-block text-end">¿Olvidaste tu contraseña?</a>
+                        </div>
+                        <justify-content-right></justify-content-right>
+                        <button class="btn btn-success container-fluid mt-4 text-uppercase">Iniciar Sesion</button>
+                    </form>
+    
+                    <div class="text-white mt-3 error">
+                        {% if error %}
+        
+                            <h6 class="mb-0 mt-0 bg-danger p-2 container-fluid">Usuario o Contraseña incorrectos</h6>
+                            
+                        {% endif %}
+                    </div>
+    
+                </article>
+                
+            </section>
+    
+            <section class="right_form col-0 col-xxl-8 col-xl-7 col-lg-6">
+            </section>
+        </div>
+
+    </main>
+
+</body>
+</html>
