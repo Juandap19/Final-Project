@@ -105,4 +105,4 @@
 | Juan David Patiño |  --- | --- |--- |
 | Daniel Montezuma | Terminando detalles en la pantalla de registro estudiantes (sidebar, navbar y estilos) | Ninguno | Agregar a los mockups la pantalla de editar estudiante|
 | Diego Mueses Zuñiga | ---|---|--- |
-| Darwin Lenis | ---|---|--- |
+| Darwin Lenis | Realizar el backend que permita la carga de informacion a la base de datos con pandas | Ninguna | Descagar formato excel y lectura y carga a la base de datos de informacion de archivo xlsx completada |
