@@ -104,5 +104,5 @@
 | Juan Felipe Madrid|realizando el codigo para poder seleccionar varios estudiantes y realizarles su reporte|Poder extraer los ids de los estudiantes de los que se desea hacer un reporte tiene bastantes complicaciones|Finalizacion del codigo funcional para seleccionar varios estudiantes y realizarles un reporte, es este caso solo se puede hacer un reporte de un tipo|
 | Juan David Patiño |  --- | --- |--- |
 | Daniel Montezuma | Terminando detalles en la pantalla de registro estudiantes (sidebar, navbar y estilos) | Ninguno | Agregar a los mockups la pantalla de editar estudiante|
-| Diego Mueses Zuñiga | ---|---|--- |
+| Diego Mueses Zuñiga | Terminar de pasar el login y el layout del sidebar y navbar 100% a boostrap| Ninguno | Realizar el panel de control de la aplicacion |
 | Darwin Lenis | Realizar el backend que permita la carga de informacion a la base de datos con pandas | Ninguna | Descagar formato excel y lectura y carga a la base de datos de informacion de archivo xlsx completada |
