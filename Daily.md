@@ -82,7 +82,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid| Revision de avances, inicio de de creacion de pantalla de reporte |Las ideas iniciales que tenia para poder generar los reportes no funcionan ya que se requieren metodos diferentes a los pensados |Inicio de codigo para generar reporte academico |
-| Juan David Patiño |  Inicio de HTML y CSS de las pantallas de cargar informacion | Encontrar la solución de como puedo ahorrar pantallas aplicacndo un if con ninja y verificaciones |Programando las condiciones para poder terminar el HTML |
+| Juan David Patiño |  Inicio de HTML y CSS de las pantallas de cargar informacion | Encontrar la solución de como puedo ahorrar pantallas aplicacndo un if con jinja y verificaciones |Programando las condiciones para poder terminar el HTML |
 | Daniel Montezuma | Revisión de avances, continuación pantalla registro estudiantes | Ninguno |   Aplicar estilos a pantalla de registro estudiantes |
 | Diego Mueses Zuñiga | --- | --- |--- |
 | Darwin Lenis | Inicio de HTML de las pantallas de cargar informacion | Ninguno | HTML de cargar informacion terminado e incio de CSS |
@@ -92,7 +92,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid|Inicio de codigo para generar reporte academico|Tengo complicaciones con la seleccion de estudiantes para generar el reporte, ya que como se tiene la funcionalidad de poder elegir varios para generarles el reporte, complica de manera amplia la ejecucion del codigo|realizando el codigo para poder seleccionar varios estudiantes y realizarles su reporte |
-| Juan David Patiño |  --- | --- |--- |
+| Juan David Patiño |Programando las condiciones para poder terminar el HTML   | No puede realizarlo por entonces lo pospondré |Inicio con la base de datos dentro de nuestro programa  |
 | Daniel Montezuma | Aplicar estilos a pantalla de registro estudiantes | Ninguno | Terminando detalles en la pantalla de registro estudiantes (sidebar, navbar y estilos) |
 | Diego Mueses Zuñiga | Revise la documentacion de bootstrap | No pude seguir con el Sing-in y el layout del sidebar y navbar por no saber bootstrap | Terminar de pasar el login y el layout del sidebar y navbar 100% a boostrap |
 | Darwin Lenis | HTML de cargar informacion terminado e incio de CSS | La informacion contenida en los archivos xlsx no se carga en la base de datos | Realizar el backend que permita la carga de informacion a la base de datos con pandas |
@@ -102,7 +102,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid|realizando el codigo para poder seleccionar varios estudiantes y realizarles su reporte|Poder extraer los ids de los estudiantes de los que se desea hacer un reporte tiene bastantes complicaciones|Finalizacion del codigo funcional para seleccionar varios estudiantes y realizarles un reporte, es este caso solo se puede hacer un reporte de un tipo|
-| Juan David Patiño |  --- | --- |--- |
+| Juan David Patiño |  |Inicio con la base de datos dentro de nuestro programa  | Problema de comunicación con mi compañero Diego Mueses, se hizo una reunion rapida para aclarar cosas del modelado de base de datos |Continuo con el desarrollo de la base de datos dentro de nuestro proyecto |
 | Daniel Montezuma | Terminando detalles en la pantalla de registro estudiantes (sidebar, navbar y estilos) | Ninguno | Agregar a los mockups la pantalla de editar estudiante|
 | Diego Mueses Zuñiga | Terminar de pasar el login y el layout del sidebar y navbar 100% a boostrap| Ninguno | Realizar el panel de control de la aplicacion |
 | Darwin Lenis | Realizar el backend que permita la carga de informacion a la base de datos con pandas | Ninguna | Descagar formato excel y lectura y carga a la base de datos de informacion de archivo xlsx completada |
