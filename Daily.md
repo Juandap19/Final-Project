@@ -101,7 +101,7 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-| Juan Felipe Madrid|---|---|--- |
+| Juan Felipe Madrid|realizando el codigo para poder seleccionar varios estudiantes y realizarles su reporte|Poder extraer los ids de los estudiantes de los que se desea hacer un reporte tiene bastantes complicaciones|Finalizacion del codigo funcional para seleccionar varios estudiantes y realizarles un reporte, es este caso solo se puede hacer un reporte de un tipo|
 | Juan David Patiño |  --- | --- |--- |
 | Daniel Montezuma | Terminando detalles en la pantalla de registro estudiantes (sidebar, navbar y estilos) | Ninguno | Agregar a los mockups la pantalla de editar estudiante|
 | Diego Mueses Zuñiga | ---|---|--- |
