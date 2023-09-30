@@ -106,3 +106,14 @@
 | Daniel Montezuma | Terminando detalles en la pantalla de registro estudiantes (sidebar, navbar y estilos) | Ninguno | Agregar a los mockups la pantalla de editar estudiante|
 | Diego Mueses Zuñiga | Terminar de pasar el login y el layout del sidebar y navbar 100% a boostrap| Ninguno | Realizar el panel de control de la aplicacion |
 | Darwin Lenis | Realizar el backend que permita la carga de informacion a la base de datos con pandas | Ninguna | Descagar formato excel y lectura y carga a la base de datos de informacion de archivo xlsx completada |
+
+## Fecha 29/09/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid | --- | --- | --- |
+| Juan David Patiño | --- | --- | --- |
+| Daniel Montezuma | Agregar a los mockups la pantalla de editar estudiante | Ninguno | Iniciar html de la pagina editar estudiantes |
+| Darwin| No aplica | --- | --- |
+| Diego Zuñiga | --- | --- | --- |
+
