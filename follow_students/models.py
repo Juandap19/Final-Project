@@ -8,12 +8,25 @@ class User(models.Model):
 
     def __str__(self):
         return self.username
-    
-class DataDP(models.Model):
-    code = models.CharField(max_length=100)
-    grade1 = models.FloatField()
-    grade2 = models.FloatField()
-    grade3 = models.FloatField()
+
+class Curso(models.Model):
+    code = models.CharField(max_length=20, unique=True)
     
     def __str__(self):
-        return self.Numero_de_ID
+        return self.code
+
+class Estudiante(models.Model):
+    code = models.CharField(max_length=20, unique=True)
+    
+    def __str__(self):
+        return self.code
+
+class Nota(models.Model):
+    grade = models.FloatField()
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.estudiante
+
+    
