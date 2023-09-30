@@ -110,8 +110,11 @@
 ## Fecha 29/09/23
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
 |Juan Felipe Madrid|Finalizacion del codigo funcional para seleccionar varios estudiantes y realizarles un reporte, es este caso solo se puede hacer un reporte de un tipo|Los reportes no estaban bien especificados en los requerimientos, entonces dejaba a la interpretacion de cada uno como realizar los mismos|Reunion con Domiciano para aclarar dudas sobre la realizacion de los reportes de los estudiantes|
-|---|---|---|---|
-|---|---|---|---|
-|---|---|---|---|
-|---|---|---|---|
+| Juan David Patiño | --- | --- | --- |
+| Daniel Montezuma | Agregar a los mockups la pantalla de editar estudiante | Ninguno | Iniciar html de la pagina editar estudiantes |
+| Darwin| No aplica | --- | --- |
+| Diego Zuñiga | --- | --- | --- |
+
+
