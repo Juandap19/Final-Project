@@ -115,6 +115,6 @@
 | Juan David Patiño | --- | --- | --- |
 | Daniel Montezuma | Agregar a los mockups la pantalla de editar estudiante | Ninguno | Iniciar html de la pagina editar estudiantes |
 | Darwin| Descagar formato excel y lectura y carga a la base de datos de informacion de archivo xlsx completada | Cambio de idea en cargar de datos por parte de los usuarios encargados | Reunion con Domiciano para aclarar dudas sobre la realizacion de la carga de informacion |
-| Diego Zuñiga | --- | --- | --- |
+| Diego Zuñiga | Realizar el panel de control de la aplicacion | Ninguno | Intentar hacer las rutas de la aplicacion seguras |
 
 
