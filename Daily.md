@@ -114,7 +114,7 @@
 |Juan Felipe Madrid|Finalizacion del codigo funcional para seleccionar varios estudiantes y realizarles un reporte, es este caso solo se puede hacer un reporte de un tipo|Los reportes no estaban bien especificados en los requerimientos, entonces dejaba a la interpretacion de cada uno como realizar los mismos|Reunion con Domiciano para aclarar dudas sobre la realizacion de los reportes de los estudiantes|
 | Juan David Patiño | --- | --- | --- |
 | Daniel Montezuma | Agregar a los mockups la pantalla de editar estudiante | Ninguno | Iniciar html de la pagina editar estudiantes |
-| Darwin| No aplica | --- | --- |
+| Darwin| Descagar formato excel y lectura y carga a la base de datos de informacion de archivo xlsx completada | Cambio de idea en cargar de datos por parte de los usuarios encargados | Reunion con Domiciano para aclarar dudas sobre la realizacion de la carga de informacion |
 | Diego Zuñiga | --- | --- | --- |
 
 
