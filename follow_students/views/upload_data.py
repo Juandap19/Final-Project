@@ -37,7 +37,7 @@ class Load_data(View):
                 return HttpResponseRedirect(request.path)
         else:
             form = UploadFileForm()
-            return render(request, 'load_page.html', {
+            return render(request, 'upload_page.html', {
                 'form': form})
 
 
