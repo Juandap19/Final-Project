@@ -52,20 +52,19 @@
                                 {% csrf_token %} 
                                 <button class="send-button btn btn-primary px-5">Enviar</button>
                             </div>
-                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> {% if messages %} <script>
-                                {
-                                    %
-                                    for message in messages %
-                                }
-                                Swal.fire({
-                                    icon: '{{ message.tags }}',
-                                    title: '{{ message }}',
-                                    showConfirmButton: true,
-                                    confirmButtonColor: '#3085d6',
-                                }) {
-                                    % endfor %
-                                }
-                            </script> {% endif %}
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            {% if messages %}
+                                <script>
+                                    {% for message in messages %}
+                                        Swal.fire({
+                                            icon: '{{ message.tags }}',
+                                            title: '{{ message }}',
+                                            showConfirmButton: true,
+                                            confirmButtonColor: '#3085d6',
+                                        });
+                                    {% endfor %}
+                                </script>
+                            {% endif %}
                         </form>
                     </div>
                 </article>
