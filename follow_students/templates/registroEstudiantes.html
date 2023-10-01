@@ -1,0 +1,56 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+{% load static %}
+{% load bootstrap5 %} 
+
+{% block main_content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de control</title>
+
+</head>
+<body>
+    <h1>REGISTRAR ESTUDIANTE</h1>
+
+    {% if mensaje %}
+    <div class="alert alert-danger">{{ mensaje }}</div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required>
+        </div>
+        <div class="form-group">
+            <label for="celular">Número de celular:</label>
+            <input type="text" id="celular" name="celular" class="form-control" placeholder="Número de celular" required>
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha de nacimiento:</label>
+            <input type="date" id="fecha" name="fecha" class="form-control" placeholder="Fecha de nacimiento" required>
+        </div>
+        <div class="form-group">
+            <label for="icfes">Puntaje ICFES:</label>
+            <input type="text" id="icfes" name="icfes" class="form-control" placeholder="Puntaje ICFES" required>
+        </div>
+        <div class="form-group">
+            <label for="cedula">Cédula:</label>
+            <input type="text" id="cedula" name="cedula" class="form-control" placeholder="Cédula" required>
+        </div>
+        <div class="form-group">
+            <label for="codigo">Código estudiantil:</label>
+            <input type="text" id="codigo" name="codigo" class="form-control" placeholder="Código estudiantil" required>
+        </div>
+        <div class="form-group">
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" class="form-control" placeholder="Correo electrónico" required>
+        </div>
+        <button type="submit" class="btn btn-primary">REGISTRAR</button>
+    </form>
+</body>
+</html>
+
+{% endblock %}
