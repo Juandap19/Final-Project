@@ -1,0 +1,28 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+
+{% block main_content %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Subir informacion apoyo</title>
+    </head>
+    <body>
+        
+        <div>
+            <h1 class="title-financial">Subir Pagos contabilidad</h1>
+        </div>
+        <div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_div }}
+                <button class="btn upload information">Subir Información</button>
+            </form>
+
+        </div>
+    </body>
+    </html>
+
+{% endblock %}
