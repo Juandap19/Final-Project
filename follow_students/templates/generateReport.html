@@ -1,3 +1,7 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+
+{% block main_content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,26 +11,35 @@
 </head>
 <body>
 
+   
 
+    <h1>Reporte</h1>
+    <p> <br></p>
 
+    
 
     <ul>
         {% for ide in ides %}
 
-        <p>{{ide.name}}{{ide.code}} </p>
+        <p>{{ide.name}}  {{ide.code}} </p>
 
             {% for grade in grades %}
 
                {% if ide.name == grade.estudiante.name%}
 
-               <p>{{grade.curso.name}} {{grade.grade}} </p>
+               <p>{{grade.curso.name}} : {{grade.grade}} </p>
 
                {% endif %}
 
             {% endfor %}
+               
+            <p> ----------------------------</p>
 
         {% endfor %}
         </ul>
 
 </body>
 </html>
+
+
+{% endblock %}

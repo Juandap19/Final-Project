@@ -1,3 +1,7 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+
+{% block main_content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,17 +11,24 @@
 </head>
 <body>
 
+
+    <h1>Seleccion estudiante</h1>
+    <p> <br></p>
+
+
+    
     <ul>
     {% for student in students %}
         <p>{{student.name}} {{student.code}}</p>
         
-      <form action="{%  url 'report' student.id %}" method="POST">
+        <form action="{%  url 'report' student.id %}" method="POST">
             {% csrf_token %}
-            <button>
+            <button class="btn btn-primary">
                 agregar
-              </button>
-          </form>
-          
+            </button>
+             
+        </form>
+          <br>
     {% endfor %}
     </ul>
 
@@ -25,3 +36,5 @@
 
 </body>
 </html>
+
+{% endblock %}
