@@ -9,5 +9,5 @@ urlpatterns = [
     # Here the paths are added
     path('', Signin.as_view()),
     path('dashboard', Dashboard.as_view()),
-    path('upload_data/', Load_data.as_view())
+    path('upload_data/', Load_data.as_view()),
 ]

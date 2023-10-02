@@ -40,10 +40,39 @@
                             <th>Nombre</th>
                             <th>Peso</th>
                             <th>Acción</th>
-                            <!-- Nueva columna para el botón de eliminar -->
                         </tr>
                     </table>
+                </article>               
+                <article class="d-flex flex-column gap-3 h-75">
+                    <h5>Información de Notas:</h5>
+                    <input type="text" id="search" placeholder="Buscar por estudiante...">
+                    <div style="height: 300px; overflow-y: auto;">
+                        <table cellspacing="10" class="bg-secondary bg-opacity-25 rounded container" style="border-collapse: separate; border-spacing: 1rem 10px;">
+                            <tr>
+                                <th>Estudiante</th>
+                                <th>Curso</th>
+                                <th>Nota</th>
+                            </tr>
+                            {% for nota in notas %}
+                            <tr class="student">
+                                <td class="student-code">{{ nota.estudiante }}</td>
+                                <td>{{ nota.curso }}</td>
+                                <td>{{ nota.grade }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
                 </article>
+                <script>
+                    document.getElementById('search').addEventListener('keyup', function() {
+                      var search = this.value.toLowerCase();
+                      var students = document.getElementsByClassName('student');
+                      for (var i = 0; i < students.length; i++) {
+                        var name = students[i].getElementsByClassName('student-code')[0].textContent.toLowerCase();
+                        students[i].style.display = name.includes(search) ? '' : 'none';
+                      }
+                    });
+                </script>                                
                 <article>
                     <div class="upload-area">
                         <form method="POST" enctype="multipart/form-data">
@@ -70,6 +99,7 @@
                 </article>
             </div>
         </div>
+        
         <script>
             // Selecciona el input de archivo
             var fileInput = document.querySelector('input[type="file"]');

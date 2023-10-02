@@ -11,8 +11,10 @@ from django.views import View
 class Load_data(View):
     def get(self, request):
         form = UploadFileForm()
+        notas = Nota.objects.all().order_by('estudiante') 
         return render(request, 'upload_data.html', {
-            'form': form})
+            'form': form,
+            'notas': notas})
     
     def post(self, request):
         if request.method == 'POST':
@@ -24,12 +26,14 @@ class Load_data(View):
                     curso, created = Curso.objects.get_or_create(code=sheet_name)
                     for index, row in df.iterrows():
                         try:
-                            estudiante, created = Estudiante.objects.get_or_create(code=row['Codigo'])
+                            estudiante = Estudiante.objects.get(code=row['Codigo'])
                             nota, created = Nota.objects.get_or_create(
                                 estudiante=estudiante,
                                 curso=curso,
                                 defaults={'grade': row['NotaCurso']}
                             )
+                        except Estudiante.DoesNotExist:
+                            continue
                         except Exception as e:                        
                             messages.error(request, f'Hubo un error al cargar el archivo')
                             return HttpResponseRedirect(request.path)                      
@@ -37,8 +41,15 @@ class Load_data(View):
                 return HttpResponseRedirect(request.path)
         else:
             form = UploadFileForm()
+            notas = Nota.objects.all().order_by('estudiante') 
             return render(request, 'upload_data.html', {
-                'form': form})
+                'form': form,
+                'notas': notas})
+    
+
+
+
+
 
 
 
