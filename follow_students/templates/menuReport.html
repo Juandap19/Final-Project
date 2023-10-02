@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte</title>
+</head>
+<body>
+
+    <ul>
+    {% for student in students %}
+        <p>{{student.name}} {{student.code}}</p>
+        
+      <form action="{%  url 'report' student.id %}" method="POST">
+            {% csrf_token %}
+            <button>
+                agregar
+              </button>
+          </form>
+          
+    {% endfor %}
+    </ul>
+
+    <p><a href="/generateReport">Generar reporte</a></p>
+
+</body>
+</html>
