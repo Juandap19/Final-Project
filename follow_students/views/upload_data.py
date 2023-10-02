@@ -32,6 +32,9 @@ class Load_data(View):
                                 curso=curso,
                                 defaults={'grade': row['NotaCurso']}
                             )
+                            if not created:
+                                nota.grade = row['NotaCurso']
+                                nota.save()
                         except Estudiante.DoesNotExist:
                             continue
                         except Exception as e:                        
