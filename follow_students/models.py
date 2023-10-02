@@ -27,6 +27,6 @@ class Nota(models.Model):
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.estudiante
+        return self.estudiante.code
 
     
