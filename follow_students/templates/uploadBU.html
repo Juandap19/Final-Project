@@ -31,6 +31,43 @@
                     {% endif %}
                     
                 </form>
+                
+                <!-- Contenedor para la información de las consultas -->
+                <article class="d-flex flex-column gap-3 h-75 mt-5">
+                    <h5>Información de Consultas:</h5>
+                    <!-- Campo de búsqueda para buscar consultas por estudiante -->
+                    <input type="text" id="search" placeholder="Buscar por estudiante...">
+                    <!-- Tabla que muestra las consultas de los estudiantes -->
+                    <div style="height: 300px; overflow-y: auto;">
+                        <table cellspacing="10" class="bg-secondary bg-opacity-25 rounded container" style="border-collapse: separate; border-spacing: 1rem 10px;">
+                            <tr>
+                                <th>Estudiante</th>
+                                <th>Actividad</th>
+                                <th>Asistencia(Dias)</th>
+                            </tr>
+                            <!-- Itera sobre todas las consultas y muestra una fila por cada consulta -->
+                            {% for actividad in activities %}
+                                <tr class="student">
+                                    <td class="student-code">{{ actividad.estudiante }}</td>
+                                    <td>{{ actividad.actividad }}</td>
+                                    <td>{{ actividad.dias_asistencia }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <!-- Script de JavaScript que filtra las filas de la tabla basado en el valor del campo de búsqueda -->
+                    <script>
+                        console.log('El script se está ejecutando')
+                        document.getElementById('search').addEventListener('keyup', function() {
+                          var search = this.value.toLowerCase();
+                          var students = document.getElementsByClassName('student');
+                          for (var i = 0; i < students.length; i++) {
+                            var name = students[i].getElementsByClassName('student-code')[0].textContent.toLowerCase();
+                            students[i].style.display = name.includes(search) ? '' : 'none';
+                          }
+                        });
+                    </script>                                
+                </article>
             </div>
         </div>
     </body>
