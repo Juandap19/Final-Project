@@ -126,3 +126,13 @@
 |Daniel Montezuma | Iniciar html de la pagina editar estudiantes| Ninguno | Reunión con el equipo |
 |Darwin| Reunion con Domiciano para aclarar dudas sobre la realizacion de la carga de informacion | Ninguno | Reunión con el equipo |
 |Diego Zuñiga | Intentar hacer las rutas de la aplicacion seguras| Ninguno | Reunión con el equipo |
+
+## Fecha 02/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+|Juan Felipe Madrid|No aplica| Ninguna | ---|
+|Juan David Patiño| No aplica | Ninguno | --- |
+|Daniel Montezuma | No aplica| Ninguno | Revision de avances, crear pantalla para asociar una beca a un estudiante |
+|Darwin|No aplica | Ninguno | --- |
+|Diego Zuñiga | No aplica| Ninguno | --- |
