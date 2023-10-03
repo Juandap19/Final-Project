@@ -17,7 +17,7 @@ class RequestUpd(View):
             recipient = form.cleaned_data['destinatario']
             subject = form.cleaned_data['asunto']
             message = form.cleaned_data['mensaje']
-            from_email = "systemfilantropia@gmail.com" 
+            from_email = "sistemafilantropia@gmail.com" 
             
             email = EmailMessage(subject, message, from_email, [recipient]) 
 
