@@ -131,17 +131,17 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-|Juan Felipe Madrid|No aplica| Ninguna | ---|
+|Juan Felipe Madrid|No aplica| Ninguna |Revision de avances, correccion de unos bugs de la generacion del reporte|
 |Juan David Patiño| No aplica | Ninguno | --- |
 |Daniel Montezuma | No aplica| Ninguno | Revision de avances, crear pantalla para asociar una beca a un estudiante |
 |Darwin|No aplica | Ninguno | --- |
 |Diego Zuñiga | No aplica| Ninguno | --- |
 
-## Fecha 02/10/23
+## Fecha 03/10/23
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-|Juan Felipe Madrid|No aplica| Ninguna | ---|
+|Juan Felipe Madrid|No aplica| Ninguna |Continuacion del diseño de la generacion del reporte|
 |Juan David Patiño| No aplica | Ninguno | --- |
 |Daniel Montezuma | Revision de avances, crear pantalla para asociar una beca a un estudiante| Ninguno | Terminando detalles para guardar/asociar una beca a un estudiante, por medio de la pantalla  |
 |Darwin|No aplica | Ninguno | --- |
