@@ -8,3 +8,15 @@ class User(models.Model):
 
     def __str__(self):
         return self.username
+    
+class Students(models.Model):
+    name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=15)
+    date = models.DateField()
+    icfes = models.IntegerField()
+    id_card = models.CharField(max_length=15)
+    code = models.CharField(max_length=15)
+    mail = models.EmailField()
+
+    def __str__(self):
+        return self.name
