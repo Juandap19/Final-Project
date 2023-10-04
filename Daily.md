@@ -145,4 +145,4 @@
 |Juan David Patiño| Revisión de avances, añadir algunas cosas a la página de apoyo financiero| Ninguno | Terminar los demas HTML y empezar con los metodos correspondientes en el archivo view |
 |Daniel Montezuma | Revision de avances, crear pantalla para asociar una beca a un estudiante| Ninguno | Terminando detalles para guardar/asociar una beca a un estudiante, por medio de la pantalla  |
 |Darwin|No aplica | Ninguno | --- |
-|Diego Zuñiga | No aplica| Ninguno | --- |
+|Diego Zuñiga | No aplica| Ninguno | Crear la pantalla para la gestion de estudiantes |
