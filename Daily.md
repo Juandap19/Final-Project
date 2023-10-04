@@ -132,7 +132,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 |Juan Felipe Madrid|No aplica| Ninguna |Revision de avances, correccion de unos bugs de la generacion del reporte|
-|Juan David Patiño| No aplica | Ninguno | --- |
+|Juan David Patiño| No aplica | Ninguno | Revisión de avances, añadir algunas cosas a la página de apoyo financiero |
 |Daniel Montezuma | No aplica| Ninguno | Revision de avances, crear pantalla para asociar una beca a un estudiante |
 |Darwin|No aplica | Ninguno | --- |
 |Diego Zuñiga | No aplica| Ninguno | --- |
@@ -142,7 +142,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 |Juan Felipe Madrid|No aplica| Ninguna |Continuacion del diseño de la generacion del reporte|
-|Juan David Patiño| No aplica | Ninguno | --- |
+|Juan David Patiño| Revisión de avances, añadir algunas cosas a la página de apoyo financiero| Ninguno | Terminar los demas HTML y empezar con los metodos correspondientes en el archivo view |
 |Daniel Montezuma | Revision de avances, crear pantalla para asociar una beca a un estudiante| Ninguno | Terminando detalles para guardar/asociar una beca a un estudiante, por medio de la pantalla  |
 |Darwin|No aplica | Ninguno | --- |
 |Diego Zuñiga | No aplica| Ninguno | --- |
