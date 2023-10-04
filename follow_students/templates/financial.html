@@ -12,17 +12,34 @@
     <body>
         
         <div>
-            <h1 class="title-financial">Subir Pagos contabilidad</h1>
+            <h1 class="title-financial">Pago alimentación</h1>
         </div>
-        <div>
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{ form.as_div }}
-                <button class="btn upload information">Subir Información</button>
-            </form>
-
+        <div class="d-flex justify-content-center mt-5 h-75 align-items-center">
+            <div class="container-fluid w-50 h-100 p-3 rounded" style="background-color: #fff; box-shadow: 0 0 50px rgba(0, 0, 0, .5);">
+                <form action="" method="POST" class="w-100 h-100 d-flex justify-content-between flex-column">
+                    {% csrf_token %}
+                    <div class="h-75 d-flex gap-5 flex-column">
+                        {{ form.as_div }}
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-primary upload information" >Subir Información</button>
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    {% if messages %}
+                    <script>
+                        {% for message in messages %}
+                            Swal.fire({
+                                icon: '{{ message.tags }}',
+                                title: '{{ message }}',
+                                showConfirmButton: true,
+                                confirmButtonColor: '#3085d6',
+                                        });
+                        {% endfor %}
+                    </script>
+                    {% endif %}
+                </form>
+            </div>
         </div>
     </body>
     </html>
-
 {% endblock %}

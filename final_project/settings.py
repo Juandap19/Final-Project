@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+MESSAGE_STOREGE = "dejango.contrib.message.storage.cookie.CookieStorage"
 
 # Application definition
 

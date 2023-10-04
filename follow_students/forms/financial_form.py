@@ -1,21 +1,36 @@
 from django import forms
 
+time_options = [
+    ('Days', 'Dias'),
+    ('Month', 'Mes'),
+    ('Year', 'Año'),
+]
+
 class FinancialForm(forms.Form):
     student_code = forms.CharField(
-        label = "Código estudiante",
+        label = "Código estudiante ",
         max_length= 200,
-        widget =  forms.TextInput(  attrs = {'class': 'input_code d-block container mt-1 mb-3 p-2', 'placeholder': 'Digite el codigo'}),
+        widget =  forms.TextInput(  attrs = {'class': 'input_code d-block container mt-1 mb-3 p-2', 'placeholder': 'Digite el codigo  '}),
         required = True
     )
    
-    quantity = forms.FloatField(
+    money_quantity = forms.FloatField(
         label = "Valor Acumulado",
         widget =  forms.TextInput(  attrs = {'class': 'input_quantity d-block container mt-1 mb-3 p-2', 'placeholder': 'Digite el valor'}),
         required = True
     )
-   
-    days = forms.IntegerField(
-        label = "Dias acumulados",
-        widget =  forms.TextInput(  attrs = {'class': 'input_days d-block container mt-1 mb-3 p-2', 'placeholder': 'Digite los días'}),
+
+    acumulate_time = forms.IntegerField(
+        label = "Tiempo Acumulado",
+        widget =  forms.TextInput(  attrs = {'class': 'input_quantity d-block container mt-1 mb-3 p-2', 'placeholder': 'Digite el valor'}),
         required = True
+
+    )   
+
+    select_time = forms.ChoiceField(
+        choices = time_options, 
+        required=True, 
+        label= "Seleccione una opción"
     )
+
+
