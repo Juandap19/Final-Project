@@ -146,3 +146,13 @@
 |Daniel Montezuma | Revision de avances, crear pantalla para asociar una beca a un estudiante| Ninguno | Terminando detalles para guardar/asociar una beca a un estudiante, por medio de la pantalla  |
 |Darwin| Funcionalidad de cargar informacion de Notas, Actividades no academicas y consultas en CREA terminado | Ninguno | Funcionalidad de solicitar actualizacion de informacion terminada |
 |Diego Zuñiga | No aplica| Ninguno | Crear la pantalla para la gestion de estudiantes |
+
+## Fecha 03/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+|Juan Felipe Madrid|---| --- |---|
+|Juan David Patiño| ---| --- | ---|
+|Daniel Montezuma | Terminando detalles para guardar/asociar una beca a un estudiante, por medio de la pantalla| Ninguno | Aplicar estilos a la pantalla asginar beca  |
+|Darwin| --- | --- | --- |
+|Diego Zuñiga | ---| --- | --- |
