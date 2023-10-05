@@ -147,7 +147,7 @@
 |Darwin| Funcionalidad de cargar informacion de Notas, Actividades no academicas y consultas en CREA terminado | Ninguno | Funcionalidad de solicitar actualizacion de informacion terminada |
 |Diego Zuñiga | No aplica| Ninguno | Crear la pantalla para la gestion de estudiantes |
 
-## Fecha 03/10/23
+## Fecha 04/10/23
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
