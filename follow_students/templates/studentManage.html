@@ -25,35 +25,74 @@
                 </thead>
                 <tbody>
                     {% for s in students %}
-                        <tr>
-                            <td>{{ s.code }}</td>
-                            <td>{{ s.name }}</td>
-                            <td>{{ s.id_card }}</td>
-                            <td>{{ s.phone_number }}</td>
-                            <td>{{ s.mail }}</td>
-                            <td>{{ s.date }}</td>
-                            <td>{{ s.icfes }}</td>
-                            <td>...</td>
-                            <td>...</td>
-                            <td>....</td>
+                        <tr class="align-middle" id="tr{{ s.id }}">
+                            <td style="font-size: 14px;">{{ s.code }}</td>
+                            <td style="font-size: 14px;">{{ s.name }}</td>
+                            <td style="font-size: 14px;">{{ s.id_card }}</td>
+                            <td style="font-size: 14px;">{{ s.phone_number }}</td>
+                            <td style="font-size: 14px;">{{ s.mail }}</td>
+                            <td style="font-size: 14px;">{{ s.date }}</td>
+                            <td style="font-size: 14px;">{{ s.icfes }}</td>
+                            <td style="font-size: 14px;">...</td>
+                            <td style="font-size: 14px;">...</td>
+                            <td>
+                                <div class="d-flex gap-1">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class='bx bx-edit'></i>
+                                    </button>
+                                    <button type="submit" class="btn btn-danger" id="deleteStudent" onclick="deleteStudent('{{ s.id }}')">
+                                        <i class='bx bxs-trash'></i>
+                                    </button>
+                                </div>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     
     <script>
+
+        let btnDeleteStudent = document.getElementById('deleteStudent');
 
         let tableStudents = $('#tableStudents').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             }
         });
+
+        function deleteStudent(idStudent) {
+            Swal.fire({
+            title: '¿Estas seguro de eliminar este estudiante?',
+            text: "¡ No podras revertir los cambios !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '¡Si, eliminar!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                var request = $.ajax({
+                    type: "POST",
+                    url: window.location.pathname, 
+                    data: {
+                        "csrfmiddlewaretoken": "{{ csrf_token }}",
+                        "idStudent": idStudent                    
+                    },
+                });
+                request.done(function(response) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'El estudiante fue eliminado.',
+                        'success'
+                    )
+                    let rowId = document.getElementById('tr' + idStudent);
+                    rowId.style.display = "none";
+                });
+            }
+            })
+        }
 
     </script>
 

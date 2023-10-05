@@ -9,5 +9,5 @@ urlpatterns = [
     # Here the paths are added
     path('', Signin.as_view()),
     path('dashboard/', Dashboard.as_view()),
-    path('studentManage/', StudentManage.as_view())
+    path('studentManage/', StudentManage.as_view(), name = "studentManage")
 ]
