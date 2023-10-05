@@ -155,4 +155,4 @@
 |Juan David Patiño| Terminar los demas HTML y empezar con los metodos correspondientes en el archivo view| Ninguno | Desarrollar todo el metodo post, ademas de que se actualice en tiempo real la base de datos por medio de consultas, Junto a esto debo de iniciar con los ultimas funcionalidades de Apoyo financiero|
 |Daniel Montezuma | Terminando detalles para guardar/asociar una beca a un estudiante, por medio de la pantalla| Ninguno | Aplicar estilos a la pantalla asginar beca  |
 |Darwin| --- | --- | --- |
-|Diego Zuñiga | ---| --- | --- |
+|Diego Zuñiga | Crear la pantalla para la gestion de estudiantes | Ninguno | Añadir la funcionalidad para eliminar un estudiante |
