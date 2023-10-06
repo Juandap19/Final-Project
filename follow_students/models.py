@@ -12,7 +12,7 @@ class User(models.Model):
 class Donor(models.Model):
     code = models.CharField(max_length = 15, primary_key=True)
     name = models.CharField(max_length = 255)
-    email = models.CharField(max_length = 15)
+    email = models.CharField(max_length = 30)
     description = models.CharField(max_length = 255, blank = True)
 
     def __str__(self):
@@ -20,10 +20,10 @@ class Donor(models.Model):
         return text.format(self.code, self.name)
     
 
-class Scholarship_Funds(models.Model):
+class Scholarship_Fund(models.Model):
     code_id = models.CharField(max_length=20,primary_key=True)    
     alimentation_fund = models.FloatField()
-    tranportation_fund = models.FloatField()
+    transportation_fund = models.FloatField()
     education_fund = models.FloatField()
 
     def __str__(self):
@@ -33,13 +33,26 @@ class Scholarship_Funds(models.Model):
 
 class Scholarship(models.Model):
     code = models.CharField(max_length=15,primary_key=True)
-    name = models.CharField(max_length=15)
+    name = models.CharField(max_length= 30)
     donor = models.ForeignKey(Donor, null=True, on_delete= models.CASCADE)
-    code_Funds =  models.ForeignKey(Scholarship_Funds, null=True, on_delete= models.CASCADE)
+    code_Funds =  models.ForeignKey(Scholarship_Fund, null=True, on_delete= models.CASCADE)
 
     def __str__(self):
         text = "{0} {1} {2}"
         return text.format(self.code, self.name, self.code)
+    
+
+class Major(models.Model):
+    major_code = models.CharField(max_length=15,primary_key=True)
+    name = models.CharField(max_length= 50)
+    value = models.IntegerField()
+
+    def __str__(self):
+        text = "{0} {1} {2}"
+        return text.format(self.major_code, self.name, self.value)
+
+
+    
 
 
 class Student(models.Model):
@@ -51,6 +64,9 @@ class Student(models.Model):
     cc = models.CharField(max_length=15)
     email = models.EmailField()
     scholarship_id = models.ForeignKey(Scholarship, null=True, on_delete= models.CASCADE)
+    major_code = models.ForeignKey(Major, null=True, on_delete= models.CASCADE)
+    aux_transportation = models.IntegerField(default = 0)
+    aux_academic = models.IntegerField(default = 0)
 
     def __str__(self):
         text = "{0} {1} {2}"
@@ -58,7 +74,7 @@ class Student(models.Model):
     
     
 
-class Scholarship_Expenses(models.Model):
+class Scholarship_Expense(models.Model):
     code = models.CharField(max_length = 20, unique = False, primary_key = True)
     student_code = models.CharField(max_length = 20, unique = False)
     money_quantity = models.FloatField()
@@ -74,5 +90,8 @@ class Scholarship_Expenses(models.Model):
         default = Time_way.DAYS 
     )
 
+    type = models.CharField(max_length = 20, unique = False)
+
     def __str__(self):
         return self.student_code
+
