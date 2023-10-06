@@ -163,6 +163,6 @@
 |---|---|---|---|
 |Juan Felipe Madrid|Continuacion del diseño de la generacion del reporte| Tuve que realizar actividades externas |Nada|
 |Juan David Patiño| --- | --- | --- |
-|Daniel Montezuma | --- | --- | --- |
+|Daniel Montezuma |Aplicar estilos a la pantalla asginar beca| Ninguno | Añadir campo major cuando se realiza el registro de un estudiante y trabajar en la asociacion beca-estudiante |
 |Darwin| --- | --- | --- |
 |Diego Zuñiga | --- | --- | --- |
