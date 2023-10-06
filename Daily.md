@@ -156,3 +156,13 @@
 |Daniel Montezuma | Terminando detalles para guardar/asociar una beca a un estudiante, por medio de la pantalla| Ninguno | Aplicar estilos a la pantalla asginar beca  |
 |Darwin| --- | --- | --- |
 |Diego Zuñiga | Crear la pantalla para la gestion de estudiantes | Ninguno | Añadir la funcionalidad para eliminar un estudiante |
+
+## Fecha 05/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+|Juan Felipe Madrid|---| --- |---|
+|Juan David Patiño| ---| --- | ---|
+|Daniel Montezuma |Aplicar estilos a la pantalla asginar beca| Ninguno | Añadir campo major cuando se realiza el registro de un estudiante y trabajar en la asociacion beca-estudiante |
+|Darwin| --- | --- | --- |
+|Diego Zuñiga | --- | --- | --- |
