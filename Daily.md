@@ -166,3 +166,13 @@
 |Daniel Montezuma |Aplicar estilos a la pantalla asginar beca| Ninguno | Añadir campo major cuando se realiza el registro de un estudiante y trabajar en la asociacion beca-estudiante |
 |Darwin| --- | --- | --- |
 |Diego Zuñiga | Añadir la funcionalidad para eliminar un estudiante | Ninguno | Agregar la pantalla para editar los estudiantes |
+
+## Fecha 06/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+|Juan Felipe Madrid|Nada| Ninguno |Reunion con el equipo|
+|Juan David Patiño| Desarrollar las dos ultimas pantallas con sus debidos metodos get y post, además registrar en tiempo real el cobro del auxilio de trasporte y académico para cada estudiante.  | Ninguno | Reunion con el equipo |
+|Daniel Montezuma |Añadir campo major cuando se realiza el registro de un estudiante y trabajar en la asociacion beca-estudiante| Ninguno |Reunion con el equipo|
+|Darwin| Nada | Ninguno | Reunion con el equipo |
+|Diego Zuñiga | Agregar la pantalla para editar los estudiantes  | Ninguno | Reunion con el equipo |
