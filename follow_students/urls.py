@@ -4,10 +4,12 @@ from django.contrib import admin
 from follow_students.views.signin import Signin
 from follow_students.views.dashboard import Dashboard
 from follow_students.views.student_manage import StudentManage
+from follow_students.views.student_edit import StudentEdit
 
 urlpatterns = [
     # Here the paths are added
     path('', Signin.as_view()),
     path('dashboard/', Dashboard.as_view()),
-    path('studentManage/', StudentManage.as_view(), name = "studentManage")
+    path('studentManage/', StudentManage.as_view(), name = "studentManage"),
+    path('studentManage/studentEdit/<int:pk>/', StudentEdit.as_view(), name = "studentEdit")
 ]

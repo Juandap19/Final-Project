@@ -37,7 +37,7 @@
                             <td style="font-size: 14px;">...</td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" onclick="editStudent('{{ s.id }}')">
                                         <i class='bx bx-edit'></i>
                                     </button>
                                     <button type="submit" class="btn btn-danger" id="deleteStudent" onclick="deleteStudent('{{ s.id }}')">
@@ -54,13 +54,15 @@
     
     <script>
 
-        let btnDeleteStudent = document.getElementById('deleteStudent');
-
         let tableStudents = $('#tableStudents').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             }
         });
+
+        function editStudent(idStudent) {
+            location.href="studentEdit/" + idStudent + "/";
+        }
 
         function deleteStudent(idStudent) {
             Swal.fire({
