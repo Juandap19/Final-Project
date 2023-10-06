@@ -151,8 +151,18 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-|Juan Felipe Madrid|---| --- |---|
+|Juan Felipe Madrid|Continuacion del diseño de la generacion del reporte| Ninguno |Continuacion del diseño de la generacion del reporte|
 |Juan David Patiño| Terminar los demas HTML y empezar con los metodos correspondientes en el archivo view| Ninguno | Desarrollar todo el metodo post, ademas de que se actualice en tiempo real la base de datos por medio de consultas, Junto a esto debo de iniciar con los ultimas funcionalidades de Apoyo financiero|
 |Daniel Montezuma | Terminando detalles para guardar/asociar una beca a un estudiante, por medio de la pantalla| Ninguno | Aplicar estilos a la pantalla asginar beca  |
 |Darwin| --- | --- | --- |
 |Diego Zuñiga | Crear la pantalla para la gestion de estudiantes | Ninguno | Añadir la funcionalidad para eliminar un estudiante |
+
+## Fecha 05/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+|Juan Felipe Madrid|Continuacion del diseño de la generacion del reporte| Tuve que realizar actividades externas |Nada|
+|Juan David Patiño| --- | --- | --- |
+|Daniel Montezuma | --- | --- | --- |
+|Darwin| --- | --- | --- |
+|Diego Zuñiga | --- | --- | --- |
