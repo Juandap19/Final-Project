@@ -165,4 +165,4 @@
 |Juan David Patiño| Terminar pagos alimentación dentro de apoyo financiero | La busqueda puede llegar a ser confuza | Desarrollar las dos ultimas pantallas con sus debidos metodos get y post, además registrar en tiempo real el cobro del auxilio de trasporte y académico para cada estudiante. |
 |Daniel Montezuma |Aplicar estilos a la pantalla asginar beca| Ninguno | Añadir campo major cuando se realiza el registro de un estudiante y trabajar en la asociacion beca-estudiante |
 |Darwin| --- | --- | --- |
-|Diego Zuñiga | --- | --- | --- |
+|Diego Zuñiga | Añadir la funcionalidad para eliminar un estudiante | Ninguno | Agregar la pantalla para editar los estudiantes |
