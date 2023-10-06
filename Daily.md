@@ -162,7 +162,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 |Juan Felipe Madrid|Continuacion del diseño de la generacion del reporte| Tuve que realizar actividades externas |Nada|
-|Juan David Patiño| --- | --- | --- |
+|Juan David Patiño| Terminar pagos alimentación dentro de apoyo financiero | La busqueda puede llegar a ser confuza | Desarrollar las dos ultimas pantallas con sus debidos metodos get y post, además de que registre en tiempo real el cobro del auxilio de trasporte y académico para cada estudiante. |
 |Daniel Montezuma |Aplicar estilos a la pantalla asginar beca| Ninguno | Añadir campo major cuando se realiza el registro de un estudiante y trabajar en la asociacion beca-estudiante |
 |Darwin| --- | --- | --- |
 |Diego Zuñiga | --- | --- | --- |
