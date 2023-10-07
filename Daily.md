@@ -154,7 +154,7 @@
 |Juan Felipe Madrid|Continuacion del diseño de la generacion del reporte| Ninguno |Continuacion del diseño de la generacion del reporte|
 |Juan David Patiño| Terminar los demas HTML y empezar con los metodos correspondientes en el archivo view| Ninguno | Desarrollar todo el metodo post, ademas de que se actualice en tiempo real la base de datos por medio de consultas, Junto a esto debo de iniciar con los ultimas funcionalidades de Apoyo financiero|
 |Daniel Montezuma | Terminando detalles para guardar/asociar una beca a un estudiante, por medio de la pantalla| Ninguno | Aplicar estilos a la pantalla asginar beca  |
-|Darwin| --- | --- | --- |
+|Darwin| Funcionalidad de solicitar actualizacion de informacion terminada | Ninguno | Nada |
 |Diego Zuñiga | Crear la pantalla para la gestion de estudiantes | Ninguno | Añadir la funcionalidad para eliminar un estudiante |
 
 ## Fecha 05/10/23
@@ -164,7 +164,7 @@
 |Juan Felipe Madrid|Continuacion del diseño de la generacion del reporte| Tuve que realizar actividades externas |Nada|
 |Juan David Patiño| Terminar pagos alimentación dentro de apoyo financiero | La busqueda puede llegar a ser confuza | Desarrollar las dos ultimas pantallas con sus debidos metodos get y post, además registrar en tiempo real el cobro del auxilio de trasporte y académico para cada estudiante. |
 |Daniel Montezuma |Aplicar estilos a la pantalla asginar beca| Ninguno | Añadir campo major cuando se realiza el registro de un estudiante y trabajar en la asociacion beca-estudiante |
-|Darwin| --- | --- | --- |
+|Darwin| Nada | Ninguno | Nada |
 |Diego Zuñiga | Añadir la funcionalidad para eliminar un estudiante | Ninguno | Agregar la pantalla para editar los estudiantes |
 
 ## Fecha 06/10/23
