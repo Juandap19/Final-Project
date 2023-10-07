@@ -35,15 +35,14 @@ class FinancialSupport(View):
             else:
                 #Case when the Scholarship doesn`t have enought money to pay the new student money quantity`
                 money_quantity = query1.code_Funds.alimentation_fund
-                query1.code_Funds.alimentation_fund = 0
                 query1.code_Funds.save()  
                 expense = Scholarship_Expense.objects.create(code = code , student_code = student_code, money_quantity = money_quantity, acumulate_time=  acumulate_time, select_time = select_time, type = 'Alimentación')  #Create a expense to One particular Student and save it
                 expense.save()
                 new_value = abs(new_value)
-                messages.warning(request,"Se acabo el monto de la beca falta por pagar: {}".format(new_value))
+                messages.warning(request,"Fondos insuficientes de alimentación faltan {} para registrar el pago".format(new_value))
                 return  HttpResponseRedirect(request.path)   
         else:
-            messages.error(request,"El codigo "+ student_code + " no existe")
+            messages.error(request,"El codigo del estudiante {}  no existe ".format( student_code ))
             return HttpResponseRedirect(request.path)
         
     
