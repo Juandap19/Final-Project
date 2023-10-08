@@ -65,8 +65,8 @@ class FinancialAcademic(View):
                 major_to_add = major_aux.precio
                 result_education_fun = scholarship.montos.academico - major_to_add
                 if result_education_fun > 0:
-                    if student_pivot.aux_academic == 0:
-                        student_pivot.aux_academic = 1
+                    if student_pivot.aux_academic == "0":
+                        student_pivot.aux_academic = "1"
                         student_pivot.save()
                         scholarship.montos.academico  = result_education_fun 
                         scholarship.montos.save()
@@ -115,8 +115,8 @@ class FinancialTransport(View):
                 student_pivot = Estudiante.objects.get(codigo = student['codigo'])
                 transportation_fun_result = scholarship.montos.transporte - 1000000
                 if transportation_fun_result > 0:
-                    if student_pivot.aux_transportation == 0:
-                        student_pivot.aux_transportation  = 1
+                    if student_pivot.aux_transportation == "0":
+                        student_pivot.aux_transportation  = "1"
                         student_pivot.save()
                         scholarship.montos.transporte = transportation_fun_result 
                         scholarship.montos.save()
