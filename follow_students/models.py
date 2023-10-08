@@ -9,6 +9,7 @@ class User(models.Model):
     def __str__(self):
         return self.username
 
+
 class Curso(models.Model):
     code = models.CharField(max_length=20, unique=True)
     name = models.CharField(max_length = 200)
@@ -21,7 +22,7 @@ class Major(models.Model):
 
     def __str__(self):
         return self.nombre
-    
+
 class Donante(models.Model):
     cedula = models.CharField(max_length=255)
     nombre = models.CharField(max_length=255)
@@ -31,6 +32,7 @@ class Donante(models.Model):
     def __str__(self):
         return self.nombre
     
+
 class Montos(models.Model):
     code = models.CharField(max_length=100)
     transporte = models.IntegerField()
@@ -38,7 +40,31 @@ class Montos(models.Model):
     academico = models.IntegerField()
 
     def __str__(self):
-        return self.code
+         return self.code
+
+
+class Gasto_beca(models.Model):
+    estudiante = models.ForeignKey(Estudiante, null=True, on_delete= models.CASCADE, unique = False)
+    beca = models.ForeignKey(Beca, null = True, on_delete= models.CASCADE, unique = False)
+    cantidad_dinero = models.FloatField()
+    tiempo_acumulado = models.IntegerField()
+    class Time_way(models.TextChoices):
+        DIAS = "1", "Dias"
+        MES = "2", "Mes"
+        ANIO = "3", "Año"
+
+    tiempo_seleccionado = models.CharField(
+        max_length = 2,
+        choices = Time_way.choices,
+        default = Time_way.DIAS 
+    )
+    tipo = models.CharField(max_length = 20, unique = False)
+
+    def __str__(self):
+        text = self.estudiante.codigo
+        return text
+
+ 
 
 class Beca(models.Model):
     nombre = models.CharField(max_length=255)
@@ -94,4 +120,5 @@ class RegistroActividadEstudiante(models.Model):
 
     def __str__(self):
         return f'Registro de {self.estudiante.nombre} en {self.actividad.nombre}'
+
 
