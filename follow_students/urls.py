@@ -3,6 +3,7 @@ from django.urls import path
 from django.contrib import admin
 from follow_students.views.signin import Signin
 from follow_students.views.dashboard import Dashboard
+from follow_students.views.uploadCREA import Upload_dataCREA
 from follow_students.views.menuReport import MenuReport
 from follow_students.views.generateReport import GenerateReport
 from follow_students.views.upload_data import Upload_dataPD
@@ -17,12 +18,11 @@ urlpatterns = [
     path('dashboard/', Dashboard.as_view()),
     path('menuReport/', MenuReport.as_view(), name="menuR"),
     path('generateReport/<int:codigo>/', GenerateReport.as_view(), name="report"),
-    path('generateReport/', GenerateReport.as_view(), name="generateR")
+    path('generateReport/', GenerateReport.as_view(), name="generateR"),
     path('upload_dataPD/', Upload_dataPD.as_view(), name = "uploadPD"),
     path('studentManage/', StudentManage.as_view(), name = "studentManage"),
     path('studentManage/studentEdit/<int:pk>/', StudentEdit.as_view(), name = "studentEdit"),
     path('registroEstudiantes/', RegistroEstudiantes.as_view()),
     path('asignarBeca/<str:codigo>/', AsignarBeca.as_view(), name='asignar_beca'),
-    path('dashboard/', Dashboard.as_view(), name='dashboard')
-
+    path('uploadCREA', Upload_dataCREA.as_view()),
 ]
