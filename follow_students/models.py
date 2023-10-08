@@ -26,7 +26,7 @@ class Donante(models.Model):
         return self.nombre
     
 class Montos(models.Model):
-    code = models.IntegerField()
+    code = models.CharField(max_length=100)
     transporte = models.IntegerField()
     alimentacion = models.IntegerField()
     academico = models.IntegerField()
