@@ -1,0 +1,13 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+{% load static %}
+
+{% block main_content %}
+
+<h1>Registro Exitoso</h1>
+
+<p>El estudiante {{ nombre }} ha sido guardado en la base de datos.</p>
+
+<a class="btn btn-primary" href="{% url 'dashboard' %}">Volver</a>
+
+
+{% endblock %}
