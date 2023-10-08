@@ -1,18 +1,18 @@
 import pandas as pd
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from follow_students.forms.upload_data_form import UploadFileForm  
+from follow_students.forms.upload_dataPD_form import UploadFileForm  
 from follow_students.models import Nota,Estudiante,Curso
 from django.contrib import messages
 from django.views import View
 
 # Create your views here.
     
-class Load_data(View):
+class Upload_dataPD(View):
     def get(self, request):
         form = UploadFileForm()
         notas = Nota.objects.all().order_by('estudiante') 
-        return render(request, 'upload_data.html', {
+        return render(request, 'upload_dataPD.html', {
             'form': form,
             'notas': notas})
     
@@ -26,7 +26,7 @@ class Load_data(View):
                     curso, created = Curso.objects.get_or_create(code=sheet_name)
                     for index, row in df.iterrows():
                         try:
-                            estudiante = Estudiante.objects.get(code=row['Codigo'])
+                            estudiante = Estudiante.objects.get(codigo=row['Codigo'])
                             nota, created = Nota.objects.get_or_create(
                                 estudiante=estudiante,
                                 curso=curso,
@@ -45,7 +45,7 @@ class Load_data(View):
         else:
             form = UploadFileForm()
             notas = Nota.objects.all().order_by('estudiante') 
-            return render(request, 'upload_data.html', {
+            return render(request, 'upload_dataPD.html', {
                 'form': form,
                 'notas': notas})
     
