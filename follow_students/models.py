@@ -9,87 +9,83 @@ class User(models.Model):
     def __str__(self):
         return self.username
     
-class Donor(models.Model):
-    identification = models.CharField(max_length = 15, primary_key=True)
-    name = models.CharField(max_length = 255)
-    email = models.CharField(max_length = 30)
-    description = models.CharField(max_length = 255, blank = True)
+class Donante(models.Model):
+    cedula = models.CharField(max_length=255)
+    nombre = models.CharField(max_length=255)
+    correo = models.EmailField()
+    descripcion = models.CharField(max_length=255)
 
     def __str__(self):
-        text = "{0} {1}"
-        return text.format(self.identification, self.name)
+        return self.nombre
     
 
-class Scholarship_Fund(models.Model):   
-    alimentation_fund = models.FloatField()
-    transportation_fund = models.FloatField()
-    education_fund = models.FloatField()
+class Monto(models.Model):
+    transporte = models.IntegerField()
+    alimentacion = models.IntegerField()
+    academico = models.IntegerField()
 
     def __str__(self):
-        text = "{0} "
+        text = "{0}"
         return text.format(self.id)
 
-
-class Scholarship(models.Model):
+class Beca(models.Model):
     code = models.CharField(max_length=15,primary_key=True)
-    name = models.CharField(max_length= 30)
-    donor = models.ForeignKey(Donor, null=True, on_delete= models.CASCADE)
-    code_Funds =  models.ForeignKey(Scholarship_Fund, null=True, on_delete= models.CASCADE)
+    nombre = models.CharField(max_length=255)
+    montos = models.ForeignKey(Monto, on_delete=models.CASCADE)
+    donante = models.ForeignKey(Donante, on_delete=models.CASCADE)
 
     def __str__(self):
-        text = "{0} {1} {2}"
-        return text.format(self.code, self.name, self.code)
+        text = "{0} {1} "
+        return text.format(self.code, self.nombre)
     
 
+# Major.Major_code debe de ser Major.id
 class Major(models.Model):
-    major_code = models.CharField(max_length=15,primary_key=True)
-    name = models.CharField(max_length= 50)
-    value = models.IntegerField()
+    nombre = models.CharField(max_length=255)
+    precio = models.IntegerField()
 
     def __str__(self):
-        text = "{0} {1} {2}"
-        return text.format(self.major_code, self.name, self.value)
+        text = "{0} {1} "
+        return text.format( self.nombre, self.precio)
 
 
-    
-
-
-class Student(models.Model):
-    code = models.CharField(max_length=15, primary_key=True )
-    name = models.CharField(max_length=255)
-    celphone = models.CharField(max_length=15)
-    date = models.DateField()
+class Estudiante(models.Model):
+    codigo = models.CharField(max_length=15, primary_key=True )
+    nombre = models.CharField(max_length=255)
+    celular = models.CharField(max_length=15)
+    fecha = models.DateField()
     icfes = models.IntegerField()
-    cc = models.CharField(max_length=15)
-    email = models.EmailField()
-    scholarship_id = models.ForeignKey(Scholarship, null=True, on_delete= models.CASCADE)
-    major_code = models.ForeignKey(Major, null=True, on_delete= models.CASCADE)
+    cedula = models.CharField(max_length=15)
+    correo = models.EmailField()
+    beca = models.ForeignKey(Beca, null=True, on_delete= models.CASCADE)
+    major = models.ForeignKey(Major, null=True, on_delete= models.CASCADE)
     aux_transportation = models.IntegerField(default = 0)
     aux_academic = models.IntegerField(default = 0)
 
     def __str__(self):
         text = "{0} {1} {2}"
-        return text.format(self.code, self.name, self.scholarship_id)
+        return text.format(self.codigo, self.nombre, self.beca_id)
     
     
 
-class Scholarship_Expense(models.Model):
-    student_code = models.CharField(max_length = 20, unique = False)
-    money_quantity = models.FloatField()
-    acumulate_time = models.IntegerField()
+class Gasto_beca(models.Model):
+    estudiante = models.ForeignKey(Estudiante, null=True, on_delete= models.CASCADE, unique = False)
+    beca = models.ForeignKey(Beca, null = True, on_delete= models.CASCADE, unique = False)
+    cantidad_dinero = models.FloatField()
+    tiempo_acumulado = models.IntegerField()
     class Time_way(models.TextChoices):
-        DAYS = "1", "Dias"
-        MONTH = "2", "Mes"
-        YEAR = "3", "Año"
+        DIAS = "1", "Dias"
+        MES = "2", "Mes"
+        ANIO = "3", "Año"
 
-    select_time = models.CharField(
+    tiempo_seleccionado = models.CharField(
         max_length = 2,
         choices = Time_way.choices,
-        default = Time_way.DAYS 
+        default = Time_way.DIAS 
     )
-
-    type = models.CharField(max_length = 20, unique = False)
+    tipo = models.CharField(max_length = 20, unique = False)
 
     def __str__(self):
-        return self.student_code
+        text = self.estudiante.codigo
+        return text
 
