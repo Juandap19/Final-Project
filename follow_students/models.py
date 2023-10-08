@@ -9,6 +9,12 @@ class User(models.Model):
     def __str__(self):
         return self.username
     
+class Curso(models.Model):
+    code = models.CharField(max_length=20, unique=True)
+    name = models.CharField(max_length = 200)
+    def __str__(self):
+        return self.name
+      
 class Major(models.Model):
     nombre = models.CharField(max_length=255)
     precio = models.IntegerField()
@@ -56,12 +62,6 @@ class Estudiante(models.Model):
     
     def __str__(self):
         return self.nombre
-
-class Curso(models.Model):
-    code = models.CharField(max_length=20, unique=True)
-    
-    def __str__(self):
-        return self.code
 
 
 class Nota(models.Model):
