@@ -7,7 +7,7 @@ from follow_students.views.dashboard import Dashboard
 from follow_students.views.upload_dataCREA import Upload_dataCREA
 from follow_students.views.menuReport import MenuReport
 from follow_students.views.generateReport import GenerateReport
-from follow_students.views.upload_data import Upload_dataPD
+from follow_students.views.upload_dataPD import Upload_dataPD
 from follow_students.views.student_manage import StudentManage
 from follow_students.views.student_edit import StudentEdit
 from follow_students.views.registroEstudiantes import RegistroEstudiantes

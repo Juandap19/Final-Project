@@ -11,7 +11,7 @@ class Upload_dataBU(View):
     def get(self, request):
         form = RegistroActividad()
         activities = RegistroActividadEstudiante.objects.all()
-        return render(request, 'uploadBU.html', {'form': form, 'activities': activities})
+        return render(request, 'upload_dataBU.html', {'form': form, 'activities': activities})
     
     def post(self, request):
         form = RegistroActividad(request.POST)
@@ -36,11 +36,11 @@ class Upload_dataBU(View):
                 messages.error(request, 'Este estudiante no existe.')
                 form = RegistroActividad()
                 activities = RegistroActividadEstudiante.objects.all()
-                return render(request, 'uploadBU.html', {'form': form, 'activities': activities})
+                return render(request, 'upload_dataBU.html', {'form': form, 'activities': activities})
         else:
             form = RegistroActividad()
             activities = RegistroActividadEstudiante.objects.all()
-            return render(request, 'uploadBU.html', {'form': form, 'activities': activities})
+            return render(request, 'upload_dataBU.html', {'form': form, 'activities': activities})
 
 
     
