@@ -11,27 +11,27 @@
             <div class="mb-3 row g-2">
                 <div class="col-auto w-50">
                     <label for="code" class="form-label">Codigo</label>
-                    <input type="text" class="form-control" value="{{ student.code }}" id="code" name="code" required>
+                    <input type="text" class="form-control" value="{{ student.codigo }}" id="code" name="code" required>
                 </div>
                 <div class="col-auto w-50">
                     <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" value="{{ student.name }}" id="name" name="name" required>
+                    <input type="text" class="form-control" value="{{ student.nombre }}" id="name" name="name" required>
                 </div>
             </div>
             <div class="mb-3 row g-2">
                 <div class="col-auto w-50">
                     <label for="id_card" class="form-label">Cedula</label>
-                    <input type="number" class="form-control" value="{{ student.id_card }}" id="id_card" name="id_card" required>
+                    <input type="number" class="form-control" value="{{ student.cedula }}" id="id_card" name="id_card" required>
                 </div>
                 <div class="col-auto w-50">
                     <label for="phone_number" class="form-label">Celular</label>
-                    <input type="number" class="form-control" value="{{ student.phone_number }}" id="phone_number" name="phone_number" required>
+                    <input type="number" class="form-control" value="{{ student.celular }}" id="phone_number" name="phone_number" required>
                 </div>
             </div>
             <div class="mb-3 row g-2">
                 <div class="col-auto w-50">
                     <label for="birthday" class="form-label">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" value="{{ student.date|date:'Y-m-d' }}" id="birthday" name="birthday" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])
+                    <input type="date" class="form-control" value="{{ student.fecha|date:'Y-m-d' }}" id="birthday" name="birthday" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])
                     " required>
                 </div>
                 <div class="col-auto w-50">
@@ -41,7 +41,7 @@
             </div>
             <div class="mb-3">
                 <label for="mail" class="form-label">Correo</label>
-                <input type="mail" class="form-control" value="{{ student.mail }}" id="mail" name="mail" required>
+                <input type="mail" class="form-control" value="{{ student.correo }}" id="mail" name="mail" required>
             </div>
             <div class="d-flex justify-content-end gap-3">
                 <button type="submit" class="btn btn-primary">Actualizar</button>

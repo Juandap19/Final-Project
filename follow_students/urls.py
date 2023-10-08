@@ -13,7 +13,7 @@ urlpatterns = [
     # Here the paths are added
     path('', Signin.as_view()),
     path('studentManage/', StudentManage.as_view(), name = "studentManage"),
-    path('studentManage/studentEdit/<int:pk>/', StudentEdit.as_view(), name = "studentEdit")
+    path('studentManage/studentEdit/<int:pk>/', StudentEdit.as_view(), name = "studentEdit"),
     path('registroEstudiantes/', RegistroEstudiantes.as_view()),
     path('asignarBeca/<str:codigo>/', AsignarBeca.as_view(), name='asignar_beca'),
     path('dashboard/', Dashboard.as_view(), name='dashboard')
