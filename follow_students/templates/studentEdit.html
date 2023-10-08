@@ -1,0 +1,71 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+
+{% block main_content %}
+
+    <h3 class="fw-bolder text-uppercase">Editar estudiante</h3>
+
+    <div class="h-75 w-75 mt-5 mx-auto rounded p-3" style="background-color: #FFF; box-shadow: 0 0 15px rgba(0,0,0,.5);">
+        <form action="" method="POST" class="d-flex flex-column justify-content-between h-100" id="studentForm">
+            {% csrf_token %}
+            <input type="text" name="idStudent" id="idStudent" class="d-none" value="{{ student.pk }}">
+            <div class="mb-3 row g-2">
+                <div class="col-auto w-50">
+                    <label for="code" class="form-label">Codigo</label>
+                    <input type="text" class="form-control" value="{{ student.code }}" id="code" name="code" required>
+                </div>
+                <div class="col-auto w-50">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" value="{{ student.name }}" id="name" name="name" required>
+                </div>
+            </div>
+            <div class="mb-3 row g-2">
+                <div class="col-auto w-50">
+                    <label for="id_card" class="form-label">Cedula</label>
+                    <input type="number" class="form-control" value="{{ student.id_card }}" id="id_card" name="id_card" required>
+                </div>
+                <div class="col-auto w-50">
+                    <label for="phone_number" class="form-label">Celular</label>
+                    <input type="number" class="form-control" value="{{ student.phone_number }}" id="phone_number" name="phone_number" required>
+                </div>
+            </div>
+            <div class="mb-3 row g-2">
+                <div class="col-auto w-50">
+                    <label for="birthday" class="form-label">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" value="{{ student.date|date:'Y-m-d' }}" id="birthday" name="birthday" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])
+                    " required>
+                </div>
+                <div class="col-auto w-50">
+                    <label for="icfes" class="form-label">Puntaje ICFES</label>
+                    <input type="number" min="0" max="500" class="form-control" value="{{ student.icfes }}" id="icfes" name="icfes" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="mail" class="form-label">Correo</label>
+                <input type="mail" class="form-control" value="{{ student.mail }}" id="mail" name="mail" required>
+            </div>
+            <div class="d-flex justify-content-end gap-3">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <a href="{% url 'studentManage' %}" class="btn btn-danger">Volver</a>
+            </div>
+        </form>
+    </div>
+
+    {% if studentUpdate %}
+
+        <div class="alert alert-success alert-dismissible fade show position-absolute bottom-0 end-0 d-flex align-items-center gap-3" role="alert" id="success-alert">
+            <i class='bx bxs-check-square' style="font-size: 28px;"></i>
+            <strong>Estudiante actualizado</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    {% endif %}
+
+    <script>
+
+        setTimeout(function () {
+            document.getElementById('success-alert').classList.add('d-none');
+        }, 5000); 
+
+    </script>
+
+{% endblock %}

@@ -8,3 +8,4 @@ admin.site.register(Montos)
 admin.site.register(Major)
 admin.site.register(Beca)
 admin.site.register(Estudiante)
+
