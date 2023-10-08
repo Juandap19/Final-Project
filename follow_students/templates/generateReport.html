@@ -21,11 +21,11 @@
     <ul>
         {% for ide in ides %}
 
-        <p>{{ide.name}}  {{ide.code}} </p>
+        <p>{{ide.nombre}}  {{ide.codigo}} </p>
 
             {% for grade in grades %}
 
-               {% if ide.name == grade.estudiante.name%}
+               {% if ide.nombre == grade.estudiante.nombre%}
 
                <p>{{grade.curso.name}} : {{grade.grade}} </p>
 

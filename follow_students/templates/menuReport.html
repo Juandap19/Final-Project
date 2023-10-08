@@ -33,8 +33,8 @@
                 <tbody>
                     {% for student in students %}
                         <tr>
-                            <td>{{student.code}}</td>
-                            <td>{{student.name}}</td>
+                            <td>{{student.codigo}}</td>
+                            <td>{{student.nombre}}</td>
                             <td>
                                 <form action="{%  url 'report' student.id %}" method="POST">
                                     {% csrf_token %}

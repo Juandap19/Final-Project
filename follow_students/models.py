@@ -79,7 +79,7 @@ class Nota(models.Model):
     estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.estudiante.code
+        return self.estudiante.codigo
 
 class ActividadNoAcademica(models.Model):
     nombre = models.CharField(max_length=100)

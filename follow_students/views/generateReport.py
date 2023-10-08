@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from follow_students.models import Estudiante,Curso,Nota
+from follow_students.models import Estudiante,Nota
 
 
 
