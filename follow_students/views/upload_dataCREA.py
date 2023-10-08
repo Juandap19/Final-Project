@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views import View
 from follow_students.models import Estudiante, Consulta
-from follow_students.forms.upload_dataCREA import RegistroConsulta
+from follow_students.forms.upload_dataCREA_form import RegistroConsulta
 from django.contrib import messages
 
 
@@ -11,7 +11,7 @@ class Upload_dataCREA(View):
     def get(self, request):
         form = RegistroConsulta()
         consultas = Consulta.objects.all()
-        return render(request, 'uploadCREA.html', {'form': form, 'consultas': consultas})
+        return render(request, 'upload_dataCREA.html', {'form': form, 'consultas': consultas})
     
     def post(self, request):
         form = RegistroConsulta(request.POST)
@@ -23,7 +23,7 @@ class Upload_dataCREA(View):
                 messages.error(request, 'Este estudiante no existe.')
                 form = RegistroConsulta()
                 consultas = Consulta.objects.all()
-                return render(request, 'uploadCREA.html', {'form': form, 'consultas': consultas})
+                return render(request, 'upload_dataCREA.html', {'form': form, 'consultas': consultas})
 
             fecha = form.cleaned_data.get('fecha')
             hora = form.cleaned_data.get('hora')
@@ -41,4 +41,4 @@ class Upload_dataCREA(View):
         else:
             form = RegistroConsulta()
             consultas = Consulta.objects.all()
-            return render(request, 'uploadCREA.html', {'form': form, 'consultas': consultas})
+            return render(request, 'upload_dataCREA.html', {'form': form, 'consultas': consultas})

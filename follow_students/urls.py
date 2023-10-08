@@ -3,7 +3,7 @@ from django.urls import path
 from django.contrib import admin
 from follow_students.views.signin import Signin
 from follow_students.views.dashboard import Dashboard
-from follow_students.views.uploadCREA import Upload_dataCREA
+from follow_students.views.upload_dataCREA import Upload_dataCREA
 from follow_students.views.menuReport import MenuReport
 from follow_students.views.generateReport import GenerateReport
 from follow_students.views.upload_data import Upload_dataPD
@@ -24,5 +24,5 @@ urlpatterns = [
     path('studentManage/studentEdit/<int:pk>/', StudentEdit.as_view(), name = "studentEdit"),
     path('registroEstudiantes/', RegistroEstudiantes.as_view()),
     path('asignarBeca/<str:codigo>/', AsignarBeca.as_view(), name='asignar_beca'),
-    path('uploadCREA', Upload_dataCREA.as_view()),
+    path('upload_dataCREA/', Upload_dataCREA.as_view()),
 ]

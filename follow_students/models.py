@@ -8,7 +8,6 @@ class User(models.Model):
 
     def __str__(self):
         return self.username
-    
 
 class Curso(models.Model):
     code = models.CharField(max_length=20, unique=True)
@@ -73,7 +72,6 @@ class Consulta(models.Model):
     
     def __str__(self):
         return f'Consulta realizada por {self.estudiante.nombre} el {self.fecha}'
-
 
 class Nota(models.Model):
     grade = models.FloatField()
