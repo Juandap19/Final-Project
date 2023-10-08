@@ -11,9 +11,17 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'styles/navbar_sidebar_styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-minimal/minimal.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="{% static 'images/favicon_ICESI.png' %}" rel="Shortcut Icon">
 </head>
 <body>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
     <main class="container-fluid">
 
@@ -22,9 +30,9 @@
                 <img class="img-fluid d-lg-block d-none" src="{% static 'images/logo_ICESI.png' %}" alt="Logo de ICESI">
                 
                 <div class="links mt-5 d-flex flex-column gap-3">
-                    <article class="d-flex align-items-center"><i class='bx bxs-dashboard position-absolute'></i><a class="text-decoration-none text-black py-2" href="">Panel de control</a></article>
-                    <article class="d-flex align-items-center"><i class='bx bx-user-plus position-absolute'></i><a class="text-decoration-none text-black py-2" href="">Registrar estudiante</a></article>
-                    <article class="d-flex align-items-center"><i class='bx bxs-cog position-absolute'></i><a class="text-decoration-none text-black py-2" href="">Gestionar estudiante</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bxs-dashboard position-absolute'></i><a class="text-decoration-none text-black py-2" href="/dashboard/">Panel de control</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bx-user-plus position-absolute'></i><a class="text-decoration-none text-black py-2" href="/registroEstudiantes/">Registrar estudiante</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bxs-cog position-absolute'></i><a class="text-decoration-none text-black py-2" href="/studentManage/">Gestionar estudiante</a></article>
                     <article class="d-flex align-items-center"><i class='bx bxs-file-blank position-absolute'></i><a class="text-decoration-none text-black py-2" href="">Generar reporte</a></article>
                     <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-black py-2" href="/upload_data">Cargar informacion</a></article>
                 </div>

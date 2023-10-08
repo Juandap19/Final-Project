@@ -1,0 +1,101 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+
+{% block main_content %}
+
+    <h3 class="text-uppercase">Gestionar estudiante</h3>
+    
+    <div class="h-75 mt-5 mx-auto rounded p-3" style="background-color: #FFF; box-shadow: 0 0 15px rgba(0,0,0,0.5); width: 95%;">
+        <h4 class="fw-bolder">Estudiantes</h4>
+
+        <div class="table-responsive w-100" style="height: 90%;">
+            <table  id="tableStudents" class="table w-100 mt-4">
+                <thead class="table-secondary">
+                    <tr class="align-middle">
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Cedula</th>
+                        <th>Celular</th>
+                        <th>Correo</th>
+                        <th>F.Nacimiento</th>
+                        <th>ICFES</th>
+                        <th>Materias</th>
+                        <th>Metas</th>
+                        <th>Mas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in students %}
+                        <tr class="align-middle" id="tr{{ s.id }}">
+                            <td style="font-size: 14px;">{{ s.codigo }}</td>
+                            <td style="font-size: 14px;">{{ s.nombre }}</td>
+                            <td style="font-size: 14px;">{{ s.cedula }}</td>
+                            <td style="font-size: 14px;">{{ s.celular }}</td>
+                            <td style="font-size: 14px;">{{ s.correo }}</td>
+                            <td style="font-size: 14px;">{{ s.fecha }}</td>
+                            <td style="font-size: 14px;">{{ s.icfes }}</td>
+                            <td style="font-size: 14px;">...</td>
+                            <td style="font-size: 14px;">...</td>
+                            <td>
+                                <div class="d-flex gap-1">
+                                    <button type="submit" class="btn btn-primary" onclick="editStudent('{{ s.id }}')">
+                                        <i class='bx bx-edit'></i>
+                                    </button>
+                                    <button type="submit" class="btn btn-danger" id="deleteStudent" onclick="deleteStudent('{{ s.id }}')">
+                                        <i class='bx bxs-trash'></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+
+        let tableStudents = $('#tableStudents').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            }
+        });
+
+        function editStudent(idStudent) {
+            location.href="studentEdit/" + idStudent + "/";
+        }
+
+        function deleteStudent(idStudent) {
+            Swal.fire({
+            title: '¿Estas seguro de eliminar este estudiante?',
+            text: "¡ No podras revertir los cambios !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '¡Si, eliminar!'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                var request = $.ajax({
+                    type: "POST",
+                    url: window.location.pathname, 
+                    data: {
+                        "csrfmiddlewaretoken": "{{ csrf_token }}",
+                        "idStudent": idStudent                    
+                    },
+                });
+                request.done(function(response) {
+                    Swal.fire(
+                        'Eliminado!',
+                        'El estudiante fue eliminado.',
+                        'success'
+                    )
+                    let rowId = document.getElementById('tr' + idStudent);
+                    rowId.style.display = "none";
+                });
+            }
+            })
+        }
+
+    </script>
+
+{% endblock %}

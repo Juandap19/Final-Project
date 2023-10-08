@@ -46,14 +46,14 @@ body {
     & a:hover {
         border-right: 3px solid #000;
     }
+
+    & i {
+        font-size: 25px;
+    }
 }
 
 .divisor {
     background-color: #04b44c;
-}
-
-i {
-    font-size: 25px;
 }
 
 .icon-bar {
