@@ -1,0 +1,45 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+
+{% block main_content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+   
+
+    <h1>Reporte</h1>
+    <p> <br></p>
+
+    
+
+    <ul>
+        {% for ide in ides %}
+
+        <p>{{ide.nombre}}  {{ide.codigo}} </p>
+
+            {% for grade in grades %}
+
+               {% if ide.nombre == grade.estudiante.nombre%}
+
+               <p>{{grade.curso.name}} : {{grade.grade}} </p>
+
+               {% endif %}
+
+            {% endfor %}
+               
+            <p> ----------------------------</p>
+
+        {% endfor %}
+        </ul>
+
+</body>
+</html>
+
+
+{% endblock %}
