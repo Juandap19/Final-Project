@@ -1,7 +1,7 @@
 from django.views import View
 from django.shortcuts import render
 from follow_students.forms.financial_form import FinancialForm, FinancialTranspAcademicForm
-from follow_students.models import Scholarship_Expense, Student, Scholarship , Major
+from follow_students.models import Scholarship_Expense, Student, Scholarship , Major,User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 import random
@@ -15,7 +15,8 @@ class FinancialSupport(View):
         })
     
     def post(self, request):
-        code =random.randint(0,50000000000)
+        usuario_prueba = User.objects.get()
+        code = random.randint(0,50000000000)
         student_code = request.POST['student_code']
         money_quantity = request.POST['money_quantity']
         acumulate_time = request.POST['acumulate_time']
@@ -28,7 +29,7 @@ class FinancialSupport(View):
             if new_value > 0:
                 query1.code_Funds.alimentation_fund = new_value
                 query1.code_Funds.save() 
-                expense = Scholarship_Expense.objects.create(code = code , student_code = student_code, money_quantity = money_quantity, acumulate_time=  acumulate_time, select_time = select_time,type = 'Alimentación')  #Create a expense to One particular Student and save it
+                expense = Scholarship_Expense.objects.create( student_code = student_code, money_quantity = money_quantity, acumulate_time=  acumulate_time, select_time = select_time,type = 'Alimentación')  #Create a expense to One particular Student and save it
                 expense.save()   #Save the new value in the data base
                 messages.success(request,"Proceso completado")
                 return HttpResponseRedirect(request.path)   
@@ -36,7 +37,7 @@ class FinancialSupport(View):
                 #Case when the Scholarship doesn`t have enought money to pay the new student money quantity`
                 money_quantity = query1.code_Funds.alimentation_fund
                 query1.code_Funds.save()  
-                expense = Scholarship_Expense.objects.create(code = code , student_code = student_code, money_quantity = money_quantity, acumulate_time=  acumulate_time, select_time = select_time, type = 'Alimentación')  #Create a expense to One particular Student and save it
+                expense = Scholarship_Expense.objects.create(student_code = student_code, money_quantity = money_quantity, acumulate_time=  acumulate_time, select_time = select_time, type = 'Alimentación')  #Create a expense to One particular Student and save it
                 expense.save()
                 new_value = abs(new_value)
                 messages.warning(request,"Fondos insuficientes de alimentación faltan {} para registrar el pago".format(new_value))
@@ -73,10 +74,9 @@ class FinancialAcademic(View):
                     if student_pivot.aux_academic == 0:
                         student_pivot.aux_academic = 1
                         student_pivot.save()
-                        code =random.randint(0,50000000000)
                         scholarship.code_Funds.education_fund = result_education_fun 
                         scholarship.code_Funds.save()
-                        expense = Scholarship_Expense.objects.create(code = code , student_code = student['code'], money_quantity = major_to_add, acumulate_time=  6, select_time = "Meses", type = 'Académico')  #Create a expense to One particular Student and save it
+                        expense = Scholarship_Expense.objects.create( student_code = student['code'], money_quantity = major_to_add, acumulate_time=  6, select_time = "Meses", type = 'Académico')  #Create a expense to One particular Student and save it
                         expense.save()  
                     else:
                         counter_students += 1      
@@ -124,10 +124,9 @@ class FinancialTransport(View):
                     if student_pivot.aux_transportation == 0:
                         student_pivot.aux_transportation  = 1
                         student_pivot.save()
-                        code =random.randint(0,50000000000)
                         scholarship.code_Funds.transportation_fund = transportation_fun_result 
                         scholarship.code_Funds.save()
-                        expense = Scholarship_Expense.objects.create(code = code , student_code = student['code'], money_quantity = "1000000", acumulate_time=  6, select_time = "Meses", type = 'Transporte')  #Create a expense to One particular Student and save it
+                        expense = Scholarship_Expense.objects.create( student_code = student['code'], money_quantity = "1000000", acumulate_time=  6, select_time = "Meses", type = 'Transporte')  #Create a expense to One particular Student and save it
                         expense.save()
                     else:
                         counter_students += 1  

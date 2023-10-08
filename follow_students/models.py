@@ -10,25 +10,24 @@ class User(models.Model):
         return self.username
     
 class Donor(models.Model):
-    code = models.CharField(max_length = 15, primary_key=True)
+    identification = models.CharField(max_length = 15, primary_key=True)
     name = models.CharField(max_length = 255)
     email = models.CharField(max_length = 30)
     description = models.CharField(max_length = 255, blank = True)
 
     def __str__(self):
         text = "{0} {1}"
-        return text.format(self.code, self.name)
+        return text.format(self.identification, self.name)
     
 
-class Scholarship_Fund(models.Model):
-    code_id = models.CharField(max_length=20,primary_key=True)    
+class Scholarship_Fund(models.Model):   
     alimentation_fund = models.FloatField()
     transportation_fund = models.FloatField()
     education_fund = models.FloatField()
 
     def __str__(self):
-        text = "{0} {1} {2} {3}"
-        return text.format(self.code_id, self.alimentation_fund, self.tranportation_fund , self.education_fund)
+        text = "{0} "
+        return text.format(self.id)
 
 
 class Scholarship(models.Model):
@@ -75,7 +74,6 @@ class Student(models.Model):
     
 
 class Scholarship_Expense(models.Model):
-    code = models.CharField(max_length = 20, unique = False, primary_key = True)
     student_code = models.CharField(max_length = 20, unique = False)
     money_quantity = models.FloatField()
     acumulate_time = models.IntegerField()
