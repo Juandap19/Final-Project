@@ -2,6 +2,7 @@
 from django.urls import path
 from django.contrib import admin
 from follow_students.views.signin import Signin
+from follow_students.views.upload_dataBU import Upload_dataBU
 from follow_students.views.dashboard import Dashboard
 from follow_students.views.upload_dataCREA import Upload_dataCREA
 from follow_students.views.menuReport import MenuReport
@@ -25,4 +26,6 @@ urlpatterns = [
     path('registroEstudiantes/', RegistroEstudiantes.as_view()),
     path('asignarBeca/<str:codigo>/', AsignarBeca.as_view(), name='asignar_beca'),
     path('upload_dataCREA/', Upload_dataCREA.as_view()),
+    path('upload_dataBU/', Upload_dataBU.as_view())
+
 ]
