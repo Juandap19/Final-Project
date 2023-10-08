@@ -9,14 +9,50 @@ class User(models.Model):
     def __str__(self):
         return self.username
     
-class Students(models.Model):
-    name = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=15)
-    date = models.DateField()
-    icfes = models.IntegerField()
-    id_card = models.CharField(max_length=15)
-    code = models.CharField(max_length=15)
-    mail = models.EmailField()
+class Major(models.Model):
+    nombre = models.CharField(max_length=255)
+    precio = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return self.nombre
+    
+class Donante(models.Model):
+    cedula = models.CharField(max_length=255)
+    nombre = models.CharField(max_length=255)
+    correo = models.EmailField()
+    descripcion = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.nombre
+    
+class Montos(models.Model):
+    code = models.IntegerField()
+    transporte = models.IntegerField()
+    alimentacion = models.IntegerField()
+    academico = models.IntegerField()
+
+    def __str__(self):
+        return self.code
+
+class Beca(models.Model):
+    nombre = models.CharField(max_length=255)
+    montos = models.ForeignKey(Montos, on_delete=models.CASCADE)
+    donante = models.ForeignKey(Donante, on_delete=models.CASCADE)
+    estudiantes_asignados = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.nombre
+
+class Estudiante(models.Model):
+    nombre = models.CharField(max_length=100)
+    celular = models.CharField(max_length=20)
+    fecha = models.DateField()
+    icfes = models.IntegerField()
+    cedula = models.CharField(max_length=20)
+    codigo = models.CharField(max_length=20, unique=True)
+    correo = models.EmailField()
+    beca = models.ForeignKey(Beca, on_delete=models.SET_NULL, null=True, blank=True)
+    major = models.ForeignKey(Major, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.nombre
