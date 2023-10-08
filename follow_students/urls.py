@@ -18,7 +18,7 @@ from follow_students.views.asignarBeca import AsignarBeca
 urlpatterns = [
     # Here the paths are added
     path('', Signin.as_view()),
-    path('requestupd', RequestUpd.as_view())
+    path('requestupd', RequestUpd.as_view(), name = "requestUpdate"),
     path('dashboard/', Dashboard.as_view()),
     path('menuReport/', MenuReport.as_view(), name="menuR"),
     path('generateReport/<int:codigo>/', GenerateReport.as_view(), name="report"),
@@ -28,6 +28,6 @@ urlpatterns = [
     path('studentManage/studentEdit/<int:pk>/', StudentEdit.as_view(), name = "studentEdit"),
     path('registroEstudiantes/', RegistroEstudiantes.as_view()),
     path('asignarBeca/<str:codigo>/', AsignarBeca.as_view(), name='asignar_beca'),
-    path('upload_dataCREA/', Upload_dataCREA.as_view()),
-    path('upload_dataBU/', Upload_dataBU.as_view())
+    path('upload_dataCREA/', Upload_dataCREA.as_view(), name = "uploadCREA"),
+    path('upload_dataBU/', Upload_dataBU.as_view(), name = "uploadBU")
 ]
