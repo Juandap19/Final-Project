@@ -36,7 +36,7 @@
                             <td>{{student.codigo}}</td>
                             <td>{{student.nombre}}</td>
                             <td>
-                                <form action="{%  url 'report' student.id %}" method="POST">
+                                <form action="{%  url 'report' student.codigo %}" method="POST">
                                     {% csrf_token %}
                                     <button class="btn btn-success">
                                         agregar
