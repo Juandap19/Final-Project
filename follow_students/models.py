@@ -42,12 +42,8 @@ class Montos(models.Model):
          text ="{}".format(self.transporte)
          return text
 
-
-
- 
-
 class Beca(models.Model):
-    code  = models.CharField(max_length=20, unique=True, primary_key=True)
+    code  = models.CharField(max_length=20, unique=True)
     nombre = models.CharField(max_length=255)
     montos = models.ForeignKey(Montos, on_delete=models.CASCADE)
     donante = models.ForeignKey(Donante, on_delete=models.CASCADE)
@@ -62,7 +58,7 @@ class Estudiante(models.Model):
     fecha = models.DateField()
     icfes = models.IntegerField()
     cedula = models.CharField(max_length=20)
-    codigo = models.CharField(max_length=20, unique=True, primary_key=True)
+    codigo = models.CharField(max_length=20, unique=True)
     correo = models.EmailField()
     beca = models.ForeignKey(Beca, on_delete=models.SET_NULL, null=True, blank=True)
     major = models.ForeignKey(Major, on_delete=models.CASCADE)
