@@ -20,12 +20,13 @@ class FinancialSupport(View):
         query = Estudiante.objects.filter(codigo = student_code) # search the student
         if query:
             query = Estudiante.objects.get(codigo = student_code)
-            query1 = Beca.objects.get(code = query.beca_id)  #Search the scholarship that is associated with the student 
+            print("adfadf{}".format(query.beca_id))
+            query1 = Beca.objects.get(id = query.beca_id)  #Search the scholarship that is associated with the student 
             new_value = float(query1.montos.alimentacion) - float(money_quantity)  #Calculate the new value
             if new_value > 0:
                 query1.montos.alimentacion = new_value
                 query1.montos.save() 
-                expense =  Gasto_beca.objects.create( estudiante = query, cantidad_dinero = money_quantity, tiempo_acumulado=  acumulate_time, tiempo_seleccionado = select_time, tipo = 'Alimentación')  #Create a expense to One particular Student and save it
+                expense =  Gasto_beca.objects.create( estudiante = query, cantidad_dinero = money_quantity, tiempo_acumulado=  acumulate_time, tiempo_seleccionado = select_time, tipo = 'Alimentación', beca = query1)  #Create a expense to One particular Student and save it
                 expense.save()   #Save the new value in the data base
                 messages.success(request,"Proceso completado")
                 return HttpResponseRedirect(request.path)   
@@ -55,7 +56,7 @@ class FinancialAcademic(View):
         if query:
             scholarship = Beca.objects.get(code = scholarship_code)
             # Calculate the Major that scholarship gonna pay it
-            students_list = Estudiante.objects.filter(beca = scholarship_code).values()
+            students_list = Estudiante.objects.filter(beca = scholarship).values()
             flag = True
             its_missing = 0
             counter_students = 0
@@ -107,10 +108,11 @@ class FinancialTransport(View):
         if query:
             scholarship = Beca.objects.get(code = scholarship_code)
             # Calculate the Transportation that scholarship gonna pay it
-            students_list = Estudiante.objects.filter(beca = scholarship_code).values()
+            students_list = Estudiante.objects.filter(beca = scholarship).values()
             flag = True
             its_missing = 0
             counter_students = 0
+            print(students_list)
             for student in students_list:
                 student_pivot = Estudiante.objects.get(codigo = student['codigo'])
                 transportation_fun_result = scholarship.montos.transporte - 1000000
