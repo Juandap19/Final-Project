@@ -36,8 +36,17 @@ class FinancialForm(forms.Form):
 
 class FinancialTranspAcademicForm(forms.Form):
     scholarship_code = forms.CharField(
-        label = "Código beca ",
+        label = "Pago de Beca",
         max_length= 200,
-        widget =  forms.TextInput(  attrs = {'class': 'input_code d-block container mt-1 mb-3 p-2', 'placeholder': 'Digite el Beca  '}),
+        widget =  forms.TextInput(  attrs = {'class': 'input_code d-block container mt-1 mb-3 p-2', 'placeholder': 'Codigo de Beca  '}),
         required = True
     )
+
+class FinancialTAByStudentForm(forms.Form):
+    student_code = forms.CharField(
+        label = "Pago por estudiante ",
+        max_length= 200,
+        widget =  forms.TextInput(  attrs = {'class': 'input_code d-block container mt-1 mb-3 p-2', 'placeholder': 'Codigo del estudiante'}),
+        required = True
+    )
+   

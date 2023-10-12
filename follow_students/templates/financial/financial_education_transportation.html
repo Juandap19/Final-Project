@@ -38,6 +38,40 @@
                 {% endif %}
             </form>
         </div>
+        <div class = "container-fluid w-50 h-30 p-2 rounded" style="background-color: #fff; box-shadow: 0 0 50px rgba(0, 0, 0, .5);">
+            <h2>Becas por pagar</h2>
+                <div class="w-100 h-100 d-flex justify-content-between flex-column">
+                    {%for beca_faltante in becas_faltantes%}
+                        <td style="font-size: 14px;">{{beca_faltante.code}}</td>
+                        <td>{{beca_faltante.nombre}}</td>
+                        <td>{{beca_faltante.estudiantes_asignados}}</td>
+                    {% endfor %} 
+                </div>              
+        </div>
+        <div  class = "container-fluid w-50 h-30 p-2 rounded" style="background-color: #fff; box-shadow: 0 0 50px rgba(0, 0, 0, .5);">
+            <form action="" method="POST" class="w-100 h-100 d-flex justify-content-between flex-column" autocomplete="off" >
+                {% csrf_token %}
+                <div class="h-75 d-flex gap-5 flex-column">
+                    {{ student_form.as_div }}
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-primary upload information" >Subir Información</button>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                {% if messages %}
+                <script>
+                    {% for message in messages %}
+                        Swal.fire({
+                            icon: '{{ message.tags }}',
+                            title: '{{ message }}',
+                            showConfirmButton: true,
+                            confirmButtonColor: '#3085d6',
+                                    });
+                    {% endfor %}
+                </script>
+                {% endif %}
+            </form>
+        </div>
     </div>
     
 </body>
