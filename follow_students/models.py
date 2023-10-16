@@ -30,7 +30,7 @@ class Curso(models.Model):
     code = models.CharField(max_length=20, unique=True)
     name = models.CharField(max_length = 200)
     def __str__(self):
-        return self.name
+        return self.code
       
 class Major(models.Model):
     nombre = models.CharField(max_length=255)
