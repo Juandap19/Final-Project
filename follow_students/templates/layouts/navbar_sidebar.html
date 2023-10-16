@@ -31,24 +31,77 @@
                 <img class="img-fluid d-lg-block d-none" src="{% static 'images/logo_ICESI.png' %}" alt="Logo de ICESI">
                 
                 <div class="links mt-5 d-flex flex-column gap-3">
+                    {% if 'Panel de control' in request.session.permisos %}
+                        <article class="d-flex align-items-center">
+                            <i class='bx bxs-dashboard position-absolute'></i>
+                            <a class="text-decoration-none text-black py-2" href="/dashboard/">Panel de control</a>
+                        </article>
+                    {% endif %}
 
-                    <article class="d-flex align-items-center"><i class='bx bxs-dashboard position-absolute'></i><a class="text-decoration-none text-black py-2" href="/dashboard/">Panel de control</a></article>
-                    <article class="d-flex align-items-center"><i class='bx bx-user-plus position-absolute'></i><a class="text-decoration-none text-black py-2" href="/registroEstudiantes/">Registrar estudiante</a></article>
-                    <article class="d-flex align-items-center"><i class='bx bxs-cog position-absolute'></i><a class="text-decoration-none text-black py-2" href="/studentManage/">Gestionar estudiante</a></article>
-                    <article class="d-flex align-items-center"><i class='bx bxs-file-blank position-absolute'></i><a class="text-decoration-none text-black py-2" href="/menuReport">Generar reporte</a></article>
-                    <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-black py-2" href="/upload_dataPD/">Cargar informacion</a></article>
-                    <article class="d-flex align-items-center"><i class='bx bx-coffee-togo position-absolute'></i><a class="text-decoration-none text-black py-2" href="/apoyo_financiero_alimentacion/">Pago Alimentación</a></article>
-                    <article class="d-flex align-items-center"><i class='bx bx-bus position-absolute'></i><a class="text-decoration-none text-black py-2" href="/apoyo_financiero_transporte/">Pago Transporte</a></article>
-                    <article class="d-flex align-items-center/"><i class='bx bx-book position-absolute'></i><a class="text-decoration-none text-black py-2" href="/apoyo_financiero_academico/">Pago Académico </a></article>
+                    {% if 'Registrar estudiante' in request.session.permisos  %}
+
+                        <article class="d-flex align-items-center"><i class='bx bx-user-plus position-absolute'></i><a class="text-decoration-none text-black py-2" href="/registroEstudiantes/">Registrar estudiante</a></article>
+
+                    {% endif %}
+
+                    {% if 'Gestionar estudiante' in request.session.permisos  %}
+                    
+                        <article class="d-flex align-items-center"><i class='bx bxs-cog position-absolute'></i><a class="text-decoration-none text-black py-2" href="/studentManage/">Gestionar estudiante</a></article>
+
+                    {% endif %}
+
+                    {% if 'Generar reporte' in request.session.permisos  %}
+
+                        <article class="d-flex align-items-center"><i class='bx bxs-file-blank position-absolute'></i><a class="text-decoration-none text-black py-2" href="/menuReport">Generar reporte</a></article>
+
+                    {% endif %}
+
+                    {% if 'Cargar informacion DP' in request.session.permisos  %}
+
+                        <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-black py-2" href="/upload_dataPD">Cargar informacion</a></article>
+
+                    {% endif %}
+
+                    {% if 'Cargar informacion BU' in request.session.permisos  %}
+
+                    <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-black py-2" href="/upload_dataBU">Cargar informacion</a></article>
+
+                    {% endif %}
+
+                    {% if 'Cargar informacion CREA' in request.session.permisos  %}
+
+                    <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-black py-2" href="/upload_dataCREA">Cargar informacion</a></article>
+
+                    {% endif %}
+
+                    {% if 'Pedir Actualizacion de Informacion' in request.session.permisos  %}
+
+                    <article class="d-flex align-items-center"><<i class='bx bx-mail-send position-absolute'></i><a class="text-decoration-none text-black py-2" href="/requestupd">Pedir Actualizacion de Informacion</a></article>
+
+                    {% endif %}
+
+                    {% if 'Pagos' in request.session.permisos  %}
+
+                        <article class="d-flex align-items-center"><i class='bx bx-money position-absolute'></i><a class="dropend dropdown-toggle text-decoration-none text-black py-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Pagos
+                        </a>
+                            <div class="dropdown-menu w-100">
+                                <article class="d-flex align-items-center"><i class='bx bx-coffee-togo position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_alimentacion">Alimentación</a></article>
+                                <article class="d-flex align-items-center"><i class='bx bx-bus position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_transporte">Transporte</a></article>
+                                <article class="d-flex align-items-center"><i class='bx bx-book position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_academico">Académico</a></article>
+                            </div>
+                        </article>
+
+                    {% endif %}
 
                 </div>
               
                 <div>
-                    <h5 class="text-center">{ Rol }</h5>
+                    <h5 class="text-center">{{ request.session.rol  }}</h5>
     
                     <div class="pb-1 divisor"></div>
     
-                    <p class="d-flex align-items-center mt-3"><i class='bx bxs-user'></i> <span class="mx-2">{{ user.username }}</span></p>
+                    <p class="d-flex align-items-center mt-3"><i class='bx bxs-user'></i> <span class="mx-2">{{ request.session.name }}</span></p>
     
                     <button class="btn btn-danger container-fluid">Cerrar Sesion</button>
                 </div>
@@ -86,7 +139,7 @@
         <div class="row">
             <div class="col-2">
             </div>
-            <article class="col-12 col-lg-10 main_content pt-5">
+            <article class="col-12 col-lg-10 main_content pt-5 pb-5">
                 {% block main_content %}
     
                 {% endblock %}
