@@ -50,7 +50,7 @@ class Donante(models.Model):
     
 
 class Montos(models.Model):
-    codigo = models.CharField(max_length=20, unique=True)
+    codigo = models.CharField(max_length=20, unique=True, default = "23")
     transporte = models.IntegerField()
     alimentacion = models.IntegerField()
     academico = models.IntegerField()
@@ -65,6 +65,8 @@ class Beca(models.Model):
     montos = models.ForeignKey(Montos, on_delete=models.CASCADE)
     donante = models.ForeignKey(Donante, on_delete=models.CASCADE)
     estudiantes_asignados = models.PositiveIntegerField(default=0)
+    porcentaje_academico = models.IntegerField(default = 70)
+    auxilio_transporte = models.IntegerField(default = 1000000)
 
     def __str__(self):
         return self.nombre
