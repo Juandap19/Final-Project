@@ -13,30 +13,53 @@
 
    
 
-    <h1>Reporte</h1>
-    <p> <br></p>
-
+    <h3>REPORTE</h3>
     
 
-    <ul>
-        {% for ide in ides %}
+    <div class="mx-auto w-75 h-75 mt-5" style="background-color: #FFF; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
 
-        <p>{{ide.nombre}}  {{ide.codigo}} </p>
 
-            {% for grade in grades %}
+        <div class="table-responsive w-100 p-3" style="height: 90%;">
+            <table  id="tableStudents" class="table w-100 mt-4">
+                <thead class="table-secondary">
+                    <tr class="align-middle">
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Materias</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ide in ides %}
 
-               {% if ide.nombre == grade.estudiante.nombre%}
+                        <tr>
+                            <td>{{ide.codigo}}</td>
+                            <td>{{ide.nombre}}</td>
+                            <td>
+                                {% for grade in grades %}
 
-               <p>{{grade.curso.name}} : {{grade.grade}} </p>
+                                {% if ide.nombre == grade.estudiante.nombre%}
 
-               {% endif %}
+                                <p>{{grade.curso.name}} : <b>{{grade.grade}}</b> </p>
 
-            {% endfor %}
-               
-            <p> ----------------------------</p>
+                                {% endif %}
 
-        {% endfor %}
-        </ul>
+                                {% endfor %}
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let tableStudents = $('#tableStudents').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            }
+        });
+    </script>
 
 </body>
 </html>

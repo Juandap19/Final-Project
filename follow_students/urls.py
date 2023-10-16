@@ -1,5 +1,6 @@
 # from follow_students.views.(name) import (name) || Here the views are added from the views folder
 from django.urls import path
+from django.views.defaults import page_not_found
 from django.contrib import admin
 from follow_students.views.signin import Signin
 from follow_students.views.upload_dataBU import Upload_dataBU
@@ -22,9 +23,9 @@ from follow_students.views.asignarBeca import AsignarBeca
 urlpatterns = [
     # Here the paths are added
     path('', Signin.as_view()),
-    path('apoyo_financiero_alimentacion', FinancialSupport.as_view() ),
-    path('apoyo_financiero_academico', FinancialAcademic.as_view() ),
-    path('apoyo_financiero_transporte', FinancialTransport.as_view() ),
+    path('apoyo_financiero_alimentacion/', FinancialSupport.as_view() ),
+    path('apoyo_financiero_academico/', FinancialAcademic.as_view() ),
+    path('apoyo_financiero_transporte/', FinancialTransport.as_view() ),
     path('requestupd', RequestUpd.as_view(), name = "requestUpdate"),
     path('dashboard/', Dashboard.as_view()),
     path('menuReport/', MenuReport.as_view(), name="menuR"),
