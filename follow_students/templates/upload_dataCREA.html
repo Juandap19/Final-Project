@@ -9,10 +9,12 @@
     </head>
     <body>
         <div class="d-flex justify-content-center align-items-center h-75 mt-5">
-            <div class="container-fluid w-75 h-100 p-3 d-flex flex-column gap-4 rounded" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
+            <div class="container-fluid w-75 h-100 p-3 d-flex flex-column rounded" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
                 <h5>Registro de Consultas</h5>
                 <form method="POST" enctype="multipart/form-data">
-                    {{form.as_p}}
+                    <div class="d-flex flex-wrap gap-5">
+                        {{form.as_p}}
+                    </div>
                     <div class="send w-100 d-flex justify-content-end"> 
                         {% csrf_token %} 
                         <button class="send-button btn btn-primary px-5">Enviar</button>
@@ -33,13 +35,13 @@
                 </form>
 
                 <!-- Contenedor para la información de las consultas -->
-                <article class="d-flex flex-column gap-3 h-75 mt-5">
+                <article class="d-flex flex-column gap-3 h-75 mt-2 table-responsive">
                     <h5>Información de Consultas:</h5>
                     <!-- Campo de búsqueda para buscar consultas por estudiante -->
                     <input type="text" id="search" placeholder="Buscar por estudiante...">
                     <!-- Tabla que muestra las consultas de los estudiantes -->
                     <div style="height: 300px; overflow-y: auto;">
-                        <table cellspacing="10" class="bg-secondary bg-opacity-25 rounded container" style="border-collapse: separate; border-spacing: 1rem 10px;">
+                        <table cellspacing="10" class="table bg-secondary bg-opacity-25 rounded" style="border-collapse: separate; border-spacing: 1rem 10px;">
                             <tr>
                                 <th>Estudiante</th>
                                 <th>Fecha</th>

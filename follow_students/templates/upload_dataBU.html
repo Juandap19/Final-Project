@@ -13,8 +13,14 @@
                 <h5>Registro de Actividad No Académica</h5>
                 <form method="POST">
                     {% csrf_token %}
-                    {{ form.as_p }}
-                    <button class="send-button btn btn-primary px-5">Enviar</button>
+                    
+                    <div class="d-flex">
+                        {{ form.as_p }}
+                    </div>
+
+                    <div class="d-flex justify-content-end mt-4">
+                        <button class="send-button btn btn-primary px-5">Enviar</button>
+                    </div>
 
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     {% if messages %}
@@ -33,13 +39,13 @@
                 </form>
                 
                 <!-- Contenedor para la información de las consultas -->
-                <article class="d-flex flex-column gap-3 h-75 mt-5">
+                <article class="d-flex flex-column gap-3 h-75 mt-5 table-responsive">
                     <h5>Información de Actividades:</h5>
                     <!-- Campo de búsqueda para buscar consultas por estudiante -->
                     <input type="text" id="search" placeholder="Buscar por estudiante...">
                     <!-- Tabla que muestra las consultas de los estudiantes -->
                     <div style="height: 300px; overflow-y: auto;">
-                        <table cellspacing="10" class="bg-secondary bg-opacity-25 rounded container" style="border-collapse: separate; border-spacing: 1rem 10px;">
+                        <table cellspacing="10" class="table bg-secondary bg-opacity-25 rounded" style="border-collapse: separate; border-spacing: 1rem 10px;">
                             <tr>
                                 <th>Estudiante</th>
                                 <th>Actividad</th>
