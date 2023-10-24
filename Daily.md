@@ -176,3 +176,13 @@
 |Daniel Montezuma |Añadir campo major cuando se realiza el registro de un estudiante y trabajar en la asociacion beca-estudiante| Ninguno |Reunion con el equipo|
 |Darwin| Nada | Ninguno | Reunion con el equipo |
 |Diego Zuñiga | Agregar la pantalla para editar los estudiantes  | Ninguno | Reunion con el equipo |
+
+## Fecha 23/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+|Juan Felipe Madrid|Nada| Ninguno |Sprint retrospective y sprint review|
+|Juan David Patiño|Nada | Ninguno |Sprint retrospective y sprint review|
+|Daniel Montezuma |Nada | Ninguno |Sprint retrospective y sprint review|
+|Darwin|Nada| Ninguno |Sprint retrospective y sprint review|
+|Diego Zuñiga |Nada| Ninguno |Sprint retrospective y sprint review|
