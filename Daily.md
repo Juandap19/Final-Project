@@ -186,3 +186,13 @@
 |Daniel Montezuma |Nada | Ninguno |Sprint retrospective y sprint review|
 |Darwin|Nada| Ninguno |Sprint retrospective y sprint review|
 |Diego Zuñiga |Nada| Ninguno |Sprint retrospective y sprint review|
+
+## Fecha 24/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+|Juan Felipe Madrid|Sprint retrospective y sprint review| Ninguno |Analisis de las posibles soluciones a las asignaciones|
+|Juan David Patiño|Nada | Ninguno |Nada|
+|Daniel Montezuma |Nada | Ninguno |Nada|
+|Darwin|Nada| Ninguno |Nada|
+|Diego Zuñiga |Nada| Ninguno |Nada|
