@@ -196,3 +196,13 @@
 |Daniel Montezuma |Nada | Ninguno |Nada|
 |Darwin|Nada| Ninguno |Nada|
 |Diego Zuñiga |Nada| Ninguno |Nada|
+
+## Fecha 26/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+|Juan Felipe Madrid|---| --- |---|
+|Juan David Patiño|---| --- |---|
+|Daniel Montezuma |Nada| Nada |Iniciar HTML de evaluación de metas|
+|Darwin|---| --- |---|
+|Diego Zuñiga |---| --- |---|
