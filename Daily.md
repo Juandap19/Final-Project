@@ -206,3 +206,13 @@
 |Daniel Montezuma |Nada| Nada |Iniciar HTML de evaluación de metas|
 |Darwin|---| --- |---|
 |Diego Zuñiga |---| --- |---|
+
+## Fecha 27/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+|Juan Felipe Madrid|Nada| Ninguna | Reunión con el equipo|
+|Juan David Patiño| Nada | Ninguno | Reunión con el equipo |
+|Daniel Montezuma |Iniciar HTML de evaluación de metas| Ninguno | Reunión con el equipo |
+|Darwin| Nada | Ninguno | Reunión con el equipo |
+|Diego Zuñiga |Nada| Ninguno | Reunión con el equipo |
