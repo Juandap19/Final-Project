@@ -204,7 +204,7 @@
 |Juan Felipe Madrid|---| --- |---|
 |Juan David Patiño|---| --- |---|
 |Daniel Montezuma |Nada| Nada |Iniciar HTML de evaluación de metas|
-|Darwin|---| --- |---|
+|Darwin|Nada| Ninguno |Investigar posibles soluciones|
 |Diego Zuñiga |---| --- |---|
 
 ## Fecha 27/10/23
@@ -214,7 +214,7 @@
 |Juan Felipe Madrid|Nada| Ninguna | Reunión con el equipo|
 |Juan David Patiño| Nada | Ninguno | Reunión con el equipo |
 |Daniel Montezuma |Iniciar HTML de evaluación de metas| Ninguno | Reunión con el equipo |
-|Darwin| Nada | Ninguno | Reunión con el equipo |
+|Darwin| Investigar posibles soluciones | Ninguno | Reunión con el equipo |
 |Diego Zuñiga |Nada| Ninguno | Reunión con el equipo |
 
 ## Fecha 28/10/23
