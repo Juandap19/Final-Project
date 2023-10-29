@@ -17,8 +17,8 @@ from follow_students.views.student_manage import StudentManage
 from follow_students.views.student_edit import StudentEdit
 from follow_students.views.studentsRegister import StudentsRegister
 from follow_students.views.assignScholarship import AssignScholarship
-
-
+from follow_students.views.menuCancelation import MenuCancelation
+from follow_students.views.cancelationSection import CancelationSection
 
 urlpatterns = [
     # Here the paths are added
@@ -37,6 +37,7 @@ urlpatterns = [
     path('studentsRegister/', StudentsRegister.as_view()),
     path('assignScholarship/<str:code>/', AssignScholarship.as_view(), name='asignar_scholarship'),
     path('upload_dataCREA/', Upload_dataCREA.as_view(), name = "uploadCREA"),
-    path('upload_dataBU/', Upload_dataBU.as_view(), name = "uploadBU")
-
+    path('upload_dataBU/', Upload_dataBU.as_view(), name = "uploadBU"),
+    path('menuCancelation/', MenuCancelation.as_view(), name = "MenuC"),
+    path('cancelationSection/', CancelationSection.as_view(), name = "CancelationS")
 ]

@@ -62,6 +62,12 @@
 
                     {% endif %}
 
+                    {% if 'Cargar informacion DP' in request.session.permisos  %}
+
+                        <article class="d-flex align-items-center"><i class='bx bx-x position-absolute'></i><a class="text-decoration-none text-black py-2" href="/menuCancelation">Cancelacion Materias</a></article>
+
+                    {% endif %}
+
                     {% if 'Cargar informacion BU' in request.session.permisos  %}
 
                     <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-black py-2" href="/upload_dataBU">Cargar informacion</a></article>
