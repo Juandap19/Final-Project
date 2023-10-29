@@ -39,5 +39,6 @@ urlpatterns = [
     path('upload_dataCREA/', Upload_dataCREA.as_view(), name = "uploadCREA"),
     path('upload_dataBU/', Upload_dataBU.as_view(), name = "uploadBU"),
     path('menuCancelation/', MenuCancelation.as_view(), name = "MenuC"),
-    path('cancelationSection/', CancelationSection.as_view(), name = "CancelationS")
+    path('cancelationSection/', CancelationSection.as_view(), name = "CancelationS"),
+    path('menuCancelation/<int:code>/', MenuCancelation.as_view(), name="cancelation")
 ]

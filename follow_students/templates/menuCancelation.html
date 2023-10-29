@@ -36,7 +36,7 @@
                             <td>{{student.code}}</td>
                             <td>{{student.name}}</td>
                             <td>
-                                <form action="{%  url 'report' student.id %}" method="POST">
+                                <form action="{%  url 'cancelation' student.id %}" method="POST">
                                     {% csrf_token %}
                                     <button class="btn btn-success">
                                         Ver materias
@@ -50,9 +50,7 @@
             </table>
         </div>
         
-        <div class="d-flex justify-content-end">
-            <a href="/generateReport" class="btn btn-primary">Generar reporte</a>
-        </div>
+      
     </div>
 
     <script>
