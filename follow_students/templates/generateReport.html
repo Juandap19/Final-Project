@@ -32,12 +32,12 @@
                     {% for ide in ides %}
 
                         <tr>
-                            <td>{{ide.codigo}}</td>
-                            <td>{{ide.nombre}}</td>
+                            <td>{{ide.code}}</td>
+                            <td>{{ide.name}}</td>
                             <td>
                                 {% for grade in grades %}
 
-                                {% if ide.nombre == grade.estudiante.nombre%}
+                                {% if ide.name == grade.student.name%}
 
                                 <p>{{grade.curso.code}} : <b>{{grade.grade}}</b> </p>
 

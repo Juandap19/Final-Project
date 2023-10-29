@@ -25,16 +25,16 @@
         <div class="d-flex justify-content-center align-items-center h-75 mt-5">
             <div class="container-fluid w-75 h-100 p-3 d-flex flex-column gap-4 rounded" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
                 <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" required>
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="celular">Número de celular:</label>
-                    <input type="text" id="celular" name="celular" class="form-control" placeholder="Número de celular" required>
+                    <label for="phoneNumber">Número de celular:</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Número de celular" required>
                 </div>
                 <div class="form-group">
-                    <label for="fecha">Fecha de nacimiento:</label>
-                    <input type="date" id="fecha" name="fecha" class="form-control" placeholder="Fecha de nacimiento" required>
+                    <label for="date">Fecha de nacimiento:</label>
+                    <input type="date" id="date" name="date" class="form-control" placeholder="Fecha de nacimiento" required>
                 </div>
                 <div class="form-group">
                     <label for="icfes">Puntaje ICFES:</label>
@@ -45,19 +45,19 @@
                     <input type="text" id="cedula" name="cedula" class="form-control" placeholder="Cédula" required>
                 </div>
                 <div class="form-group">
-                    <label for="codigo">Código estudiantil:</label>
-                    <input type="text" id="codigo" name="codigo" class="form-control" placeholder="Código estudiantil" required>
+                    <label for="code">Código estudiantil:</label>
+                    <input type="text" id="code" name="code" class="form-control" placeholder="Código estudiantil" required>
                 </div>
                 <div class="form-group">
-                    <label for="correo">Correo electrónico:</label>
-                    <input type="email" id="correo" name="correo" class="form-control" placeholder="Correo electrónico" required>
+                    <label for="mail">Correo electrónico:</label>
+                    <input type="email" id="mail" name="mail" class="form-control" placeholder="Correo electrónico" required>
                 </div>
                 <div class="form-group">
                     <label for="major">Carrera:</label>
                     <select id="major" name="major" class="form-control" required>
                         <option value="" disabled selected>Selecciona una carrera</option>
                         {% for major_instance in majors %}
-                            <option value="{{ major_instance.id }}">{{ major_instance.nombre }}</option>
+                            <option value="{{ major_instance.id }}">{{ major_instance.name }}</option>
                         {% endfor %}
                     </select>
                 </div>                

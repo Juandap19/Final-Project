@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from follow_students.models import Estudiante,Nota
+from follow_students.models import Student,Nota
 
 
 
@@ -17,8 +17,8 @@ class GenerateReport(View):
             "ides": idesTemp
         })
         
-    def post(self, request ,  codigo):
-         student = get_object_or_404(Estudiante, pk=codigo)
+    def post(self, request ,  code):
+         student = get_object_or_404(Student, pk=code)
          if student not in self.ides:
             self.ides.append(student)
             

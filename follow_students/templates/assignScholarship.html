@@ -11,7 +11,7 @@
 <div class="alert alert-danger">{{ mensaje }}</div>
 {% endif %}
 
-<form method="post" action="{% url 'asignar_beca' codigo %}">
+<form method="post" action="{% url 'asignar_scholarship' code %}">
     {% csrf_token %}
     <div class="d-flex justify-content-center align-items-center h-75 mt-5">
         <div class="container-fluid w-75 h-100 p-3 d-flex flex-column gap-4 rounded" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
@@ -25,16 +25,16 @@
                     <th class="p-2">Est.asignados</th>
                     <th class="p-2">Acciones</th>
                 </tr>
-                {% for beca in becas %}
+                {% for scholarship in scholarships %}
                 <tr class="p-2">
-                    <td class="p-2">{{ beca.id }}</td>
-                    <td class="p-2">{{ beca.nombre }}</td>
-                    <td class="p-2">{{ beca.montos }}</td>
-                    <td class="p-2">{{ beca.donante }}</td>
-                    <td class="p-2">{{ beca.estudiantes_asignados }}</td>
+                    <td class="p-2">{{ scholarship.id }}</td>
+                    <td class="p-2">{{ scholarship.name }}</td>
+                    <td class="p-2">{{ scholarship.amount }}</td>
+                    <td class="p-2">{{ scholarship.donor }}</td>
+                    <td class="p-2">{{ scholarship.assigned_students }}</td>
                     <td class="p-2">
-                        <input type="checkbox" class="btn-check" id="beca_{{ beca.id }}" name="beca_id" value="{{ beca.id }}" autocomplete="off">
-                        <label class="btn btn-primary" for="beca_{{ beca.id }}">Asignar</label>
+                        <input type="checkbox" class="btn-check" id="scholarship_{{ scholarship.id }}" name="scholarship_id" value="{{ scholarship.id }}" autocomplete="off">
+                        <label class="btn btn-primary" for="scholarship_{{ scholarship.id }}">Asignar</label>
                     </td>
                 </tr>
                 {% endfor %}

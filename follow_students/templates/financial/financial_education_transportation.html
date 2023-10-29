@@ -70,8 +70,8 @@
             <div class="w-100 h-100 d-flex justify-content-between flex-column">
                 {%for beca_faltante in becas_faltantes%}
                     <td style="font-size: 14px;">{{beca_faltante.code}}</td>
-                    <td>{{beca_faltante.nombre}}</td>
-                    <td>{{beca_faltante.estudiantes_asignados}}</td>
+                    <td>{{beca_faltante.name}}</td>
+                    <td>{{beca_faltante.assigned_students}}</td>
                 {% endfor %}   
             </div>
 </body>

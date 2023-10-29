@@ -1,15 +1,15 @@
 from django.contrib import admin
 
-from .models import User, Nota, Estudiante, Curso, Donante, Montos, Major, Beca, Consulta, ActividadNoAcademica,RegistroActividadEstudiante, Gasto_beca, Rol, RolPermiso, Permiso
+from .models import User, Nota, Student, Curso, Donor, Amount, Major, Scholarship, Consulta, ActividadNoAcademica,RegistroActividadEstudiante, Gasto_beca, Rol, RolPermiso, Permiso
 
 admin.site.register(User)
 admin.site.register(Nota)
-admin.site.register(Estudiante)
+admin.site.register(Student)
 admin.site.register(Curso)
-admin.site.register(Donante)
-admin.site.register(Montos)
+admin.site.register(Donor)
+admin.site.register(Amount)
 admin.site.register(Major)
-admin.site.register(Beca)
+admin.site.register(Scholarship)
 admin.site.register(Consulta)
 admin.site.register(ActividadNoAcademica)
 admin.site.register(RegistroActividadEstudiante)

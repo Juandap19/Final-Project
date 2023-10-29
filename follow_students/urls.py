@@ -15,8 +15,8 @@ from follow_students.views.generateReport import GenerateReport
 from follow_students.views.upload_dataPD import Upload_dataPD
 from follow_students.views.student_manage import StudentManage
 from follow_students.views.student_edit import StudentEdit
-from follow_students.views.registroEstudiantes import RegistroEstudiantes
-from follow_students.views.asignarBeca import AsignarBeca
+from follow_students.views.studentsRegister import StudentsRegister
+from follow_students.views.assignScholarship import AssignScholarship
 
 
 
@@ -29,13 +29,13 @@ urlpatterns = [
     path('requestupd', RequestUpd.as_view(), name = "requestUpdate"),
     path('dashboard/', Dashboard.as_view()),
     path('menuReport/', MenuReport.as_view(), name="menuR"),
-    path('generateReport/<int:codigo>/', GenerateReport.as_view(), name="report"),
+    path('generateReport/<int:code>/', GenerateReport.as_view(), name="report"),
     path('generateReport/', GenerateReport.as_view(), name="generateR"),
     path('upload_dataPD/', Upload_dataPD.as_view(), name = "uploadPD"),
     path('studentManage/', StudentManage.as_view(), name = "studentManage"),
     path('studentManage/studentEdit/<int:pk>/', StudentEdit.as_view(), name = "studentEdit"),
-    path('registroEstudiantes/', RegistroEstudiantes.as_view()),
-    path('asignarBeca/<str:codigo>/', AsignarBeca.as_view(), name='asignar_beca'),
+    path('studentsRegister/', StudentsRegister.as_view()),
+    path('assignScholarship/<str:code>/', AssignScholarship.as_view(), name='asignar_scholarship'),
     path('upload_dataCREA/', Upload_dataCREA.as_view(), name = "uploadCREA"),
     path('upload_dataBU/', Upload_dataBU.as_view(), name = "uploadBU")
 

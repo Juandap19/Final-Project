@@ -2,7 +2,7 @@ import pandas as pd
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from follow_students.forms.upload_dataPD_form import UploadFileForm  
-from follow_students.models import Nota,Estudiante,Curso
+from follow_students.models import Nota,Student,Curso
 from django.contrib import messages
 from django.views import View
 
@@ -11,7 +11,7 @@ from django.views import View
 class Upload_dataPD(View):
     def get(self, request):
         form = UploadFileForm()
-        notas = Nota.objects.all().order_by('estudiante') 
+        notas = Nota.objects.all().order_by('student') 
         return render(request, 'upload_dataPD.html', {
             'form': form,
             'notas': notas})
@@ -26,16 +26,16 @@ class Upload_dataPD(View):
                     curso, created = Curso.objects.get_or_create(code=sheet_name)
                     for index, row in df.iterrows():
                         try:
-                            estudiante = Estudiante.objects.get(codigo=row['Codigo'])
+                            student = Student.objects.get(code=row['code'])
                             nota, created = Nota.objects.get_or_create(
-                                estudiante=estudiante,
+                                student=student,
                                 curso=curso,
                                 defaults={'grade': row['NotaCurso']}
                             )
                             if not created:
                                 nota.grade = row['NotaCurso']
                                 nota.save()
-                        except Estudiante.DoesNotExist:
+                        except Student.DoesNotExist:
                             continue
                         except Exception as e:                        
                             messages.error(request, f'Hubo un error al cargar el archivo')
@@ -44,7 +44,7 @@ class Upload_dataPD(View):
                 return HttpResponseRedirect(request.path)
         else:
             form = UploadFileForm()
-            notas = Nota.objects.all().order_by('estudiante') 
+            notas = Nota.objects.all().order_by('student') 
             return render(request, 'upload_dataPD.html', {
                 'form': form,
                 'notas': notas})

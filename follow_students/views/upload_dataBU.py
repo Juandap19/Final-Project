@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views import View
-from follow_students.models import Estudiante, RegistroActividadEstudiante
+from follow_students.models import Student, RegistroActividadEstudiante
 from follow_students.forms.upload_dataBU import  RegistroActividad
 from django.contrib import messages
 
@@ -16,13 +16,13 @@ class Upload_dataBU(View):
     def post(self, request):
         form = RegistroActividad(request.POST)
         if form.is_valid():
-            codigo_estudiante = form.cleaned_data.get('codigo_estudiante')
+            codigo_student = form.cleaned_data.get('codigo_student')
             try:
-                estudiante = Estudiante.objects.get(codigo=codigo_estudiante)
+                student = Student.objects.get(code=codigo_student)
                 actividad = form.cleaned_data.get('actividad')
                 dias_asistencia = form.cleaned_data.get('dias_asistencia')
                 registro, created = RegistroActividadEstudiante.objects.update_or_create(
-                    estudiante=estudiante, 
+                    student=student, 
                     actividad=actividad, 
                     defaults={'dias_asistencia': dias_asistencia},
                 )
@@ -32,7 +32,7 @@ class Upload_dataBU(View):
                 else:
                     messages.success(request, 'Registro de actividad actualizado exitosamente.')
                     return HttpResponseRedirect(request.path)
-            except Estudiante.DoesNotExist:
+            except Student.DoesNotExist:
                 messages.error(request, 'Este estudiante no existe.')
                 form = RegistroActividad()
                 activities = RegistroActividadEstudiante.objects.all()
