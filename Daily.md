@@ -201,7 +201,7 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-|Juan Felipe Madrid|---| --- |---|
+|Juan Felipe Madrid|Nada | Ninguno |Nada|
 |Juan David Patiño|---| --- |---|
 |Daniel Montezuma |Nada| Nada |Iniciar HTML de evaluación de metas|
 |Darwin|Nada| Ninguno |Investigar posibles soluciones|
@@ -221,7 +221,7 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-|Juan Felipe Madrid| Reunión con el equipo| Ninguno |---|
+|Juan Felipe Madrid| Reunión con el equipo| Ninguno |Nada|
 |Juan David Patiño| Reunión con el equipo| Ninguno |---|
 |Daniel Montezuma | Reunión con el equipo| Nada |Continuar HTML de evaluación de metas|
 |Darwin| Reunión con el equipo| Ninguno |---|
@@ -231,7 +231,7 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-|Juan Felipe Madrid| Nada | Ninguno |---|
+|Juan Felipe Madrid| Nada | Ninguno |Inicio de realizacion de codigo para cancelacion de materias,ademas de realizar el ajuste del codigo por la traduccion realizada|
 |Juan David Patiño| Nada | Ninguno |---|
 |Daniel Montezuma | Continuar HTML de evaluación de metas | Ninguno |Traduccion de codigo sprint 1|
 |Darwin| Nada  |Ninguno |---|
