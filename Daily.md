@@ -234,5 +234,5 @@
 |Juan Felipe Madrid| Nada | Ninguno |---|
 |Juan David Patiño| Nada | Ninguno |---|
 |Daniel Montezuma | Continuar HTML de evaluación de metas | Ninguno |Traduccion de codigo sprint 1|
-|Darwin| Nada  |Investigar posibles soluciones|---|
+|Darwin| Nada  |Ninguno |---|
 |Diego Zuñiga | Nada | Ninguno |---|
