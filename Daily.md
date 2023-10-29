@@ -226,3 +226,13 @@
 |Daniel Montezuma | Reunión con el equipo| Nada |Continuar HTML de evaluación de metas|
 |Darwin| Reunión con el equipo| Ninguno |---|
 |Diego Zuñiga | Reunión con el equipo| Ninguno |---|
+
+## Fecha 29/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+|Juan Felipe Madrid| Nada | Ninguno |---|
+|Juan David Patiño| Nada | Ninguno |---|
+|Daniel Montezuma | Continuar HTML de evaluación de metas | Ninguno |Traduccion de codigo sprint 1|
+|Darwin| Nada Ninguno |---|
+|Diego Zuñiga | Nada | Ninguno |---|
