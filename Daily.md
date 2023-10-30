@@ -202,7 +202,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 |Juan Felipe Madrid|Nada | Ninguno |Nada|
-|Juan David Patiño|---| --- |---|
+|Juan David Patiño| Nada |  Ninguno | Iniciando con el UX & UI de apoyo financiero|
 |Daniel Montezuma |Nada| Nada |Iniciar HTML de evaluación de metas|
 |Darwin|Nada| Ninguno |Investigar posibles soluciones|
 |Diego Zuñiga |---| --- |---|
@@ -212,7 +212,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 |Juan Felipe Madrid|Nada| Ninguna | Reunión con el equipo|
-|Juan David Patiño| Nada | Ninguno | Reunión con el equipo |
+|Juan David Patiño| Iniciando con el UX & UI de apoyo financiero | Errores desconocidos | Reunión con el equipo |
 |Daniel Montezuma |Iniciar HTML de evaluación de metas| Ninguno | Reunión con el equipo |
 |Darwin| Investigar posibles soluciones | Ninguno | Reunión con el equipo |
 |Diego Zuñiga |Nada| Ninguno | Reunión con el equipo |
@@ -222,7 +222,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 |Juan Felipe Madrid| Reunión con el equipo| Ninguno |Nada|
-|Juan David Patiño| Reunión con el equipo| Ninguno |---|
+|Juan David Patiño| Reunión con el equipo| Ninguno | Continuar con el UI & UX de apoyo financiero|
 |Daniel Montezuma | Reunión con el equipo| Nada |Continuar HTML de evaluación de metas|
 |Darwin| Reunión con el equipo| Ninguno |---|
 |Diego Zuñiga | Reunión con el equipo| Ninguno |---|
@@ -232,7 +232,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 |Juan Felipe Madrid| Nada | Ninguno |Inicio de realizacion de codigo para cancelacion de materias,ademas de realizar el ajuste del codigo por la traduccion realizada|
-|Juan David Patiño| Nada | Ninguno |---|
+|Juan David Patiño| Continuar con el UI & UX de apoyo financiero | Ninguno | Continuar con el UI & UX de apoyo financiero, ademas de traducir el codigo del sprint 1 |
 |Daniel Montezuma | Continuar HTML de evaluación de metas | Ninguno |Traduccion de codigo sprint 1|
 |Darwin| Nada  |Ninguno |---|
 |Diego Zuñiga | Nada | Ninguno |---|
