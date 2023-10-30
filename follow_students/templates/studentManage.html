@@ -34,7 +34,33 @@
                             <td style="font-size: 14px;">{{ s.date }}</td>
                             <td style="font-size: 14px;">{{ s.icfes }}</td>
                             <td style="font-size: 14px;">...</td>
-                            <td style="font-size: 14px;">...</td>
+                            <td style="font-size: 14px;"> <style>
+                                .dropdown {
+                                    position: relative;
+                                    display: inline-block;
+                                }
+                        
+                                .dropdown-content {
+                                    display: none;
+                                    position: absolute;
+                                    background-color: #f1f1f1;
+                                    min-width: 160px;
+                                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                    padding: 12px;
+                                    z-index: 1;
+                                }
+                        
+                                .dropdown:hover .dropdown-content {
+                                    display: block;
+                                }
+                            </style>
+                        </head>
+                            <div class="dropdown">
+                                <button>Mostrar Mensaje</button>
+                                <div class="dropdown-content">
+                                    Sin metas por realizar
+                                </div>
+                            </div></td>
                             <td>
                                 <div class="d-flex gap-1">
                                     <button type="submit" class="btn btn-primary" onclick="editStudent('{{ s.id }}')">

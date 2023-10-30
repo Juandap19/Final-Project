@@ -26,7 +26,7 @@ class Upload_dataPD(View):
                     curso, created = Curso.objects.get_or_create(code=sheet_name)
                     for index, row in df.iterrows():
                         try:
-                            student = Student.objects.get(code=row['code'])
+                            student = Student.objects.get(code=row['Codigo'])
                             nota, created = Nota.objects.get_or_create(
                                 student=student,
                                 curso=curso,
