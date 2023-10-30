@@ -224,7 +224,7 @@
 |Juan Felipe Madrid| Reunión con el equipo| Ninguno |Nada|
 |Juan David Patiño| Reunión con el equipo| Ninguno | Continuar con el UI & UX de apoyo financiero|
 |Daniel Montezuma | Reunión con el equipo| Nada |Continuar HTML de evaluación de metas|
-|Darwin| Reunión con el equipo| Ninguno |---|
+|Darwin| Reunión con el equipo| Ninguno | Posibles soluciones para reporte de CREA|
 |Diego Zuñiga | Reunión con el equipo| Ninguno |---|
 
 ## Fecha 29/10/23
@@ -234,7 +234,7 @@
 |Juan Felipe Madrid| Nada | Ninguno |Inicio de realizacion de codigo para cancelacion de materias,ademas de realizar el ajuste del codigo por la traduccion realizada|
 |Juan David Patiño| Continuar con el UI & UX de apoyo financiero | Ninguno | Continuar con el UI & UX de apoyo financiero, ademas de traducir el codigo del sprint 1 |
 |Daniel Montezuma | Continuar HTML de evaluación de metas | Ninguno |Traduccion de codigo sprint 1|
-|Darwin| Nada  |Ninguno |---|
+|Darwin| Posibles soluciones para reporte de CREA  |Ninguno | Nada |
 |Diego Zuñiga | Nada | Ninguno |---|
 
 ## Fecha 30/10/23
@@ -243,7 +243,7 @@
 | Juan Felipe Madrid |---|---|---|
 | Juan David Patiño | Continuar con el UI & UX de apoyo financiero, ademas de traducir el codigo del sprint 1  | Muchos errores en la parte de traducción del codigo | Arreglar errores de traducción y continuar con las pantallas de apoyo financiero|
 | Daniel Montezuma |---|---|---|
-| Darwin |---|---|---|
+| Darwin | Nada| Ninguno | Inicio de codigo para reporte CREA|
 | Diego Zuñiga |---|---|---|
 
 
