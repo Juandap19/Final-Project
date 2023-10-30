@@ -236,3 +236,15 @@
 |Daniel Montezuma | Continuar HTML de evaluación de metas | Ninguno |Traduccion de codigo sprint 1|
 |Darwin| Nada  |Ninguno |---|
 |Diego Zuñiga | Nada | Ninguno |---|
+
+## Fecha 30/10/23
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid |---|---|---|
+| Juan David Patiño | Continuar con el UI & UX de apoyo financiero, ademas de traducir el codigo del sprint 1  | Muchos errores en la parte de traducción del codigo | Arreglar errores de traducción y continuar con las pantallas de apoyo financiero|
+| Daniel Montezuma |---|---|---|
+| Darwin |---|---|---|
+| Diego Zuñiga |---|---|---|
+
+
+
