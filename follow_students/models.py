@@ -51,9 +51,9 @@ class Donor(models.Model):
 
 class Amount(models.Model):
     code = models.CharField(max_length=20, unique=True, default = "23")
-    transporte = models.IntegerField()
-    alimentacion = models.IntegerField()
-    academico = models.IntegerField()
+    transport = models.IntegerField()
+    alimentation = models.IntegerField()
+    academic = models.IntegerField()
 
     def __str__(self):
          text ="{}".format(self.code)
@@ -65,8 +65,8 @@ class Scholarship(models.Model):
     amount = models.ForeignKey(Amount, on_delete=models.CASCADE)
     donor = models.ForeignKey(Donor, on_delete=models.CASCADE)
     assigned_students = models.PositiveIntegerField(default=0)
-    porcentaje_academico = models.IntegerField(default = 70)
-    auxilio_transporte = models.IntegerField(default = 1000000)
+    academic_percentage = models.IntegerField(default = 70)
+    transportation= models.IntegerField(default = 1000000)
 
     def __str__(self):
         return self.name
