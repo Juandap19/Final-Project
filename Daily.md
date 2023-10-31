@@ -240,7 +240,7 @@
 ## Fecha 30/10/23
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-| Juan Felipe Madrid |---|---|---|
+| Juan Felipe Madrid |Inicio de realizacion de codigo para cancelacion de materias,ademas de realizar el ajuste del codigo por la traduccion realizada|Tengo Bastantes responsabilidades en otras cursos|Implementacion de los metodods post y ajuste de html para la cancelacion de cursos|
 | Juan David Patiño | Continuar con el UI & UX de apoyo financiero, ademas de traducir el codigo del sprint 1  | Muchos errores en la parte de traducción del codigo | Arreglar errores de traducción y continuar con las pantallas de apoyo financiero|
 | Daniel Montezuma | Traduccion de codigo sprint 1 |Nignuno| Creacion de nueva pantalla para evaluacion de metas|
 | Darwin | Nada| Ninguno | Inicio de codigo para reporte CREA|
