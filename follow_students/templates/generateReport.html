@@ -1,7 +1,6 @@
 {% extends 'layouts/navbar_sidebar.html' %}
 
 {% block main_content %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,43 +9,48 @@
     <title>Document</title>
 </head>
 <body>
-
-   
-
     <h3>REPORTE</h3>
-    
 
     <div class="mx-auto w-75 h-75 mt-5" style="background-color: #FFF; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
-
-
         <div class="table-responsive w-100 p-3" style="height: 90%;">
-            <table  id="tableStudents" class="table w-100 mt-4">
+            <table id="tableStudents" class="table w-100 mt-4">
                 <thead class="table-secondary">
                     <tr class="align-middle">
                         <th>Codigo</th>
                         <th>Nombre</th>
-                        <th>Materias</th>
+                        <th>Notas</th>
+                        <th>Consultas</th>
+                        <th>Actividades no académicas</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for ide in ides %}
-
                         <tr>
-                            <td>{{ide.code}}</td>
-                            <td>{{ide.name}}</td>
+                            <td>{{ ide.code }}</td>
+                            <td>{{ ide.name }}</td>
                             <td>
                                 {% for grade in grades %}
-
-                                {% if ide.name == grade.student.name%}
-
-                                <p>{{grade.curso.code}} : <b>{{grade.grade}}</b> </p>
-
-                                {% endif %}
-
+                                    {% if ide.name == grade.student.name %}
+                                        <p>{{ grade.curso.code }} : <b>{{ grade.grade }}</b></p>
+                                    {% endif %}
                                 {% endfor %}
                             </td>
+                            <td>
+                                {% for consulta in consultas %}
+                                    {% if ide.name == consulta.student.name %}
+                                        <p>Centro de apoyo: {{ consulta.support_center }} </p>
+                                        <p>Fecha: {{ consulta.fecha }}</p>
+                                        <p>Hora: {{ consulta.hora }}</p>
+                                        <p>Motivo: {{ consulta.motivo }}</p>
+                                        <p>Resultado: {{ consulta.resultado }}</p>
+                                        <hr> 
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td><!-- Columna para actividades no académicas --></td>
+                            <td><button class="btn btn-primary">Acción</button></td>
                         </tr>
-
                     {% endfor %}
                 </tbody>
             </table>
@@ -60,9 +64,6 @@
             }
         });
     </script>
-
 </body>
 </html>
-
-
 {% endblock %}

@@ -44,6 +44,7 @@
                         <table cellspacing="10" class="table bg-secondary bg-opacity-25 rounded" style="border-collapse: separate; border-spacing: 1rem 10px;">
                             <tr>
                                 <th>Estudiante</th>
+                                <th>Centro de apoyo</th>
                                 <th>Fecha</th>
                                 <th>Hora</th>
                                 <th>Motivo</th>
@@ -53,6 +54,7 @@
                             {% for consulta in consultas %}
                                 <tr class="student">
                                     <td class="student-code">{{ consulta.student }}</td>
+                                    <td>{{ consulta.support_center }}</td>
                                     <td>{{ consulta.fecha }}</td>
                                     <td>{{ consulta.hora }}</td>
                                     <td>{{ consulta.motivo }}</td>

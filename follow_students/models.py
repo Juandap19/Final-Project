@@ -108,8 +108,15 @@ class Gasto_beca(models.Model):
         text = self.student.code
         return text
 
+class SupportCenter(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
+    
 class Consulta(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    support_center = models.ForeignKey(SupportCenter, on_delete=models.CASCADE)
     fecha = models.DateField()
     hora = models.TimeField()
     motivo = models.TextField()

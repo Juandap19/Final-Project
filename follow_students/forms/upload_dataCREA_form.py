@@ -1,7 +1,9 @@
 from django import forms
+from follow_students.models import SupportCenter
 
 class RegistroConsulta(forms.Form):
     codigo_student = forms.CharField(max_length=10)
+    support_center = forms.ModelChoiceField(queryset=SupportCenter.objects.all())
     fecha = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     hora = forms.TimeField(widget=forms.TimeInput(attrs={'type': 'time'}))
     motivo = forms.CharField(
