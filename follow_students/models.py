@@ -87,26 +87,27 @@ class Student(models.Model):
     def __str__(self):
         return self.name
       
-class Gasto_beca(models.Model):
+class Scholarship_expense(models.Model):
     student = models.ForeignKey(Student, null=True, on_delete= models.CASCADE, unique = False)
     scholarship = models.ForeignKey(Scholarship, null = True, on_delete= models.CASCADE, unique = False)
-    cantidad_dinero = models.FloatField()
-    tiempo_acumulado = models.IntegerField()
+    money_quantity = models.FloatField()
+    accumulated_time = models.IntegerField()
     class Time_way(models.TextChoices):
         DIAS = "1", "Dias"
         MES = "2", "Mes"
         ANIO = "3", "Año"
 
-    tiempo_seleccionado = models.CharField(
+    selected_time = models.CharField(
         max_length = 2,
         choices = Time_way.choices,
         default = Time_way.DIAS 
     )
-    tipo = models.CharField(max_length = 20, unique = False)
+    type_mount = models.CharField(max_length = 20, unique = False)
 
     def __str__(self):
-        text = self.student.code
+        text = self.estudiante.codigo
         return text
+
 
 class Consulta(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
