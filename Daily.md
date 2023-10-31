@@ -242,9 +242,7 @@
 |---|---|---|---|
 | Juan Felipe Madrid |---|---|---|
 | Juan David Patiño | Continuar con el UI & UX de apoyo financiero, ademas de traducir el codigo del sprint 1  | Muchos errores en la parte de traducción del codigo | Arreglar errores de traducción y continuar con las pantallas de apoyo financiero|
-| Daniel Montezuma |---|---|---|
+| Daniel Montezuma | Traduccion de codigo sprint 1 |Nignuno| Creacion de nueva pantalla para evaluacion de metas|
 | Darwin | Nada| Ninguno | Inicio de codigo para reporte CREA|
 | Diego Zuñiga |---|---|---|
-
-
 
