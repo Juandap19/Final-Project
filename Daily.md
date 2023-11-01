@@ -249,7 +249,7 @@
 ## Fecha 31/10/23
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-| Juan Felipe Madrid |  |  |  |
+| Juan Felipe Madrid |Implementacion de los metodods post y ajuste de html para la cancelacion de cursos  |problemas con la parte del diseño de las pantallas |Finalizacion de la parte funcional del codigo para cancelar materias y generar notificaciones  |
 | Juan David Patiño | Arreglar errores de traducción y continuar con las pantallas de apoyo financiero| La creación de una ventana emergente unica por cada botón esta llevando complicaciones | Solucionar bugs de compilacion de las ventanas emergentes |
 | Daniel Montezuma | |  |  |
 | Darwin | Inicio de codigo para reporte CREA | Ninguno | Funcionalidad de reporte CREA terminada |
