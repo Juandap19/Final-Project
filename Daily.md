@@ -252,5 +252,5 @@
 | Juan Felipe Madrid |  |  |  |
 | Juan David Patiño | Arreglar errores de traducción y continuar con las pantallas de apoyo financiero| La creación de una ventana emergente unica por cada botón esta llevando complicaciones | Solucionar bugs de compilacion de las ventanas emergentes |
 | Daniel Montezuma | |  |  |
-| Darwin |  |  |  |
+| Darwin | Inicio de codigo para reporte CREA | Ninguno | Funcionalidad de reporte CREA terminada |
 | Diego Zuñiga |  |  |  |
