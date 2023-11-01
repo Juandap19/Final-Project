@@ -246,3 +246,11 @@
 | Darwin | Nada| Ninguno | Inicio de codigo para reporte CREA|
 | Diego Zuñiga |Nada | Ninguno | Arreglar algunos estilos de la app |
 
+## Fecha 31/10/23
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid |  |  |  |
+| Juan David Patiño | Arreglar errores de traducción y continuar con las pantallas de apoyo financiero| La creación de una ventana emergente unica por cada botón esta llevando complicaciones | Solucionar bugs de compilacion de las ventanas emergentes |
+| Daniel Montezuma | |  |  |
+| Darwin |  |  |  |
+| Diego Zuñiga |  |  |  |
