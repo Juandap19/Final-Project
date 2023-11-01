@@ -253,4 +253,4 @@
 | Juan David Patiño | Arreglar errores de traducción y continuar con las pantallas de apoyo financiero| La creación de una ventana emergente unica por cada botón esta llevando complicaciones | Solucionar bugs de compilacion de las ventanas emergentes |
 | Daniel Montezuma | Creacion de nueva pantalla para evaluacion de metas | Ninguno | Continuar trabajando en el requerimiento de evaluacion de metas |
 | Darwin | Inicio de codigo para reporte CREA | Ninguno | Funcionalidad de reporte CREA terminada |
-| Diego Zuñiga |  |  |  |
+| Diego Zuñiga | Arreglar algunos estilos de la app | Ninguno | Empezar funcionalidad de reporte BU |
