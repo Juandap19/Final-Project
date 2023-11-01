@@ -251,6 +251,6 @@
 |---|---|---|---|
 | Juan Felipe Madrid |Implementacion de los metodods post y ajuste de html para la cancelacion de cursos  |problemas con la parte del diseño de las pantallas |Finalizacion de la parte funcional del codigo para cancelar materias y generar notificaciones  |
 | Juan David Patiño | Arreglar errores de traducción y continuar con las pantallas de apoyo financiero| La creación de una ventana emergente unica por cada botón esta llevando complicaciones | Solucionar bugs de compilacion de las ventanas emergentes |
-| Daniel Montezuma | |  |  |
+| Daniel Montezuma | Creacion de nueva pantalla para evaluacion de metas | Ninguno | Continuar trabajando en el requerimiento de evaluacion de metas |
 | Darwin | Inicio de codigo para reporte CREA | Ninguno | Funcionalidad de reporte CREA terminada |
 | Diego Zuñiga |  |  |  |
