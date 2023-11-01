@@ -49,7 +49,7 @@ class FinancialAcademic(View):
              if student_pivot.aux_academic == "0":
                 if student_pivot.scholarship not in missing_scholarship:
                     missing_scholarship.append(student_pivot.scholarship)
-         return render(request, './financial/financial_education_transportation.html', {
+         return render(request, './financial_education_transportation.html', {
             'form': FinancialTranspAcademicForm(),
             'error': False,
             'main_title': "Pago Académico",
@@ -109,7 +109,7 @@ class FinancialAcademic(View):
                             expense = Scholarship_expense.objects.create( student = student_pivot, scholarship = scholarship, money_quantity = major_to_add, accumulated_time =  6, selected_time = "Meses", type_mount = 'Académico')  #Create a expense to One particular Student and save it
                             expense.save()
                         else:
-                            scholarship.montos.save()
+                            scholarship.amount.save()
                             flag = False
                             its_missing += 1 
                     else:

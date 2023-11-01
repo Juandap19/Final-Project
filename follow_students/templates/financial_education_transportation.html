@@ -67,13 +67,26 @@
         <div class="container-fluid w-50 h-100 p-2 rounded" style="background-color: #fff; box-shadow: 0 0 15px rgba(0, 0, 0, .5);">
             <h2>Becas por pagar</h2>
             <hr>
-            <div class="w-100 h-100 d-flex justify-content-between flex-column">
+            <div class="w-100 h-100 d-flex justify-content-between flex-column" style= "overflow-y: scroll; max-height: 16em;">
                 {%for beca_faltante in becas_faltantes%}
-                    <td style="font-size: 14px;">{{beca_faltante.code}}</td>
-                    <td>{{beca_faltante.name}}</td>
-                    <td>{{beca_faltante.assigned_students}}</td>
+                    <button class="bg-light mx-3 my-0" style="border-color: rgb(0, 0, 0) ;">
+                        <div class="d-flex text-center ">
+                            <img src="../static/images/favicon_ICESI.png" alt="campito" style="width: 4em; height: 4em; border-radius: 30%; margin: 5px;">
+                             <td class="">{{beca_faltante.name}}</td>
+                        </div>
+                    </button>
                 {% endfor %}   
             </div>
+            <!-- <style>
+                #div_style{
+                    width: 100px;
+                    height: 100px;
+                    display: flex;
+                    justify-content: space-between;
+                    flex: column;
+                    
+                }
+            </style> -->
 </body>
 </html>
 {% endblock %}
