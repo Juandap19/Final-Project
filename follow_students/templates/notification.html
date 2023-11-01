@@ -1,0 +1,47 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+{% block main_content %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+</head>
+
+<body>
+
+    <h1>Notificaciones</h1>
+
+    <p> <br></p>
+
+    <ul>
+
+        {% for notification in notifications %}
+           {% if notification.state %}
+    
+              {{ notification.description }}
+                 <p> ----------------------------</p>
+            {% endif %}
+       
+        {% endfor %}
+
+        <form action="{%  url 'clean' %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-success">
+            Vaciar bandeja
+            </button></b> </p>
+         </form>
+    </ul>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+{% endblock %}

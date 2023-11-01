@@ -1,6 +1,3 @@
-{% extends 'layouts/navbar_sidebar.html' %}
-
-{% block main_content %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,59 +7,40 @@
     <title>Document</title>
 </head>
 <body>
+    <p>asdadad</p>
 
-   
+        <ul>
 
-    <h3>Cancelacion Materias</h3>
+         {% for ide in ides %}
+
+         <p>{{ide.name}}
+
+            {% for grade in grades %}
     
+                {% if ide.name == grade.student.name%}
+    
+                    {% if grade.state %}
+    
+                       <p>{{grade.curso.code}}</p>
+    
+                        <form action="{%  url 'cancelation' grade.id %}" method="POST">
+                           {% csrf_token %}
+                           <button class="btn btn-success">
+                           Cancelar
+                           </button></b> </p>
+                        </form>
+    
+                    {% endif %}
+    
+                {% endif %}
+    
+             {% endfor %}
+ 
+         {% endfor %}
+       
+         <a href="/menuCancelation" class="btn btn-primary">Volver</a>
 
-    <div class="mx-auto w-75 h-75 mt-5" style="background-color: #FFF; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
-
-
-        <div class="table-responsive w-100 p-3" style="height: 90%;">
-            <table  id="tableStudents" class="table w-100 mt-4">
-                <thead class="table-secondary">
-                    <tr class="align-middle">
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Materias</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for ide in ides %}
-
-                        <tr>
-                            <td>{{ide.code}}</td>
-                            <td>{{ide.name}}</td>
-                            <td>
-                                {% for grade in grades %}
-
-                                {% if ide.name == grade.student.name%}
-
-                                <p>{{grade.curso.code}} : <b>{{grade.grade}}</b> </p>
-
-                                {% endif %}
-
-                                {% endfor %}
-                            </td>
-                        </tr>
-
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <script>
-        let tableStudents = $('#tableStudents').DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-            }
-        });
-    </script>
+         </ul>
 
 </body>
 </html>
-
-
-{% endblock %}

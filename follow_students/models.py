@@ -120,11 +120,15 @@ class Consulta(models.Model):
 
 class Nota(models.Model):
     grade = models.FloatField()
+    state= models.BooleanField(default=True)
     curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     
+    
     def __str__(self):
         return self.student.code
+
+
 
 class ActividadNoAcademica(models.Model):
     nombre = models.CharField(max_length=100)
@@ -141,3 +145,12 @@ class RegistroActividadEstudiante(models.Model):
         return f'Registro de {self.student.nombre} en {self.actividad.nombre}'
 
 
+class Notification(models.Model):
+     name=models.TextField(default="Notificacion")
+     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+     description=models.TextField()
+     state= models.BooleanField(default=True)
+     
+     def __str__(self):
+        name=self.name
+        return name

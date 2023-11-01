@@ -19,6 +19,7 @@ from follow_students.views.studentsRegister import StudentsRegister
 from follow_students.views.assignScholarship import AssignScholarship
 from follow_students.views.menuCancelation import MenuCancelation
 from follow_students.views.cancelationSection import CancelationSection
+from follow_students.views.notification import Notifications
 
 urlpatterns = [
     # Here the paths are added
@@ -40,5 +41,8 @@ urlpatterns = [
     path('upload_dataBU/', Upload_dataBU.as_view(), name = "uploadBU"),
     path('menuCancelation/', MenuCancelation.as_view(), name = "MenuC"),
     path('cancelationSection/', CancelationSection.as_view(), name = "CancelationS"),
-    path('menuCancelation/<int:code>/', MenuCancelation.as_view(), name="cancelation")
+    path('menuCancelation/<int:code>/', MenuCancelation.as_view(), name="section"),
+    path('cancelationSection/<int:code>/', CancelationSection.as_view(), name="cancelation"),
+    path('notification/', Notifications.as_view(), name = "notis"),
+    path('notification/', Notifications.as_view(), name = "clean")
 ]

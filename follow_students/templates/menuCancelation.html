@@ -36,7 +36,7 @@
                             <td>{{student.code}}</td>
                             <td>{{student.name}}</td>
                             <td>
-                                <form action="{%  url 'cancelation' student.id %}" method="POST">
+                                <form action="{%  url 'section' student.id %}" method="POST">
                                     {% csrf_token %}
                                     <button class="btn btn-success">
                                         Ver materias
