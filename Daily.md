@@ -255,7 +255,7 @@
 | Darwin | Inicio de codigo para reporte CREA | Ninguno | Funcionalidad de reporte CREA terminada |
 | Diego Zuñiga | Arreglar algunos estilos de la app | Ninguno | Empezar funcionalidad de reporte BU |
 
-## Fecha 1/10/23
+## Fecha 1/11/23
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
@@ -265,7 +265,7 @@
 | Darwin | Funcionalidad de reporte CREA terminada | Ninguno | Reunion con el grupo|
 | Diego Zuñiga |  Empezar funcionalidad de reporte BU  | Ninguno |Reunion con el grupo|
 
-## Fecha 2/10/23
+## Fecha 2/11/23
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
