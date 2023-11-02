@@ -69,24 +69,100 @@
             <hr>
             <div class="w-100 h-100 d-flex justify-content-between flex-column" style= "overflow-y: scroll; max-height: 16em;">
                 {%for beca_faltante in becas_faltantes%}
-                    <button class="bg-light mx-3 my-0" style="border-color: rgb(0, 0, 0) ;">
+                    <button id = "btn-scholarship-open-{{beca_faltante.id}}" class="bg-light mx-3 my-0 mb-2" style="border-color: rgb(156, 150, 150) ;">
                         <div class="d-flex text-center ">
-                            <img src="../static/images/favicon_ICESI.png" alt="campito" style="width: 4em; height: 4em; border-radius: 30%; margin: 5px;">
-                             <td class="">{{beca_faltante.name}}</td>
+                            <img src="../static/images/{{beca_faltante.image}}" alt="campito" style="width: 4em; height: 4em; border-radius: 30%; margin: 5px;">
+                            <td class="">{{beca_faltante.code}}</td>
+                            <td class="">{{beca_faltante.name}}</td>
+                            <td>{{beca_faltante.image}}</td>
+                            <img src="" alt="">
                         </div>
                     </button>
+
+                    <dialog  id = "modal-{{beca_faltante.id}}">
+                        <img src="../static/images/{{beca_faltante.image}}" alt="Beca_imagen">
+                        <h2>{{beca_faltante.name}}</h2>
+                         <table>
+                            <tr>
+                                <th>
+                                    Codigo Beca
+                                </th>
+                                <th>
+                                    Porcentaje Beca
+                                </th>
+                                <th>
+                                    Auxilio transporte
+                                </th>
+                                <th>
+                                    Estudiantes Asignados
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    {{beca_faltante.code}}
+                                </th>
+                                <th>
+                                    {{beca_faltante.academic_percentage}}
+                                </th>
+                                <th>
+                                    {{beca_faltante.transportation}}
+                                </th>
+                                <th>
+                                    {{beca_faltante.assigned_students}}
+                                </th>
+                            </tr>
+                         </table>
+
+                         <input class = "scholarship_code-{{beca_faltante.code}}" id = "scholarship_code" value = "asdfas">adad
+                        </input>
+                            <button  class="btn btn-success" id="btn-scholarship-pagar-{{ beca_faltante.id }}">
+                                Pagar
+                            </button>
+
+                        <form method="POST" id = "form-{{beca_faltante.id}}">
+                            {% csrf_token %}
+                        </form>
+
+                    </dialog>
                 {% endfor %}   
             </div>
-            <!-- <style>
-                #div_style{
-                    width: 100px;
-                    height: 100px;
-                    display: flex;
-                    justify-content: space-between;
-                    flex: column;
+           
+            <script>
+                var btnAbrirModal = "a"
+                var modal = "a"
+                var auxiliar_var = 0
+                var btnPagar = "a"
+                var scholarship_code = "a"
+                var form = ""
+                {%for beca_faltante in becas_faltantes%}
+                    auxiliar_var += 1
+                    btnAbrirModal = document.querySelector("#btn-scholarship-open-{{beca_faltante.id}}")
+                    modal = document.querySelector("#modal-{{beca_faltante.id}}")
+                    btnPagar = document.querySelector("#btn-scholarship-pagar-{{beca_faltante.id}}")
                     
-                }
-            </style> -->
+                    
+                    btnAbrirModal.addEventListener('click', () => {
+                        auxiliar_var = "{{beca_faltante.id}}"
+                        btnAbrirModal = document.querySelector("#btn-scholarship-open-" + auxiliar_var)
+                        modal = document.querySelector("#modal-"+ auxiliar_var)
+                        modal.showModal();
+                    })
+
+                    btnPagar.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        auxiliar_var = "{{beca_faltante.id}}"
+                        btnPagar = document.querySelector("#btn-scholarship-pagar-"+ auxiliar_var)
+                        scholarship_code = document.querySelector(".scholarship_code-{{beca_faltante.code}}")
+                        scholarship_code = "{{beca_faltante.code}}"
+                        form = document.querySelector("#form-"+ auxiliar_var);
+                        form.submit(); 
+                        console.log("padfad")
+                    }) 
+
+                {% endfor %}  
+
+
+            </script>
 </body>
 </html>
 {% endblock %}

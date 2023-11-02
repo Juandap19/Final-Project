@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 
 class FinancialSupport(View):
     def get(self, request):
-        return render(request, './financial/financial_alimentation.html', {
+        return render(request, './financial_alimentation.html', {
             'form': FinancialForm(),
             'error': False
         })
@@ -47,8 +47,9 @@ class FinancialAcademic(View):
          students_list = Student.objects.all()
          for student_pivot in students_list:
              if student_pivot.aux_academic == "0":
-                if student_pivot.scholarship not in missing_scholarship:
-                    missing_scholarship.append(student_pivot.scholarship)
+                if student_pivot.scholarship:
+                    if student_pivot.scholarship not in missing_scholarship:
+                        missing_scholarship.append(student_pivot.scholarship)
          return render(request, './financial_education_transportation.html', {
             'form': FinancialTranspAcademicForm(),
             'error': False,
@@ -86,6 +87,8 @@ class FinancialAcademic(View):
                 messages.error(request,"No existe el codigo {} en el sistema de becados".format(student_form))
                 return HttpResponseRedirect(request.path)  
         else:
+            print(request.POST['scholarship_code'])
+            print("adfjaidfaidjfiajdfjd")
             scholarship_code = request.POST['scholarship_code']
             query = Scholarship.objects.filter(code = scholarship_code)
             if query:
