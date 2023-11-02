@@ -260,8 +260,17 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid | Finalizacion de la parte funcional del codigo para cancelar materias y generar notificaciones  | Ninguno | Reunion con el grupo para sincronizar problemas|
-| Juan David Patiño | Solucionar bugs de compilacion de las ventanas emergentes | Ninguno | Nada |
+| Juan David Patiño | Solucionar bugs de compilacion de las ventanas emergentes | Ninguno | Reunión con el equipo |
 | Daniel Montezuma | Continuar trabajando en el requerimiento de evaluacion de metas| Ninguno | Reunión con el equipo |
 | Darwin | Funcionalidad de reporte CREA terminada | Ninguno | Reunion con el grupo|
 | Diego Zuñiga |  Empezar funcionalidad de reporte BU  | Ninguno |Reunion con el grupo|
 
+## Fecha 2/10/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid | Finalizacion de la parte funcional del codigo para cancelar materias y generar notificaciones  | Ninguno | Reunion con el grupo para sincronizar problemas|
+| Juan David Patiño | Reunión con el equipo | Ninguno | Se termina con todo los bugs de la pagina de financiero  |
+| Daniel Montezuma | Continuar trabajando en el requerimiento de evaluacion de metas| Ninguno | Reunión con el equipo |
+| Darwin | Funcionalidad de reporte CREA terminada | Ninguno | Reunion con el grupo|
+| Diego Zuñiga |  Empezar funcionalidad de reporte BU  | Ninguno |Reunion con el grupo|
