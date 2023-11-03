@@ -272,5 +272,5 @@
 | Juan Felipe Madrid | --- | --- | ---|
 | Juan David Patiño | Reunión con el equipo | Ninguno | Se termina con todo los bugs de la pagina de financiero  |
 | Daniel Montezuma | Reunión con el equipo| Ninguno | Mejorar estilos en la pagina de evaluacion de metas |
-| Darwin | --- | --- | ---|
+| Darwin | Reunion con el grupo | Ninguno | Incio de codigo para la opcion de descargar PDF |
 | Diego Zuñiga | --- | --- | ---|
