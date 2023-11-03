@@ -45,8 +45,10 @@ class FinancialAcademic(View):
     def get(self, request):
          missing_scholarship = []        
          students_list = Student.objects.all()
+         students_missing = []
          for student_pivot in students_list:
              if student_pivot.aux_academic == "0":
+                students_missing.append(student_pivot)
                 if student_pivot.scholarship:
                     if student_pivot.scholarship not in missing_scholarship:
                         missing_scholarship.append(student_pivot.scholarship)
@@ -56,6 +58,7 @@ class FinancialAcademic(View):
             'main_title': "Pago Académico",
             'becas_faltantes': missing_scholarship,
             'student_form': FinancialTAByStudentForm(),
+            'students_missing': students_missing,
         })
     
     def post(self, request):
@@ -65,7 +68,7 @@ class FinancialAcademic(View):
             if student:
                 student = Student.objects.get(code = student_form )
                 scholarship = student.scholarship
-                academic_fun_result = round(student.major.price * (scholarship.academic_percentage/100))
+                academic_fun_result = student.scholarship.amount.academic - round(student.major.price * (scholarship.academic_percentage/100))
                 if student.aux_academic == "0":
                     if academic_fun_result >= 0:
                         student.aux_academic  = "1"
@@ -87,8 +90,6 @@ class FinancialAcademic(View):
                 messages.error(request,"No existe el codigo {} en el sistema de becados".format(student_form))
                 return HttpResponseRedirect(request.path)  
         else:
-            print(request.POST['scholarship_code'])
-            print("adfjaidfaidjfiajdfjd")
             scholarship_code = request.POST['scholarship_code']
             query = Scholarship.objects.filter(code = scholarship_code)
             if query:
@@ -135,17 +136,22 @@ class FinancialTransport(View):
     def get(self, request):
         missing_scholarship = []        
         students_list = Student.objects.all()
+        students_missing = []
         for student_pivot in students_list:
             if student_pivot.aux_transportation == "0":
+                students_missing.append(student_pivot)
                 if student_pivot.scholarship not in missing_scholarship:
                     missing_scholarship.append(student_pivot.scholarship)
-        return render(request, './financial/financial_education_transportation.html', {
+                    
+        return render(request, './financial_education_transportation.html', {
             'form': FinancialTranspAcademicForm(),
             'error': False,
             'main_title': "Pago Transporte",
             'becas_faltantes': missing_scholarship,
             'student_form': FinancialTAByStudentForm(),
+            'students_missing': students_missing,
         })
+    
     def post(self, request):
         student_form = request.POST.get('student_code')
         if student_form:
