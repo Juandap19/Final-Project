@@ -22,37 +22,37 @@
         <h4 class="fw-bolder">Estudiantes</h4>
         
         <div class="w-100 table-responsive" style="height: 90%;">
-            <table class="table" id="tableStudents">
-                <thead class="table-secondary">
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Mas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for student in students %}
-                        <tr>
-                            <td>{{student.code}}</td>
-                            <td>{{student.name}}</td>
-                            <td>
-                                <form action="{%  url 'report' student.id %}" method="POST">
-                                    {% csrf_token %}
-                                    <button class="btn btn-success">
-                                        agregar
-                                    </button>
-                                    
-                                </form>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <form action="{% url 'generate_report' %}" method="POST">
+                {% csrf_token %}
+                <div class="w-100 table-responsive" style="height: 90%;">
+                    <table class="table" id="tableStudents">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Seleccionar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for student in students %}
+                                <tr>
+                                    <td>{{student.code}}</td>
+                                    <td>{{student.name}}</td>
+                                    <td>
+                                        <input type="checkbox" name="selected_students" value="{{student.id}}">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Generar reporte</button>
+                </div>
+            </form>
+            
         </div>
-        
-        <div class="d-flex justify-content-end">
-            <a href="/generateReport" class="btn btn-primary">Generar reporte</a>
-        </div>
+
     </div>
 
     <script>

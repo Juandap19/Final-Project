@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Estudiante {{ student.code }}</title>
+</head>
+<body>
+    <h3>Informe de Estudiante</h3>
+    <p>Código: {{ student.code }}</p>
+    <p>Nombre: {{ student.name }}</p>
+    
+    <h4>Notas:</h4>
+    <ul>
+        {% for grade in gradesList %}
+            <li>Curso: {{ grade.curso.code }}, Nota: {{ grade.grade }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h4>Consultas:</h4>
+    <ul>
+        {% for consulta in consultaList %}
+            <li>Centro de apoyo: {{ consulta.support_center }}</li>
+            <li>Fecha: {{ consulta.fecha }}</li>
+            <li>Hora: {{ consulta.hora }}</li>
+            <li>Motivo: {{ consulta.motivo }}</li>
+            <li>Resultado: {{ consulta.resultado }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

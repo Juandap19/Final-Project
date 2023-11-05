@@ -25,35 +25,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for ide in ides %}
+                    {% for student in selected_students %}
                         <tr>
-                            <td>{{ ide.code }}</td>
-                            <td>{{ ide.name }}</td>
+                            <td>{{ student.code }}</td>
+                            <td>{{ student.name }}</td>
                             <td>
                                 {% for grade in grades %}
-                                    {% if ide.name == grade.student.name %}
+                                    {% if student == grade.student %}
                                         <p>{{ grade.curso.code }} : <b>{{ grade.grade }}</b></p>
                                     {% endif %}
                                 {% endfor %}
                             </td>
                             <td>
                                 {% for consulta in consultas %}
-                                    {% if ide.name == consulta.student.name %}
+                                    {% if student == consulta.student %}
                                         <p>Centro de apoyo: {{ consulta.support_center }} </p>
                                         <p>Fecha: {{ consulta.fecha }}</p>
                                         <p>Hora: {{ consulta.hora }}</p>
                                         <p>Motivo: {{ consulta.motivo }}</p>
                                         <p>Resultado: {{ consulta.resultado }}</p>
-                                        <hr> 
+                                        <hr>
                                     {% endif %}
                                 {% endfor %}
                             </td>
-                            <td><!-- Columna para actividades no académicas --></td>
-                            <td><button class="btn btn-primary">Acción</button></td>
+                            <td></td>
+                            <td>
+                                <form method="get" action="{% url 'generate_pdf' student.id %}">
+                                    <button type="submit" class="btn btn-primary">Descargar PDF</button>
+                                </form>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
+            
         </div>
     </div>
 

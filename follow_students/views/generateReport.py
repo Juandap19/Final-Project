@@ -3,23 +3,20 @@ from django.views import View
 from follow_students.models import Student, Consulta, Nota
 
 class GenerateReport(View):
-    ides = []
-
-    def get(self, request):
-        consultaList = Consulta.objects.all()
-        gradesList = Nota.objects.all()
+    def post(self, request):
+        selected_students = []
+        student_ids = request.POST.getlist('selected_students')
         
-        idesTemp = self.ides.copy()
-        self.ides.clear()
-
+        for student_id in student_ids:
+            student = get_object_or_404(Student, pk=student_id)
+            selected_students.append(student)
+        
+        # Obtén las notas y consultas relacionadas con los estudiantes seleccionados
+        gradesList = Nota.objects.filter(student__in=selected_students)
+        consultaList = Consulta.objects.filter(student__in=selected_students)
+        
         return render(request, 'generateReport.html', {
-            "consultas": consultaList,
+            "selected_students": selected_students,
             "grades": gradesList,
-            "ides": idesTemp
+            "consultas": consultaList,
         })
-
-    def post(self, request, code):
-        student = get_object_or_404(Student, pk=code)
-        if student not in self.ides:
-            self.ides.append(student)
-        return redirect("/menuReport")  # Ajusta la URL según tu configuración
