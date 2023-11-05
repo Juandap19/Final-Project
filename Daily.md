@@ -281,6 +281,17 @@
 |---|---|---|---|
 | Juan Felipe Madrid |Reunión con el equipo | Ninguno  | Mejoras del codigo de cancelaciones|
 | Juan David Patiño | Se termina con todo los bugs de la pagina de financiero | Ninguno | Terminado todas las funcionalidades del departamenteo financiero, Se empieza con el UI de este mismo.  |
-| Daniel Montezuma | Reunión con el equipo| Ninguno | Mejorar estilos en la pagina de evaluacion de metas |
+| Daniel Montezuma | Reunión con el equipo| Ninguno | Nada |
 | Darwin | Reunion con el grupo | Ninguno | Incio de codigo para la opcion de descargar PDF |
 | Diego Zuñiga | Reunion con el grupo | Ninguno | Terminando funcionalidad de reporte BU |
+
+## Fecha 4/11/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid |--- | ---  | ---|
+| Juan David Patiño | --- | --- | ---  |
+| Daniel Montezuma | Nada | Ninguno | Arreglar algunos bugs de la pagina de evaluacion de metas |
+| Darwin | --- | --- | --- |
+| Diego Zuñiga | --- | --- | --- |
+
