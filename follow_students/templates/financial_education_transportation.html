@@ -8,57 +8,95 @@
     <title>Pago Transporte</title>
 </head>
 <body>
+
+<!-- IMPORTAR LIBRERIAS PARA GRAFICAR -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
     <div>
         <h3 class="title-financial text-uppercase">
             {{main_title }}
         </h3>
     </div>
 
-    <!--Student part  -->
 
-    <div class="d-flex justify-content-center mt-5 h-75 align-items-center w-100 mx-auto px-5">
-        <div class="w-50 h-100">
-            <div class="container-fluid w-100 h-100 p-2 " style="background-color: #fff; box-shadow: 0 0 15px rgba(0, 0, 0, .5);">
+    <!-- Invisible forms -->
 
-                <h2> Estudiantes faltantes</h2>
-                <hr>
+    <!-- Student form -->
 
-                <i class="fa-thin fa-face-awesome"></i>
+    <form class = "d-none" id = "id-form-student" action="" method="POST" class="w-100 h-100 d-flex justify-content-between flex-column" autocomplete="off">
+        {% csrf_token %}
+        <div class="h-75 d-flex gap-5 flex-column">
+            {{student_form}}
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        {% if messages %}
+        <script>
+            {% for message in messages %}
+                Swal.fire({
+                    icon: '{{ message.tags }}',
+                    title: '{{ message }}',
+                    showConfirmButton: true,
+                    confirmButtonColor: '#3085d6',
+                            });
+            {% endfor %}
+        </script>
+        {% endif %}
+    </form> 
 
-                {% for student_missing in students_missing %}
-                    <button id = "btn-student-open-{{student_missing.id}}" class="bg-light mx-3 my-0 mb-2" style="border-color: rgb(156, 150, 150) ;">
-                        <div class="d-flex text-center ">
-                            <i class='bx bx-user-circle'></i>
-                            <td class="">{{student_missing.code}}</td>
-                            <td class="">{{student_missing.name}}</td>
-                        </div>
-                    </button>
+    <!-- Scholarship Form -->
 
-                    <dialog  id = "modal-student-{{student_missing.id}}">
+    <form  class= "d-none " id = "id-form-scholarship" action="" method="POST" class="w-2 h-1" autocomplete="off" style="z-index: -1;">
+        {% csrf_token %}
+        <div class="h-75 d-flex gap-5 flex-column">
+            {{ form.as_div }}
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+    <script>
+        {% for message in messages %}
+            Swal.fire({
+                icon: '{{ message.tags }}',
+                title: '{{ message }}',
+                showConfirmButton: true,
+                confirmButtonColor: '#3085d6',
+                        });
+        {% endfor %}
+    </script>
+    {% endif %}
+    </form>
+
+
+    <!-- modal generator students -->
+    {% for student_missing in students_missing %}
+
+     <dialog  class="student-dialog" id = "modal-student-{{student_missing.id}}">
                         <i class='bx bxs-user-circle'></i>
                         <h2>{{student_missing.name}}</h2>
-                         <table>
+                         <table class="table ">
                             <tr>
-                                <th>
+                                <th scope="col">
                                     Codigo Estudiante
                                 </th>
-                                <th>
+                                <th scope="col">
                                     cedula
                                 </th>
-                                <th>
+                                <th scope="col">
                                     Carrera 
                                 </th>
                                 <th>
                                     icfes
                                 </th>
-                                <th>
+                                <th scope="col" >
                                     Telefono de contacto
                                 </th>
-                                <th>
+                                <th scope="col">
                                     Beca asignada
                                 </th>
                             </tr>
-                            <tr>
+                            <tr scope = 'row'>
                                 <th>
                                     {{student_missing.code}}
                                 </th>
@@ -79,113 +117,206 @@
                                 </th>
                             </tr>
                          </table>
-                            <button  class="btn btn-success" id="btn-student-pagar-{{ student_missing.id }}">
+
+                            <button  class="btn btn-success" id="btn-student-pagar-{{student_missing.id}}">
                                 Pagar
                             </button>
-                    </dialog>
+        </dialog>
 
-                {% endfor %}
+    {% endfor %}
 
+
+    <!-- modal generator Scholarship -->
+
+
+    {% for beca_faltante in becas_faltantes %}
+
+    <dialog  id = "modal-scholarship-{{beca_faltante.id}}">
+        <img src="../static/images/{{beca_faltante.image}}" alt="Beca_imagen">
+        <h2>{{beca_faltante.name}}</h2>
+         <table class="table">
+            <tr>
+                <th scope="col">
+                    Codigo Beca
+                </th>
+                <th scope="col">
+                    Porcentaje Beca
+                </th scope="col">
+                <th scope="col">
+                    Auxilio transporte
+                </th scope="col">
+                <th scope="col">
+                    Estudiantes Asignados
+                </th>
+            </tr>
+            <tr scope="row">
+                <th>
+                    {{beca_faltante.code}}
+                </th>
+                <th>
+                    {{beca_faltante.academic_percentage}}
+                </th>
+                <th>
+                    {{beca_faltante.transportation}}
+                </th>
+                <th>
+                    {{beca_faltante.assigned_students}}
+                </th>
+            </tr>
+         </table>
+        <button  class="btn btn-success" id="btn-scholarship-pagar-{{ beca_faltante.id }}">
+                Pagar
+        </button>
+        <div id="chart-container-{{beca_faltante.id}}" style="width: 600px; height: 400px;"></div>
+        
+        <figure class="highcharts-figure-scholarship-{{beca_faltante.id}}">
+            <div id="container-figure-scholarship-{{beca_faltante.id}}"></div>
+        </figure>
+
+        <script>
+            Highcharts.chart('container-figure-scholarship-{{beca_faltante.id}}', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Fondos Asociados',
+                align: 'left'
+            },
+            subtitle: {
+                text:
+                    'Donador: {{beca_faltante.donor}}',
+                align: 'left'
+            },
+            xAxis: {
+                categories: ['Alimentación', 'Transporte', 'Académico'],
+                crosshair: true,
+                accessibility: {
+                    description: 'Fondos'
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Pesos Colombianos (COP)'
+                }
+            },
+            tooltip: {
+                valueSuffix: ' Pesos'
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [
+                {
+                    name: 'Montos',
+                    data: [{y: {{beca_faltante.amount.alimentation}},color: '#61A3BA'}, {y: {{beca_faltante.amount.transport}},color: "#A2C579"}, {y: {{beca_faltante.amount.academic}},color : "#F5EEC8"}]
+                },
+                
+            ]
+            });
+
+        </script>
+
+    </dialog>
+
+    {% endfor %}   
+            
+
+    
+
+    <div class="d-flex justify-content-center mt-5 h-75 align-items-center w-max mx-auto px-5">
+
+        <!--Student part  -->
+        <div class= "w-50 h-100 d-flex justify-content-between flex-column " style="background-color: #ffffff; box-shadow: 0 0 15px rgba(0, 0, 0, .5); margin-right: 2rem;" >
 
             
+            <h2 class="m-3 justify-content-center d-flex"> Estudiantes faltantes</h2>
+            <hr class="m-0">
+
+            <!-- A button to search a specific student -->
+
+            <div id = "search-student-container">
+                <input type="text" id = "search-student-input">
+                <button id = 'btn-search-student'>
+                    <i class='bx bx-search-alt'></i>
+                </button>
             </div>
-                <form id = "id-form-student" action="" method="POST" class="w-100 h-100 d-flex justify-content-between flex-column" autocomplete="off">
-                    {% csrf_token %}
-                    <div class="h-75 d-flex gap-5 flex-column">
-                        {{ student_form.as_div }}
-                    </div>
-                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                    {% if messages %}
-                    <script>
-                        {% for message in messages %}
-                            Swal.fire({
-                                icon: '{{ message.tags }}',
-                                title: '{{ message }}',
-                                showConfirmButton: true,
-                                confirmButtonColor: '#3085d6',
-                                        });
-                        {% endfor %}
-                    </script>
-                    {% endif %}
-                </form> 
+
+            <!-- Buttons to select one student -->
+
+            <div class="w-100 h-100 justify-content-between flex-column  " style= "overflow-y: scroll; max-height: 80%;" >
+                {% for student_missing in students_missing %}
+                <div  class="d-flex flex-column m-3 " >
+                    <button id="btn-student-open-{{student_missing.id}}" class="bg-light btn-lg my-1" style="border-color: rgb(156, 150, 150); position: relative;">
+                        <i class='bx bx-user-circle fs-3' style="position: absolute; left: 5px; top: 50%; transform: translateY(-50%);"></i>
+                        <span style="margin-left: 30px; font-size: 90%;">
+                            {{student_missing.code}}
+                            {{student_missing.name}}
+                        </span>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
 
         </div>
 
         <!-- Scholarship part -->
-
-        <form  id = "id-form-scholarship" action="" method="POST" class="w-2 h-1" autocomplete="off" style="z-index: -1;">
-                        {% csrf_token %}
-                        <div class="h-75 d-flex gap-5 flex-column">
-                            {{ form.as_div }}
-                        </div>
-                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                    {% if messages %}
-                    <script>
-                        {% for message in messages %}
-                            Swal.fire({
-                                icon: '{{ message.tags }}',
-                                title: '{{ message }}',
-                                showConfirmButton: true,
-                                confirmButtonColor: '#3085d6',
-                                        });
-                        {% endfor %}
-                    </script>
-                    {% endif %}
-        </form>
                 
-        <div class="container-fluid w-50 h-100 p-2 rounded" style="background-color: #fff; box-shadow: 0 0 15px rgba(0, 0, 0, .5);">
-            <h2>Becas por pagar</h2>
-            <hr>
-            <div class="w-100 h-100 d-flex justify-content-between flex-column" style= "overflow-y: scroll; max-height: 16em;">
-                {%for beca_faltante in becas_faltantes%}
-                    <button id = "btn-scholarship-open-{{beca_faltante.id}}" class="bg-light mx-3 my-0 mb-2" style="border-color: rgb(156, 150, 150) ;">
-                        <div class="d-flex text-center ">
-                            <img src="../static/images/{{beca_faltante.image}}" alt="campito" style="width: 4em; height: 4em; border-radius: 30%; margin: 5px;">
-                            <td class="">{{beca_faltante.code}}</td>
-                            <td class="">{{beca_faltante.name}}</td>
-                            <td>{{beca_faltante.image}}</td>
-                        </div>
-                    </button>
-                    <dialog  id = "modal-scholarship-{{beca_faltante.id}}">
-                        <img src="../static/images/{{beca_faltante.image}}" alt="Beca_imagen">
-                        <h2>{{beca_faltante.name}}</h2>
-                         <table>
-                            <tr>
-                                <th>
-                                    Codigo Beca
-                                </th>
-                                <th>
-                                    Porcentaje Beca
-                                </th>
-                                <th>
-                                    Auxilio transporte
-                                </th>
-                                <th>
-                                    Estudiantes Asignados
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    {{beca_faltante.code}}
-                                </th>
-                                <th>
-                                    {{beca_faltante.academic_percentage}}
-                                </th>
-                                <th>
-                                    {{beca_faltante.transportation}}
-                                </th>
-                                <th>
-                                    {{beca_faltante.assigned_students}}
-                                </th>
-                            </tr>
-                         </table>
-                        <button  class="btn btn-success" id="btn-scholarship-pagar-{{ beca_faltante.id }}">
-                                Pagar
-                        </button>
-                    </dialog>
-                {% endfor %}   
+        <div class="container-fluid w-50 h-100 p-2 rounded " style="background-color: #fff; box-shadow: 0 0 15px rgba(0, 0, 0, .5); margin-left: 4rem;">
+            <h2 class="m-3 justify-content-center d-flex" >Becas por pagar</h2>    
+            <hr class="m-2">
+
+             <!-- A button to search a specific scholarship -->
+
+             <div id = "search-scholarship-container">
+                <input type="text" id = "search-scholarship-input">
+                <button id = 'btn-search-scholarship'>
+                    <i class='bx bx-search-alt'></i>
+                </button>
             </div>
-           
+
+            <div class="w-100 h-100 justify-content-between flex-column" style= "overflow-y: scroll; max-height: 80%;">
+                <div class="button-container">
+                    {% for beca_faltante in becas_faltantes %}
+                        <div class="custom-button">
+                            <button id="btn-scholarship-open-{{beca_faltante.id}}" class="bg-light  " style="border-color: rgb(156, 150, 150);">
+                                <div class="button-content">
+                                    <img src="../static/images/{{beca_faltante.image}}" alt="campito" style="width: 4em; height: 4em; border-radius: 30%; margin-right: 10px;">
+                                <div>
+                                    <td>{{beca_faltante.code}}</td>
+                                    <td>{{beca_faltante.name}}</td>
+                                </div>
+                                </div>
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+
+        <style>
+            .button-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+        
+          
+            .custom-button {
+                width: 48%; 
+                margin-bottom: 10px; 
+                text-align: center; 
+            }
+        
+            .button-content {
+                padding: 20px; 
+                font-size: 20px; 
+            }   
+
+
+        </style>
             <script>
 
                 // Scholarship part
@@ -221,6 +352,47 @@
                 {% endfor %}  
 
 
+
+                // Search a specific Scholarship
+
+                var searchScholarshipBtn = document.querySelector("#btn-search-scholarship")
+                var searchScholarshipinput = document.querySelector("#search-scholarship-input")
+                var scholarship_code = '0'
+                var flagMessage_scholarship = false
+                var modalScholarshipSearch = 'Set Up'
+                var auxiliarVarSearchScholarship = 'Set Up'
+                var scholarship_list_codes = []
+                var scholarship_list_ids = []
+
+                searchScholarshipBtn.addEventListener('click', () => {
+                    flagMessage_scholarship = false
+
+                    scholarship_code = searchScholarshipinput.value
+                    searchScholarshipinput.value = ""
+                    
+                    {% for beca_faltante in becas_faltantes %}
+                         scholarship_list_codes.push("{{beca_faltante.code}}")
+                         scholarship_list_ids.push("{{beca_faltante.id}}")
+                    {% endfor %}
+
+
+
+                    for(var i = 0; i < scholarship_list_codes.length; i += 1 ){
+                        if(scholarship_code ==  scholarship_list_codes[i]){
+                            flagMessage_scholarship = true
+                            modalScholarshipSearch = document.querySelector("#modal-scholarship-"+ scholarship_list_ids[i])
+                            modalScholarshipSearch.showModal()
+                        }
+                    }
+
+                    if (flagMessage_scholarship == false){
+                        alert("No existe una beca con ese codigo")
+                        
+                    }
+                })
+
+
+
                 // Student part
                 
                 var btnAbrirModalStudent = "Set up"
@@ -233,17 +405,18 @@
 
                 {% for student_missing in students_missing %}
 
-                    auxiliar_var += 1
+                    auxiliar_var_student += 1
                     btnAbrirModalStudent = document.querySelector("#btn-student-open-{{student_missing.id}}")
                     modalStudent = document.querySelector("#modal-student-{{student_missing.id}}")
                     btnPagar_Student = document.querySelector("#btn-student-pagar-{{student_missing.id}}")
                     
                     
                     btnAbrirModalStudent.addEventListener('click', () => {
-                        auxiliar_var = "{{student_missing.id}}"
+                        auxiliar_var_student = "{{student_missing.id}}"
+                        console.log(auxiliar_var_student)
                         btnAbrirModal = document.querySelector("#btn-student-open-" + auxiliar_var_student)
-                        modalScholarship = document.querySelector("#modal-student-"+ auxiliar_var_student)
-                        modalStudent.showModal();
+                        modalStudent = document.querySelector("#modal-student-"+ auxiliar_var_student)
+                        modalStudent.showModal()
                     })
 
                     btnPagar_Student.addEventListener('click', () => {
@@ -253,10 +426,45 @@
                         form_student.submit()
 
                     }) 
-                
                 {% endfor %}
 
 
+
+                // Search a specific student
+
+                var searchStudentBtn = document.querySelector("#btn-search-student")
+                var searchStudentinput = document.querySelector("#search-student-input")
+                var student_code = '0'
+                var flagMessage = false
+                var modalStudentSearch = 'Set Up'
+                var student_list_codes = []
+                var student_list_ids = []
+
+                searchStudentBtn.addEventListener('click', () => {
+                    flagMessage = false
+                    student_code = searchStudentinput.value
+                    searchStudentinput.value = ""
+                    
+                    {% for student_missing in students_missing %}
+                         student_list_codes.push("{{student_missing.code}}")
+                         student_list_ids.push("{{student_missing.id}}")
+                    {% endfor %}
+
+
+
+                    for(var i = 0; i < student_list_codes.length ; i += 1 ){
+                        if(student_code ==  student_list_codes[i]){
+                            flagMessage = true
+                            modalStudentSearch = document.querySelector("#modal-student-"+ student_list_ids[i])
+                            modalStudentSearch.showModal()
+                        }
+                    }
+
+                    if (flagMessage == false){
+                        alert("No existe una estudiante con ese codigo")
+                        
+                    }
+                })
 
             </script>
 </body>

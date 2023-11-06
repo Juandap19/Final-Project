@@ -46,7 +46,7 @@ class FinancialTAByStudentForm(forms.Form):
     student_code = forms.CharField(
         label = "Pago por estudiante ",
         max_length= 200,
-        widget =  forms.TextInput(  attrs = {'class': 'input_code d-block container mt-1 mb-3 p-2', 'placeholder': 'Codigo del estudiante'}),
+        widget =  forms.TextInput(  attrs = {'class': 'input_code d-block container mt-0 mb-0 p-0', 'placeholder': 'Codigo del estudiante'}),
         required = True
     )
    

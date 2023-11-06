@@ -67,7 +67,7 @@ class Scholarship(models.Model):
     assigned_students = models.PositiveIntegerField(default=0)
     academic_percentage = models.IntegerField(default = 70)
     transportation= models.IntegerField(default = 1000000)
-    image = models.ImageField(default = "favicon_ICESI.png")
+    image = models.CharField(max_length= 255 ,default = "favicon_ICESI.png")
 
     def __str__(self):
         return self.name
