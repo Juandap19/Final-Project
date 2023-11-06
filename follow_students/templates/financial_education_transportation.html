@@ -386,7 +386,12 @@
                     }
 
                     if (flagMessage_scholarship == false){
-                        alert("No existe una beca con ese codigo")
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'No existe una beca con ese codigo',
+                        showConfirmButton: true,
+                        confirmButtonColor: '#3085d6',
+                        });
                         
                     }
                 })
@@ -461,7 +466,12 @@
                     }
 
                     if (flagMessage == false){
-                        alert("No existe una estudiante con ese codigo")
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'No existe una estudiante con ese codigo',
+                        showConfirmButton: true,
+                        confirmButtonColor: '#3085d6',
+                        });
                         
                     }
                 })
