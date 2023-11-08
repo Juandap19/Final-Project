@@ -1,12 +1,30 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informe de Estudiante {{ student.code }}</title>
+
+    <style type="text/css">
+        
+        h3 {
+            display: block;
+            width: 100%;
+            height: 50%;
+            background-color: #0866ad;
+        }
+
+    </style>
 </head>
 <body>
-    <h3>Informe de Estudiante</h3>
+
+    <h3 class="d-flex justify-content-center">Informe de Estudiante</h3>
     <p>Código: {{ student.code }}</p>
     <p>Nombre: {{ student.name }}</p>
     
@@ -25,6 +43,14 @@
             <li>Hora: {{ consulta.hora }}</li>
             <li>Motivo: {{ consulta.motivo }}</li>
             <li>Resultado: {{ consulta.resultado }}</li>
+        {% endfor %}
+    </ul>
+
+    <h4>Bienestar universitario</h4>
+    <ul>
+        {% for activity in bu %}
+            <li>Actividad: {{ activity.actividad.nombre }}</li>
+            <li>Dias de asistencias: {{ activity.dias_asistencia }}</li>
         {% endfor %}
     </ul>
 </body>

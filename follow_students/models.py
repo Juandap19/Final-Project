@@ -145,6 +145,6 @@ class RegistroActividadEstudiante(models.Model):
     dias_asistencia = models.CharField(max_length=100)
 
     def __str__(self):
-        return f'Registro de {self.student.nombre} en {self.actividad.nombre}'
+        return f'Registro de {self.student.name} en {self.actividad.nombre}'
 
 
