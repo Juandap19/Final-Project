@@ -290,7 +290,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid |Nada| Ninguno|Nada|
-| Juan David Patiño | --- | --- | ---  |
+| Juan David Patiño | Terminado todas las funcionalidades del departamenteo financiero, Se empieza con el UI de este mismo.  | Ninguna  | Continuar con el UI y terminar todo para finalizar  |
 | Daniel Montezuma | Nada | Ninguno | Arreglar algunos bugs de la pagina de evaluacion de metas |
 | Darwin | --- | --- | --- |
 | Diego Zuñiga | --- | --- | --- |
@@ -300,7 +300,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid |Nada| Ninguno|Nada|
-| Juan David Patiño | --- | --- | ---  |
+| Juan David Patiño | Continuar con el UI y terminar todo para finalizar  | Ninguno  | nada  |
 | Daniel Montezuma |Nada| Ninguno|Nada|
 | Darwin | --- | --- | --- |
 | Diego Zuñiga | Nada | Ninguno | Hacer estilos al reporte estudiantil |
@@ -310,7 +310,7 @@
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid |---|---|---|
-| Juan David Patiño | --- | --- | ---  |
+| Juan David Patiño | Nada | Ninguno | nada  |
 | Daniel Montezuma |Nada| Ninguno| Mejoras en el req de registro a estudiantes |
 | Darwin | --- | --- | --- |
 | Diego Zuñiga | ---|---|---|
