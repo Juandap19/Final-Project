@@ -301,6 +301,17 @@
 |---|---|---|---|
 | Juan Felipe Madrid |Nada| Ninguno|Nada|
 | Juan David Patiño | --- | --- | ---  |
-| Daniel Montezuma | --- | --- | --- |
+| Daniel Montezuma |Nada| Ninguno|Nada|
 | Darwin | --- | --- | --- |
 | Diego Zuñiga | Nada | Ninguno | Hacer estilos al reporte estudiantil |
+
+## Fecha 8/11/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid |---|---|---|
+| Juan David Patiño | --- | --- | ---  |
+| Daniel Montezuma |Nada| Ninguno| Mejoras en el req de registro a estudiantes |
+| Darwin | --- | --- | --- |
+| Diego Zuñiga | ---|---|---|
+
