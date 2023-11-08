@@ -289,9 +289,18 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-| Juan Felipe Madrid |--- | ---  | ---|
+| Juan Felipe Madrid |Nada| Ninguno|Nada|
 | Juan David Patiño | --- | --- | ---  |
 | Daniel Montezuma | Nada | Ninguno | Arreglar algunos bugs de la pagina de evaluacion de metas |
 | Darwin | --- | --- | --- |
 | Diego Zuñiga | --- | --- | --- |
 
+## Fecha 7/11/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid |Nada| Ninguno|Nada|
+| Juan David Patiño | --- | --- | ---  |
+| Daniel Montezuma | --- | --- | --- |
+| Darwin | --- | --- | --- |
+| Diego Zuñiga | --- | --- | --- |
