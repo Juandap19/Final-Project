@@ -303,4 +303,4 @@
 | Juan David Patiño | --- | --- | ---  |
 | Daniel Montezuma | --- | --- | --- |
 | Darwin | --- | --- | --- |
-| Diego Zuñiga | --- | --- | --- |
+| Diego Zuñiga | Nada | Ninguno | Hacer estilos al reporte estudiantil |
