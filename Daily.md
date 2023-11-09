@@ -292,7 +292,7 @@
 | Juan Felipe Madrid |Nada| Ninguno|Nada|
 | Juan David Patiño | Terminado todas las funcionalidades del departamenteo financiero, Se empieza con el UI de este mismo.  | Ninguna  | Continuar con el UI y terminar todo para finalizar  |
 | Daniel Montezuma | Nada | Ninguno | Arreglar algunos bugs de la pagina de evaluacion de metas |
-| Darwin | --- | --- | --- |
+| Darwin | Nada  | Ninguno | Nada |
 | Diego Zuñiga | --- | --- | --- |
 
 ## Fecha 7/11/23
@@ -302,7 +302,7 @@
 | Juan Felipe Madrid |Nada| Ninguno|Nada|
 | Juan David Patiño | Continuar con el UI y terminar todo para finalizar  | Ninguno  | nada  |
 | Daniel Montezuma |Nada| Ninguno|Nada|
-| Darwin | --- | --- | --- |
+| Darwin | Nada | Se descarga el PDF con la informacion de un solo estudiante | Continuacion con funcionalidad de descarga de PDF  |
 | Diego Zuñiga | Nada | Ninguno | Hacer estilos al reporte estudiantil |
 
 ## Fecha 8/11/23
@@ -312,6 +312,6 @@
 | Juan Felipe Madrid |Nada|Ninguno|Planeacion de test|
 | Juan David Patiño | Nada | Ninguno | nada  |
 | Daniel Montezuma |Nada| Ninguno| Mejoras en el req de registro a estudiantes |
-| Darwin | --- | --- | --- |
+| Darwin |Continuacion con funcionalidad de descarga de PDF | Ninguno | Funcionalidad de descargar PDF terminada |
 | Diego Zuñiga | ---|---|---|
 
