@@ -309,7 +309,7 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-| Juan Felipe Madrid |---|---|---|
+| Juan Felipe Madrid |Nada|Ninguno|Planeacion de test|
 | Juan David Patiño | Nada | Ninguno | nada  |
 | Daniel Montezuma |Nada| Ninguno| Mejoras en el req de registro a estudiantes |
 | Darwin | --- | --- | --- |
