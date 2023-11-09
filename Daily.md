@@ -315,3 +315,12 @@
 | Darwin |Continuacion con funcionalidad de descarga de PDF | Ninguno | Funcionalidad de descargar PDF terminada |
 | Diego Zuñiga | ---|---|---|
 
+## Fecha 9/11/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid |---|---|---|
+| Juan David Patiño | ---|---|---|
+| Daniel Montezuma | Mejoras en el req de registro a estudiantes|Nada|Buscar mas informacion sobre test en django|
+| Darwin |---|---|---|
+| Diego Zuñiga | ---|---|---|
