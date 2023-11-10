@@ -319,7 +319,7 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-| Juan Felipe Madrid |---|---|---|
+| Juan Felipe Madrid |Planeacion de test|Ninguno|Continuacion con planeacion de test|
 | Juan David Patiño | ---|---|---|
 | Daniel Montezuma | Mejoras en el req de registro a estudiantes|Nada|Buscar mas informacion sobre test en django|
 | Darwin |---|---|---|
