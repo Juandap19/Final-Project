@@ -313,14 +313,14 @@
 | Juan David Patiño | Nada | Ninguno | nada  |
 | Daniel Montezuma |Nada| Ninguno| Mejoras en el req de registro a estudiantes |
 | Darwin |Continuacion con funcionalidad de descarga de PDF | Ninguno | Funcionalidad de descargar PDF terminada |
-| Diego Zuñiga | ---|---|---|
+| Diego Zuñiga | Hacer estilos al reporte estudiantil | Ninguno | nada  |
 
 ## Fecha 9/11/23
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
 | Juan Felipe Madrid |Planeacion de test|Ninguno|Continuacion con planeacion de test|
-| Juan David Patiño | ---|---|---|
+| Juan David Patiño | nada | Ninguno | Reunion con Diego para poder solucionar problemas de financiero en la parte de front, adicionamelnte  se investigo el tema de los test|
 | Daniel Montezuma | Mejoras en el req de registro a estudiantes|Nada|Buscar mas informacion sobre test en django|
 | Darwin |Funcionalidad de descargar PDF terminada|Nada|Modificaciones en el template del reporte para mejorar la vosualizacion |
-| Diego Zuñiga | ---|---|---|
+| Diego Zuñiga |  nada | Ninguno | Reunion  con patiño para solución de conflictos |
