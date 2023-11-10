@@ -322,5 +322,5 @@
 | Juan Felipe Madrid |Planeacion de test|Ninguno|Continuacion con planeacion de test|
 | Juan David Patiño | ---|---|---|
 | Daniel Montezuma | Mejoras en el req de registro a estudiantes|Nada|Buscar mas informacion sobre test en django|
-| Darwin |---|---|---|
+| Darwin |Funcionalidad de descargar PDF terminada|Nada|Modificaciones en el template del reporte para mejorar la vosualizacion |
 | Diego Zuñiga | ---|---|---|
