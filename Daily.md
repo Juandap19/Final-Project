@@ -334,3 +334,13 @@
 | Daniel Montezuma | Buscar mas informacion sobre test en django | Ninguno | Reunión con el equipo |
 | Darwin | Modificaciones en el template del reporte para mejorar la vosualizacion | Ninguno | Reunion con el grupo|
 | Diego Zuñiga | Reunion  con patiño para solución de conflictos | Ninguno |Reunion con el grupo|
+
+## Fecha 10/11/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid | ---|---|---|
+| Juan David Patiño | ---|---|---|
+| Daniel Montezuma | Reunión con el equipo | Ninguno | Empezar los tests para req de registro de estudiantes |
+| Darwin | ---|---|---|
+| Diego Zuñiga | ---|---|---|
