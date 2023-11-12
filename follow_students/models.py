@@ -26,7 +26,7 @@ class RolPermiso(models.Model):
     rol = models.ForeignKey(Rol, on_delete=models.CASCADE)
     permiso = models.ForeignKey(Permiso, on_delete=models.CASCADE)
 
-class Curso(models.Model):
+class Course(models.Model):
     code = models.CharField(max_length=20, unique=True)
     name = models.CharField(max_length = 200)
     def __str__(self):
@@ -108,36 +108,36 @@ class Gasto_beca(models.Model):
         text = self.student.code
         return text
 
-class Consulta(models.Model):
+class Consult(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    fecha = models.DateField()
-    hora = models.TimeField()
-    motivo = models.TextField()
-    resultado = models.TextField()
+    date = models.DateField()
+    time = models.TimeField()
+    reason = models.TextField()
+    outcome = models.TextField()
     
     def __str__(self):
-        return f'Consulta realizada por {self.student.name} el {self.fecha}'
+        return f'Consulta realizada por {self.student.name} el {self.date}'
 
-class Nota(models.Model):
+class Grade(models.Model):
     grade = models.FloatField()
-    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.student.code
 
-class ActividadNoAcademica(models.Model):
-    nombre = models.CharField(max_length=100)
+class NonAcademicActivity(models.Model):
+    name = models.CharField(max_length=100)
     
     def __str__(self):
-        return self.nombre
+        return self.name
       
-class RegistroActividadEstudiante(models.Model):
+class RegisNonAcademicActivity(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    actividad = models.ForeignKey(ActividadNoAcademica, on_delete=models.CASCADE)
-    dias_asistencia = models.CharField(max_length=100)
+    activity = models.ForeignKey(NonAcademicActivity, on_delete=models.CASCADE)
+    assistance_days = models.CharField(max_length=100)
 
     def __str__(self):
-        return f'Registro de {self.student.nombre} en {self.actividad.nombre}'
+        return f'Registro de {self.student.name} en {self.activity.name}'
 
 
