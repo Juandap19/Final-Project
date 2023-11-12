@@ -17,6 +17,7 @@ from follow_students.views.student_manage import StudentManage
 from follow_students.views.student_edit import StudentEdit
 from follow_students.views.studentsRegister import StudentsRegister
 from follow_students.views.assignScholarship import AssignScholarship
+from follow_students.views.goalEvaluation import GoalEvaluation
 
 
 
@@ -33,6 +34,7 @@ urlpatterns = [
     path('generateReport/', GenerateReport.as_view(), name="generateR"),
     path('upload_dataPD/', Upload_dataPD.as_view(), name = "uploadPD"),
     path('studentManage/', StudentManage.as_view(), name = "studentManage"),
+    path('studentManage/goalEvaluation/<int:pk>/', GoalEvaluation.as_view(), name = "goalEvaluation"),
     path('studentManage/studentEdit/<int:pk>/', StudentEdit.as_view(), name = "studentEdit"),
     path('studentsRegister/', StudentsRegister.as_view()),
     path('assignScholarship/<str:code>/', AssignScholarship.as_view(), name='asignar_scholarship'),

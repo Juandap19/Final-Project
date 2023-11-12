@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import User, Grade, Student, Course, Donor, Amount, Major, Scholarship, Consult, NonAcademicActivity,RegisNonAcademicActivity, Gasto_beca, Rol, RolPermiso, Permiso
+from .models import User, Grade, Student, Course, Donor, Amount, Major,ScholarshipGoal,ScholarshipGoalAssociation, Scholarship, Consult, NonAcademicActivity,RegisNonAcademicActivity, Gasto_beca, Rol, RolPermiso, Permiso
 
 admin.site.register(User)
 admin.site.register(Grade)
@@ -9,6 +9,8 @@ admin.site.register(Course)
 admin.site.register(Donor)
 admin.site.register(Amount)
 admin.site.register(Major)
+admin.site.register(ScholarshipGoal)
+admin.site.register(ScholarshipGoalAssociation)
 admin.site.register(Scholarship)
 admin.site.register(Consult)
 admin.site.register(NonAcademicActivity)

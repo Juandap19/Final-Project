@@ -64,12 +64,12 @@ def create_majors(apps, schema_editor):
         {'name': 'Ciencia Política con énfasis en Relaciones Internacionales', 'price': 10110000},
         {'name': 'Música', 'price': 12730000},
         {'name': 'Comunicación', 'price': 11250000},
-        {'name': "Licenciatura en Educación Básica Primaria", "price": 9380000},
-        {'name': "Licenciatura en Lenguas Extranjeras con énfasis Inglés", "price": 9380000},
-        {'name': "Licenciatura en Artes", "price": 9380000},
-        {'name': "Licenciatura en Literatura y Lengua Castellana", "price": 9380000},
-        {'name': "Licenciatura en Ciencias Sociales", "price": 9380000},
-        {'name': "Licenciatura en Ciencias Naturales", "price": 9380000}
+        {'name': "Licenciatura en Educación Básica Primaria", "price":9380000 },
+        {"name": "Licenciatura en Lenguas Extranjeras con énfasis Inglés", "price":9380000 },
+        {"name": "Licenciatura en Artes", "price":9380000 },
+        {"name": "Licenciatura en Literatura y Lengua Castellana", "price":9380000 },
+        {"name": "Licenciatura en Ciencias Sociales", "price":9380000 },
+        {"name": "Licenciatura en Ciencias Naturales", "price":9380000 }
     ]
 
 
