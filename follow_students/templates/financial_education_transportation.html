@@ -72,56 +72,60 @@
     <!-- modal generator students -->
     {% for student_missing in students_missing %}
 
-     <dialog  class="student-dialog" id = "modal-student-{{student_missing.id}}">
-                        <i class='bx bxs-user-circle'></i>
-                        <h2>{{student_missing.name}}</h2>
-                         <table class="table ">
-                            <tr>
-                                <th scope="col">
-                                    Codigo Estudiante
-                                </th>
-                                <th scope="col">
-                                    cedula
-                                </th>
-                                <th scope="col">
-                                    Carrera 
-                                </th>
-                                <th>
-                                    icfes
-                                </th>
-                                <th scope="col" >
-                                    Telefono de contacto
-                                </th>
-                                <th scope="col">
-                                    Beca asignada
-                                </th>
-                            </tr>
-                            <tr scope = 'row'>
-                                <th>
-                                    {{student_missing.code}}
-                                </th>
-                                <th>
-                                    {{student_missing.cedula}}
-                                </th>
-                                <th>
-                                    {{student_missing.major}}
-                                </th>
-                                <th>
-                                    {{student_missing.icfes}}
-                                </th>
-                                <th>
-                                    {{student_missing.phoneNumber}}
-                                </th>
-                                <th>
-                                    {{student_missing.scholarship.name}}
-                                </th>
-                            </tr>
-                         </table>
+     <div class="position-relative">
+        <dialog  class="position-absolute top-50 start-50 translate-middle p-4" id = "modal-student-{{student_missing.id}}">
+            <h2>{{student_missing.name}}</h2>
+             <table class="table ">
+                <tr>
+                    <th scope="col">
+                        Codigo
+                    </th>
+                    <th scope="col">
+                        Cedula
+                    </th>
+                    <th scope="col">
+                        Carrera 
+                    </th>
+                    <th>
+                        ICFES
+                    </th>
+                    <th scope="col" >
+                        Telefono
+                    </th>
+                    <th scope="col">
+                        Beca
+                    </th>
+                </tr>
+                <tr scope = 'row'>
+                    <th>
+                        {{student_missing.code}}
+                    </th>
+                    <th>
+                        {{student_missing.cedula}}
+                    </th>
+                    <th>
+                        {{student_missing.major}}
+                    </th>
+                    <th>
+                        {{student_missing.icfes}}
+                    </th>
+                    <th>
+                        {{student_missing.phoneNumber}}
+                    </th>
+                    <th>
+                        {{student_missing.scholarship.name}}
+                    </th>
+                </tr>
+             </table>
 
-                            <button  class="btn btn-success" id="btn-student-pagar-{{student_missing.id}}">
-                                Pagar
-                            </button>
-        </dialog>
+                <div class="d-flex justify-content-end">
+                    <button  class="btn btn-success" id="btn-student-pagar-{{student_missing.id}}">
+                        Pagar
+                    </button>
+                </div>
+                
+            </dialog>
+     </div>
 
     {% endfor %}
 
@@ -131,126 +135,141 @@
 
     {% for beca_faltante in becas_faltantes %}
 
-    <dialog  id = "modal-scholarship-{{beca_faltante.id}}">
-        <img src="../static/images/{{beca_faltante.image}}" alt="Beca_imagen">
-        <h2>{{beca_faltante.name}}</h2>
-         <table class="table">
-            <tr>
-                <th scope="col">
-                    Codigo Beca
-                </th>
-                <th scope="col">
-                    Porcentaje Beca
-                </th scope="col">
-                <th scope="col">
-                    Auxilio transporte
-                </th scope="col">
-                <th scope="col">
-                    Estudiantes Asignados
-                </th>
-            </tr>
-            <tr scope="row">
-                <th>
-                    {{beca_faltante.code}}
-                </th>
-                <th>
-                    {{beca_faltante.academic_percentage}}
-                </th>
-                <th>
-                    {{beca_faltante.transportation}}
-                </th>
-                <th>
-                    {{beca_faltante.assigned_students}}
-                </th>
-            </tr>
-         </table>
-        <button  class="btn btn-success" id="btn-scholarship-pagar-{{ beca_faltante.id }}">
-                Pagar
-        </button>
-        <div id="chart-container-{{beca_faltante.id}}" style="width: 600px; height: 400px;"></div>
-        
-        <figure class="highcharts-figure-scholarship-{{beca_faltante.id}}">
-            <div id="container-figure-scholarship-{{beca_faltante.id}}"></div>
-        </figure>
+    <div class="position-relative">
+        <dialog id="modal-scholarship-{{beca_faltante.id}}" class="position-absolute top-50 start-50 translate-middle p-4">
+            <div class="d-flex gap-3">
+                <img src="../static/images/{{beca_faltante.image}}" style="width: 100px;" alt="Beca_imagen">
+                <h2>{{beca_faltante.name}}</h2>
+            </div>
+             <table class="table mb-4 mt-4">
+                <tr>
+                    <th scope="col">
+                        Codigo Beca
+                    </th>
+                    <th scope="col">
+                        Porcentaje Beca
+                    </th scope="col">
+                    <th scope="col">
+                        Auxilio transporte
+                    </th scope="col">
+                    <th scope="col">
+                        Estudiantes Asignados
+                    </th>
+                </tr>
+                <tr scope="row">
+                    <th>
+                        {{beca_faltante.code}}
+                    </th>
+                    <th>
+                        {{beca_faltante.academic_percentage}}
+                    </th>
+                    <th>
+                        {{beca_faltante.transportation}}
+                    </th>
+                    <th>
+                        {{beca_faltante.assigned_students}}
+                    </th>
+                </tr>
+             </table>
 
-        <script>
-            Highcharts.chart('container-figure-scholarship-{{beca_faltante.id}}', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Fondos Asociados',
-                align: 'left'
-            },
-            subtitle: {
-                text:
-                    'Donador: {{beca_faltante.donor}}',
-                align: 'left'
-            },
-            xAxis: {
-                categories: ['Alimentación', 'Transporte', 'Académico'],
-                crosshair: true,
-                accessibility: {
-                    description: 'Fondos'
-                }
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Pesos Colombianos (COP)'
-                }
-            },
-            tooltip: {
-                valueSuffix: ' Pesos'
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-            series: [
-                {
-                    name: 'Montos',
-                    data: [{y: {{beca_faltante.amount.alimentation}},color: '#61A3BA'}, {y: {{beca_faltante.amount.transport}},color: "#A2C579"}, {y: {{beca_faltante.amount.academic}},color : "#F5EEC8"}]
+            <div id="chart-container-{{beca_faltante.id}}" class="w-100 h-50 mt-3"></div>
+            
+            <figure class="highcharts-figure-scholarship-{{beca_faltante.id}}">
+                <div id="container-figure-scholarship-{{beca_faltante.id}}"></div>
+            </figure>
+
+            <div class="d-flex justify-content-end">
+                <button  class="btn btn-success" id="btn-scholarship-pagar-{{ beca_faltante.id }}">
+                    Pagar
+                </button>
+            </div>
+    
+            <script>
+                Highcharts.chart('container-figure-scholarship-{{beca_faltante.id}}', {
+                chart: {
+                    type: 'column'
                 },
-                
-            ]
-            });
-
-        </script>
-
-    </dialog>
+                title: {
+                    text: 'Fondos Asociados',
+                    align: 'left'
+                },
+                subtitle: {
+                    text:
+                        'Donador: {{beca_faltante.donor}}',
+                    align: 'left'
+                },
+                xAxis: {
+                    categories: ['Alimentación', 'Transporte', 'Académico'],
+                    crosshair: true,
+                    accessibility: {
+                        description: 'Fondos'
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Pesos Colombianos (COP)'
+                    }
+                },
+                tooltip: {
+                    valueSuffix: ' Pesos'
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [
+                    {
+                        name: 'Montos',
+                        data: [{y: {{beca_faltante.amount.alimentation}},color: '#61A3BA'}, {y: {{beca_faltante.amount.transport}},color: "#A2C579"}, {y: {{beca_faltante.amount.academic}},color : "#F5EEC8"}]
+                    },
+                    
+                ]
+                });
+    
+            </script>
+    
+        </dialog>
+    </div>
 
     {% endfor %}   
             
 
     
 
-    <div class="d-flex justify-content-center mt-5 h-75 align-items-center w-max mx-auto px-5">
+    <div class="d-flex justify-content-center mt-5 h-75 align-items-center w-max mx-auto px-5 gap-5">
 
-        <!--Student part  -->
-        <div class= "w-50 h-100 d-flex justify-content-between flex-column " style="background-color: #ffffff; box-shadow: 0 0 15px rgba(0, 0, 0, .5); margin-right: 2rem;" >
+        <!--Student part -->
+        <div class= "w-50 h-100" style="background-color: #ffffff; box-shadow: 0 0 15px rgba(0, 0, 0, .5); margin-right: 2rem; max-height: 379.5px;" >
 
             
-            <h2 class="m-3 justify-content-center d-flex"> Estudiantes faltantes</h2>
-            <hr class="m-0">
+            <h2 class="justify-content-center d-flex mt-3"> Estudiantes faltantes</h2>
+            <hr>
 
             <!-- A button to search a specific student -->
 
-            <div id = "search-student-container">
+            <!-- <div id = "search-student-container">
                 <input type="text" id = "search-student-input">
                 <button id = 'btn-search-student'>
+                    <i class='bx bx-search-alt'></i>
+                </button>
+            </div> -->
+
+            <div class="input-group mb-3 w-75 mx-auto" id="search-student-container">
+                <input type="text" id="search-student-input" class="form-control" placeholder="Codigo estudiante" aria-label="Codigo estudiante" aria-describedby="basic-addon1">
+                <button id="btn-search-student" class="btn btn-primary">
                     <i class='bx bx-search-alt'></i>
                 </button>
             </div>
 
             <!-- Buttons to select one student -->
 
-            <div class="w-100 h-100 justify-content-between flex-column  " style= "overflow-y: scroll; max-height: 80%;" >
+            <div class="w-100 h-50 mt-4 justify-content-between flex-column" style= "overflow-y: scroll; max-height: 80%;" >
                 {% for student_missing in students_missing %}
-                <div  class="d-flex flex-column m-3 " >
-                    <button id="btn-student-open-{{student_missing.id}}" class="bg-light btn-lg my-1" style="border-color: rgb(156, 150, 150); position: relative;">
+                <div  class="d-flex flex-column w-75 mx-auto">
+                    <button id="btn-student-open-{{student_missing.id}}" class="btn btn-secondary my-1" style="border-color: rgb(156, 150, 150); position: relative;">
                         <i class='bx bx-user-circle fs-3' style="position: absolute; left: 5px; top: 50%; transform: translateY(-50%);"></i>
                         <span style="margin-left: 30px; font-size: 90%;">
                             {{student_missing.code}}
@@ -265,36 +284,35 @@
 
         <!-- Scholarship part -->
                 
-        <div class="container-fluid w-50 h-100 p-2 rounded " style="background-color: #fff; box-shadow: 0 0 15px rgba(0, 0, 0, .5); margin-left: 4rem;">
-            <h2 class="m-3 justify-content-center d-flex" >Becas por pagar</h2>    
-            <hr class="m-2">
+        <div class= "w-50 h-100" style="background-color: #ffffff; box-shadow: 0 0 15px rgba(0, 0, 0, .5); margin-right: 2rem; max-height: 379.5px;">
+            <h2 class="justify-content-center d-flex mt-3">Becas por pagar</h2>    
+            <hr>
 
              <!-- A button to search a specific scholarship -->
 
-             <div id = "search-scholarship-container">
+             <!-- <div id = "search-scholarship-container">
                 <input type="text" id = "search-scholarship-input">
                 <button id = 'btn-search-scholarship'>
                     <i class='bx bx-search-alt'></i>
                 </button>
+            </div> -->
+
+            <div class="input-group mb-3 w-75 mx-auto" id="search-scholarship-container">
+                <input type="text" id="search-scholarship-input" class="form-control" placeholder="Codigo beca" aria-label="Codigo beca" aria-describedby="basic-addon1">
+                <button id="btn-search-scholarship" class="btn btn-primary">
+                    <i class='bx bx-search-alt'></i>
+                </button>
             </div>
 
-            <div class="w-100 h-100 justify-content-between flex-column" style= "overflow-y: scroll; max-height: 80%;">
-                <div class="button-container">
-                    {% for beca_faltante in becas_faltantes %}
-                        <div class="custom-button">
-                            <button id="btn-scholarship-open-{{beca_faltante.id}}" class="bg-light  " style="border-color: rgb(156, 150, 150);">
-                                <div class="button-content">
-                                    <img src="../static/images/{{beca_faltante.image}}" alt="campito" style="width: 4em; height: 4em; border-radius: 30%; margin-right: 10px;">
-                                <div>
-                                    <td>{{beca_faltante.code}}</td>
-                                    <td>{{beca_faltante.name}}</td>
-                                </div>
-                                </div>
-                            </button>
-                        </div>
-                    {% endfor %}
-                </div>
-        </div>
+            <div class="w-100 h-50 mt-4 d-flex justify-content-between flex-row flex-wrap gap-3 p-3" style="overflow-y: auto; max-height: 80%;">
+                {% for beca_faltante in becas_faltantes %}
+                    <button id="btn-scholarship-open-{{beca_faltante.id}}" class="btn btn-transparent my-1 d-flex justify-content-center flex-column rounded border border-dark" style="width: 45%;">
+                        <img src="../static/images/{{beca_faltante.image}}" alt="campito" class="align-self-center mb-2" style="width: 4em; height: 4em;">
+                        <p class="fw-bolder m-0 p-0">{{beca_faltante.name}}</p>
+                        <p class="text-uppercase m-0 p-0">{{beca_faltante.code}}</p>
+                    </button>
+                {% endfor %}
+            </div>
 
         <style>
             .button-container {
@@ -415,7 +433,7 @@
                     modalStudent = document.querySelector("#modal-student-{{student_missing.id}}")
                     btnPagar_Student = document.querySelector("#btn-student-pagar-{{student_missing.id}}")
                     
-                    
+
                     btnAbrirModalStudent.addEventListener('click', () => {
                         auxiliar_var_student = "{{student_missing.id}}"
                         console.log(auxiliar_var_student)

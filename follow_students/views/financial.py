@@ -142,6 +142,7 @@ class FinancialTransport(View):
                 students_missing.append(student_pivot)
                 if student_pivot.scholarship not in missing_scholarship:
                     missing_scholarship.append(student_pivot.scholarship)
+
                     
         return render(request, './financial_education_transportation.html', {
             'form': FinancialTranspAcademicForm(),
