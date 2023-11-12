@@ -84,10 +84,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        # migrations.RunPython(create_permisos),
-        # migrations.RunPython(create_rol),
-        # migrations.RunPython(create_rol_permiso),
-        # migrations.RunPython(create_actividades_no_academicas),
-        # migrations.RunPython(create_majors)
+        migrations.RunPython(create_permisos),
+        migrations.RunPython(create_rol),
+        migrations.RunPython(create_rol_permiso),
+        migrations.RunPython(create_actividades_no_academicas),
+        migrations.RunPython(create_majors)
     ]
 

@@ -138,7 +138,8 @@ class FinancialTransport(View):
         students_list = Student.objects.all()
         students_missing = []
         for student_pivot in students_list:
-            if student_pivot.aux_transportation == "0":
+            if student_pivot.aux_transportation != "4":
+                print(student_pivot.aux_transportation)
                 students_missing.append(student_pivot)
                 if student_pivot.scholarship not in missing_scholarship:
                     missing_scholarship.append(student_pivot.scholarship)
@@ -161,9 +162,11 @@ class FinancialTransport(View):
                 student = Student.objects.get(code = student_form )
                 scholarship = student.scholarship
                 transportation_fun_result = scholarship.amount.transport - scholarship.transportation
-                if student.aux_transportation == "0":
+                if student.aux_transportation != "4":
                     if transportation_fun_result >= 0:
-                        student.aux_transportation  = "1"
+                        aux_var_transportation =  int(student.aux_transportation)
+                        aux_var_transportation += 1
+                        student.aux_transportation  = aux_var_transportation
                         student.save()
                         scholarship.amount.transporte = transportation_fun_result 
                         scholarship.amount.save()
