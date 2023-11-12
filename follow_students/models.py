@@ -58,6 +58,19 @@ class Amount(models.Model):
     def __str__(self):
          text ="{}".format(self.code)
          return text
+    
+class ScholarshipGoal(models.Model):
+    description = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.description
+
+class ScholarshipGoalAssociation(models.Model):
+    scholarship = models.ForeignKey('Scholarship', on_delete=models.CASCADE)
+    goal = models.ForeignKey(ScholarshipGoal, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.scholarship.name} - {self.goal.description}"
 
 class Scholarship(models.Model):
     code  = models.CharField(max_length=20, unique=True)
@@ -67,10 +80,11 @@ class Scholarship(models.Model):
     assigned_students = models.PositiveIntegerField(default=0)
     porcentaje_academico = models.IntegerField(default = 70)
     auxilio_transporte = models.IntegerField(default = 1000000)
+    goals = models.ManyToManyField(ScholarshipGoal, through=ScholarshipGoalAssociation, blank=True)
 
     def __str__(self):
         return self.name
-
+    
 class Student(models.Model):
     name = models.CharField(max_length=100)
     phoneNumber = models.CharField(max_length=20)
@@ -83,6 +97,14 @@ class Student(models.Model):
     major = models.ForeignKey(Major, on_delete=models.CASCADE)
     aux_transportation = models.CharField(max_length=100, unique= False , default=0)
     aux_academic = models.CharField(max_length=100, unique= False , default=0)
+
+    def has_scholarships(self):
+        return self.scholarship is not None
+    
+    def get_scholarship_goals(self):
+        if self.scholarship:
+            return self.scholarship.goals.all()
+        return []
     
     def __str__(self):
         return self.name
