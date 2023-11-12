@@ -1,9 +1,9 @@
 from django import forms
-from follow_students.models import ActividadNoAcademica
+from follow_students.models import NonAcademicActivity
 
 class RegistroActividad(forms.Form):
-    codigo_student = forms.CharField(max_length=10)
-    actividad = forms.ModelChoiceField(queryset=ActividadNoAcademica.objects.all())
-    dias_asistencia = forms.CharField(max_length=100)
+    student_code = forms.CharField(max_length=10)
+    activity = forms.ModelChoiceField(queryset=NonAcademicActivity.objects.all())
+    assitance_days = forms.CharField(max_length=100)
 
 

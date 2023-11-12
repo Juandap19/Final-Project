@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views import View
-from follow_students.models import Student, RegistroActividadEstudiante
+from follow_students.models import Student, RegisNonAcademicActivity
 from follow_students.forms.upload_dataBU import  RegistroActividad
 from django.contrib import messages
 
@@ -10,7 +10,7 @@ class Upload_dataBU(View):
     
     def get(self, request):
         form = RegistroActividad()
-        activities = RegistroActividadEstudiante.objects.all()
+        activities = RegisNonAcademicActivity.objects.all()
         return render(request, 'upload_dataBU.html', {'form': form, 'activities': activities})
     
     def post(self, request):
@@ -21,7 +21,7 @@ class Upload_dataBU(View):
                 student = Student.objects.get(code=codigo_student)
                 actividad = form.cleaned_data.get('actividad')
                 dias_asistencia = form.cleaned_data.get('dias_asistencia')
-                registro, created = RegistroActividadEstudiante.objects.update_or_create(
+                registro, created = RegisNonAcademicActivity.objects.update_or_create(
                     student=student, 
                     actividad=actividad, 
                     defaults={'dias_asistencia': dias_asistencia},
@@ -35,11 +35,11 @@ class Upload_dataBU(View):
             except Student.DoesNotExist:
                 messages.error(request, 'Este estudiante no existe.')
                 form = RegistroActividad()
-                activities = RegistroActividadEstudiante.objects.all()
+                activities = RegisNonAcademicActivity.objects.all()
                 return render(request, 'upload_dataBU.html', {'form': form, 'activities': activities})
         else:
             form = RegistroActividad()
-            activities = RegistroActividadEstudiante.objects.all()
+            activities = RegisNonAcademicActivity.objects.all()
             return render(request, 'upload_dataBU.html', {'form': form, 'activities': activities})
 
 
