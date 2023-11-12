@@ -1,4 +1,5 @@
 {% extends 'layouts/navbar_sidebar.html' %}
+
 {% block main_content %}
 <!DOCTYPE html>
 
@@ -11,28 +12,42 @@
 
 <body>
 
-    <h1>Notificaciones</h1>
+    <h3>NOTIFICACIONES</h3>
 
-    <p> <br></p>
-
-    <ul>
-
-        {% for notification in notifications %}
-           {% if notification.state %}
+    <div class="mx-auto w-75 h-75 p-3 mt-5 d-flex flex-column justify-content-between"  style="background-color: #FFF; max-height: 379.5px ;box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
     
-              {{ notification.description }}
-                 <p> ----------------------------</p>
-            {% endif %}
-       
-        {% endfor %}
+        <div class="h-75 d-flex flex-column gap-4 py-3" style="overflow-y: scroll;">
+            {% for notification in notifications %}
 
+                {% if notification.state %}
+            
+                    <div class="rounded border border-dark p-3">
+                        <div class="d-flex flex-row gap-3 align-items-center">
+                            <i class='bx bxs-user-voice' style="font-size: 30px;"></i>
+                            <p class="m-0">{{ notification.name }}</p>  
+                        </div>
+                        <p class="m-0"><span class="fw-bolder">Estudiante: </span>{{ notification.student.name }}</p>
+                        <p class="m-0">{{ notification.description }}</p>
+                    </div>  
+
+                {% endif %}
+            
+            {% endfor %}
+        </div>
+    
         <form action="{%  url 'clean' %}" method="POST">
             {% csrf_token %}
-            <button class="btn btn-success">
-            Vaciar bandeja
-            </button></b> </p>
-         </form>
-    </ul>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-success">
+                    Vaciar bandeja
+                </button>
+            </div>
+        </form>
+    
+    </div>
+
+    
+
 
 </body>
 
