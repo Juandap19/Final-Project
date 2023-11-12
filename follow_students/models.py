@@ -135,7 +135,7 @@ class NonAcademicActivity(models.Model):
 class RegisNonAcademicActivity(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     activity = models.ForeignKey(NonAcademicActivity, on_delete=models.CASCADE)
-    attendance_days = models.CharField(max_length=100)
+    assistance_days = models.CharField(max_length=100)
 
     def __str__(self):
         return f'Registro de {self.student.name} en {self.activity.name}'
