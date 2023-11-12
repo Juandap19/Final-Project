@@ -20,6 +20,7 @@
                         <th>Nombre</th>
                         <th>Notas</th>
                         <th>Consultas</th>
+                        <th>Gastos</th>
                         <th>Actividades no académicas</th>
                         <th>Acciones</th>
                     </tr>
@@ -50,14 +51,13 @@
                             </td>
                             <td>
                                 {% for expense  in expenses %}
-                                    {% if expense == b.expense %}
+                                    {% if student == expense.student %}
                                         <li>Tipo: {{ expense.tipo}}</li>
                                         <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
                                         <li>Tiempo: {{expense.cantidad_dinero.tiempo_acumulado}}</li>
                                         <li>Beca Asociada: {{ expense.scholarship.name}}</li>
                                     {% endif %}
                                     <hr>
-
                                 {% endfor %}
                             </td>
                             <td>
