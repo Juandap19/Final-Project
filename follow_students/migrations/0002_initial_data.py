@@ -33,48 +33,48 @@ def create_rol_permiso(apps, schema_editor):
             permiso = Permiso.objects.get(nombre_permiso=permiso_nombre)
             RolPermiso.objects.create(rol=rol, permiso=permiso)
 
-def create_actividades_no_academicas(apps, schema_editor):
-    ActividadNoAcademica = apps.get_model('follow_students', 'ActividadNoAcademica')
-    actividades = ['Fútbol', 'Futbol Femenino', 'Futsal', 'Baloncesto', 'Voleibol', 'Atletismo', 'Natación', 'Ajedrez', 'Ultimate']
+def create_non_academic_activities(apps, schema_editor):
+    NonAcademicActivity = apps.get_model('follow_students', 'NonAcademicActivity')
+    activities = ['Fútbol', 'Futbol Femenino', 'Futsal', 'Baloncesto', 'Voleibol', 'Atletismo', 'Natación', 'Ajedrez', 'Ultimate']
 
-    for actividad in actividades:
-        ActividadNoAcademica.objects.create(nombre=actividad)
+    for activity in activities:
+        NonAcademicActivity.objects.create(name=activity)
         
 def create_majors(apps, schema_editor):
     Major = apps.get_model('follow_students', 'Major')
 
-    # Aquí puedes definir las carreras que quieras crear
     majors = [
-        {'nombre': 'Administración de Empresas con énfasis en Negocios Internacionales', 'precio': 13340000},
-        {'nombre': 'Economía y Negocios Internacionales', 'precio': 13340000},
-        {'nombre': 'Mercadeo Internacional y Publicidad', 'precio': 13340000},
-        {'nombre': 'Finanzas', 'precio': 13340000},
-        {'nombre': 'Ingeniería Bioquímica', 'precio': 12730000},
-        {'nombre': 'Ingeniería Industrial', 'precio': 13340000},
-        {'nombre': 'Ingeniería de Sistemas', 'precio': 12730000},
-        {'nombre': 'Ingeniería Telemática', 'precio': 12730000},
-        {'nombre': 'Diseño de Medios Interactivos', 'precio': 12730000},
-        {'nombre': 'Diseño Industrial', 'precio': 13340000},
-        {'nombre': 'Biología con concentraciones en Conservación y Biología Molecular/Biotecnología', 'precio': 11250000},
-        {'nombre': 'Química con énfasis en Bioquímica', 'precio': 11250000},
-        {'nombre': 'Química Farmacéutica', 'precio': 12260000},
-        {'nombre': 'Derecho', 'precio': 12730000},
-        {'nombre': 'Antropología', 'precio': 10110000},
-        {'nombre': 'Psicología', 'precio': 11250000},
-        {'nombre': 'Sociología', 'precio': 10110000},
-        {'nombre': 'Ciencia Política con énfasis en Relaciones Internacionales', 'precio': 10110000},
-        {'nombre': 'Música', 'precio': 12730000},
-        {'nombre': 'Comunicación', 'precio': 11250000},
-        {'nombre': "Licenciatura en Educación Básica Primaria", "precio":9380000 },
-        {"nombre": "Licenciatura en Lenguas Extranjeras con énfasis Inglés", "precio":9380000 },
-        {"nombre": "Licenciatura en Artes", "precio":9380000 },
-        {"nombre": "Licenciatura en Literatura y Lengua Castellana", "precio":9380000 },
-        {"nombre": "Licenciatura en Ciencias Sociales", "precio":9380000 },
-        {"nombre": "Licenciatura en Ciencias Naturales", "precio":9380000 }
+        {'name': 'Administración de Empresas con énfasis en Negocios Internacionales', 'price': 13340000},
+        {'name': 'Economía y Negocios Internacionales', 'price': 13340000},
+        {'name': 'Mercadeo Internacional y Publicidad', 'price': 13340000},
+        {'name': 'Finanzas', 'price': 13340000},
+        {'name': 'Ingeniería Bioquímica', 'price': 12730000},
+        {'name': 'Ingeniería Industrial', 'price': 13340000},
+        {'name': 'Ingeniería de Sistemas', 'price': 12730000},
+        {'name': 'Ingeniería Telemática', 'price': 12730000},
+        {'name': 'Diseño de Medios Interactivos', 'price': 12730000},
+        {'name': 'Diseño Industrial', 'price': 13340000},
+        {'name': 'Biología con concentraciones en Conservación y Biología Molecular/Biotecnología', 'price': 11250000},
+        {'name': 'Química con énfasis en Bioquímica', 'price': 11250000},
+        {'name': 'Química Farmacéutica', 'price': 12260000},
+        {'name': 'Derecho', 'price': 12730000},
+        {'name': 'Antropología', 'price': 10110000},
+        {'name': 'Psicología', 'price': 11250000},
+        {'name': 'Sociología', 'price': 10110000},
+        {'name': 'Ciencia Política con énfasis en Relaciones Internacionales', 'price': 10110000},
+        {'name': 'Música', 'price': 12730000},
+        {'name': 'Comunicación', 'price': 11250000},
+        {'name': "Licenciatura en Educación Básica Primaria", "price": 9380000},
+        {'name': "Licenciatura en Lenguas Extranjeras con énfasis Inglés", "price": 9380000},
+        {'name': "Licenciatura en Artes", "price": 9380000},
+        {'name': "Licenciatura en Literatura y Lengua Castellana", "price": 9380000},
+        {'name': "Licenciatura en Ciencias Sociales", "price": 9380000},
+        {'name': "Licenciatura en Ciencias Naturales", "price": 9380000}
     ]
 
+
     for major in majors:
-        Major.objects.create(nombre=major['nombre'], precio=major['precio'])
+        Major.objects.create(name=major['name'], price=major['price'])
 
 
 class Migration(migrations.Migration):
@@ -87,7 +87,7 @@ class Migration(migrations.Migration):
         migrations.RunPython(create_permisos),
         migrations.RunPython(create_rol),
         migrations.RunPython(create_rol_permiso),
-        migrations.RunPython(create_actividades_no_academicas),
+        migrations.RunPython(create_non_academic_activities),
         migrations.RunPython(create_majors)
     ]
 
