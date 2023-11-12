@@ -33,17 +33,16 @@ def create_rol_permiso(apps, schema_editor):
             permiso = Permiso.objects.get(nombre_permiso=permiso_nombre)
             RolPermiso.objects.create(rol=rol, permiso=permiso)
 
-def create_actividades_no_academicas(apps, schema_editor):
-    ActividadNoAcademica = apps.get_model('follow_students', 'ActividadNoAcademica')
-    actividades = ['Fútbol', 'Futbol Femenino', 'Futsal', 'Baloncesto', 'Voleibol', 'Atletismo', 'Natación', 'Ajedrez', 'Ultimate']
+def create_non_academic_activities(apps, schema_editor):
+    NonAcademicActivity = apps.get_model('follow_students', 'NonAcademicActivity')
+    activities = ['Fútbol', 'Futbol Femenino', 'Futsal', 'Baloncesto', 'Voleibol', 'Atletismo', 'Natación', 'Ajedrez', 'Ultimate']
 
-    for actividad in actividades:
-        ActividadNoAcademica.objects.create(nombre=actividad)
+    for activity in activities:
+        NonAcademicActivity.objects.create(name=activity)
         
 def create_majors(apps, schema_editor):
     Major = apps.get_model('follow_students', 'Major')
 
-    # Aquí puedes definir las carreras que quieras crear
     majors = [
         {'name': 'Administración de Empresas con énfasis en Negocios Internacionales', 'price': 13340000},
         {'name': 'Economía y Negocios Internacionales', 'price': 13340000},
@@ -73,6 +72,7 @@ def create_majors(apps, schema_editor):
         {"name": "Licenciatura en Ciencias Naturales", "price":9380000 }
     ]
 
+
     for major in majors:
         Major.objects.create(name=major['name'], price=major['price'])
 
@@ -87,7 +87,7 @@ class Migration(migrations.Migration):
         migrations.RunPython(create_permisos),
         migrations.RunPython(create_rol),
         migrations.RunPython(create_rol_permiso),
-        migrations.RunPython(create_actividades_no_academicas),
+        migrations.RunPython(create_non_academic_activities),
         migrations.RunPython(create_majors)
     ]
 
