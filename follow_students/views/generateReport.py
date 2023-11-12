@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from follow_students.models import Student, Consulta, Nota
+from follow_students.models import Student, Consulta, Nota, RegistroActividadEstudiante
 
 class GenerateReport(View):
     def post(self, request):
@@ -14,9 +14,12 @@ class GenerateReport(View):
         # Obtén las notas y consultas relacionadas con los estudiantes seleccionados
         gradesList = Nota.objects.filter(student__in=selected_students)
         consultaList = Consulta.objects.filter(student__in=selected_students)
+        bu = RegistroActividadEstudiante.objects.filter(student=student)
+
         
         return render(request, 'generateReport.html', {
             "selected_students": selected_students,
             "grades": gradesList,
             "consultas": consultaList,
+            "bu": bu
         })

@@ -48,7 +48,20 @@
                                     {% endif %}
                                 {% endfor %}
                             </td>
-                            <td></td>
+                            <td>
+                                {% for b in bu %}
+
+                                    {% if student == b.student %}
+
+                                        <p>Actividad: {{ b.actividad }}</p>
+                                        <p>Dias asistencia: {{ b.dias_asistencia }}</p>
+
+                                    {% endif %}
+
+                                    <hr>
+
+                                {% endfor %}
+                            </td>
                             <td>
                                 <form method="get" action="{% url 'generate_pdf' student.id %}">
                                     <button type="submit" class="btn btn-primary">Descargar PDF</button>
