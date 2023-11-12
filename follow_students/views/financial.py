@@ -1,9 +1,10 @@
 from django.views import View
 from django.shortcuts import render
 from follow_students.forms.financial_form import FinancialForm, FinancialTranspAcademicForm , FinancialTAByStudentForm
-from follow_students.models import Scholarship_expense, Student, Scholarship , Major, User
+from follow_students.models import Scholarship_expense, Student, Scholarship , Major, User  #, Notification
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail, EmailMessage
 
 class FinancialSupport(View):
     def get(self, request):
@@ -28,6 +29,19 @@ class FinancialSupport(View):
                 expense =  Scholarship_expense.objects.create( student = query, money_quantity = money_quantity, accumulated_time =  acumulate_time, selected_time = select_time, type_mount = 'Alimentación', scholarship = query1)  #Create a expense to One particular Student and save it
                 expense.save()   #Save the new value in the data base
                 messages.success(request,"Proceso completado")
+
+                # Notificate the donor and philanthropy.
+                if(query1.amount.alimentation <= 1000000):
+                    recipient = query1.donor.mail
+                    subject = "Agotamiento de Recursos Alimentarios"
+                    message = "Le informamos que La beca {} asociada al codigo {} a la cual usted {} pertence como donante, se estan acabando los recursos de alimentacíon.".format( query1.name, query1.code, query1.donor.name)
+                    from_email = "sistemafilantropia@gmail.com" 
+
+                    email = EmailMessage(subject, message, from_email, [recipient]) 
+                    email.send()
+                    notification = Notification(name="Agotamiento de Recursos Alimentarios", student= query , description=" Se estan Acabando los recursos Alimentacios para la Beca Asociada al estudiante")
+                    notification.save()
+                
                 return HttpResponseRedirect(request.path)   
             else:
                 #Case when the Scholarship doesn`t have enought money to pay the new student money quantity`
@@ -78,6 +92,16 @@ class FinancialAcademic(View):
                         expense = Scholarship_expense.objects.create( student = student, scholarship = scholarship, money_quantity = academic_fun_result, accumulated_time =  6, selected_time = "Meses", type_mount = 'Academico')  #Create a expense to One particular Student and save it
                         expense.save()
                         messages.success(request,"Proceso completado".format(student.code ))
+                        # Notificate the donor and philanthropy.
+                        if(scholarship.amount.academic < 10000000):
+                            recipient = scholarship.donor.mail
+                            subject = "Agotamiento de Recursos Academicos"
+                            message = "Le informamos que La beca {} asociada al codigo {} a la cual usted {} pertence como donante, se estan acabando los recursos de Academicos.".format( scholarship.name, scholarship.code, scholarship.donor.name)
+                            from_email = "sistemafilantropia@gmail.com"
+                            email = EmailMessage(subject, message, from_email, [recipient]) 
+                            email.send()
+                            notification = Notification(name="Agotamiento de Recursos Academicos", student= student , description=" Se le estan Acabando los recursos Academicos para la Beca Asociada al estudiante")
+                            notification.save()
                         return HttpResponseRedirect(request.path) 
                     else:
                         messages.warning(request,"Pago no aprobado Fondos insuficientes de la beca")
@@ -111,7 +135,17 @@ class FinancialAcademic(View):
                             scholarship.amount.academic  = result_education_fun 
                             scholarship.amount.save()
                             expense = Scholarship_expense.objects.create( student = student_pivot, scholarship = scholarship, money_quantity = major_to_add, accumulated_time =  6, selected_time = "Meses", type_mount = 'Académico')  #Create a expense to One particular Student and save it
-                            expense.save()
+                            # Notificate the donor and philanthropy.
+                            if(scholarship.amount.academic < 10000000):
+                                recipient = scholarship.donor.mail
+                                subject = "Agotamiento de Recursos Academicos"
+                                message = "Le informamos que La beca {} asociada al codigo {} a la cual usted {} pertence como donante, se le estan acabando los recursos de Academicos.".format( scholarship.name, scholarship.code, scholarship.donor.name)
+                                from_email = "sistemafilantropia@gmail.com"
+                                email = EmailMessage(subject, message, from_email, [recipient]) 
+                                email.send()
+                                notification = Notification(name="Agotamiento de Recursos Academicos", student= student , description=" Se estan Acabando los recursos Academicos para la Beca Asociada al estudiante")
+                                notification.save()
+                                expense.save()
                         else:
                             scholarship.amount.save()
                             flag = False
@@ -168,11 +202,22 @@ class FinancialTransport(View):
                         aux_var_transportation += 1
                         student.aux_transportation  = aux_var_transportation
                         student.save()
-                        scholarship.amount.transporte = transportation_fun_result 
+                        scholarship.amount.transport = transportation_fun_result 
                         scholarship.amount.save()
                         expense = Scholarship_expense.objects.create( student = student, scholarship = scholarship, money_quantity = scholarship.transportation, accumulated_time =  6, selected_time = "Meses", type_mount = 'Transporte')  #Create a expense to One particular Student and save it
                         expense.save()
                         messages.success(request,"Proceso completado".format(student))
+                        # Notificate the donor and philanthropy.
+                        if(scholarship.amount.aux_transportation < 5000000):
+                            recipient = scholarship.donor.mail
+                            subject = "Agotamiento de Recursos de Transporte"
+                            message = "Le informamos que La beca {} asociada al codigo {} a la cual usted {} pertence como donante, se le estan acabando los recursos de Transporte.".format( scholarship.name, scholarship.code, scholarship.donor.name)
+                            from_email = "sistemafilantropia@gmail.com"
+                            email = EmailMessage(subject, message, from_email, [recipient]) 
+                            email.send()
+                            notification = Notification(name="Agotamiento de Recursos de Transporte", student= student , description=" Se estan Acabando los recursos de Transporte para la Beca Asociada al estudiante")
+                            notification.save()
+
                         return HttpResponseRedirect(request.path) 
                     else:
                         messages.warning(request,"Pago no aprobado Fondos insuficientes de la beca")
@@ -200,16 +245,28 @@ class FinancialTransport(View):
                             if  transportation_fun_result >= 0:
                                 student_pivot.aux_transportation  = "1"
                                 student_pivot.save()
-                                scholarship.amount.transporte = transportation_fun_result 
+                                scholarship.amount.transport = transportation_fun_result 
                                 scholarship.amount.save()
                                 expense = Scholarship_expense.objects.create( student = student_pivot, scholarship = scholarship, money_quantity = scholarship.transportation, accumulated_time =  6, selected_time = "Meses", type_mount = 'Transporte')  #Create a expense to One particular Student and save it
                                 expense.save()
+
+                                # Notificate the donor and philanthropy.
+                                if(scholarship.amount.aux_transportation < 5000000):
+                                    recipient = scholarship.donor.mail
+                                    subject = "Agotamiento de Recursos de Transporte"
+                                    message = "Le informamos que La beca {} asociada al codigo {} a la cual usted {} pertence como donante, se le estan acabando los recursos de Transporte.".format( scholarship.name, scholarship.code, scholarship.donor.name)
+                                    from_email = "sistemafilantropia@gmail.com"
+                                    email = EmailMessage(subject, message, from_email, [recipient]) 
+                                    email.send()
+                                    notification = Notification(name="Agotamiento de Recursos de Transporte", student= student , description=" Se estan Acabando los recursos de Transporte para la Beca Asociada al estudiante")
+                                    notification.save()
+
                             else:
-                                scholarship.montos.save()
+                                scholarship.amount.save()
                                 flag = False
                                 its_missing += 1 
                         else:
-                            counter_students += 1  
+                            counter_students += 1 
                     if flag:
                         if counter_students != len(students_list):
                             messages.success(request,"Proceso completado")
