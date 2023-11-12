@@ -53,5 +53,17 @@
             <li>Dias de asistencias: {{ activity.dias_asistencia }}</li>
         {% endfor %}
     </ul>
+
+    <h4>Gastos del Estudiante</h4>
+    <ul>
+        {% for expense  in expenses %}
+            <li>Tipo: {{ expense.tipo}}</li>
+            <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
+            <li>Tiempo: {{expense.cantidad_dinero.tiempo_acumulado}}</li>
+            <li>Beca Asociada: {{ expense.scholarship.name}}</li>
+            <hr>
+        {% endfor %}
+    </ul>
+
 </body>
 </html>
