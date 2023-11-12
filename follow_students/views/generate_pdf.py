@@ -13,13 +13,15 @@ class GeneratePDF(View):
         consultaList = Consulta.objects.filter(student=student)
         gradesList = Nota.objects.filter(student=student)
         bu = RegistroActividadEstudiante.objects.filter(student=student)
+        expenses = RegistroActividadEstudiante.objects.filter(student=student)
 
         template = get_template('pdf_template.html')
         context = {
             'student': student,
             'gradesList': gradesList,
             'consultaList': consultaList,
-            'bu': bu
+            'bu': bu,
+            "expenses": expenses,
         }
         content = template.render(context)
 
