@@ -18,7 +18,10 @@ from follow_students.views.student_edit import StudentEdit
 from follow_students.views.studentsRegister import StudentsRegister
 from follow_students.views.assignScholarship import AssignScholarship
 from follow_students.views.generate_pdf import GeneratePDF
-
+from follow_students.views.menuCancelation import MenuCancelation
+from follow_students.views.cancelationSection import CancelationSection
+from follow_students.views.notification import Notifications
+from follow_students.views.goalEvaluation import GoalEvaluation
 
 
 
@@ -35,10 +38,16 @@ urlpatterns = [
     path('generate_pdf/<int:code>/', GeneratePDF.as_view(), name='generate_pdf'),
     path('upload_dataPD/', Upload_dataPD.as_view(), name = "uploadPD"),
     path('studentManage/', StudentManage.as_view(), name = "studentManage"),
+    path('studentManage/goalEvaluation/<int:pk>/', GoalEvaluation.as_view(), name = "goalEvaluation"),
     path('studentManage/studentEdit/<int:pk>/', StudentEdit.as_view(), name = "studentEdit"),
     path('studentsRegister/', StudentsRegister.as_view()),
     path('assignScholarship/<str:code>/', AssignScholarship.as_view(), name='asignar_scholarship'),
     path('upload_dataCREA/', Upload_dataCREA.as_view(), name = "uploadCREA"),
     path('upload_dataBU/', Upload_dataBU.as_view(), name = "uploadBU"),
-
+    path('menuCancelation/', MenuCancelation.as_view(), name = "MenuC"),
+    path('cancelationSection/', CancelationSection.as_view(), name = "CancelationS"),
+    path('menuCancelation/<int:code>/', MenuCancelation.as_view(), name="section"),
+    path('cancelationSection/<int:code>/', CancelationSection.as_view(), name="cancelation"),
+    path('notification/', Notifications.as_view(), name = "notis"),
+    path('notification/', Notifications.as_view(), name = "clean")
 ]

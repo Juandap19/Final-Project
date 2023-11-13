@@ -1,14 +1,14 @@
 from django import forms
 from follow_students.models import SupportCenter
 
-class RegistroConsulta(forms.Form):
-    codigo_student = forms.CharField(max_length=10)
+class RegisConsult(forms.Form):
+    student_code = forms.CharField(max_length=10)
     support_center = forms.ModelChoiceField(queryset=SupportCenter.objects.all())
-    fecha = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-    hora = forms.TimeField(widget=forms.TimeInput(attrs={'type': 'time'}))
-    motivo = forms.CharField(
+    date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    time = forms.TimeField(widget=forms.TimeInput(attrs={'type': 'time'}))
+    reason = forms.CharField(
         widget=forms.Textarea(attrs={'cols': 30, 'rows': 5, 'style': 'resize: none;'})
     )
-    resultado = forms.CharField(
+    outcome = forms.CharField(
         widget=forms.Textarea(attrs={'cols': 30, 'rows': 5, 'style': 'resize: none;'})
     )

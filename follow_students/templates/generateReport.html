@@ -33,7 +33,7 @@
                             <td>
                                 {% for grade in grades %}
                                     {% if student == grade.student %}
-                                        <p>{{ grade.curso.code }} : <b>{{ grade.grade }}</b></p>
+                                        <p>{{ grade.course.code }} : <b>{{ grade.grade }}</b></p>
                                     {% endif %}
                                 {% endfor %}
                             </td>
@@ -41,10 +41,10 @@
                                 {% for consulta in consultas %}
                                     {% if student == consulta.student %}
                                         <p>Centro de apoyo: {{ consulta.support_center }} </p>
-                                        <p>Fecha: {{ consulta.fecha }}</p>
-                                        <p>Hora: {{ consulta.hora }}</p>
-                                        <p>Motivo: {{ consulta.motivo }}</p>
-                                        <p>Resultado: {{ consulta.resultado }}</p>
+                                        <p>Fecha: {{ consulta.date }}</p>
+                                        <p>Hora: {{ consulta.time }}</p>
+                                        <p>Motivo: {{ consulta.reason }}</p>
+                                        <p>Resultado: {{ consulta.outcome }}</p>
                                         <hr>
                                     {% endif %}
                                 {% endfor %}
@@ -88,16 +88,11 @@
                             </td>
                             <td>
                                 {% for b in bu %}
-
                                     {% if student == b.student %}
-
-                                        <p>Actividad: {{ b.actividad }}</p>
-                                        <p>Dias asistencia: {{ b.dias_asistencia }}</p>
-
+                                        <p>Actividad: {{ b.activity }}</p>
+                                        <p>Dias asistencia: {{ b.assistance_days }}</p>
                                     {% endif %}
-
                                     <hr>
-
                                 {% endfor %}
                             </td>
                             <td>

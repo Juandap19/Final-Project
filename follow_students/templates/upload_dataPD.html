@@ -53,11 +53,11 @@
                                 <th>Curso</th>
                                 <th>Nota</th>
                             </tr>
-                            {% for nota in notas %}
+                            {% for grade in grades %}
                             <tr class="student">
-                                <td class="student-code">{{ nota.student }}</td>
-                                <td>{{ nota.curso }}</td>
-                                <td>{{ nota.grade }}</td>
+                                <td class="student-code">{{ grade.student }}</td>
+                                <td>{{ grade.course }}</td>
+                                <td>{{ grade.grade }}</td>
                             </tr>
                             {% endfor %}
                         </table>

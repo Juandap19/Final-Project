@@ -31,7 +31,7 @@
     <h3>Notas:</h3>
     <ul>
         {% for grade in gradesList %}
-            <li>Curso: {{ grade.curso.code }}, Nota: {{ grade.grade }}</li>
+            <li>Curso: {{ grade.course.code }}, Nota: {{ grade.grade }}</li>
         {% endfor %}
     </ul>
     
@@ -39,18 +39,18 @@
     <ul>
         {% for consulta in consultaList %}
             <li>Centro de apoyo: {{ consulta.support_center }}</li>
-            <li>Fecha: {{ consulta.fecha }}</li>
-            <li>Hora: {{ consulta.hora }}</li>
-            <li>Motivo: {{ consulta.motivo }}</li>
-            <li>Resultado: {{ consulta.resultado }}</li>
+            <li>Fecha: {{ consulta.date }}</li>
+            <li>Hora: {{ consulta.time }}</li>
+            <li>Motivo: {{ consulta.reason }}</li>
+            <li>Resultado: {{ consulta.outcome }}</li>
         {% endfor %}
     </ul>
 
     <h3>Bienestar universitario</h3>
     <ul>
         {% for activity in bu %}
-            <li>Actividad: {{ activity.actividad.nombre }}</li>
-            <li>Dias de asistencias: {{ activity.dias_asistencia }}</li>
+            <li>Actividad: {{ activity.activity.name }}</li>
+            <li>Dias de asistencias: {{ activity.assistance_days }}</li>
         {% endfor %}
     </ul>
 

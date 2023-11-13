@@ -26,7 +26,7 @@ class RolPermiso(models.Model):
     rol = models.ForeignKey(Rol, on_delete=models.CASCADE)
     permiso = models.ForeignKey(Permiso, on_delete=models.CASCADE)
 
-class Curso(models.Model):
+class Course(models.Model):
     code = models.CharField(max_length=20, unique=True)
     name = models.CharField(max_length = 200)
     def __str__(self):
@@ -58,6 +58,19 @@ class Amount(models.Model):
     def __str__(self):
          text ="{}".format(self.code)
          return text
+    
+class ScholarshipGoal(models.Model):
+    description = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.description
+
+class ScholarshipGoalAssociation(models.Model):
+    scholarship = models.ForeignKey('Scholarship', on_delete=models.CASCADE)
+    goal = models.ForeignKey(ScholarshipGoal, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.scholarship.name} - {self.goal.description}"
 
 class Scholarship(models.Model):
     code  = models.CharField(max_length=20, unique=True)
@@ -67,10 +80,11 @@ class Scholarship(models.Model):
     assigned_students = models.PositiveIntegerField(default=0)
     porcentaje_academico = models.IntegerField(default = 70)
     auxilio_transporte = models.IntegerField(default = 1000000)
+    goals = models.ManyToManyField(ScholarshipGoal, through=ScholarshipGoalAssociation, blank=True)
 
     def __str__(self):
         return self.name
-
+    
 class Student(models.Model):
     name = models.CharField(max_length=100)
     phoneNumber = models.CharField(max_length=20)
@@ -83,6 +97,14 @@ class Student(models.Model):
     major = models.ForeignKey(Major, on_delete=models.CASCADE)
     aux_transportation = models.CharField(max_length=100, unique= False , default=0)
     aux_academic = models.CharField(max_length=100, unique= False , default=0)
+
+    def has_scholarships(self):
+        return self.scholarship is not None
+    
+    def get_scholarship_goals(self):
+        if self.scholarship:
+            return self.scholarship.goals.all()
+        return []
     
     def __str__(self):
         return self.name
@@ -113,38 +135,49 @@ class SupportCenter(models.Model):
     
     def __str__(self):
         return self.name
-    
-class Consulta(models.Model):
+
+class Consult(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     support_center = models.ForeignKey(SupportCenter, on_delete=models.CASCADE)
-    fecha = models.DateField()
-    hora = models.TimeField()
-    motivo = models.TextField()
-    resultado = models.TextField()
+    date = models.DateField()
+    time = models.TimeField()
+    reason = models.TextField()
+    outcome = models.TextField()
     
     def __str__(self):
-        return f'Consulta realizada por {self.student.name} el {self.fecha}'
+        return f'Consulta realizada por {self.student.name} el {self.date}'
 
-class Nota(models.Model):
+class Grade(models.Model):
     grade = models.FloatField()
-    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    state= models.BooleanField(default=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    
     
     def __str__(self):
         return self.student.code
 
-class ActividadNoAcademica(models.Model):
-    nombre = models.CharField(max_length=100)
+
+class NonAcademicActivity(models.Model):
+    name = models.CharField(max_length=100)
     
     def __str__(self):
-        return self.nombre
+        return self.name
       
-class RegistroActividadEstudiante(models.Model):
+class RegisNonAcademicActivity(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    actividad = models.ForeignKey(ActividadNoAcademica, on_delete=models.CASCADE)
-    dias_asistencia = models.CharField(max_length=100)
+    activity = models.ForeignKey(NonAcademicActivity, on_delete=models.CASCADE)
+    assistance_days = models.CharField(max_length=100)
 
     def __str__(self):
-        return f'Registro de {self.student.name} en {self.actividad.nombre}'
+        return f'Registro de {self.student.name} en {self.activity.name}'
 
-
+class Notification(models.Model):
+     name=models.TextField(default="Notificacion")
+     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+     description=models.TextField()
+     state= models.BooleanField(default=True)
+     
+     def __str__(self):
+        name=self.name
+        return name

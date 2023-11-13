@@ -31,13 +31,13 @@ def create_rol_permiso(apps, schema_editor):
             permiso = Permiso.objects.get(nombre_permiso=permiso_nombre)
             RolPermiso.objects.create(rol=rol, permiso=permiso)
 
-def create_actividades_no_academicas(apps, schema_editor):
-    ActividadNoAcademica = apps.get_model('follow_students', 'ActividadNoAcademica')
-    actividades = ['Fútbol', 'Futbol Femenino', 'Futsal', 'Baloncesto', 'Voleibol', 'Atletismo', 'Natación', 'Ajedrez', 'Ultimate']
+def create_non_academic_activities(apps, schema_editor):
+    NonAcademicActivity = apps.get_model('follow_students', 'NonAcademicActivity')
+    activities = ['Fútbol', 'Futbol Femenino', 'Futsal', 'Baloncesto', 'Voleibol', 'Atletismo', 'Natación', 'Ajedrez', 'Ultimate']
 
-    for actividad in actividades:
-        ActividadNoAcademica.objects.create(nombre=actividad)
-
+    for activity in activities:
+            NonAcademicActivity.objects.create(name=activity)
+            
 def create_supportCenter(apps, schema_editor):
     SupportCenter = apps.get_model('follow_students', 'SupportCenter')
     
@@ -50,6 +50,7 @@ def create_supportCenter(apps, schema_editor):
     for center in centers:
         SupportCenter.objects.create(name=center['name'])
     
+
 def create_majors(apps, schema_editor):
     Major = apps.get_model('follow_students', 'Major')
 
@@ -82,9 +83,9 @@ def create_majors(apps, schema_editor):
         {"name": "Licenciatura en Ciencias Naturales", "price": 9380000}
     ]
 
+
     for major in majors:
         Major.objects.create(name=major['name'], price=major['price'])
-
 
 
 class Migration(migrations.Migration):
@@ -97,8 +98,8 @@ class Migration(migrations.Migration):
         migrations.RunPython(create_permisos),
         migrations.RunPython(create_rol),
         migrations.RunPython(create_rol_permiso),
-        migrations.RunPython(create_actividades_no_academicas),
         migrations.RunPython(create_majors),
-        migrations.RunPython(create_supportCenter)
+        migrations.RunPython(create_supportCenter),
+        migrations.RunPython(create_non_academic_activities)
     ]
 
