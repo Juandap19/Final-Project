@@ -25,12 +25,14 @@ class Upload_dataCREA(View):
                 consultations = Consult.objects.all()
                 return render(request, 'upload_dataCREA.html', {'form': form, 'consultations': consultations})
 
+            support_center = form.cleaned_data.get('support_center')
             date = form.cleaned_data.get('date')
             time = form.cleaned_data.get('time')
             reason = form.cleaned_data.get('reason')
             outcome = form.cleaned_data.get('outcome')
             Consult.objects.create(
                 student=student, 
+                support_center=support_center,
                 date=date,
                 time=time,
                 reason=reason,

@@ -21,7 +21,7 @@
     
                                     <div class="card rounded border border-dark" style="width: 14rem; height: 50%;">
                                         <div class="card-body">
-                                        <h5 class="card-title">{{ grade.curso.name }}</h5>
+                                        <h5 class="card-title">{{ grade.course.code }}</h5>
                                         <form action="{%  url 'cancelation' grade.id %}" method="POST">
                                             {% csrf_token %}
                                             <button class="btn btn-success mt-3">

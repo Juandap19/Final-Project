@@ -130,8 +130,15 @@ class Gasto_beca(models.Model):
         text = self.student.code
         return text
 
+class SupportCenter(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
+
 class Consult(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    support_center = models.ForeignKey(SupportCenter, on_delete=models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
     reason = models.TextField()
@@ -153,7 +160,6 @@ class Grade(models.Model):
 
 class NonAcademicActivity(models.Model):
     name = models.CharField(max_length=100)
-
     
     def __str__(self):
         return self.name
@@ -165,7 +171,6 @@ class RegisNonAcademicActivity(models.Model):
 
     def __str__(self):
         return f'Registro de {self.student.name} en {self.activity.name}'
-
 
 class Notification(models.Model):
      name=models.TextField(default="Notificacion")

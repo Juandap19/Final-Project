@@ -1,7 +1,6 @@
 {% extends 'layouts/navbar_sidebar.html' %}
 
 {% block main_content %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,46 +9,102 @@
     <title>Document</title>
 </head>
 <body>
-
-   
-
     <h3>REPORTE</h3>
-    
 
     <div class="mx-auto w-75 h-75 mt-5" style="background-color: #FFF; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
-
-
         <div class="table-responsive w-100 p-3" style="height: 90%;">
-            <table  id="tableStudents" class="table w-100 mt-4">
+            <table id="tableStudents" class="table w-100 mt-4">
                 <thead class="table-secondary">
                     <tr class="align-middle">
                         <th>Codigo</th>
                         <th>Nombre</th>
-                        <th>Materias</th>
+                        <th>Notas</th>
+                        <th>Consultas</th>
+                        <th>Gastos</th>
+                        <th>Actividades no académicas</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for ide in ides %}
-
+                    {% for student in selected_students %}
                         <tr>
-                            <td>{{ide.code}}</td>
-                            <td>{{ide.name}}</td>
+                            <td>{{ student.code }}</td>
+                            <td>{{ student.name }}</td>
                             <td>
                                 {% for grade in grades %}
-
-                                {% if ide.name == grade.student.name%}
-
-                                <p>{{grade.course.code}} : <b>{{grade.grade}}</b> </p>
-
-                                {% endif %}
-
+                                    {% if student == grade.student %}
+                                        <p>{{ grade.course.code }} : <b>{{ grade.grade }}</b></p>
+                                    {% endif %}
                                 {% endfor %}
                             </td>
+                            <td>
+                                {% for consulta in consultas %}
+                                    {% if student == consulta.student %}
+                                        <p>Centro de apoyo: {{ consulta.support_center }} </p>
+                                        <p>Fecha: {{ consulta.date }}</p>
+                                        <p>Hora: {{ consulta.time }}</p>
+                                        <p>Motivo: {{ consulta.reason }}</p>
+                                        <p>Resultado: {{ consulta.outcome }}</p>
+                                        <hr>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <h6>Pagos de Alimentacion</h6>
+                                
+                                {% for expense in expenses %}
+                                    {% if expense.tipo == 'Alimentación' %}
+                                        <p>Cantidad de dinero: {{ expense.cantidad_dinero }}</p>
+                                        <p>Tiempo: {{ expense.tiempo_acumulado }} {{ expense.tiempo_seleccionado}} </p>
+                                        <p>Beca Asociada: {{ expense.scholarship.name }}</p>
+                                        <hr>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                
+                                <h6>Pagos de Transporte</h6>
+                                
+                                {% for expense in expenses %}
+                                    {% if expense.tipo == 'Transporte' %}
+                                        <p>Cantidad de dinero: {{ expense.cantidad_dinero }}</p>
+                                        <p>Tiempo: {{ expense.tiempo_acumulado }}  {{ expense.tiempo_seleccionado}}</p>
+                                        <p>Beca Asociada: {{ expense.scholarship.name }}</p>
+                                        <hr>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                
+                                <h6>Pagos Academicos</h6>
+                                
+                                {% for expense in expenses %}
+                                    {% if expense.tipo == 'Academico' %}
+                                        <p>Cantidad de dinero: {{ expense.cantidad_dinero }}</p>
+                                        <p>Tiempo: {{ expense.tiempo_acumulado }} {{ expense.tiempo_seleccionado}} </p>
+                                        <p>Beca Asociada: {{ expense.scholarship.name }}</p>
+                                        <hr>
+                                    {% endif %}
+                                {% endfor %}
+                               
+                            </td>
+                            <td>
+                                {% for b in bu %}
+                                    {% if student == b.student %}
+                                        <p>Actividad: {{ b.activity }}</p>
+                                        <p>Dias asistencia: {{ b.assistance_days }}</p>
+                                    {% endif %}
+                                    <hr>
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <form method="get" action="{% url 'generate_pdf' student.id %}">
+                                    <button type="submit" class="btn btn-primary">Descargar PDF</button>
+                                </form>
+                            </td>
                         </tr>
-
                     {% endfor %}
                 </tbody>
             </table>
+            
         </div>
     </div>
 
@@ -60,9 +115,6 @@
             }
         });
     </script>
-
 </body>
 </html>
-
-
 {% endblock %}
