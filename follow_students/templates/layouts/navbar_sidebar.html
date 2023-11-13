@@ -80,19 +80,27 @@
 
                     {% endif %}
 
-                    {% if 'Pagos' in request.session.permisos  %}
+                    {% if 'Pago Alimentacion' in request.session.permisos  %}
 
-                        <article class="d-flex align-items-center"><i class='bx bx-money position-absolute'></i><a class="dropend dropdown-toggle text-decoration-none text-black py-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Pagos
-                        </a>
-                            <div class="dropdown-menu w-100">
-                                <article class="d-flex align-items-center"><i class='bx bx-coffee-togo position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_alimentacion">Alimentación</a></article>
-                                <article class="d-flex align-items-center"><i class='bx bx-bus position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_transporte">Transporte</a></article>
-                                <article class="d-flex align-items-center"><i class='bx bx-book position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_academico">Académico</a></article>
-                            </div>
-                        </article>
+                    <article class="d-flex align-items-center"><i class='bx bx-coffee-togo position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_alimentacion">Alimentación</a></article>
 
                     {% endif %}
+
+
+                    {% if 'Pago Academico' in request.session.permisos  %}
+
+                    <article class="d-flex align-items-center"><i class='bx bx-book position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_academico">Académico</a></article>
+
+                    {% endif %}
+
+                    {% if 'Pago Transporte' in request.session.permisos  %}
+                        <article class="d-flex align-items-center"><i class='bx bx-bus position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_transporte">Transporte</a></article>
+                        
+                    {% endif %}
+
+                    
+
+
 
                 </div>
               
