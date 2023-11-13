@@ -50,15 +50,41 @@
                                 {% endfor %}
                             </td>
                             <td>
-                                {% for expense  in expenses %}
-                                    {% if student == expense.student %}
-                                        <li>Tipo: {{ expense.tipo}}</li>
-                                        <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
-                                        <li>Tiempo: {{expense.cantidad_dinero.tiempo_acumulado}}</li>
-                                        <li>Beca Asociada: {{ expense.scholarship.name}}</li>
+                                <h6>Pagos de Alimentacion</h6>
+                                
+                                {% for expense in expenses %}
+                                    {% if expense.tipo == 'Alimentación' %}
+                                        <p>Cantidad de dinero: {{ expense.cantidad_dinero }}</p>
+                                        <p>Tiempo: {{ expense.tiempo_acumulado }} {{ expense.tiempo_seleccionado}} </p>
+                                        <p>Beca Asociada: {{ expense.scholarship.name }}</p>
+                                        <hr>
                                     {% endif %}
-                                    <hr>
                                 {% endfor %}
+                                
+                                
+                                <h6>Pagos de Transporte</h6>
+                                
+                                {% for expense in expenses %}
+                                    {% if expense.tipo == 'Transporte' %}
+                                        <p>Cantidad de dinero: {{ expense.cantidad_dinero }}</p>
+                                        <p>Tiempo: {{ expense.tiempo_acumulado }}  {{ expense.tiempo_seleccionado}}</p>
+                                        <p>Beca Asociada: {{ expense.scholarship.name }}</p>
+                                        <hr>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                
+                                <h6>Pagos Academicos</h6>
+                                
+                                {% for expense in expenses %}
+                                    {% if expense.tipo == 'Academico' %}
+                                        <p>Cantidad de dinero: {{ expense.cantidad_dinero }}</p>
+                                        <p>Tiempo: {{ expense.tiempo_acumulado }} {{ expense.tiempo_seleccionado}} </p>
+                                        <p>Beca Asociada: {{ expense.scholarship.name }}</p>
+                                        <hr>
+                                    {% endif %}
+                                {% endfor %}
+                               
                             </td>
                             <td>
                                 {% for b in bu %}
