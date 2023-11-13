@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='nota',
+            model_name='Grade',
             name='state',
             field=models.BooleanField(default=True),
         ),

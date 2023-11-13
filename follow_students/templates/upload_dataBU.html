@@ -52,11 +52,11 @@
                                 <th>Asistencia(Dias)</th>
                             </tr>
                             <!-- Itera sobre todas las consultas y muestra una fila por cada consulta -->
-                            {% for actividad in activities %}
+                            {% for activity in activities %}
                                 <tr class="student">
-                                    <td class="student-code">{{ actividad.student }}</td>
-                                    <td>{{ actividad.actividad }}</td>
-                                    <td>{{ actividad.dias_asistencia }}</td>
+                                    <td class="student-code">{{ activity.student }}</td>
+                                    <td>{{ activity.activity }}</td>
+                                    <td>{{ activity.assistance_days }}</td>
                                 </tr>
                             {% endfor %}
                         </table>

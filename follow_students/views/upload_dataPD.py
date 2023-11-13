@@ -2,7 +2,7 @@ import pandas as pd
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from follow_students.forms.upload_dataPD_form import UploadFileForm  
-from follow_students.models import Nota,Student,Curso
+from follow_students.models import Grade,Student,Course
 from django.contrib import messages
 from django.views import View
 
@@ -11,10 +11,10 @@ from django.views import View
 class Upload_dataPD(View):
     def get(self, request):
         form = UploadFileForm()
-        notas = Nota.objects.all().order_by('student') 
+        grades = Grade.objects.all().order_by('student') 
         return render(request, 'upload_dataPD.html', {
             'form': form,
-            'notas': notas})
+            'grades': grades})
     
     def post(self, request):
         if request.method == 'POST':
@@ -23,18 +23,18 @@ class Upload_dataPD(View):
                 xls = pd.ExcelFile(request.FILES['file'])
                 for sheet_name in xls.sheet_names:
                     df = pd.read_excel(xls, sheet_name)
-                    curso, created = Curso.objects.get_or_create(code=sheet_name)
+                    course, created = Course.objects.get_or_create(code=sheet_name)
                     for index, row in df.iterrows():
                         try:
-                            student = Student.objects.get(code=row['code'])
-                            nota, created = Nota.objects.get_or_create(
+                            student = Student.objects.get(code=row['Codigo'])
+                            grade, created = Grade.objects.get_or_create(
                                 student=student,
-                                curso=curso,
+                                course=course,
                                 defaults={'grade': row['NotaCurso']}
                             )
                             if not created:
-                                nota.grade = row['NotaCurso']
-                                nota.save()
+                                grade.grade = row['NotaCurso']
+                                grade.save()
                         except Student.DoesNotExist:
                             continue
                         except Exception as e:                        
@@ -44,10 +44,10 @@ class Upload_dataPD(View):
                 return HttpResponseRedirect(request.path)
         else:
             form = UploadFileForm()
-            notas = Nota.objects.all().order_by('student') 
+            grades = Grade.objects.all().order_by('student') 
             return render(request, 'upload_dataPD.html', {
                 'form': form,
-                'notas': notas})
+                'grades': grades})
     
 
 
