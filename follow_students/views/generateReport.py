@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from follow_students.models import Student, Consult, Grade, RegisNonAcademicActivity, Gasto_beca
+from follow_students.models import Student, Consult, Grade, RegisNonAcademicActivity, Scholarship_expense
 
 class GenerateReport(View):
     def post(self, request):
@@ -14,7 +14,7 @@ class GenerateReport(View):
         gradesList = Grade.objects.filter(student__in=selected_students)
         consultaList = Consult.objects.filter(student__in=selected_students)
         bu = RegisNonAcademicActivity.objects.filter(student=student)
-        expenses = Gasto_beca.objects.filter(student = student )
+        expenses = Scholarship_expense.objects.filter(student = student )
 
         
         return render(request, 'generateReport.html', {

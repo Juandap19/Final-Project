@@ -2,7 +2,7 @@ from django.db import migrations
 
 def create_permisos(apps, schema_editor):
     Permiso = apps.get_model('follow_students', 'Permiso')
-    permisos = ['Panel de control', 'Registrar estudiante', 'Gestionar estudiante', 'Generar reporte', 'Cargar informacion DP', 'Cargar informacion BU', 'Cargar informacion CREA', 'Pedir Actualizacion de Informacion', 'Pagos']
+    permisos = ['Panel de control', 'Registrar estudiante', 'Gestionar estudiante', 'Generar reporte', 'Cargar informacion DP', 'Cargar informacion BU', 'Cargar informacion CREA', 'Pedir Actualizacion de Informacion', 'Pago Alimentacion' ,'Pago Academico' , 'Pago Transporte']
     for permiso in permisos:
         Permiso.objects.create(nombre_permiso=permiso)
         
@@ -22,7 +22,7 @@ def create_rol_permiso(apps, schema_editor):
         {'rol': 'Director de Programa', 'permisos': ['Cargar informacion DP']},
         {'rol': 'Bienestar Universitario', 'permisos': ['Cargar informacion BU']},
         {'rol': 'CREA', 'permisos': ['Cargar informacion CREA']},
-        {'rol': 'Apoyo Financiero', 'permisos': ['Pagos']}
+        {'rol': 'Apoyo Financiero', 'permisos': ['Pago Alimentacion' ,'Pago Academico' , 'Pago Transporte' ]}
     ]
 
     for rol_permiso in rol_permisos:

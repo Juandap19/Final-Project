@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
 from io import BytesIO
-from follow_students.models import Student, Consult, Grade, RegisNonAcademicActivity, Gasto_beca
+from follow_students.models import Student, Consult, Grade, RegisNonAcademicActivity, Scholarship_expense
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 
@@ -13,7 +13,7 @@ class GeneratePDF(View):
         consultaList = Consult.objects.filter(student=student)
         gradesList = Grade.objects.filter(student=student)
         bu = RegisNonAcademicActivity.objects.filter(student=student)
-        expenses = Gasto_beca.objects.filter(student=student)
+        expenses = Scholarship_expense.objects.filter(student=student)
 
         template = get_template('pdf_template.html')
         context = {

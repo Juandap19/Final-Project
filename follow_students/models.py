@@ -51,9 +51,9 @@ class Donor(models.Model):
 
 class Amount(models.Model):
     code = models.CharField(max_length=20, unique=True, default = "23")
-    transporte = models.IntegerField()
-    alimentacion = models.IntegerField()
-    academico = models.IntegerField()
+    transport = models.IntegerField()
+    alimentation = models.IntegerField()
+    academic = models.IntegerField()
 
     def __str__(self):
          text ="{}".format(self.code)
@@ -78,8 +78,9 @@ class Scholarship(models.Model):
     amount = models.ForeignKey(Amount, on_delete=models.CASCADE)
     donor = models.ForeignKey(Donor, on_delete=models.CASCADE)
     assigned_students = models.PositiveIntegerField(default=0)
-    porcentaje_academico = models.IntegerField(default = 70)
-    auxilio_transporte = models.IntegerField(default = 1000000)
+    academic_percentage = models.IntegerField(default = 70)
+    transportation= models.IntegerField(default = 1000000)
+    image = models.CharField(max_length= 255 ,default = "favicon_ICESI.png")
     goals = models.ManyToManyField(ScholarshipGoal, through=ScholarshipGoalAssociation, blank=True)
 
     def __str__(self):
@@ -109,25 +110,25 @@ class Student(models.Model):
     def __str__(self):
         return self.name
       
-class Gasto_beca(models.Model):
+class Scholarship_expense(models.Model):
     student = models.ForeignKey(Student, null=True, on_delete= models.CASCADE, unique = False)
     scholarship = models.ForeignKey(Scholarship, null = True, on_delete= models.CASCADE, unique = False)
-    cantidad_dinero = models.FloatField()
-    tiempo_acumulado = models.IntegerField()
+    money_quantity = models.FloatField()
+    accumulated_time = models.IntegerField()
     class Time_way(models.TextChoices):
         DIAS = "1", "Dias"
         MES = "2", "Mes"
         ANIO = "3", "Año"
 
-    tiempo_seleccionado = models.CharField(
+    selected_time = models.CharField(
         max_length = 2,
         choices = Time_way.choices,
         default = Time_way.DIAS 
     )
-    tipo = models.CharField(max_length = 20, unique = False)
+    type_mount = models.CharField(max_length = 20, unique = False)
 
     def __str__(self):
-        text = self.student.code
+        text = self.estudiante.codigo
         return text
 
 class SupportCenter(models.Model):

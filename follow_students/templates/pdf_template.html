@@ -83,8 +83,8 @@
     <ul>
         {% for expense in expenses %}
             {% if expense.tipo == 'Academico' %}
-                <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
-                <li>Tiempo: {{ expense.tiempo_acumulado }}</li>
+                <li>Cantidad de dinero: {{ expense.money_quantity }}</li>
+                <li>Tiempo: {{ expense.accumulated_time }} {{expense.selected_time}}</li>
                 <li>Beca Asociada: {{ expense.scholarship.name }}</li>
                 <hr>
             {% endif %}
