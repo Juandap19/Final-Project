@@ -1,7 +1,7 @@
 from django.views import View
 from django.shortcuts import render
 from follow_students.forms.financial_form import FinancialForm, FinancialTranspAcademicForm , FinancialTAByStudentForm
-from follow_students.models import Scholarship_expense, Student, Scholarship , Major, User  #, Notification
+from follow_students.models import Scholarship_expense, Student, Scholarship , Major, User , Notification
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail, EmailMessage
@@ -208,7 +208,7 @@ class FinancialTransport(View):
                         expense.save()
                         messages.success(request,"Proceso completado".format(student))
                         # Notificate the donor and philanthropy.
-                        if(scholarship.amount.aux_transportation < 5000000):
+                        if(scholarship.amount.transport < 5000000):
                             recipient = scholarship.donor.mail
                             subject = "Agotamiento de Recursos de Transporte"
                             message = "Le informamos que La beca {} asociada al codigo {} a la cual usted {} pertence como donante, se le estan acabando los recursos de Transporte.".format( scholarship.name, scholarship.code, scholarship.donor.name)
@@ -251,7 +251,7 @@ class FinancialTransport(View):
                                 expense.save()
 
                                 # Notificate the donor and philanthropy.
-                                if(scholarship.amount.aux_transportation < 5000000):
+                                if(scholarship.amount.transport< 5000000):
                                     recipient = scholarship.donor.mail
                                     subject = "Agotamiento de Recursos de Transporte"
                                     message = "Le informamos que La beca {} asociada al codigo {} a la cual usted {} pertence como donante, se le estan acabando los recursos de Transporte.".format( scholarship.name, scholarship.code, scholarship.donor.name)
