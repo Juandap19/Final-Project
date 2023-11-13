@@ -1,0 +1,52 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+
+{% block main_content %} 
+
+<h3>CANCELAR MATERIAS</h3>
+
+
+    <div class="mx-auto w-75 h-75 p-3 mt-5 d-flex justify-content-between flex-column"  style="background-color: #FFF; max-height: 379.5px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
+
+        {% for ide in ides %}
+
+                <h5><span class="fw-bolder">Estudiante: </span>{{ide.name}}</h5>
+
+                <div class="d-flex justify-content-center flex-row flex-wrap gap-5 w-100 h-75 py-3" style="overflow-y: scroll;">
+
+                    {% for grade in grades %}
+    
+                        {% if ide.name == grade.student.name%}
+    
+                            {% if grade.state %}
+    
+                                    <div class="card rounded border border-dark" style="width: 14rem; height: 50%;">
+                                        <div class="card-body">
+                                        <h5 class="card-title">{{ grade.course.code }}</h5>
+                                        <form action="{%  url 'cancelation' grade.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <button class="btn btn-success mt-3">
+                                            Cancelar
+                                            </button></b> </p>
+                                        </form>
+                                        </div>
+                                    </div>
+    
+                            {% endif %}
+    
+                        {% endif %}
+    
+                    {% endfor %}
+               
+                </div>
+
+
+            {% endfor %} 
+    
+        <div class="d-flex justify-content-end">
+            <a href="/menuCancelation" class="btn btn-primary">Volver</a>
+        </div>
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Estudiante {{ student.code }}</title>
+
+    <style type="text/css">
+        
+        h3 {
+            display: block;
+            width: 100%;
+            height: 50%;
+            background-color: #0866ad;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h3 class="d-flex justify-content-center">Informe de Estudiante</h3>
+    <p>Código: {{ student.code }}</p>
+    <p>Nombre: {{ student.name }}</p>
+    
+    <h3>Notas:</h3>
+    <ul>
+        {% for grade in gradesList %}
+            <li>Curso: {{ grade.course.code }}, Nota: {{ grade.grade }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h3>Consultas:</h3>
+    <ul>
+        {% for consulta in consultaList %}
+            <li>Centro de apoyo: {{ consulta.support_center }}</li>
+            <li>Fecha: {{ consulta.date }}</li>
+            <li>Hora: {{ consulta.time }}</li>
+            <li>Motivo: {{ consulta.reason }}</li>
+            <li>Resultado: {{ consulta.outcome }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Bienestar universitario</h3>
+    <ul>
+        {% for activity in bu %}
+            <li>Actividad: {{ activity.activity.name }}</li>
+            <li>Dias de asistencias: {{ activity.assistance_days }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Gastos del Estudiante</h3>
+    <h4>Pagos de Alimentacion</h4>
+    <ul>
+        {% for expense in expenses %}
+            {% if expense.tipo == 'Alimentación' %}
+                <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
+                <li>Tiempo: {{ expense.tiempo_acumulado }} </li>
+                <li>Beca Asociada: {{ expense.scholarship.name }}</li>
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    
+    <h4>Pagos de Transporte</h4>
+    <ul>
+        {% for expense in expenses %}
+            {% if expense.tipo == 'Transporte' %}
+                <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
+                <li>Tiempo: {{ expense.tiempo_acumulado }}</li>
+                <li>Beca Asociada: {{ expense.scholarship.name }}</li>
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    
+    <h4>Pagos Academicos</h4>
+    <ul>
+        {% for expense in expenses %}
+            {% if expense.tipo == 'Academico' %}
+                <li>Cantidad de dinero: {{ expense.money_quantity }}</li>
+                <li>Tiempo: {{ expense.accumulated_time }} {{expense.selected_time}}</li>
+                <li>Beca Asociada: {{ expense.scholarship.name }}</li>
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
