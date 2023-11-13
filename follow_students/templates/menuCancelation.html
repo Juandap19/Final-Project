@@ -12,7 +12,7 @@
 <body>
 
 
-    <h3>GENERAR REPORTE</h3>
+    <h3>MENU CANCELACIONES</h3>
     <p> <br></p>
 
 
@@ -36,10 +36,10 @@
                             <td>{{student.code}}</td>
                             <td>{{student.name}}</td>
                             <td>
-                                <form action="{%  url 'report' student.id %}" method="POST">
+                                <form action="{%  url 'section' student.id %}" method="POST">
                                     {% csrf_token %}
                                     <button class="btn btn-success">
-                                        agregar
+                                        Ver materias
                                     </button>
                                     
                                 </form>
@@ -50,9 +50,7 @@
             </table>
         </div>
         
-        <div class="d-flex justify-content-end">
-            <a href="/generateReport" class="btn btn-primary">Generar reporte</a>
-        </div>
+      
     </div>
 
     <script>
