@@ -20,7 +20,7 @@ class Upload_dataPD(View):
         if request.method == 'POST':
             form = UploadFileForm(request.POST, request.FILES)
             if 'file' in request.FILES:
-                xls = pd.ExcelFile(request.FILES['file'])
+                xls = pd.ExcelFile(request.FILES['file'], engine='openpyxl')
                 for sheet_name in xls.sheet_names:
                     df = pd.read_excel(xls, sheet_name)
                     course, created = Course.objects.get_or_create(code=sheet_name)
