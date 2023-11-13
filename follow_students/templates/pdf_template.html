@@ -28,14 +28,14 @@
     <p>Código: {{ student.code }}</p>
     <p>Nombre: {{ student.name }}</p>
     
-    <h4>Notas:</h4>
+    <h3>Notas:</h3>
     <ul>
         {% for grade in gradesList %}
             <li>Curso: {{ grade.curso.code }}, Nota: {{ grade.grade }}</li>
         {% endfor %}
     </ul>
     
-    <h4>Consultas:</h4>
+    <h3>Consultas:</h3>
     <ul>
         {% for consulta in consultaList %}
             <li>Centro de apoyo: {{ consulta.support_center }}</li>
@@ -54,14 +54,40 @@
         {% endfor %}
     </ul>
 
-    <h4>Gastos del Estudiante</h4>
+    <h3>Gastos del Estudiante</h3>
+    <h4>Pagos de Alimentacion</h4>
     <ul>
-        {% for expense  in expenses %}
-            <li>Tipo: {{ expense.tipo}}</li>
-            <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
-            <li>Tiempo: {{expense.cantidad_dinero.tiempo_acumulado}}</li>
-            <li>Beca Asociada: {{ expense.scholarship.name}}</li>
-            <hr>
+        {% for expense in expenses %}
+            {% if expense.tipo == 'Alimentación' %}
+                <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
+                <li>Tiempo: {{ expense.tiempo_acumulado }} </li>
+                <li>Beca Asociada: {{ expense.scholarship.name }}</li>
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    
+    <h4>Pagos de Transporte</h4>
+    <ul>
+        {% for expense in expenses %}
+            {% if expense.tipo == 'Transporte' %}
+                <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
+                <li>Tiempo: {{ expense.tiempo_acumulado }}</li>
+                <li>Beca Asociada: {{ expense.scholarship.name }}</li>
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    
+    <h4>Pagos Academicos</h4>
+    <ul>
+        {% for expense in expenses %}
+            {% if expense.tipo == 'Academico' %}
+                <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
+                <li>Tiempo: {{ expense.tiempo_acumulado }}</li>
+                <li>Beca Asociada: {{ expense.scholarship.name }}</li>
+                <hr>
+            {% endif %}
         {% endfor %}
     </ul>
 
