@@ -1,55 +1,74 @@
-import io
-from django.test import TestCase
-from django.core.files.uploadedfile import SimpleUploadedFile
-from follow_students.forms.upload_dataPD_form import UploadFileForm
-from follow_students.views.upload_dataPD import Upload_dataPD
-from follow_students.models import Grade, Student, Course
-from django.urls import reverse
-from django.http import HttpResponseRedirect
-from django.contrib import messages
-import pandas as pd  # Importa pandas para la lectura de archivos Excel
+from django.test import LiveServerTestCase
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from follow_students.models import *
+import time
 
-class UploadDataPDViewTest(TestCase):
-    def test_upload_dataPD_GET(self):
-        response = self.client.get(reverse('uploadPD'))
-        self.assertEqual(response.status_code, 200)  # Verifica que la vista se cargue correctamente
-        self.assertTemplateUsed(response, 'upload_dataPD.html')  # Verifica que se use la plantilla adecuada
+class RequestUpdSeleniumTest(LiveServerTestCase):
+    
+    
+    def test_UploadDataPDInvalid(self):
+        
+        driver = webdriver.Chrome()
+        
+        driver.get('http://127.0.0.1:8000/upload_dataPD/')
+        time.sleep(2)
+        
+        file = driver.find_element(By.ID, 'id_file')
+        summit_button = driver.find_element(By.ID, 'send-button')
+        
+        file.send_keys('C:\\Users\\Darwin Lenis\\OneDrive\\Escritorio\\Universidad\\5to Semestre\\Proyecto Integrador\\GitHub\\Final-Project\\follow_students\\static\\excel_format\\FORMATO_SIS_CURSOS-NOTAS.xlsx')
+        
+        summit_button.click()
+        time.sleep(2)
+        
+        sweet_alert = driver.find_element(By.ID, 'swal2-title')
+        sweet_alert_text = sweet_alert.text
+        self.assertEquals(sweet_alert_text, 'No se cargó ningún dato en la base de datos')
 
-    def test_upload_dataPD_POST_valid_data(self):
-        # Crea un archivo de prueba en memoria
-        file_content = (
-            b'Codigo,NotaCurso\n123ABC,95.5\n456DEF,88.0\n'
+        driver.quit()
+        
+    def test_UploadDataPDValid(self):
+        
+        major =  Major.objects.create(
+            name = "Ingenieria de Sistema",
+            price = 12300000
         )
-        file_content = b'Content of the file goes here.'
-        file = SimpleUploadedFile('grades.xlsx', file_content, content_type='application/vnd.ms-excel')
-
-        data = {
-            'file': file,
-        }
-        response = self.client.post(reverse('uploadPD'), data, format='multipart')
-        self.assertEqual(response.status_code, 302)  # Verifica que la redirección sea exitosa
         
-        # Asegúrate de que los datos se hayan procesado correctamente en la base de datos
-        self.assertEqual(Grade.objects.count(), 2)
-        self.assertEqual(Grade.objects.get(student__code='123ABC').grade, 95.5)
-        self.assertEqual(Grade.objects.get(student__code='456DEF').grade, 88.0)
-
-    def test_upload_dataPD_POST_empty_data(self):
-        data = {}
-        response = self.client.post(reverse('uploadPD'), data, format='multipart')
-        self.assertEqual(response.status_code, 200)  # Verifica que la vista muestre errores
-        self.assertFormError(response, 'form', 'file', 'Este campo es obligatorio.')
-
-    def test_upload_dataPD_POST_invalid_file(self):
-        # Crea un archivo inválido (por ejemplo, un archivo de texto en lugar de un archivo Excel)
-        file_content = f'Archivo de texto no válido'
-        file = SimpleUploadedFile('invalid_file.txt', file_content, content_type='text/plain')
+        Major.save(major)
         
-        data = {
-            'file': file,
-        }
-        response = self.client.post(reverse('uploadPD'), data, format='multipart')
-        self.assertEqual(response.status_code, 302)  # Verifica la redirección
-        # Verifica que se muestre un mensaje de error
-        self.assertContains(response, 'Hubo un error al cargar el archivo')
+        student = Student.objects.create(
+            name = "Neymar Jr",
+            phoneNumber = "1234567890",
+            date = "2023-01-01",
+            icfes = 0,
+            cedula = "1234",
+            code = "A00381657",
+            mail = "neymar@example.com",
+            major = major
+        )
+        
+        Student.save(student)
+        
+        staticmethod
+        
+        driver = webdriver.Chrome()
+        
+        driver.get('http://127.0.0.1:8000/upload_dataPD/')
+        time.sleep(2)
+        
+        file = driver.find_element(By.ID, 'id_file')
+        summit_button = driver.find_element(By.ID, 'send-button')
+        
+        file.send_keys('C:\\Users\\Darwin Lenis\\OneDrive\\Escritorio\\Universidad\\5to Semestre\\Proyecto Integrador\\GitHub\\Final-Project\\follow_students\\static\\excel_format\\FORMATO_SIS_CURSOS-NOTAS.xlsx')
+        
+        summit_button.click()
+        time.sleep(2)
+        
+        sweet_alert = driver.find_element(By.ID, 'swal2-title')
+        sweet_alert_text = sweet_alert.text
+        self.assertEquals(sweet_alert_text, 'Se cargó correctamente')
+
+        driver.quit()
+        
 
