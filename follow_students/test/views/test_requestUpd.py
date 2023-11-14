@@ -1,48 +1,93 @@
 from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.alert import Alert
+import time
 
 
 class RequestUpdSeleniumTest(LiveServerTestCase):
-    def setUp(self):
-        self.browser = webdriver.Chrome()  # Utiliza el controlador adecuado para tu navegador
-        self.browser.implicitly_wait(3)  # Espera hasta 3 segundos para que los elementos carguen
+    
+    #Sin archivo
+    def test_RequestUpdatePage(self):
+        
+        driver = webdriver.Chrome()
+        
+        driver.get('http://127.0.0.1:8000/requestupd/')
+        time.sleep(2)
+        
+        receiver = driver.find_element(By.ID, 'id_destinatario')
+        matter = driver.find_element(By.ID, 'id_asunto')
+        message = driver.find_element(By.ID, 'id_mensaje')
+        summit_button = driver.find_element(By.ID, 'send-button')
+        receiver.send_keys('darwinlenis@gmail.com')
+        matter.send_keys('Pruebas Unitarias :(((')
+        message.send_keys('Esto es un mensaje de prueba')
+        
+        summit_button.click()
+        time.sleep(2)
+        
+        sweet_alert = driver.find_element(By.ID, 'swal2-title')
+        sweet_alert_text = sweet_alert.text
+        self.assertEquals(sweet_alert_text, 'Se ha enviado correctamente')
 
-    def tearDown(self):
-        self.browser.quit()
+        driver.quit()
+    
+    #Con archivo
+    def test_RequestUpdatePageFile(self):
+        
+        driver = webdriver.Chrome()
+        
+        driver.get('http://127.0.0.1:8000/requestupd/')
+        time.sleep(2)
+        
+        receiver = driver.find_element(By.ID, 'id_destinatario')
+        matter = driver.find_element(By.ID, 'id_asunto')
+        message = driver.find_element(By.ID, 'id_mensaje')
+        file = driver.find_element(By.ID, 'id_archivo')
+        summit_button = driver.find_element(By.ID, 'send-button')
+        
+        receiver.send_keys('darwinlenis@gmail.com')
+        matter.send_keys('Pruebas Unitarias :(((')
+        message.send_keys('Esto es un mensaje de prueba')
+        file.send_keys('C:\\Users\\Darwin Lenis\\OneDrive\\Escritorio\\Universidad\\5to Semestre\\Proyecto Integrador\\GitHub\\Final-Project\\follow_students\\static\\images\\campus_ICESI.jpg')
+        
+        summit_button.click()
+        time.sleep(2)
+        
+        sweet_alert = driver.find_element(By.ID, 'swal2-title')
+        sweet_alert_text = sweet_alert.text
+        self.assertEquals(sweet_alert_text, 'Se ha enviado correctamente')
 
-    def test_request_update_form_submission(self):
-        # Abre la página con el formulario
-        self.browser.get(self.live_server_url + 'requestUpdate')
-
-        # Encuentra los elementos del formulario
-        destinatario_input = self.browser.find_element(By.NAME, 'destinatario')
-        asunto_input = self.browser.find_element(By.NAME, 'asunto')
-        mensaje_input = self.browser.find_element(By.NAME, 'mensaje')
-        archivo_input = self.browser.find_element(By.NAME, 'archivo')
-        submit_button = self.browser.find_element(By.ID, 'submit-button')
-
-        # Ingresa información en los campos del formulario
-        destinatario_input.send_keys('ejemplo@example.com')
-        asunto_input.send_keys('Asunto de prueba')
-        mensaje_input.send_keys('Este es un mensaje de prueba.')
-
-        # Adjunta un archivo (si deseas probarlo)
-        archivo_input.send_keys('/ruta/al/archivo.txt')
-
-        # Envía el formulario haciendo clic en el botón de envío
-        submit_button.click()
-
-        # Espera un momento para que el correo se envíe
-        self.browser.implicitly_wait(10)
-
-        # Verifica que el formulario fue procesado correctamente
-        success_message = self.browser.find_element(By.ID, 'success-message')
-        self.assertEqual(success_message.text, 'Se ha enviado correctamente')
-
-        # Puedes agregar más aserciones para verificar otras cosas si es necesario
-
-        # Ejemplo: Verifica que la página se redirija a la misma página
-        self.assertEqual(self.browser.current_url, self.live_server_url + '/ruta-a-tu-vista-request-upd')
-
-    # Añade más pruebas según sea necesario
+        driver.quit()
+        
+        
+    """
+    def test_RequestUpdatePageInvalid(self):
+        
+        driver = webdriver.Chrome()
+        
+        driver.get('http://127.0.0.1:8000/requestupd/')
+        time.sleep(2)
+        
+        receiver = driver.find_element(By.ID, 'id_destinatario')
+        matter = driver.find_element(By.ID, 'id_asunto')
+        message = driver.find_element(By.ID, 'id_mensaje')
+        file = driver.find_element(By.ID, 'id_archivo')
+        summit_button = driver.find_element(By.ID, 'send-button')
+        
+        receiver.send_keys('correo-erroneo')
+        matter.send_keys('Pruebas Unitarias :(((')
+        message.send_keys('Esto es un mensaje de prueba')
+        file.send_keys('C:\\Users\\Darwin Lenis\\OneDrive\\Escritorio\\Universidad\\5to Semestre\\Proyecto Integrador\\GitHub\\Final-Project\\follow_students\\static\\images\\campus_ICESI.jpg')
+        
+        summit_button.click()
+        
+        error_message = driver.find_element(By.CLASS_NAME, 'error-message')
+        self.assertTrue(error_message.is_displayed())
+        
+        driver.quit()
+    """
+        
+        
+        
+    

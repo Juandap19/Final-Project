@@ -15,7 +15,7 @@
                     {{form.as_p}}
                     <div class="send w-100 d-flex justify-content-end"> 
                         {% csrf_token %} 
-                        <button class="send-button btn btn-primary px-5">Enviar</button>
+                        <button class="send-button btn btn-primary px-5" id="send-button">Enviar</button>
                     </div>
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     {% if messages %}

@@ -53,7 +53,7 @@
                                 <h6>Pagos de Alimentacion</h6>
                                 
                                 {% for expense in expenses %}
-                                    {% if expense.tipo == 'Alimentación' %}
+                                    {% if expense.type_mount == 'Alimentación' %}
                                         <p>Cantidad de dinero: {{ expense.money_quantity }}</p>
                                         <p>Tiempo: {{ expense.accumulated_time }} {{ expense.selected_time}} </p>
                                         <p>Beca Asociada: {{ expense.scholarship.name }}</p>
@@ -65,7 +65,7 @@
                                 <h6>Pagos de Transporte</h6>
                                 
                                 {% for expense in expenses %}
-                                    {% if expense.tipo == 'Transporte' %}
+                                    {% if expense.type_mount == 'Transporte' %}
                                         <p>Cantidad de dinero: {{ expense.money_quantity }}</p>
                                         <p>Tiempo: {{ expense.accumulated_time }}  {{ expense.selected_time}}</p>
                                         <p>Beca Asociada: {{ expense.scholarship.name }}</p>
@@ -77,7 +77,7 @@
                                 <h6>Pagos Academicos</h6>
                                 
                                 {% for expense in expenses %}
-                                    {% if expense.tipo == 'Academico' %}
+                                    {% if expense.type_mount == 'Academico' %}
                                         <p>Cantidad de dinero: {{ expense.money_quantity }}</p>
                                         <p>Tiempo: {{ expense.accumulated_time }} {{ expense.selected_time}} </p>
                                         <p>Beca Asociada: {{ expense.scholarship.name }}</p>
