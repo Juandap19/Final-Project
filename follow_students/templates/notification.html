@@ -1,39 +1,47 @@
 {% extends 'layouts/navbar_sidebar.html' %}
 
+{% block title_page %}
+
+    <title>Notificaciones</title>
+
+{% endblock %}
+
 {% block main_content %}
-<!DOCTYPE html>
 
-<html lang="en">
-
-<head>
-
-
-</head>
-
-<body>
 
     <h3>NOTIFICACIONES</h3>
 
-    <div class="mx-auto w-75 h-75 p-3 mt-5 d-flex flex-column justify-content-between"  style="background-color: #FFF; max-height: 379.5px ;box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
-    
-        <div class="h-75 d-flex flex-column gap-4 py-3" style="overflow-y: scroll;">
-            {% for notification in notifications %}
-
-                {% if notification.state %}
-            
-                    <div class="rounded border border-dark p-3">
-                        <div class="d-flex flex-row gap-3 align-items-center">
-                            <i class='bx bxs-user-voice' style="font-size: 30px;"></i>
-                            <p class="m-0">{{ notification.name }}</p>  
-                        </div>
-                        <p class="m-0"><span class="fw-bolder">Estudiante: </span>{{ notification.student.name }}</p>
-                        <p class="m-0">{{ notification.description }}</p>
-                    </div>  
-
-                {% endif %}
-            
-            {% endfor %}
+    <form action="{%  url 'clean' %}" method="POST" class="w-75 mx-auto mt-3">
+        {% csrf_token %}
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-success">
+                Vaciar bandeja
+            </button>
         </div>
+    </form>
+
+    <div class="h-75 d-flex flex-column gap-4 py-3 mx-auto w-75 mt-3">
+        {% for notification in notifications %}
+
+            {% if notification.state %}
+        
+                <div class="rounded border border-secondary p-3">
+                    <div class="d-flex flex-row gap-3 align-items-center">
+                        <i class='bx bxs-megaphone' style="font-size: 40px;"></i>
+                        <p class="m-0 bg-primary p-2 rounded text-white fw-bolder">{{ notification.name }}</p>  
+                    </div>
+                    <p class="m-0 mt-2 fw-bolder">Estudiante: <span class="text-primary">{{ notification.student.name }}</span></p>
+                    <p class="m-0">{{ notification.description }}</p>
+                </div>  
+
+            {% endif %}
+        
+        {% endfor %}
+    </div>
+
+    <!-- <div class="mx-auto w-75 h-75 p-3 mt-5 d-flex flex-column justify-content-between"  style="background-color: #FFF; max-height: 500px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
+    
+        
     
         <form action="{%  url 'clean' %}" method="POST">
             {% csrf_token %}
@@ -44,19 +52,6 @@
             </div>
         </form>
     
-    </div>
-
-    
-
-
-</body>
-
-</html>
-
-
-
-
-
-
+    </div> -->
 
 {% endblock %}

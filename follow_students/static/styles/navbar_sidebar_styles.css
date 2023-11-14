@@ -16,7 +16,6 @@ body {
     top: 0;
     left: 0;
     bottom: 0;
-    border-right: 1px solid rgba(0, 0, 0, 0.25);
     justify-content: space-between;
 }
 
@@ -24,13 +23,14 @@ body {
     position: fixed;
     right: 0;
     top: 0;
-    background-color: #0061a8;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    background-color: rgb(50, 66, 85);
+    box-shadow: 0 0 2rem 0 rgba(33,37,41,.1);
+    color: #ffffff;
 }
 
 .main_content {
     min-height: 100vh;
-    background-color: #f6f9fd;
+    background-color: #ebeff2;
 }
 
 .links {
@@ -44,7 +44,8 @@ body {
     }
 
     & a:hover {
-        border-right: 3px solid #000;
+        border-right: 2px solid #ffffff;
+        color: #e9ecef;
     }
 
     & i {

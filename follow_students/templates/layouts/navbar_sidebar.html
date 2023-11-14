@@ -5,7 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de control</title>
+    {% block title_page %}
+
+    {% endblock %}
 
     {% load bootstrap5 %}
     {% bootstrap_css %}
@@ -27,86 +29,86 @@
     <main class="container-fluid">
 
         <div class="row">
-            <aside class="col-2 sidebar collapse d-lg-flex flex-column p-3" id="myNavBar">
-                <img class="img-fluid d-lg-block d-none" src="{% static 'images/logo_ICESI.png' %}" alt="Logo de ICESI">
+            <aside class="col-2 sidebar collapse d-lg-flex flex-column py-3 text-white" id="myNavBar" style="background-color: #222e3c;">
+                <img class="img-fluid d-lg-block d-none" src="{% static 'images/logo_ICESI_white.png' %}" alt="Logo de ICESI">
                 
-                <div class="links mt-5 d-flex flex-column gap-3">
+                <div class="links mt-4 d-flex flex-column gap-2">
                     {% if 'Panel de control' in request.session.permisos %}
                         <article class="d-flex align-items-center">
                             <i class='bx bxs-dashboard position-absolute'></i>
-                            <a class="text-decoration-none text-black py-2" href="/dashboard/">Panel de control</a>
+                            <a class="text-decoration-none text-white py-2" href="/dashboard/">Panel de control</a>
                         </article>
                     {% endif %}
 
                     {% if 'Registrar estudiante' in request.session.permisos  %}
 
-                        <article class="d-flex align-items-center"><i class='bx bx-user-plus position-absolute'></i><a class="text-decoration-none text-black py-2" href="/studentsRegister/">Registrar estudiante</a></article>
+                        <article class="d-flex align-items-center"><i class='bx bx-user-plus position-absolute'></i><a class="text-decoration-none text-white py-2" href="/studentsRegister/">Registrar estudiante</a></article>
 
                     {% endif %}
 
                     {% if 'Registrar estudiante' in request.session.permisos  %}
 
-                        <article class="d-flex align-items-center"><i class='bx bx-notification position-absolute'></i><a class="text-decoration-none text-black py-2" href="/notification">Notificacion</a></article>
+                        <article class="d-flex align-items-center"><i class='bx bx-notification position-absolute'></i><a class="text-decoration-none text-white py-2" href="/notification">Notificacion</a></article>
 
                     {% endif %}
 
                     {% if 'Gestionar estudiante' in request.session.permisos  %}
                     
-                        <article class="d-flex align-items-center"><i class='bx bxs-cog position-absolute'></i><a class="text-decoration-none text-black py-2" href="/studentManage/">Gestionar estudiante</a></article>
+                        <article class="d-flex align-items-center"><i class='bx bxs-cog position-absolute'></i><a class="text-decoration-none text-white py-2" href="/studentManage/">Gestionar estudiante</a></article>
 
                     {% endif %}
 
                     {% if 'Generar reporte' in request.session.permisos  %}
 
-                        <article class="d-flex align-items-center"><i class='bx bxs-file-blank position-absolute'></i><a class="text-decoration-none text-black py-2" href="/menuReport">Generar reporte</a></article>
+                        <article class="d-flex align-items-center"><i class='bx bxs-file-blank position-absolute'></i><a class="text-decoration-none text-white py-2" href="/menuReport">Generar reporte</a></article>
 
                     {% endif %}
 
                     {% if 'Cargar informacion DP' in request.session.permisos  %}
 
-                        <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-black py-2" href="/upload_dataPD">Cargar informacion</a></article>
+                        <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-white py-2" href="/upload_dataPD">Cargar informacion</a></article>
 
                     {% endif %}
 
                     {% if 'Cargar informacion DP' in request.session.permisos  %}
 
-                        <article class="d-flex align-items-center"><i class='bx bx-x position-absolute'></i><a class="text-decoration-none text-black py-2" href="/menuCancelation">Cancelacion Materias</a></article>
+                        <article class="d-flex align-items-center"><i class='bx bx-x position-absolute'></i><a class="text-decoration-none text-white py-2" href="/menuCancelation">Cancelacion Materias</a></article>
 
                     {% endif %}
 
                     {% if 'Cargar informacion BU' in request.session.permisos  %}
 
-                    <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-black py-2" href="/upload_dataBU">Cargar informacion</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-white py-2" href="/upload_dataBU">Cargar informacion</a></article>
 
                     {% endif %}
 
                     {% if 'Cargar informacion CREA' in request.session.permisos  %}
 
-                    <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-black py-2" href="/upload_dataCREA">Cargar informacion</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bx-upload position-absolute'></i><a class="text-decoration-none text-white py-2" href="/upload_dataCREA">Cargar informacion</a></article>
 
                     {% endif %}
 
                     {% if 'Pedir Actualizacion de Informacion' in request.session.permisos  %}
 
-                    <article class="d-flex align-items-center"><<i class='bx bx-mail-send position-absolute'></i><a class="text-decoration-none text-black py-2" href="/requestupd">Pedir Actualizacion de Informacion</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bx-mail-send position-absolute'></i><a class="text-decoration-none text-white py-2" href="/requestupd">Pedir Informacion</a></article>
 
                     {% endif %}
 
                     {% if 'Pago Alimentacion' in request.session.permisos  %}
 
-                    <article class="d-flex align-items-center"><i class='bx bx-coffee-togo position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_alimentacion">Alimentación</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bx-coffee-togo position-absolute'></i><a class="text-decoration-none text-white py-2" href="/apoyo_financiero_alimentacion">Alimentación</a></article>
 
                     {% endif %}
 
 
                     {% if 'Pago Academico' in request.session.permisos  %}
 
-                    <article class="d-flex align-items-center"><i class='bx bx-book position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_academico">Académico</a></article>
+                    <article class="d-flex align-items-center"><i class='bx bx-book position-absolute'></i><a class="text-decoration-none text-white py-2" href="/apoyo_financiero_academico">Académico</a></article>
 
                     {% endif %}
 
                     {% if 'Pago Transporte' in request.session.permisos  %}
-                        <article class="d-flex align-items-center"><i class='bx bx-bus position-absolute dropdown-item'></i><a class="text-decoration-none text-black py-2 ps-5" href="/apoyo_financiero_transporte">Transporte</a></article>
+                        <article class="d-flex align-items-center"><i class='bx bx-bus position-absolute'></i><a class="text-decoration-none text-white py-2" href="/apoyo_financiero_transporte">Transporte</a></article>
                         
                     {% endif %}
 
@@ -126,29 +128,13 @@
                     <button class="btn btn-danger container-fluid">Cerrar Sesion</button>
                 </div>
             </aside>
-            <nav class="col-12 col-lg-10 navbar px-lg-3 px-4 text-white d-flex justify-content-lg-end">
+            <nav class="col-12 col-lg-10 navbar px-lg-3 px-4 text-white d-flex justify-content-lg-end py-3" style="z-index: 100;">
                 <div class="navbar-header d-lg-none d-block">
                     <button type="button" class="border-0 d-flex flex-column gap-1 navbar-toggler bg-transparent py-1 px-2" data-bs-toggle="collapse" data-bs-target="#myNavBar">
                         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
                 </div>
                 <div class="d-flex flex-row gap-3">
-                    <div class="btn-group">
-                        <button type="button" class="d-flex align-items-center border-0 bg-transparent dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class='bx bxs-bell text-white'></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <div class="dropdown-header">4 notificaciones nuevas</div>
-                            <li><a class="dropdown-item" href="">Cancelacion</a></li>
-                            <li><a class="dropdown-item" href="">Cancelacion</a></li>
-                            <li><a class="dropdown-item" href="">Cancelacion</a></li>
-                            <li><a class="dropdown-item" href="">Cancelacion</a></li>
-                            <li><a class="dropdown-item" href="">Cancelacion</a></li>
-                            <div class="dropdown-menu-footer">
-                                <a href="#" class="dropdown-header text-decoration-none text-black text-muted">Mostrar todas las notificaciones</a>
-                            </div>
-                        </ul>
-                    </div>
                     <button type="button" class="border-0 bg-transparent d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#modalUser" id="modalInput">
                         <i class="text-white bx bxs-user-circle"></i>
                     </button>
@@ -159,7 +145,7 @@
         <div class="row">
             <div class="col-2">
             </div>
-            <article class="col-12 col-lg-10 main_content pt-5 pb-5">
+            <article class="col-12 col-lg-10 main_content pb-5" style="padding-top: 4rem;">
                 {% block main_content %}
     
                 {% endblock %}
@@ -189,6 +175,8 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </body>
 </html>

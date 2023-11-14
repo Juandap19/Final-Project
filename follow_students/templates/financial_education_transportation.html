@@ -269,7 +269,7 @@
             <div class="w-100 h-50 mt-4 justify-content-between flex-column" style= "overflow-y: scroll; max-height: 80%;" >
                 {% for student_missing in students_missing %}
                 <div  class="d-flex flex-column w-75 mx-auto">
-                    <button id="btn-student-open-{{student_missing.id}}" class="btn btn-secondary my-1" style="border-color: rgb(156, 150, 150); position: relative;">
+                    <button id="btn-student-open-{{student_missing.id}}" class="btn my-1" style="background-color: rgba(0, 0, 0, .2) ;border-color: rgb(156, 150, 150); position: relative;">
                         <i class='bx bx-user-circle fs-3' style="position: absolute; left: 5px; top: 50%; transform: translateY(-50%);"></i>
                         <span style="margin-left: 30px; font-size: 90%;">
                             {{student_missing.code}}

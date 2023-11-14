@@ -2,85 +2,90 @@
 {% load static %}
 {% load bootstrap5 %} 
 
+{% block title_page %}
+
+    <title>Registrar estudiante</title>
+
+{% endblock %}
+
 {% block main_content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de control</title>
 
-</head>
-<body>
-    <div>
-        <h3>REGISTRAR ESTUDIANTE</h3>
+<h3>REGISTRAR ESTUDIANTE</h3>
+
+{% if mensaje %}
+<div class="alert alert-danger">{{ mensaje }}</div>
+{% endif %}
+
+<div class="mx-auto w-75 d-flex justify-content-around gap-5 mt-5">
+    <div class="d-flex gap-3 align-items-center">
+        <div class="rounded-circle bg-primary text-center text-white" style="width: 30px; height: 30px; line-height: 30px;">1</div>
+        <p class="p-0 m-0">Datos del estudiante</p>
     </div>
+    <div class="d-flex gap-3 align-items-center">
+        <div class="rounded-circle bg-secondary text-center text-white" style="width: 30px; height: 30px; line-height: 30px;">2</div>
+        <p  class="p-0 m-0">Asignar beca</p>
+    </div>
+</div>
 
-    {% if mensaje %}
-    <div class="alert alert-danger">{{ mensaje }}</div>
-    {% endif %}
-
-    <form method="post">
-        {% csrf_token %}
-        <div class="d-flex justify-content-center align-items-center h-75 mt-5">
-            <div class="container-fluid w-75 h-100 p-3 d-flex flex-column gap-4 rounded" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
-                <div class="form-group">
-                    <label for="name">Nombre:</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="phoneNumber">Número de celular:</label>
-                    <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Número de celular" required>
-                </div>
-                <div class="form-group">
-                    <label for="date">Fecha de nacimiento:</label>
-                    <input type="date" id="date" name="date" class="form-control" placeholder="Fecha de nacimiento" required>
-                </div>
-                <div class="form-group">
-                    <label for="icfes">Puntaje ICFES:</label>
-                    <input type="text" id="icfes" name="icfes" class="form-control" placeholder="Puntaje ICFES" required>
-                </div>
-                <div class="form-group">
-                    <label for="cedula">Cédula:</label>
-                    <input type="text" id="cedula" name="cedula" class="form-control" placeholder="Cédula" required>
-                </div>
-                <div class="form-group">
-                    <label for="code">Código estudiantil:</label>
-                    <input type="text" id="code" name="code" class="form-control" placeholder="Código estudiantil" required>
-                </div>
-                <div class="form-group">
-                    <label for="mail">Correo electrónico:</label>
-                    <input type="email" id="mail" name="mail" class="form-control" placeholder="Correo electrónico" required>
-                </div>
-                <div class="form-group">
-                    <label for="major">Carrera:</label>
-                    <select id="major" name="major" class="form-control" required>
-                        <option value="" disabled selected>Selecciona una carrera</option>
-                        {% for major_instance in majors %}
-                            <option value="{{ major_instance.id }}">{{ major_instance.name }}</option>
-                        {% endfor %}
-                    </select>
-                </div>                
-                <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">REGISTRAR</button>
-                </div>
+<form method="post">
+    {% csrf_token %}
+    <div class="d-flex justify-content-center align-items-center h-75 mt-3">
+        <div class="container-fluid w-75 h-100 p-3 d-flex flex-column gap-4 rounded" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Número de celular:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Número de celular" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Fecha de nacimiento:</label>
+                <input type="date" id="date" name="date" class="form-control" placeholder="Fecha de nacimiento" required>
+            </div>
+            <div class="form-group">
+                <label for="icfes">Puntaje ICFES:</label>
+                <input type="text" id="icfes" name="icfes" class="form-control" placeholder="Puntaje ICFES" required>
+            </div>
+            <div class="form-group">
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" class="form-control" placeholder="Cédula" required>
+            </div>
+            <div class="form-group">
+                <label for="code">Código estudiantil:</label>
+                <input type="text" id="code" name="code" class="form-control" placeholder="Código estudiantil" required>
+            </div>
+            <div class="form-group">
+                <label for="mail">Correo electrónico:</label>
+                <input type="email" id="mail" name="mail" class="form-control" placeholder="Correo electrónico" required>
+            </div>
+            <div class="form-group">
+                <label for="major">Carrera:</label>
+                <select id="major" name="major" class="form-control" required>
+                    <option value="" disabled selected>Selecciona una carrera</option>
+                    {% for major_instance in majors %}
+                        <option value="{{ major_instance.id }}">{{ major_instance.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>                
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">REGISTRAR</button>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        {% if messages %}
-            <script>
-                {% for message in messages %}
-                    Swal.fire({
-                        icon: '{{ message.tags }}',
-                        title: '{{ message }}',
-                        showConfirmButton: true,
-                        confirmButtonColor: '#3085d6',
-                    });
-                {% endfor %}
-            </script>
-        {% endif %}
-    </form>
-</body>
-</html>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+        <script>
+            {% for message in messages %}
+                Swal.fire({
+                    icon: '{{ message.tags }}',
+                    title: '{{ message }}',
+                    showConfirmButton: true,
+                    confirmButtonColor: '#3085d6',
+                });
+            {% endfor %}
+        </script>
+    {% endif %}
+</form>
 
 {% endblock %}

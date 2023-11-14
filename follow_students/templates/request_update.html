@@ -1,14 +1,18 @@
 {% extends 'layouts/navbar_sidebar.html' %}
 
+{% block title_page %}
+
+    <title>Solicitar Actualizacion de Informacion</title>
+
+{% endblock %}
+
 {% block main_content %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <h3>Solicitar Actualizacion de Informacion</h3>
-    </head>
+
+    <h3>Solicitar Actualizacion de Informacion</h3>
+
     <body>
-        <div class="d-flex justify-content-center align-items-center h-75 mt-5">
+        <div class="d-flex justify-content-center align-items-center mt-5">
             <div class="container-fluid w-75 h-100 p-3 d-flex flex-column gap-4 rounded" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
                 <h5>Enviar Notificacion</h5>
                 <form method="POST" enctype="multipart/form-data">
@@ -33,7 +37,5 @@
                 </form>
             </div>
         </div>
-    </body>
-</html>
 
 {% endblock %}
