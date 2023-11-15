@@ -55,6 +55,16 @@ class Signin(View):
                     'user': user,
                 })
             
+            if user.rol.nombre_rol == "Bienestar Universitario":
+                return render(request, 'upload_dataBU.html', {
+                    'user': user,
+                })
+            
+            if user.rol.nombre_rol == "CREA":
+                return render(request, 'upload_dataCREA.html', {
+                    'user': user,
+                })
+            
            
         except ObjectDoesNotExist:
             return render(request, 'index.html', {
