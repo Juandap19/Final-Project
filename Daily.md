@@ -354,3 +354,13 @@
 | Daniel Montezuma |  |  |  |
 | Darwin | ---|---|---|
 | Diego Zuñiga | ---|---|---|
+
+## Fecha 13/11/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid | ---|---|---|
+| Juan David Patiño |Seguir con los test de apoyo financiero | --- | --- |
+| Daniel Montezuma | Nada | Ninguno | Continuar con los tests |
+| Darwin | ---|---|---|
+| Diego Zuñiga | ---|---|---|
