@@ -5,9 +5,8 @@ from django.contrib import admin
 from follow_students.views.signin import Signin
 from follow_students.views.upload_dataBU import Upload_dataBU
 from follow_students.views.dashboard import Dashboard
-
+from follow_students.views.logout import Logout
 from follow_students.views.financial import FinancialSupport, FinancialAcademic , FinancialTransport
-
 from follow_students.views.request_update import RequestUpd
 from follow_students.views.upload_dataCREA import Upload_dataCREA
 from follow_students.views.menuReport import MenuReport
@@ -27,7 +26,7 @@ from follow_students.views.goalEvaluation import GoalEvaluation
 
 urlpatterns = [
     # Here the paths are added
-    path('', Signin.as_view()),
+    path('', Signin.as_view(), name = "signin"),
     path('apoyo_financiero_alimentacion/', FinancialSupport.as_view(), name = 'alimentationExp' ),
     path('apoyo_financiero_academico/', FinancialAcademic.as_view() , name = 'educationExp'),
     path('apoyo_financiero_transporte/', FinancialTransport.as_view() , name = 'transportExp'),
@@ -49,5 +48,6 @@ urlpatterns = [
     path('menuCancelation/<int:code>/', MenuCancelation.as_view(), name="section"),
     path('cancelationSection/<int:code>/', CancelationSection.as_view(), name="cancelation"),
     path('notification/', Notifications.as_view(), name = "notis"),
-    path('notification/', Notifications.as_view(), name = "clean")
+    path('notification/', Notifications.as_view(), name = "clean"),
+    path('logout/', Logout.as_view(), name = "logout")
 ]
