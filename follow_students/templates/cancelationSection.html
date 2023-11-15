@@ -24,7 +24,7 @@
                                         <h5 class="card-title">{{ grade.course.code }}</h5>
                                         <form action="{%  url 'cancelation' grade.id %}" method="POST">
                                             {% csrf_token %}
-                                            <button class="btn btn-success mt-3">
+                                            <button class="btn btn-success mt-3"id="cancelation">
                                             Cancelar
                                             </button></b> </p>
                                         </form>
