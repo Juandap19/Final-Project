@@ -49,6 +49,11 @@ class Signin(View):
                     'form': FinancialForm(),
                     'error': False
                 })
+
+            if user.rol.nombre_rol == "Director de Programa":
+                return render(request, 'menuCancelation.html', {
+                    'user': user,
+                })
             
            
         except ObjectDoesNotExist:
