@@ -117,11 +117,15 @@
                 </tr>
              </table>
 
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-end gap-3">
                     <button  class="btn btn-success" id="btn-student-pagar-{{student_missing.id}}">
                         Pagar
                     </button>
+                    <button  class="btn btn-danger" id="btn-student-cerrar-{{student_missing.id}}">
+                        Cerrar
+                    </button>
                 </div>
+                
                 
             </dialog>
      </div>
@@ -136,7 +140,7 @@
 
     <div class="position-relative">
         <dialog id="modal-scholarship-{{beca_faltante.id}}" class="position-absolute top-50 start-50 translate-middle p-4">
-            <div class="d-flex gap-3">
+            <div class="d-flex gap-3 align-items-center">
                 <img src="../static/images/{{beca_faltante.image}}" style="width: 100px;" alt="Beca_imagen">
                 <h2>{{beca_faltante.name}}</h2>
             </div>
@@ -177,9 +181,13 @@
                 <div id="container-figure-scholarship-{{beca_faltante.id}}"></div>
             </figure>
 
-            <div class="d-flex justify-content-end">
+            <div class="d-flex justify-content-end gap-3">
                 <button  class="btn btn-success" id="btn-scholarship-pagar-{{ beca_faltante.id }}">
                     Pagar
+                </button>
+
+                <button class="btn btn-danger" id="btn-scholarship-cerrar-{{ beca_faltante.id }}">
+                    Cerrar
                 </button>
             </div>
     
@@ -341,6 +349,7 @@
                 var modalScholarship = "Set up"
                 var auxiliar_var = 0
                 var btnPagar = "Set up"
+                var btnClose = "Set up"
                 var input = document.querySelector("#id_scholarship_code")
                 var form_scholarship = document.querySelector("#id-form-scholarship")
 
@@ -350,6 +359,7 @@
                     btnAbrirModal = document.querySelector("#btn-scholarship-open-{{beca_faltante.id}}")
                     modalScholarship = document.querySelector("#modal-scholarship-{{beca_faltante.id}}")
                     btnPagar = document.querySelector("#btn-scholarship-pagar-{{beca_faltante.id}}")
+                    btnClose = document.querySelector("#btn-scholarship-cerrar-{{beca_faltante.id}}")
                     
                     btnAbrirModal.addEventListener('click', () => {
                         auxiliar_var = "{{beca_faltante.id}}"
@@ -365,6 +375,13 @@
                         form_scholarship.submit()
 
                     }) 
+                    
+                    btnClose.addEventListener('click', () =>{
+                        auxiliar_var = "{{beca_faltante.id}}"
+                        btnClose =  document.querySelector("#btn-scholarship-cerrar-" + auxiliar_var)
+                        modalScholarship = document.querySelector("#modal-scholarship-"+ auxiliar_var)
+                        modalScholarship.close();
+                    })
 
                 {% endfor %}  
 
@@ -376,13 +393,16 @@
                 var searchScholarshipinput = document.querySelector("#search-scholarship-input")
                 var scholarship_code = '0'
                 var flagMessage_scholarship = false
+                var flagMessage2_scholarship = false
                 var modalScholarshipSearch = 'Set Up'
                 var auxiliarVarSearchScholarship = 'Set Up'
                 var scholarship_list_codes = []
                 var scholarship_list_ids = []
+                var all_scholarships2 = []
 
                 searchScholarshipBtn.addEventListener('click', () => {
                     flagMessage_scholarship = false
+                    flagMessage2_scholarship = false
 
                     scholarship_code = searchScholarshipinput.value
                     searchScholarshipinput.value = ""
@@ -391,6 +411,10 @@
                          scholarship_list_codes.push("{{beca_faltante.code}}")
                          scholarship_list_ids.push("{{beca_faltante.id}}")
                     {% endfor %}
+
+                    {% for code2 in all_scholarships%}
+                        all_scholarships2.push("{{code2}}")
+                    {% endfor%}
 
 
 
@@ -402,14 +426,28 @@
                         }
                     }
 
+                    for(var i = 0; i < all_scholarships2.length ; i += 1 ){
+                        if(scholarship_code ==  all_scholarships2[i]){
+                            flagMessage2_scholarship = true
+                        }
+                    }
+
                     if (flagMessage_scholarship == false){
-                        Swal.fire({
-                        icon: 'error',
-                        title: 'No existe una beca con ese codigo',
-                        showConfirmButton: true,
-                        confirmButtonColor: '#3085d6',
+                        if(flagMessage2_scholarship == true){
+                            Swal.fire({
+                            icon: 'info',
+                            title: 'La beca con el codigo '+ scholarship_code +' ya fue previamente pagado',
+                            showConfirmButton: true,
+                            confirmButtonColor: '#3085d6',
                         });
-                        
+                        }else{
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'No existe una beca asociada al codigo '+scholarship_code,
+                            showConfirmButton: true,
+                            confirmButtonColor: '#3085d6',
+                        });
+                        }
                     }
                 })
 
@@ -421,6 +459,7 @@
                 var modalStudent = "Set up"
                 var auxiliar_var_student = 0
                 var btnPagar_Student = "Set up"
+                var btnCerrar = "Set up"
                 var studen_code = "Set up"
                 var input_student = document.querySelector("#id_student_code")
                 var form_student = document.querySelector("#id-form-student")
@@ -431,11 +470,10 @@
                     btnAbrirModalStudent = document.querySelector("#btn-student-open-{{student_missing.id}}")
                     modalStudent = document.querySelector("#modal-student-{{student_missing.id}}")
                     btnPagar_Student = document.querySelector("#btn-student-pagar-{{student_missing.id}}")
-                    
+                    btnCerrar = document.querySelector("#btn-student-cerrar-{{student_missing.id}}")
 
                     btnAbrirModalStudent.addEventListener('click', () => {
                         auxiliar_var_student = "{{student_missing.id}}"
-                        console.log(auxiliar_var_student)
                         btnAbrirModal = document.querySelector("#btn-student-open-" + auxiliar_var_student)
                         modalStudent = document.querySelector("#modal-student-"+ auxiliar_var_student)
                         modalStudent.showModal()
@@ -448,6 +486,13 @@
                         form_student.submit()
 
                     }) 
+
+                    btnCerrar.addEventListener("click" , () => {
+                        auxiliar_var_student = "{{student_missing.id}}"
+                        btnCerrar = btnPagar_Student = document.querySelector("#btn-student-cerrar-"+ auxiliar_var_student)
+                        modalStudent = document.querySelector("#modal-student-"+ auxiliar_var_student)
+                        modalStudent.close()
+                    })
                 {% endfor %}
 
 
@@ -456,15 +501,18 @@
 
                 var searchStudentBtn = document.querySelector("#btn-search-student")
                 var searchStudentinput = document.querySelector("#search-student-input")
-                var student_code = '0'
+                var student_code1 = '0'
                 var flagMessage = false
+                var flagMessage2 = false
                 var modalStudentSearch = 'Set Up'
                 var student_list_codes = []
                 var student_list_ids = []
+                var all_students2 = []
 
                 searchStudentBtn.addEventListener('click', () => {
                     flagMessage = false
-                    student_code = searchStudentinput.value
+                    flagMessage2 = false
+                    student_code1 = searchStudentinput.value
                     searchStudentinput.value = ""
                     
                     {% for student_missing in students_missing %}
@@ -472,24 +520,42 @@
                          student_list_ids.push("{{student_missing.id}}")
                     {% endfor %}
 
+                    {% for code in all_students%}
+                        all_students2.push("{{code}}")
+                    {% endfor%}
+
 
 
                     for(var i = 0; i < student_list_codes.length ; i += 1 ){
-                        if(student_code ==  student_list_codes[i]){
+                        if(student_code1 ==  student_list_codes[i]){
                             flagMessage = true
                             modalStudentSearch = document.querySelector("#modal-student-"+ student_list_ids[i])
                             modalStudentSearch.showModal()
                         }
                     }
 
+                    for(var i = 0; i < all_students2.length ; i += 1 ){
+                        if(student_code1 ==  all_students2[i]){
+                            flagMessage2 = true
+                        }
+                    }
+
                     if (flagMessage == false){
-                        Swal.fire({
-                        icon: 'error',
-                        title: 'No existe una estudiante con ese codigo',
-                        showConfirmButton: true,
-                        confirmButtonColor: '#3085d6',
+                        if(flagMessage2 == true){
+                            Swal.fire({
+                            icon: 'info',
+                            title: 'El estudiante con el codigo '+ student_code1 +' ya fue previamente pagado',
+                            showConfirmButton: true,
+                            confirmButtonColor: '#3085d6',
                         });
-                        
+                        }else{
+                            Swal.fire({
+                            icon: 'error',
+                            title: 'No existe una estudiante  con ese codigo',
+                            showConfirmButton: true,
+                            confirmButtonColor: '#3085d6',
+                        });
+                        }
                     }
                 })
 
