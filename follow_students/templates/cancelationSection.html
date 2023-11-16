@@ -55,7 +55,7 @@
                                     {% csrf_token %}
                                     <input type="text" value="{{ grade.id }}" name="gradeId" id="gradeId" class="d-none">
                                     <input type="text" value="{{ grade.student.code }} " name="gradeStudent" id="gradeStudent" class="d-none">
-                                    <button class="btn btn-danger mt-3">
+                                    <button id="cancelation" class="btn btn-danger mt-3">
                                     Cancelar
                                     </button></b> </p>
                                 </form>

@@ -32,7 +32,7 @@
                             <td>
                                 <form action="{%  url 'section' student.id %}" method="POST">
                                     {% csrf_token %}
-                                    <button class="btn btn-success">
+                                    <button class="btn btn-success" id="selection">
                                         Ver materias
                                     </button>
                                     
@@ -56,5 +56,15 @@
         })
 
     </script>
+
+    {% if studentUpdate %}
+
+        <div class="alert alert-success alert-dismissible fade show position-absolute bottom-0 end-0 d-flex align-items-center gap-3" role="alert" id="success-alert">
+            <i class='bx bxs-check-square' style="font-size: 28px;"></i>
+            <strong>Materia Cancelada</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    {% endif %}
 
 {% endblock %}

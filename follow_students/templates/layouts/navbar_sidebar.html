@@ -48,7 +48,7 @@
 
                     {% if 'Registrar estudiante' in request.session.permisos  %}
 
-                        <article class="d-flex align-items-center"><i class='bx bx-notification position-absolute'></i><a class="text-decoration-none text-white py-2" href="/notification">Notificacion</a></article>
+                        <article class="d-flex align-items-center"><i class='bx bx-notification position-absolute'></i><a class="text-decoration-none text-white py-2" id="Notificacion" href="/notification">Notificacion</a></article>
 
                     {% endif %}
 
@@ -72,7 +72,7 @@
 
                     {% if 'Cargar informacion DP' in request.session.permisos  %}
 
-                        <article class="d-flex align-items-center"><i class='bx bx-x position-absolute'></i><a class="text-decoration-none text-white py-2" href="/menuCancelation">Cancelacion Materias</a></article>
+                        <article class="d-flex align-items-center"><i class='bx bx-x position-absolute'></i><a class="text-decoration-none text-white py-2" href="/menuCancelation" id= "cancelacion">Cancelacion Materias</a></article>
 
                     {% endif %}
 

@@ -125,38 +125,46 @@ def create_scholarships(apps, schema_editor):
 
 
         donors_data = [
-            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Tecnoquimicas', 'mail': f'tq@gmail.com', 'description': f'Empresa Tecnoquimicas'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Fundacion', 'mail': f'tq@gmail.com', 'description': f'Empresa Fundacion valle del lili'},
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Emcali', 'mail': f'em@gmail.com', 'description': f'Empresa Emcali'},
-            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'ICETEX', 'mail': f'icetex@gmail.com', 'description': f'Empresa ICETEX'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Icetex', 'mail': f'icetex@gmail.com', 'description': f'Empresa Icetex'},
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Colanta', 'mail': f'ct@gmail.com', 'description': f'Empresa Colanta'},
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Davivienda', 'mail': f'dv@gmail.com', 'description': f'Empresa Davivienda'},
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Bancolombia', 'mail': f'bc@gmail.com', 'description': f'Empresa Bancolombia'},
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'BBVA', 'mail': f'bbva@gmail.com', 'description': f'Empresa BBVA'},
-            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Postobon', 'mail': f'ps@gmail.com', 'description': f'Empresa Postobon'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Gobierno', 'mail': f'ps@gmail.com', 'description': f'Empresa Gobierno de la Republica'},
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Grupo Aval', 'mail': f'ga@gmail.com', 'description': f'Empresa Grupo Aval'},
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Grupos Argos', 'mail': f'gar@gmail.com', 'description': f'Empresa Grupo Argos'}
         ]
 
         amounts_data = [
-            {'code': 1, 'transporte': 500000, 'alimentacion': 1000000, 'academico': 2000000},
-            {'code': 2, 'transporte': 700000, 'alimentacion': 2000000, 'academico': 5000000},
-            {'code': 3, 'transporte': 450000, 'alimentacion': 1500000, 'academico': 2500000},
-            {'code': 4, 'transporte': 575000, 'alimentacion': 3000000, 'academico': 3700000},
-            {'code': 5, 'transporte': 900000, 'alimentacion': 4000000, 'academico': 8000000},
+            {'code': 1, 'transport': 5000000000, 'alimentation': 1000000000, 'academic': 2000000},
+            {'code': 2, 'transport': 70000000, 'alimentation': 200000000, 'academic': 5000000},
+            {'code': 3, 'transport': 45000000, 'alimentation': 15000000, 'academic': 25000000},
+            {'code': 4, 'transport': 57500000, 'alimentation': 30000000, 'academic': 37000000},
+            {'code': 5, 'transport': 90000000, 'alimentation': 40000000, 'academic': 8000000},
         ]
 
         donors = [Donor.objects.create(**donor_data) for donor_data in donors_data]
         amounts = [Amount.objects.create(**amount_data) for amount_data in amounts_data]
+        images_scholarships = ["Emcali" , "Fundacion" , "Icetex" , "Gobierno"]
 
         for _ in range(25):
+            nombre_nueva_beca = random.choice(donors).name
+            if nombre_nueva_beca in images_scholarships:
+                image = f'{nombre_nueva_beca}.png'
+            else:
+                image = 'Icesi.png'
+
             scholarship = Scholarship(
                 code=random.randint(10000000, 99999999),
-                name = f'Beca - {random.choice(donors).name}',
+                name=f'Beca - {nombre_nueva_beca}',
                 assigned_students=random.randint(0, 10),
-                porcentaje_academico=random.randint(50, 100),
-                auxilio_transporte=random.randint(500000, 1000000),
+                academic_percentage=random.randint(50, 100),
+                transportation=random.randint(500000, 1000000),
                 amount=random.choice(amounts),
                 donor=random.choice(donors),
+                image=image,  # Agregamos la imagen aquí
             )
             scholarship.save()
 
@@ -188,8 +196,8 @@ def create_students(apps, schema_editor):
             cedula=fake.unique.random_number(digits=10),
             code=f'A00{fake.unique.random_number(digits=7)}',
             mail=email,
-            aux_transportation=random.randint(0, 100),
-            aux_academic=random.randint(0, 100),
+            aux_transportation= 0,
+            aux_academic= 0,
             major=random_major,
             scholarship=random_scholarships
         )
