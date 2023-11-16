@@ -167,19 +167,25 @@ def create_students(apps, schema_editor):
     majors = Major.objects.all()
     scholarships = Scholarship.objects.all()
 
-    fake = Faker()
+    fake = Faker('es_CO')
 
     for _ in range(100):
         random_major = random.choice(majors)
         random_scholarships = random.choice(scholarships)
+    
+        full_name = fake.name()
+        first_name, last_name = full_name.split(' ', 1)
+    
+        email = f"{first_name.lower()}{last_name.lower()}@gmail.com"
+    
         student = Student(
-            name=fake.name(),
+            name=full_name,
             phoneNumber=fake.phone_number(),
             date=fake.date_of_birth(minimum_age=18, maximum_age=25),
-            icfes=random.randint(0, 500),
+            icfes=random.randint(280, 500),
             cedula=fake.unique.random_number(digits=10),
-            code = f'A00{fake.unique.random_number(digits=7)}',
-            mail=fake.email(),
+            code=f'A00{fake.unique.random_number(digits=7)}',
+            mail=email,
             aux_transportation=random.randint(0, 100),
             aux_academic=random.randint(0, 100),
             major=random_major,

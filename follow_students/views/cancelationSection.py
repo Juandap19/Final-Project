@@ -22,6 +22,6 @@ class CancelationSection(View):
             grade.state=False
             grade.save()
         
-            notification = Notification(name="Cancelacion de {}".format(grade.student.name), student=grade.student, description="{} Cancelo {}".format(grade.student.name, grade.course.name))
+            notification = Notification(name="Cancelacion", student=grade.student, description="{} Cancelo {}".format(grade.student.name, grade.course.name))
             notification.save()
-         return redirect("/cancelationSection")
+         return redirect("/menuCancelation")

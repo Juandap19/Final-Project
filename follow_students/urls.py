@@ -31,7 +31,7 @@ urlpatterns = [
     path('apoyo_financiero_academico/', FinancialAcademic.as_view() , name = 'educationExp'),
     path('apoyo_financiero_transporte/', FinancialTransport.as_view() , name = 'transportExp'),
     path('requestupd', RequestUpd.as_view(), name = "requestUpdate"),
-    path('dashboard/', Dashboard.as_view()),
+    path('dashboard/', Dashboard.as_view(), name = 'dashboard'),
     path('menuReport/', MenuReport.as_view(), name="menu_report"),
     path('generateReport/', GenerateReport.as_view(), name="generate_report"),
     path('generate_pdf/<int:code>/', GeneratePDF.as_view(), name='generate_pdf'),
