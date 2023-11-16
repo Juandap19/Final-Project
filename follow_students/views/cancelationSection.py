@@ -28,4 +28,10 @@ class CancelationSection(View):
          return render(request, 'menuCancelation.html', {
             "students" : studentlist,
             "studentUpdate": True
+<<<<<<< HEAD
         })
+=======
+        })
+         
+         
+>>>>>>> develop
