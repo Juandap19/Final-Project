@@ -31,7 +31,7 @@ urlpatterns = [
     path('apoyo_financiero_alimentacion/', FinancialSupport.as_view(), name = 'alimentationExp' ),
     path('apoyo_financiero_academico/', FinancialAcademic.as_view() , name = 'educationExp'),
     path('apoyo_financiero_transporte/', FinancialTransport.as_view() , name = 'transportExp'),
-    path('requestupd', RequestUpd.as_view(), name = "requestUpdate"),
+    path('requestupd/', RequestUpd.as_view(), name = "requestUpdate"),
     path('dashboard/', Dashboard.as_view()),
     path('menuReport/', MenuReport.as_view(), name="menu_report"),
     path('generateReport/', GenerateReport.as_view(), name="generate_report"),

@@ -121,6 +121,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+LIVE_SERVER_PORT = 8000  # Especifica el puerto deseado
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
