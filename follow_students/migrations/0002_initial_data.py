@@ -114,6 +114,8 @@ def create_majors(apps, schema_editor):
     for major in majors:
         Major.objects.create(name=major['name'], price=major['price'])
 
+   
+
 
 def create_scholarships(apps, schema_editor):
         

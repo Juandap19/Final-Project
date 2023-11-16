@@ -8,8 +8,9 @@
 
 {% block main_content %}
         <div>
-            <h3 class="title-financial">PAGO ALIMENTACION</h3>
+            <h3 class="title-financial" id = 'alimentacion_title'>PAGO ALIMENTACION</h3>
         </div>
+
         <div class="w-50 p-3 rounded mx-auto d-flex gap-3 mt-5" style="background-color: #fff; box-shadow: 0 0 15px rgba(0,0,0,0.5);">
             <form action="" method="POST" class="w-100 h-100 d-flex justify-content-between flex-column" autocomplete="off" >
                 {% csrf_token %}
