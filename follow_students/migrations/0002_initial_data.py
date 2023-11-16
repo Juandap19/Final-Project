@@ -1,4 +1,9 @@
 from django.db import migrations
+from django.core.management.base import BaseCommand
+from faker import Faker
+from follow_students.models import Student, Major, Scholarship, Rol, User, Donor, Amount
+import random
+from datetime import datetime, timedelta
 
 def create_permisos(apps, schema_editor):
     Permiso = apps.get_model('follow_students', 'Permiso')
@@ -30,6 +35,28 @@ def create_rol_permiso(apps, schema_editor):
         for permiso_nombre in rol_permiso['permisos']:
             permiso = Permiso.objects.get(nombre_permiso=permiso_nombre)
             RolPermiso.objects.create(rol=rol, permiso=permiso)
+
+def create_users(apps, schema_editor):
+    User = apps.get_model('follow_students', 'User')
+    Rol = apps.get_model('follow_students', 'Rol')
+
+    users_data = [
+        {'username': 'diego', 'password': '1234', 'name': 'Diego Mueses', 'rol': 'Filantropía'},
+        {'username': 'daniel', 'password': '1234', 'name': 'Daniel Montezuma', 'rol': 'Director de Programa'},
+        {'username': 'felipe', 'password': '1234', 'name': 'Juan Felipe', 'rol': 'Bienestar Universitario'},
+        {'username': 'darwin', 'password': '1234', 'name': 'Darwin Lenis', 'rol': 'CREA'},
+        {'username': 'patiño', 'password': '1234', 'name': 'Juan David', 'rol': 'Apoyo Financiero'},
+    ]
+
+    for user_data in users_data:
+        rol_name = user_data['rol']
+        rol = Rol.objects.get(nombre_rol=rol_name)
+        User.objects.create(
+            username=user_data['username'],
+            password=user_data['password'],
+            name=user_data['name'],
+            rol=rol
+    )
 
 def create_non_academic_activities(apps, schema_editor):
     NonAcademicActivity = apps.get_model('follow_students', 'NonAcademicActivity')
@@ -90,6 +117,92 @@ def create_majors(apps, schema_editor):
    
 
 
+def create_scholarships(apps, schema_editor):
+        
+        Donor = apps.get_model('follow_students', 'Donor')
+        Amount = apps.get_model('follow_students', 'Amount')
+        Scholarship = apps.get_model('follow_students', 'Scholarship')
+
+
+        donors_data = [
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Fundacion', 'mail': f'tq@gmail.com', 'description': f'Empresa Fundacion valle del lili'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Emcali', 'mail': f'em@gmail.com', 'description': f'Empresa Emcali'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Icetex', 'mail': f'icetex@gmail.com', 'description': f'Empresa Icetex'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Colanta', 'mail': f'ct@gmail.com', 'description': f'Empresa Colanta'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Davivienda', 'mail': f'dv@gmail.com', 'description': f'Empresa Davivienda'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Bancolombia', 'mail': f'bc@gmail.com', 'description': f'Empresa Bancolombia'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'BBVA', 'mail': f'bbva@gmail.com', 'description': f'Empresa BBVA'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Gobierno', 'mail': f'ps@gmail.com', 'description': f'Empresa Gobierno de la Republica'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Grupo Aval', 'mail': f'ga@gmail.com', 'description': f'Empresa Grupo Aval'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Grupos Argos', 'mail': f'gar@gmail.com', 'description': f'Empresa Grupo Argos'}
+        ]
+
+        amounts_data = [
+            {'code': 1, 'transport': 5000000000, 'alimentation': 1000000000, 'academic': 2000000},
+            {'code': 2, 'transport': 70000000, 'alimentation': 200000000, 'academic': 5000000},
+            {'code': 3, 'transport': 45000000, 'alimentation': 15000000, 'academic': 25000000},
+            {'code': 4, 'transport': 57500000, 'alimentation': 30000000, 'academic': 37000000},
+            {'code': 5, 'transport': 90000000, 'alimentation': 40000000, 'academic': 8000000},
+        ]
+
+        donors = [Donor.objects.create(**donor_data) for donor_data in donors_data]
+        amounts = [Amount.objects.create(**amount_data) for amount_data in amounts_data]
+        images_scholarships = ["Emcali" , "Fundacion" , "Icetex" , "Gobierno"]
+
+        for _ in range(25):
+            nombre_nueva_beca = random.choice(donors).name
+            if nombre_nueva_beca in images_scholarships:
+                image = f'{nombre_nueva_beca}.png'
+            else:
+                image = 'Icesi.png'
+
+            scholarship = Scholarship(
+                code=random.randint(10000000, 99999999),
+                name=f'Beca - {nombre_nueva_beca}',
+                assigned_students=random.randint(0, 10),
+                academic_percentage=random.randint(50, 100),
+                transportation=random.randint(500000, 1000000),
+                amount=random.choice(amounts),
+                donor=random.choice(donors),
+                image=image,  # Agregamos la imagen aquí
+            )
+            scholarship.save()
+
+def create_students(apps, schema_editor):
+
+    Student = apps.get_model('follow_students', 'Student')
+    Major = apps.get_model('follow_students', 'Major')
+    Scholarship = apps.get_model('follow_students', 'Scholarship')
+
+    majors = Major.objects.all()
+    scholarships = Scholarship.objects.all()
+
+    fake = Faker('es_CO')
+
+    for _ in range(100):
+        random_major = random.choice(majors)
+        random_scholarships = random.choice(scholarships)
+    
+        full_name = fake.name()
+        first_name, last_name = full_name.split(' ', 1)
+    
+        email = f"{first_name.lower()}{last_name.lower()}@gmail.com"
+    
+        student = Student(
+            name=full_name,
+            phoneNumber=fake.phone_number(),
+            date=fake.date_of_birth(minimum_age=18, maximum_age=25),
+            icfes=random.randint(280, 500),
+            cedula=fake.unique.random_number(digits=10),
+            code=f'A00{fake.unique.random_number(digits=7)}',
+            mail=email,
+            aux_transportation= 0,
+            aux_academic= 0,
+            major=random_major,
+            scholarship=random_scholarships
+        )
+        student.save()
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -103,5 +216,8 @@ class Migration(migrations.Migration):
         migrations.RunPython(create_majors),
         migrations.RunPython(create_supportCenter),
         migrations.RunPython(create_non_academic_activities),
+        migrations.RunPython(create_users),
+        migrations.RunPython(create_scholarships),
+        migrations.RunPython(create_students)
     ]
 

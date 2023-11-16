@@ -22,6 +22,10 @@ class CancelationSection(View):
             grade.state=False
             grade.save()
         
-            notification = Notification(name="Cancelacion de {}".format(grade.student.name), student=grade.student, description="{} Cancelo {}".format(grade.student.name, grade.course.name))
+            notification = Notification(name="Cancelacion", student=grade.student, description="{} Cancelo {}".format(grade.student.name, grade.course.code))
             notification.save()
-         return redirect("/cancelationSection")
+            studentlist=Student.objects.all()
+         return render(request, 'menuCancelation.html', {
+            "students" : studentlist,
+            "studentUpdate": True
+            })

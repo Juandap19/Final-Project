@@ -1,84 +1,85 @@
 {% extends 'layouts/navbar_sidebar.html' %}
 
+{% block title_page %}
+
+    <title>Consultas CREA</title>
+
+{% endblock %}
+
 {% block main_content %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <h3>Consultas CREA</h3>
-    </head>
-    <body>
-        <div class="d-flex justify-content-center align-items-center h-75 mt-5">
-            <div class="container-fluid w-75 h-100 p-3 d-flex flex-column rounded" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
-                <h5>Registro de Consultas</h5>
-                <form method="POST" enctype="multipart/form-data">
-                    <div class="d-flex flex-wrap gap-5">
-                        {{form.as_p}}
-                    </div>
-                    <div class="send w-100 d-flex justify-content-end"> 
-                        {% csrf_token %} 
-                        <button class="send-button btn btn-primary px-5">Enviar</button>
-                    </div>
-                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                    {% if messages %}
-                        <script>
-                            {% for message in messages %}
-                                Swal.fire({
-                                    icon: '{{ message.tags }}',
-                                    title: '{{ message }}',
-                                    showConfirmButton: true,
-                                    confirmButtonColor: '#3085d6',
-                                });
-                            {% endfor %}
-                        </script>
-                    {% endif %}
-                </form>
+    <h3>Consultas CREAS</h3>
 
-                <!-- Contenedor para la información de las consultas -->
-                <article class="d-flex flex-column gap-3 h-75 mt-2 table-responsive">
-                    <h5>Información de Consultas:</h5>
-                    <!-- Campo de búsqueda para buscar consultas por estudiante -->
-                    <input type="text" id="search" placeholder="Buscar por estudiante...">
-                    <!-- Tabla que muestra las consultas de los estudiantes -->
-                    <div style="height: 300px; overflow-y: auto;">
-                        <table cellspacing="10" class="table bg-secondary bg-opacity-25 rounded" style="border-collapse: separate; border-spacing: 1rem 10px;">
-                            <tr>
-                                <th>Estudiante</th>
-                                <th>Centro de apoyo</th>
-                                <th>Fecha</th>
-                                <th>Hora</th>
-                                <th>Motivo</th>
-                                <th>Resultado</th>
-                            </tr>
-                            <!-- Itera sobre todas las consultas y muestra una fila por cada consulta -->
-                            {% for consult in consultations %}
-                                <tr class="student">
-                                    <td class="student-code">{{ consult.student }}</td>
-                                    <td>{{ consult.support_center }}</td>
-                                    <td>{{ consult.date }}</td>
-                                    <td>{{ consult.time }}</td>
-                                    <td>{{ consult.reason }}</td>
-                                    <td>{{ consult.outcome }}</td>
-                                </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-
-                    <!-- Script de JavaScript que filtra las filas de la tabla basado en el valor del campo de búsqueda -->
-                    <script>
-                        document.getElementById('search').addEventListener('keyup', function() {
-                          var search = this.value.toLowerCase();
-                          var students = document.getElementsByClassName('student');
-                          for (var i = 0; i < students.length; i++) {
-                            var name = students[i].getElementsByClassName('student-code')[0].textContent.toLowerCase();
-                            students[i].style.display = name.includes(search) ? '' : 'none';
-                          }
-                        });
-                    </script>                                
-                </article>
+    <div class="mx-auto w-75 p-3 d-flex flex-column rounded mt-5 gap-3" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
+        <h5>Registro de Consultas</h5>
+        <form method="POST" enctype="multipart/form-data">
+            {{form.as_p}}
+            <div class="send w-100 d-flex justify-content-end"> 
+                {% csrf_token %} 
+                <button class="send-button btn btn-primary px-5">Enviar</button>
             </div>
-        </div>
-    </body>
-</html>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            {% if messages %}
+                <script>
+                    {% for message in messages %}
+                        Swal.fire({
+                            icon: '{{ message.tags }}',
+                            title: '{{ message }}',
+                            showConfirmButton: true,
+                            confirmButtonColor: '#3085d6',
+                        });
+                    {% endfor %}
+                </script>
+            {% endif %}
+        </form>
+    </div>
+
+    <div class="mx-auto w-75 p-3 d-flex flex-column rounded mt-5 gap-3" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
+    
+        <!-- Contenedor para la información de las consultas -->
+        <article class="d-flex flex-column gap-3 h-75 mt-2 table-responsive">
+            <h5>Información de Consultas</h5>
+            <!-- Campo de búsqueda para buscar consultas por estudiante -->
+            <input type="text" class="form-control" id="search" placeholder="Buscar por estudiante...">
+            <!-- Tabla que muestra las consultas de los estudiantes -->
+            <div style="height: 300px; overflow-y: auto;">
+                <table class="table table-striped rounded">
+                    <tr>
+                        <th>Estudiante</th>
+                        <th>Centro de apoyo</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Motivo</th>
+                        <th>Resultado</th>
+                    </tr>
+                    <!-- Itera sobre todas las consultas y muestra una fila por cada consulta -->
+                    {% for consult in consultations %}
+                        <tr class="student">
+                            <td class="student-code">{{ consult.student }}</td>
+                            <td>{{ consult.support_center }}</td>
+                            <td>{{ consult.date }}</td>
+                            <td>{{ consult.time }}</td>
+                            <td>{{ consult.reason }}</td>
+                            <td>{{ consult.outcome }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+    
+            <!-- Script de JavaScript que filtra las filas de la tabla basado en el valor del campo de búsqueda -->
+            <script>
+                document.getElementById('search').addEventListener('keyup', function() {
+                var search = this.value.toLowerCase();
+                var students = document.getElementsByClassName('student');
+                for (var i = 0; i < students.length; i++) {
+                    var name = students[i].getElementsByClassName('student-code')[0].textContent.toLowerCase();
+                    students[i].style.display = name.includes(search) ? '' : 'none';
+                }
+                });
+            </script>                                
+        </article>
+
+    </div>
+
 
 {% endblock %}

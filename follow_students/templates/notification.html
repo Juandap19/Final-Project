@@ -28,10 +28,38 @@
                 <div class="rounded border border-secondary p-3">
                     <div class="d-flex flex-row gap-3 align-items-center">
                         <i class='bx bxs-megaphone' style="font-size: 40px;"></i>
-                        <p class="m-0 bg-primary p-2 rounded text-white fw-bolder">{{ notification.name }}</p>  
+                        <p class="m-0 
+                        {% if notification.name == 'Cancelacion' %}
+                        bg-danger
+                        {% else %}
+                            {% if notification.name == 'Cuidado' %}
+                            bg-info
+                            {% else %}
+                                {% if notification.name == 'Peligro' %}
+                                bg-warning
+                                {% else %}
+                                bg-primary   
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                        p-1 rounded text-white fw-bolder">{{ notification.name }}</p>  
                     </div>
-                    <p class="m-0 mt-2 fw-bolder">Estudiante: <span class="text-primary">{{ notification.student.name }}</span></p>
-                    <p class="m-0">{{ notification.description }}</p>
+                    <p class="m-0 mt-2 fw-bolder">Estudiante: <span class="
+                        {% if notification.name == 'Cancelacion' %}
+                        text-danger
+                        {% else %}
+                            {% if notification.name == 'Cuidado' %}
+                            text-info
+                            {% else %}
+                                {% if notification.name == 'Peligro' %}
+                                text-warning
+                                {% else %}
+                                text-primary   
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}">
+                        {{ notification.student.name }} - {{ notification.student.code }}</span></p>
+                    <p class="m-0 mt-2">{{ notification.description }}</p>
                 </div>  
 
             {% endif %}

@@ -2,29 +2,31 @@
 
 {% load static %}
 
+{% block title_page %}
+
+    <title>Cargar Informacion - Director del Programa</title>
+
+{% endblock %}
+
 {% block main_content %}
-<!DOCTYPE html>
-<html>
-    <head></head>
-    <body>
-        <div class="header">
-            <h3>CARGAR INFORMACION</h3>
-        </div>
-        <div class="d-flex justify-content-center align-items-center mt-5">
-            <div class="container-fluid w-75 p-3 d-flex flex-column rounded" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
+
+        <h3>CARGAR INFORMACION</h3>
+
+            <div class="mx-auto w-75 mt-5 rounded gap-3 p-3 d-flex flex-column gap-3" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
                 <article class="d-flex flex-column gap-3">
-                    <h5>Elegir formato:</h5>
+                    <h5>Elegir formato</h5>
                     <div class="dropdown">
-                        <select id="carrera" onchange="cambiarArchivo()">
+                        <select class="form-select" id="carrera" onchange="cambiarArchivo()">
                             <option value="FORMATO_SIS_CURSOS-NOTAS.xlsx">Ingenieria de Sistema</option>
                             <option value="FORMATO_TEL_CURSOS-NOTAS.xlsx">Ingenieria Telematica</option>
                             <option value="FORMATO_IBQ_CURSOS-NOTAS.xlsx">Ingenieria Bioquimica</option>
-                            <!-- Agrega más opciones según las carreras que tengas -->
                         </select>
                     </div>
-                    <a id="descargar" href="{% static 'excel_format/FORMATO_SIS_CURSOS-NOTAS.xlsx' %}" download>
-                        <button class="download-button btn btn-primary">Descargar Formato</button>
-                    </a>
+                    <div class="d-flex justify-content-end">
+                        <a id="descargar" class="d-inline" href="{% static 'excel_format/FORMATO_SIS_CURSOS-NOTAS.xlsx' %}">
+                            <button class="download-button btn btn-primary">Descargar Formato</button>
+                        </a>
+                    </div>
                     <script>
                         function cambiarArchivo() {
                             var carrera = document.getElementById('carrera').value;
@@ -34,7 +36,7 @@
                 </article>
                 <article class="d-flex flex-column gap-3">
                     <h5>Archivos cargados</h5>
-                    <table cellspacing="10" class="bg-secondary bg-opacity-25 rounded container" style="border-collapse: separate; border-spacing: 1rem 10px;">
+                    <table class="table table-striped rounded">
                         <tr>
                             <th>#</th>
                             <th>Nombre</th>
@@ -42,37 +44,7 @@
                             <th>Acción</th>
                         </tr>
                     </table>
-                </article>               
-                <article class="d-flex flex-column gap-3">
-                    <h5>Información de Notas:</h5>
-                    <input type="text" id="search" placeholder="Buscar por estudiante...">
-                    <div style="height: 300px; overflow-y: auto;">
-                        <table cellspacing="10" class="bg-secondary bg-opacity-25 rounded container" style="border-collapse: separate; border-spacing: 1rem 10px;">
-                            <tr>
-                                <th>Estudiante</th>
-                                <th>Curso</th>
-                                <th>Nota</th>
-                            </tr>
-                            {% for grade in grades %}
-                            <tr class="student">
-                                <td class="student-code">{{ grade.student }}</td>
-                                <td>{{ grade.course }}</td>
-                                <td>{{ grade.grade }}</td>
-                            </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-                </article>
-                <script>
-                    document.getElementById('search').addEventListener('keyup', function() {
-                      var search = this.value.toLowerCase();
-                      var students = document.getElementsByClassName('student');
-                      for (var i = 0; i < students.length; i++) {
-                        var name = students[i].getElementsByClassName('student-code')[0].textContent.toLowerCase();
-                        students[i].style.display = name.includes(search) ? '' : 'none';
-                      }
-                    });
-                </script>                                
+                </article>                                             
                 <article>
                     <div class="upload-area">
                         <form method="POST" enctype="multipart/form-data">
@@ -98,7 +70,42 @@
                     </div>
                 </article>
             </div>
+
+        <div class="mx-auto w-75 mt-5">
+
+            <article class="d-flex flex-column gap-3 p-3 rounded"  style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
+                <h5>Información de Notas</h5>
+                <input type="text" class="form-control" id="search" placeholder="Buscar por estudiante...">
+                <div style="height: 300px; overflow-y: auto;">
+                    <table class="table table-striped rounded">
+                        <tr>
+                            <th>Estudiante</th>
+                            <th>Curso</th>
+                            <th>Nota</th>
+                        </tr>
+                        {% for grade in grades %}
+                        <tr class="student">
+                            <td class="student-code">{{ grade.student }}</td>
+                            <td>{{ grade.course }}</td>
+                            <td>{{ grade.grade }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </article>
+
         </div>
+
+        <script>
+            document.getElementById('search').addEventListener('keyup', function() {
+              var search = this.value.toLowerCase();
+              var students = document.getElementsByClassName('student');
+              for (var i = 0; i < students.length; i++) {
+                var name = students[i].getElementsByClassName('student-code')[0].textContent.toLowerCase();
+                students[i].style.display = name.includes(search) ? '' : 'none';
+              }
+            });
+        </script>  
         
         <script>
             // Selecciona el input de archivo
@@ -116,13 +123,18 @@
                 var cell3 = document.createElement('td');
                 var cell4 = document.createElement('td'); // Nueva celda para el botón de eliminar
                 // Asigna los datos del archivo a las celdas
+                cell1.className += " p-2";
+                cell2.className += " p-2";
+                cell3.className += " p-2";
+                cell4.className += " p-2";
+                row.className += " border-light"
                 cell1.textContent = table.rows.length; // Número de fila
                 cell2.textContent = file.name; // Nombre del archivo
                 cell3.textContent = file.size; // Tamaño del archivo
                 // Crea un botón de eliminar y lo agrega a la cuarta celda
                 var deleteButton = document.createElement('button');
                 deleteButton.textContent = 'Eliminar';
-                deleteButton.className += " btn btn-danger py-0";
+                deleteButton.className += " btn btn-danger bg-danger py-1";
                 deleteButton.addEventListener('click', function() {
                     row.parentNode.removeChild(row);
                 });
@@ -136,6 +148,4 @@
                 table.appendChild(row);
             });
         </script>
-    </body>
-</html> 
 {% endblock %}
