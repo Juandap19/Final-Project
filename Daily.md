@@ -335,11 +335,11 @@
 | Darwin | Modificaciones en el template del reporte para mejorar la vosualizacion | Ninguno | Reunion con el grupo|
 | Diego Zuñiga | Reunion  con patiño para solución de conflictos | Ninguno |Reunion con el grupo|
 
-## Fecha 10/11/23
+## Fecha 11/11/23
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-| Juan Felipe Madrid | ---|---|---|
+| Juan Felipe Madrid | Reunión con el equipo | Ninguno | Empezar los test para las historias de cancelacion|
 | Juan David Patiño | Reunión con el equipo | Ninguno | Empezar los test para las historias de apoyo financiero |
 | Daniel Montezuma | Reunión con el equipo | Ninguno | Empezar los tests para req de registro de estudiantes |
 | Darwin | ---|---|---|
@@ -349,18 +349,28 @@
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-| Juan Felipe Madrid | ---|---|---|
+| Juan Felipe Madrid | Empezar los test para las historias de cancelacion| Ninguno | Seguir con los test de cancelacion|
 | Juan David Patiño | Empezar los test para las historias de apoyo financiero | Ninguno | Seguir con los test de apoyo financiero |
 | Daniel Montezuma |  |  |  |
 | Darwin | ---|---|---|
 | Diego Zuñiga | ---|---|---|
 
-## Fecha 13/11/23
+## Fecha 14/11/23
 
 |Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
 |---|---|---|---|
-| Juan Felipe Madrid | ---|---|---|
+| Juan Felipe Madrid | Seguir con los test de cancelacion|Ninguno|Terminar los test de cancelacion y notificaciones|
 | Juan David Patiño |Seguir con los test de apoyo financiero | --- | --- |
 | Daniel Montezuma | Nada | Ninguno | Continuar con los tests |
+| Darwin | ---|---|---|
+| Diego Zuñiga | ---|---|---|
+
+## Fecha 15/11/23
+
+|Nombre|¿Que hice ayer?|¿Que Problemas Tuve?|¿Que haré hoy?|
+|---|---|---|---|
+| Juan Felipe Madrid |Terminar los test de cancelacion y notificaciones|Ninguno|Hacer correciones finales a los test de cancelacion y notificacion y hacerles merge a develop|
+| Juan David Patiño | ---|---|---|
+| Daniel Montezuma | ---|---|---|
 | Darwin | ---|---|---|
 | Diego Zuñiga | ---|---|---|
