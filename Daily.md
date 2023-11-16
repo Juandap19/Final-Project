@@ -342,7 +342,7 @@
 | Juan Felipe Madrid | Reunión con el equipo | Ninguno | Empezar los test para las historias de cancelacion|
 | Juan David Patiño | Reunión con el equipo | Ninguno | Empezar los test para las historias de apoyo financiero |
 | Daniel Montezuma | Reunión con el equipo | Ninguno | Empezar los tests para req de registro de estudiantes |
-| Darwin | ---|---|---|
+| Darwin |  Reunión con el equipo | Ninguno | Empezar los tests para para req de cargar informacion |
 | Diego Zuñiga | ---|---|---|
 
 ## Fecha 13/11/23
@@ -352,7 +352,7 @@
 | Juan Felipe Madrid | Empezar los test para las historias de cancelacion| Ninguno | Seguir con los test de cancelacion|
 | Juan David Patiño | Empezar los test para las historias de apoyo financiero | Ninguno | Seguir con los test de apoyo financiero |
 | Daniel Montezuma |  |  |  |
-| Darwin | ---|---|---|
+| Darwin | Empezar los tests para para req de cargar informacion | Ninguno | Tests para para req de cargar informacion terminados|
 | Diego Zuñiga | ---|---|---|
 
 ## Fecha 14/11/23
@@ -362,7 +362,7 @@
 | Juan Felipe Madrid | Seguir con los test de cancelacion|Ninguno|Terminar los test de cancelacion y notificaciones|
 | Juan David Patiño |Seguir con los test de apoyo financiero | --- | --- |
 | Daniel Montezuma | Nada | Ninguno | Continuar con los tests |
-| Darwin | ---|---|---|
+| Darwin | Tests para para req de cargar informacion terminados | Ninguno | Empezar los tests para req de pedir actualizacion de informacion y generar reporte|
 | Diego Zuñiga | ---|---|---|
 
 ## Fecha 15/11/23
@@ -372,5 +372,5 @@
 | Juan Felipe Madrid |Terminar los test de cancelacion y notificaciones|Ninguno|Hacer correciones finales a los test de cancelacion y notificacion y hacerles merge a develop|
 | Juan David Patiño | ---|---|---|
 | Daniel Montezuma | ---|---|---|
-| Darwin | ---|---|---|
+| Darwin | Empezar los tests para req de pedir actualizacion de informacion y generar reporte | Ninguno | Tests para req de pedir actualizacion de informacion y generar reporte terminados|
 | Diego Zuñiga | ---|---|---|
