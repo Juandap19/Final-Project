@@ -1,50 +1,139 @@
 {% extends 'layouts/navbar_sidebar.html' %}
 {% load static %}
 
+{% block title_page %}
+
+    <title>Asignar beca</title>
+
+{% endblock %}
+
 {% block main_content %}
 
-<div>
     <h3>ASIGNAR BECA</h3>
-</div>
 
 {% if mensaje %}
 <div class="alert alert-danger">{{ mensaje }}</div>
 {% endif %}
 
+<div class="mx-auto w-75 d-flex justify-content-around gap-5 mt-5">
+    <div class="d-flex gap-3 align-items-center">
+        <div class="rounded-circle bg-success text-center text-white" style="width: 30px; height: 30px; line-height: 30px;">1</div>
+        <p class="p-0 m-0">Datos del estudiante</p>
+    </div>
+    <div class="d-flex gap-3 align-items-center">
+        <div class="rounded-circle bg-primary text-center text-white" style="width: 30px; height: 30px; line-height: 30px;">2</div>
+        <p  class="p-0 m-0">Asignar beca</p>
+    </div>
+</div>
+
+<div class="accordion accordion-flush mx-auto w-75 mt-3 rounded" id="accordionFlushExample" style="z-index: -10;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          <p class="p-0 m-0">Informacion del estudiante: <span class="fw-bolder">{{ student.code }}</span></p>
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            <p>Nombre: <span class="fw-bolder">{{ student.name }}</span></p>
+            <p>Numero de telefono: <span class="fw-bolder">{{ student.phoneNumber }}</span></p>
+            <p>Fecha de nacimiento: <span class="fw-bolder">{{ student.date }}</span></p>
+            <p>Puntaje ICFES: <span class="fw-bolder">{{ student.icfes }}</span></p>
+            <p>Cedula: <span class="fw-bolder">{{ student.cedula }}</span></p>
+            <p>Correo electrónico: <span class="fw-bolder">{{ student.mail }}</span></p>
+            <p>Carrera: <span class="fw-bolder">{{ student.major }}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <form method="post" action="{% url 'asignar_scholarship' code %}">
     {% csrf_token %}
-    <div class="d-flex justify-content-center align-items-center h-75 mt-5">
+    <div class="d-flex justify-content-center align-items-center h-75 mt-3">
         <div class="container-fluid w-75 h-100 p-3 d-flex flex-column gap-4 rounded" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); background-color: #FFF;">
-            <h7 CLASS="text-center" style="font-weight: bold;">BECAS</h7>
-            <table style="border-collapse: separate; border-spacing: 0 1rem; ">
-                <tr class="p-2" style="background-color: #EBEDEF;">
-                    <th class="p-2">#</th>
-                    <th class="p-2">Nombre</th>
-                    <th class="p-2">Monto</th>
-                    <th class="p-2">Donante</th>
-                    <th class="p-2">Est.asignados</th>
-                    <th class="p-2">Acciones</th>
-                </tr>
-                {% for scholarship in scholarships %}
-                <tr class="p-2">
-                    <td class="p-2">{{ scholarship.id }}</td>
-                    <td class="p-2">{{ scholarship.name }}</td>
-                    <td class="p-2">{{ scholarship.amount }}</td>
-                    <td class="p-2">{{ scholarship.donor }}</td>
-                    <td class="p-2">{{ scholarship.assigned_students }}</td>
-                    <td class="p-2">
-                        <input type="checkbox" class="btn-check" id="scholarship_{{ scholarship.id }}" name="scholarship_id" value="{{ scholarship.id }}" autocomplete="off">
-                        <label class="btn btn-primary" for="scholarship_{{ scholarship.id }}">Asignar</label>
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
-            <div class="d-flex justify-content-center">
-                <button id="btn-confirmar" type="submit" class="btn btn-primary">Confirmar</button>
+            <h5 class="text-center" style="font-weight: bold;">BECAS</h5>
+            <div class="table-responsive" style="max-height: 340px;">
+                <table class="w-100 h-50" style="border-collapse: separate; border-spacing: 0 1rem; max-height: 120px;" id="tableBecas">
+                    <thead>
+                        <tr class="p-2" style="background-color: #EBEDEF;">
+                            <th class="p-2">#</th>
+                            <th class="p-2">Nombre</th>
+                            <th class="p-2">Monto</th>
+                            <th class="p-2">Donante</th>
+                            <th class="p-2">Est.asignados</th>
+                            <th class="p-2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for scholarship in scholarships %}
+                            <tr class="p-2">
+                                <td class="p-2">{{ scholarship.id }}</td>
+                                <td class="p-2">{{ scholarship.name }}</td>
+                                <td class="p-2">{{ scholarship.amount }}</td>
+                                <td class="p-2">{{ scholarship.donor }}</td>
+                                <td class="p-2">{{ scholarship.assigned_students }}</td>
+                                <td class="p-2">
+                                    <input type="radio" class="btn-check" id="scholarship_{{ scholarship.id }}" name="scholarship_id" value="{{ scholarship.id }}" autocomplete="off">
+                                    {% if student.scholarship == scholarship %}
+    
+                                    <label  onclick="changeState('btn_{{scholarship.id}}')" id="btn_{{scholarship.id}}" class="btn btn-success disabled" for="scholarship_{{ scholarship.id }}">Asignado</label>
+    
+    
+                                    {% else %}
+    
+                                    <label  onclick="changeState('btn_{{scholarship.id}}')" id="btn_{{scholarship.id}}" class="btn btn-primary" for="scholarship_{{ scholarship.id }}">Asignar</label>
+    
+    
+                                    {% endif %}
+                                </td>
+                            </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Confirmar</button>
             </div>
         </div>
     </div>
 </form>
+
+<script>
+    let tableBecas = $('#tableBecas').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+        }
+    });
+
+    let currentButton = null;
+
+    function changeState(idBtn) {
+        let estadoBtn = document.getElementById(idBtn);
+
+        if (currentButton && currentButton !== estadoBtn) {
+        // Si hay un botón actual y no es el mismo que el botón actual, cambia el estado
+        currentButton.classList.remove("btn-danger");
+        currentButton.classList.add("btn-primary");
+        currentButton.textContent = "Asignar";
+        }
+
+        if (estadoBtn.classList.contains("btn-primary")) {
+        // Si el botón está en estado "Asignar", cambia a "Cancelar"
+        estadoBtn.classList.remove("btn-primary");
+        estadoBtn.classList.add("btn-danger");
+        estadoBtn.textContent = "Cancelar";
+        currentButton = estadoBtn; // Guarda el botón actual como "current"
+        } else if (estadoBtn.classList.contains("btn-danger")) {
+        // Si el botón está en estado "Cancelar", cambia a "Asignar"
+        estadoBtn.classList.remove("btn-danger");
+        estadoBtn.classList.add("btn-primary");
+        estadoBtn.textContent = "Asignar";
+        currentButton = null; // No hay botón "current" si se cambia a "Asignar"
+        }
+    }
+
+    
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {% if messages %}
@@ -61,4 +150,3 @@
 {% endif %}
 
 {% endblock %}
-    

@@ -1,30 +1,23 @@
 {% extends 'layouts/navbar_sidebar.html' %}
 
+{% block title_page %}
+
+    <title>Generar reporte</title>
+
+{% endblock %}
+
 {% block main_content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte</title>
-</head>
-<body>
-
-
     <h3>GENERAR REPORTE</h3>
-    <p> <br></p>
-
-
     
-    <div class="mx-auto w-75 h-75 d-flex justify-content-between flex-column p-3 rounded" style="background-color: #FFF; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
+    <div class="mx-auto w-75 h-75 d-flex justify-content-between flex-column p-3 rounded mt-5" style="background-color: #FFF; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);">
 
-        <h4 class="fw-bolder">Estudiantes</h4>
+        <h5>Estudiantes</h5>
         
         <div class="w-100 table-responsive" style="height: 90%;">
             <form action="{% url 'generate_report' %}" method="POST">
                 {% csrf_token %}
-                <div class="w-100 table-responsive" style="height: 90%;">
+                <div class="w-100 table-responsive" style="height: 95%;">
                     <table class="table" id="tableStudents">
                         <thead class="table-secondary">
                             <tr>

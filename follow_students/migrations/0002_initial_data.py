@@ -87,6 +87,8 @@ def create_majors(apps, schema_editor):
     for major in majors:
         Major.objects.create(name=major['name'], price=major['price'])
 
+   
+
 
 class Migration(migrations.Migration):
 
@@ -100,6 +102,6 @@ class Migration(migrations.Migration):
         migrations.RunPython(create_rol_permiso),
         migrations.RunPython(create_majors),
         migrations.RunPython(create_supportCenter),
-        migrations.RunPython(create_non_academic_activities)
+        migrations.RunPython(create_non_academic_activities),
     ]
 
