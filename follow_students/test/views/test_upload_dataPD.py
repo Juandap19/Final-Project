@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from follow_students.models import *
 import time
+from selenium.webdriver.common.keys import Keys
 
 class RequestUpdSeleniumTest(LiveServerTestCase):
     
@@ -19,7 +20,7 @@ class RequestUpdSeleniumTest(LiveServerTestCase):
         
         file.send_keys('C:\\Users\\Darwin Lenis\\OneDrive\\Escritorio\\Universidad\\5to Semestre\\Proyecto Integrador\\GitHub\\Final-Project\\follow_students\\static\\excel_format\\FORMATO_SIS_CURSOS-NOTAS.xlsx')
         
-        summit_button.click()
+        summit_button.send_keys(Keys.RETURN)
         time.sleep(2)
         
         sweet_alert = driver.find_element(By.ID, 'swal2-title')
