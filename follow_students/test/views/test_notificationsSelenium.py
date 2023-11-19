@@ -12,7 +12,6 @@ class testSinginForm(LiveServerTestCase):
 
       self.driver = webdriver.Chrome()
 
-      self.driver = webdriver.Chrome()
 
       self.driver.get('http://127.0.0.1:8000')
 
@@ -24,8 +23,8 @@ class testSinginForm(LiveServerTestCase):
     submit = self.driver.find_element(by=By.ID, value='inicio')
 
     #populate the form with data
-    user.send_keys('1')
-    password.send_keys('1')
+    user.send_keys('diego')
+    password.send_keys('1234')
 
     #submit form
     submit.send_keys(Keys.RETURN)

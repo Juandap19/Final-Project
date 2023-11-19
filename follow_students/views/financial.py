@@ -28,7 +28,7 @@ class FinancialSupport(View):
                 query1.amount.save() 
                 expense =  Scholarship_expense.objects.create( student = query, money_quantity = money_quantity, accumulated_time =  acumulate_time, selected_time = select_time, type_mount = 'Alimentación', scholarship = query1)  #Create a expense to One particular Student and save it
                 expense.save()   #Save the new value in the data base
-                messages.success(request,"Proceso completado")
+                messages.success(request,"Proceso Completado")
 
                 # Notificate the donor and philanthropy.
                 if(query1.amount.alimentation <= 1000000):
@@ -42,7 +42,7 @@ class FinancialSupport(View):
                     notification = Notification(name="Cuidado", student= query , description=" Se estan Acabando los recursos utiles de Alimentación para la Beca Asociada al estudiante")
                     notification.save()
                 
-                return HttpResponseRedirect(request.path, status = 200)   
+                return HttpResponseRedirect(request.path)   
             else:
                 #Case when the Scholarship doesn`t have enought money to pay the new student money quantity`
                 money_quantity = query1.amount.alimentation

@@ -173,11 +173,53 @@ def create_students(apps, schema_editor):
     Student = apps.get_model('follow_students', 'Student')
     Major = apps.get_model('follow_students', 'Major')
     Scholarship = apps.get_model('follow_students', 'Scholarship')
+    Course = apps.get_model('follow_students', 'Course')
+    Grade = apps.get_model('follow_students', 'Grade')
 
     majors = Major.objects.all()
     scholarships = Scholarship.objects.all()
 
     fake = Faker('es_CO')
+
+    # Para crear un estudiante especifico para los test
+
+    random_major = random.choice(majors)
+    random_scholarships = random.choice(scholarships)
+    full_name = "Juan Patiño"
+    first_name, last_name = full_name.split(' ', 1)
+    email = f"{first_name.lower()}{last_name.lower()}@gmail.com"
+    student = Student(
+            name=full_name,
+            phoneNumber=fake.phone_number(),
+            date=fake.date_of_birth(minimum_age=18, maximum_age=25),
+            icfes=random.randint(280, 500),
+            cedula=fake.unique.random_number(digits=10),
+            code=f'A00381293',
+            mail=email,
+            aux_transportation= 0,
+            aux_academic= 0,
+            major=random_major,
+            scholarship=random_scholarships
+        )
+    student.save()
+
+    #crear una materia para un estudiante en especifico
+
+    course =  Course(
+        code = "23",
+        name = "Proyecto Papiro"
+    )
+    course.save()
+
+    grade =  Grade(
+        grade = 1.2,
+        state =  True,
+        course = course,
+        student = student
+    )
+
+    grade.save()
+
 
     for _ in range(100):
         random_major = random.choice(majors)
