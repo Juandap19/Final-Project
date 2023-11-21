@@ -57,7 +57,7 @@ class RequestUpdSeleniumTest(LiveServerTestCase):
         pdf_button = driver.find_element(By.ID, 'pdf-button')
         
         pdf_button.click()
-        self.driver.quit()
+        driver.quit()
         
         
         

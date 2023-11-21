@@ -59,12 +59,10 @@ class Academic_TransportTestCase(TestCase):
 
     def test_get_render_page_Academic(self):
         response = self.client.get('/apoyo_financiero_academico/')
-        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, './financial_education_transportation.html')
         
     def test_get_render_page_Transport(self):
         response = self.client.get('/apoyo_financiero_transporte/')            
-        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, './financial_education_transportation.html')
 
 

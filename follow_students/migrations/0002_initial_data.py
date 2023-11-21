@@ -133,8 +133,8 @@ def create_scholarships(apps, schema_editor):
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Bancolombia', 'mail': f'bc@gmail.com', 'description': f'Empresa Bancolombia'},
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'BBVA', 'mail': f'bbva@gmail.com', 'description': f'Empresa BBVA'},
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Gobierno', 'mail': f'ps@gmail.com', 'description': f'Empresa Gobierno de la Republica'},
-            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Grupo Aval', 'mail': f'ga@gmail.com', 'description': f'Empresa Grupo Aval'},
-            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Grupos Argos', 'mail': f'gar@gmail.com', 'description': f'Empresa Grupo Argos'}
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'JGB', 'mail': f'jgb@gmail.com', 'description': f'Empresa Jorge Garcés Borrero'},
+            {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Icesi', 'mail': f'icesi1@gmail.com', 'description': f'Universidad Icesi'}
         ]
 
         amounts_data = [
@@ -147,14 +147,10 @@ def create_scholarships(apps, schema_editor):
 
         donors = [Donor.objects.create(**donor_data) for donor_data in donors_data]
         amounts = [Amount.objects.create(**amount_data) for amount_data in amounts_data]
-        images_scholarships = ["Emcali" , "Fundacion" , "Icetex" , "Gobierno"]
 
         for _ in range(25):
             nombre_nueva_beca = random.choice(donors).name
-            if nombre_nueva_beca in images_scholarships:
-                image = f'{nombre_nueva_beca}.png'
-            else:
-                image = 'Icesi.png'
+            image = f'{nombre_nueva_beca}.png'
 
             scholarship = Scholarship(
                 code=random.randint(10000000, 99999999),
@@ -188,12 +184,12 @@ def create_students(apps, schema_editor):
     full_name = "Juan Patiño"
     first_name, last_name = full_name.split(' ', 1)
     email = f"{first_name.lower()}{last_name.lower()}@gmail.com"
-    student = Student(
+    student2 = Student(
             name=full_name,
             phoneNumber=fake.phone_number(),
             date=fake.date_of_birth(minimum_age=18, maximum_age=25),
             icfes=random.randint(280, 500),
-            cedula=fake.unique.random_number(digits=10),
+            cedula="1107835369",
             code=f'A00381293',
             mail=email,
             aux_transportation= 0,
@@ -201,7 +197,7 @@ def create_students(apps, schema_editor):
             major=random_major,
             scholarship=random_scholarships
         )
-    student.save()
+    student2.save()
 
     #crear una materia para un estudiante en especifico
 
@@ -215,7 +211,7 @@ def create_students(apps, schema_editor):
         grade = 1.2,
         state =  True,
         course = course,
-        student = student
+        student = student2
     )
 
     grade.save()
@@ -236,7 +232,7 @@ def create_students(apps, schema_editor):
             date=fake.date_of_birth(minimum_age=18, maximum_age=25),
             icfes=random.randint(280, 500),
             cedula=fake.unique.random_number(digits=10),
-            code=f'A00{fake.unique.random_number(digits=7)}',
+            code=f'A00{fake.unique.random_number(digits=6)}',
             mail=email,
             aux_transportation= 0,
             aux_academic= 0,

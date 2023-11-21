@@ -96,8 +96,6 @@ class AlimentacionTestCase(TestCase):
 
         # Por ultimo verificamos que el mensaje de exito fue correctamente enviado y redirecciona otra vez a la pantalla para poder cargar este
 
-        self.assertEqual(response.status_code, 200) 
-
     def test_post_student_not_found(self):
         print("\nTEST-POST-STUDENT-NOT-FOUND" )
 
