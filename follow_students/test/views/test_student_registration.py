@@ -51,7 +51,7 @@ class StudentRegister(LiveServerTestCase):
         
         driver = webdriver.Chrome()
         
-        driver.get('http://127.0.0.1:8000/assignScholarship/A00382231/')
+        driver.get('http://127.0.0.1:8000/assignScholarship/A00381293/')
         time.sleep(2)
         
         checkbox = driver.find_element(By.ID, 'scholarship_1')
@@ -141,10 +141,9 @@ class StudentRegister(LiveServerTestCase):
         
         driver = webdriver.Chrome()
         
-        driver.get('http://127.0.0.1:8000/assignScholarship/A00382231/')
-        time.sleep(2  )
+        driver.get('http://127.0.0.1:8000/assignScholarship/A00381293/')
+        time.sleep(2)
         
-        checkbox = driver.find_element(By.ID, 'scholarship_1')
         submit_button = driver.find_element(By.ID, 'btn-confirmar')
         time.sleep(2)
 
