@@ -6,8 +6,6 @@ import time
 import re
 
 class RequestUpdSeleniumTest(LiveServerTestCase):
-    
-    
     def test_MenuReport(self):
         
         driver = webdriver.Chrome()
@@ -15,6 +13,11 @@ class RequestUpdSeleniumTest(LiveServerTestCase):
         driver.get('http://127.0.0.1:8000/menuReport/')
         time.sleep(2)
         
+        submit = driver.find_element(by=By.XPATH, value="//input[@type='search']")
+        submit.send_keys('A00381293')
+
+        time.sleep(2)
+
         checkbox = driver.find_element(By.NAME, 'selected_students')
         summit_button = driver.find_element(By.ID, 'send-button')
         
@@ -38,6 +41,11 @@ class RequestUpdSeleniumTest(LiveServerTestCase):
         
         driver.get('http://127.0.0.1:8000/menuReport/')
         time.sleep(2)
+
+        submit = driver.find_element(by=By.XPATH, value="//input[@type='search']")
+        submit.send_keys('A00381293')
+
+        time.sleep(2)
         
         checkbox = driver.find_element(By.NAME, 'selected_students')
         summit_button = driver.find_element(By.ID, 'send-button')
@@ -49,6 +57,7 @@ class RequestUpdSeleniumTest(LiveServerTestCase):
         pdf_button = driver.find_element(By.ID, 'pdf-button')
         
         pdf_button.click()
+        driver.quit()
         
         
         

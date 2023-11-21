@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from follow_students.models import *
-
+import time
 class testAlimentacion(LiveServerTestCase):
   
   def setUp(self):
@@ -30,16 +30,15 @@ class testAlimentacion(LiveServerTestCase):
     alimentacion_btn = self.driver.find_element(by = By.ID, value = 'alimentacion_btn')
 
     alimentacion_btn.send_keys(Keys.RETURN)
-
-
-    WebDriverWait(self.driver, 10).until(
-        EC.presence_of_element_located((By.ID, "swal2-title"))
-    )
-
+  	
+    time.sleep(2)
     contenido_actual = self.driver.find_element(by=By.ID, value='swal2-title')
+
     texto_contenido_actual = contenido_actual.text
     contenido_esperado = "Proceso Completado"
     self.assertEqual(texto_contenido_actual, contenido_esperado)
+
+    self.driver.quit()
 
   def test_post_student_not_found(self):
 
@@ -53,17 +52,19 @@ class testAlimentacion(LiveServerTestCase):
     acumulate_time.send_keys('13')
     select_time.send_keys('1')
 
-    alimentacion_btn = self.driver.find_element(by = By.ID, value = 'alimentacion_btn')
-    alimentacion_btn.send_keys(Keys.RETURN)
-    WebDriverWait(self.driver, 10).until(
-        EC.presence_of_element_located((By.ID, "swal2-title"))
-    )
+    time.sleep(2)
 
+    alimentacion_btn = self.driver.find_element(by = By.ID, value = 'alimentacion_btn')
+
+    alimentacion_btn.send_keys(Keys.RETURN)
+
+    time.sleep(2)
 
     contenido_actual = self.driver.find_element(by=By.ID, value='swal2-title')
     texto_contenido_actual = contenido_actual.text
     contenido_esperado = "El codigo del estudiante A00381294 no existe"
     self.assertEqual(texto_contenido_actual, contenido_esperado)
+    self.driver.quit()
 
   def test_post_insufficient_funds(self):
 
@@ -77,15 +78,16 @@ class testAlimentacion(LiveServerTestCase):
     acumulate_time.send_keys('13')
     select_time.send_keys('1')
 
-    alimentacion_btn = self.driver.find_element(by = By.ID, value = 'alimentacion_btn')
+    time.sleep(2)
 
+    alimentacion_btn = self.driver.find_element(by = By.ID, value = 'alimentacion_btn')
     alimentacion_btn.send_keys(Keys.RETURN)
-    WebDriverWait(self.driver, 10).until(
-        EC.presence_of_element_located((By.ID, "swal2-title"))
-    )
+
+    time.sleep(2)
 
 
     contenido_actual = self.driver.find_element(by=By.ID, value='swal2-title')
     texto_contenido_actual = contenido_actual.text
     contenido_esperado = "Fondos insuficientes de alimentación para registrar el pago"
     self.assertEqual(texto_contenido_actual, contenido_esperado)
+    self.driver.quit()
