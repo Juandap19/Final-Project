@@ -24,8 +24,22 @@ class Upload_dataPD(View):
                 loaded_data = False  # Variable para rastrear si se cargó algún dato
 
                 for sheet_name in xls.sheet_names:
+                    # Separar el código y el nombre del curso
+                    try:
+                        code, name = sheet_name.split('_', 1)
+                    except ValueError:
+                        # Manejar el caso en el que no hay suficientes valores para desempaquetar
+                        messages.error(request, f'Formato de hoja incorrecto: {sheet_name}')
+                        return HttpResponseRedirect(request.path)
+
+                    # Crear o recuperar el objeto Course
+                    course, created = Course.objects.get_or_create(
+                        code=code,
+                        defaults={'name': name}
+                    )
+
                     df = pd.read_excel(xls, sheet_name)
-                    course, created = Course.objects.get_or_create(code=sheet_name)
+                    
                     for index, row in df.iterrows():
                         try:
                             student = Student.objects.get(code=row['Codigo'])
