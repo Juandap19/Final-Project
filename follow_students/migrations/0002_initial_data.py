@@ -217,7 +217,7 @@ def create_students(apps, schema_editor):
     grade.save()
 
 
-    for _ in range(100):
+    for _ in range(25):
         random_major = random.choice(majors)
         random_scholarships = random.choice(scholarships)
     
