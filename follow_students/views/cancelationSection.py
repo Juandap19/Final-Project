@@ -6,7 +6,6 @@ from follow_students.views.menuCancelation import MenuCancelation
 
 class CancelationSection(View):
     ides=MenuCancelation.ides
-    
     def get(self, request):
         gradesList=Grade.objects.all()
         idesTemp = self.ides.copy()
@@ -24,8 +23,5 @@ class CancelationSection(View):
         
             notification = Notification(name="Cancelacion", student=grade.student, description="{} Cancelo {}".format(grade.student.name, grade.course.code))
             notification.save()
-            studentlist=Student.objects.all()
-         return render(request, 'menuCancelation.html', {
-            "students" : studentlist,
-            "studentUpdate": True
-            })
+            MenuCancelation.flag=True
+         return redirect("/menuCancelation")
