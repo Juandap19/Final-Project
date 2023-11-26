@@ -19,7 +19,7 @@ class GeneratePDF(View):
             total_grades = sum(grade.grade for grade in gradesList)
             average_grade = total_grades / len(gradesList)
         else:
-            average_grade = None
+            average_grade = 0.0
 
         template = get_template('pdf_template.html')
         context = {
@@ -28,7 +28,7 @@ class GeneratePDF(View):
             'consultaList': consultaList,
             'bu': bu,
             "expenses": expenses,
-            'avg': average_grade
+            'avg': round(average_grade, 2)
         }
         content = template.render(context)
 

@@ -138,11 +138,11 @@ def create_scholarships(apps, schema_editor):
         ]
 
         amounts_data = [
-            {'code': 1, 'transport': 5000000000, 'alimentation': 1000000000, 'academic': 2000000},
-            {'code': 2, 'transport': 70000000, 'alimentation': 200000000, 'academic': 5000000},
-            {'code': 3, 'transport': 45000000, 'alimentation': 15000000, 'academic': 25000000},
-            {'code': 4, 'transport': 57500000, 'alimentation': 30000000, 'academic': 37000000},
-            {'code': 5, 'transport': 90000000, 'alimentation': 40000000, 'academic': 8000000},
+            {'code': 1, 'transport': 5000000000, 'alimentation': 1000000000, 'academic': 200000000},
+            {'code': 2, 'transport': 7000000000, 'alimentation': 2000000000, 'academic': 500000000},
+            {'code': 3, 'transport': 4500000000, 'alimentation': 1500000000, 'academic': 250000000},
+            {'code': 4, 'transport': 5750000000, 'alimentation': 3000000000, 'academic': 370000000},
+            {'code': 5, 'transport': 9000000000, 'alimentation': 4000000000, 'academic': 800000000},
         ]
 
         donors = [Donor.objects.create(**donor_data) for donor_data in donors_data]
@@ -199,8 +199,6 @@ def create_students(apps, schema_editor):
         )
     student2.save()
 
-    #crear una materia para un estudiante en especifico
-
     course =  Course(
         code = "23",
         name = "Proyecto Papiro"
@@ -216,6 +214,25 @@ def create_students(apps, schema_editor):
 
     grade.save()
 
+    courses_lst = [
+        {'code': "1", 'name': "Matematicas Aplicadas II"},
+        {'code': "2", 'name': "Proyecto Integrados"},
+        {'code': "3", 'name': "Ingenieria de software III"},
+        {'code': "4", 'name': "Arquitectura de Computadores"},
+        {'code': "5", 'name': "Contabilidad y costos"},
+    ]
+
+    courses = [Course.objects.create(**courses_lst) for courses_lst in courses_lst]
+
+    grades_lst = [
+        {'grade': 3.8, 'state': True, 'course': courses[0], 'student': student2},
+        {'grade': 4.8, 'state': True, 'course': courses[1], 'student': student2},
+        {'grade': 4.4, 'state': True, 'course': courses[2], 'student': student2},
+        {'grade': 3.5, 'state': True, 'course': courses[3], 'student': student2},
+        {'grade': 4.1, 'state': True, 'course': courses[4], 'student': student2},
+    ]
+
+    grades = [Grade.objects.create(**grades_lst) for grades_lst in grades_lst]
 
     for _ in range(25):
         random_major = random.choice(majors)
