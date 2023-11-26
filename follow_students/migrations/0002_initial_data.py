@@ -129,7 +129,7 @@ def create_scholarships(apps, schema_editor):
         donors_story.save()
         
         
-        amounts_story = Amount.objects.create(**{'code': 7, 'transport': 6000000, 'alimentation': 10000000, 'academic': 100000000})
+        amounts_story = Amount.objects.create(**{'code': 7, 'transport': 6000000, 'alimentation': 12, 'academic': 100000000})
         amounts_story.save()
         
         nombre_nueva_beca = 'Excelencia'

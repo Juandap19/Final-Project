@@ -128,7 +128,7 @@
                     {% for expense in expenses %}
                         {% if expense.type_mount == 'Alimentación' %}
                             <p>Cantidad de dinero: {{ expense.money_quantity }}</p>
-                            <p>Tiempo: {{ expense.accumulated_time }} </p>
+                            <p>Tiempo: {{ expense.accumulated_time }}  {{expense.selected_time}}</p>
                             <p>Beca Asociada: {{ expense.scholarship.name }}</p>
                             <hr>
                         {% endif %}
@@ -138,7 +138,7 @@
                     {% for expense in expenses %}
                         {% if expense.type_mount == 'Transporte' %}
                             <p>Cantidad de dinero: {{ expense.money_quantity }}</p>
-                            <p>Tiempo: {{ expense.accumulated_time }}</p>
+                            <p>Tiempo: {{ expense.accumulated_time }}  {{expense.selected_time}}</p>
                             <p>Beca Asociada: {{ expense.scholarship.name }}</p>
                             <hr>
                         {% endif %}
