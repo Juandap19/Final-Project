@@ -123,6 +123,29 @@ def create_scholarships(apps, schema_editor):
         Amount = apps.get_model('follow_students', 'Amount')
         Scholarship = apps.get_model('follow_students', 'Scholarship')
 
+        
+    # Crear una beca para el story-telling
+        donors_story = Donor.objects.create(** {'cedula': f'NIT-1107835368', 'name': f'Icesi', 'mail': f'juanda232405@hotmail.com', 'description': f'Universidad Icesi'})
+        donors_story.save()
+        
+        
+        amounts_story = Amount.objects.create(**{'code': 7, 'transport': 6000000, 'alimentation': 10000000, 'academic': 100000000})
+        amounts_story.save()
+        
+        nombre_nueva_beca = 'Excelencia'
+        image = 'Icesi.png'
+
+        scholarship1 = Scholarship(
+            code="23",
+            name=f'Beca - {nombre_nueva_beca}',
+            assigned_students= 0 ,
+            academic_percentage=100,
+            transportation=1000000,
+            amount=amounts_story,
+            donor=donors_story,
+            image=image, 
+            )
+        scholarship1.save()
 
         donors_data = [
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Fundacion', 'mail': f'tq@gmail.com', 'description': f'Empresa Fundacion valle del lili'},
