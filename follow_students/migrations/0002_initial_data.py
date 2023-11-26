@@ -138,11 +138,11 @@ def create_scholarships(apps, schema_editor):
         ]
 
         amounts_data = [
-            {'code': 1, 'transport': 5000000000, 'alimentation': 1000000000, 'academic': 200000000},
-            {'code': 2, 'transport': 7000000000, 'alimentation': 2000000000, 'academic': 500000000},
-            {'code': 3, 'transport': 4500000000, 'alimentation': 1500000000, 'academic': 250000000},
-            {'code': 4, 'transport': 5750000000, 'alimentation': 3000000000, 'academic': 370000000},
-            {'code': 5, 'transport': 9000000000, 'alimentation': 4000000000, 'academic': 800000000},
+            {'code': 1, 'transport': 5000000000, 'alimentation': 1000000000, 'academic': 2000000},
+            {'code': 2, 'transport': 70000000, 'alimentation': 200000000, 'academic': 5000000},
+            {'code': 3, 'transport': 45000000, 'alimentation': 15000000, 'academic': 25000000},
+            {'code': 4, 'transport': 57500000, 'alimentation': 30000000, 'academic': 37000000},
+            {'code': 5, 'transport': 90000000, 'alimentation': 40000000, 'academic': 8000000},
         ]
 
         donors = [Donor.objects.create(**donor_data) for donor_data in donors_data]
