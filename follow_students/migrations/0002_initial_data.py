@@ -123,6 +123,29 @@ def create_scholarships(apps, schema_editor):
         Amount = apps.get_model('follow_students', 'Amount')
         Scholarship = apps.get_model('follow_students', 'Scholarship')
 
+        
+    # Crear una beca para el story-telling
+        donors_story = Donor.objects.create(** {'cedula': f'NIT-1107835368', 'name': f'Icesi', 'mail': f'juanda232405@hotmail.com', 'description': f'Universidad Icesi'})
+        donors_story.save()
+        
+        
+        amounts_story = Amount.objects.create(**{'code': 7, 'transport': 6000000, 'alimentation': 12, 'academic': 100000000})
+        amounts_story.save()
+        
+        nombre_nueva_beca = 'Excelencia'
+        image = 'Icesi.png'
+
+        scholarship1 = Scholarship(
+            code="23",
+            name=f'Beca - {nombre_nueva_beca}',
+            assigned_students= 0 ,
+            academic_percentage=100,
+            transportation=1000000,
+            amount=amounts_story,
+            donor=donors_story,
+            image=image, 
+            )
+        scholarship1.save()
 
         donors_data = [
             {'cedula': f'NIT-{random.randint(100000000, 999999999)}', 'name': f'Fundacion', 'mail': f'tq@gmail.com', 'description': f'Empresa Fundacion valle del lili'},
@@ -199,8 +222,6 @@ def create_students(apps, schema_editor):
         )
     student2.save()
 
-    #crear una materia para un estudiante en especifico
-
     course =  Course(
         code = "23",
         name = "Proyecto Papiro"
@@ -216,8 +237,27 @@ def create_students(apps, schema_editor):
 
     grade.save()
 
+    courses_lst = [
+        {'code': "1", 'name': "Matematicas Aplicadas II"},
+        {'code': "2", 'name': "Proyecto Integrados"},
+        {'code': "3", 'name': "Ingenieria de software III"},
+        {'code': "4", 'name': "Arquitectura de Computadores"},
+        {'code': "5", 'name': "Contabilidad y costos"},
+    ]
 
-    for _ in range(100):
+    courses = [Course.objects.create(**courses_lst) for courses_lst in courses_lst]
+
+    grades_lst = [
+        {'grade': 3.8, 'state': True, 'course': courses[0], 'student': student2},
+        {'grade': 4.8, 'state': True, 'course': courses[1], 'student': student2},
+        {'grade': 4.4, 'state': True, 'course': courses[2], 'student': student2},
+        {'grade': 3.5, 'state': True, 'course': courses[3], 'student': student2},
+        {'grade': 4.1, 'state': True, 'course': courses[4], 'student': student2},
+    ]
+
+    grades = [Grade.objects.create(**grades_lst) for grades_lst in grades_lst]
+
+    for _ in range(25):
         random_major = random.choice(majors)
         random_scholarships = random.choice(scholarships)
     

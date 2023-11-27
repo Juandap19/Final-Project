@@ -52,7 +52,7 @@ class FinancialSupport(View):
 
                 recipient = query1.donor.mail
                 subject = "Se Acabaron los recursos Alimentarios"
-                message = "Le informamos que La beca {} asociada al codigo {} a la cual usted {} pertence como donante, se estan acabando los recursos de alimentacíon utiles.".format( query1.name, query1.code, query1.donor.name)
+                message = "Le informamos que La beca {} asociada al codigo {} a la cual usted {} pertence como donante, se el acabaron los recursos de alimentacíon utiles.".format( query1.name, query1.code, query1.donor.name)
                 from_email = "sistemaApoyoFinanciero@gmail.com"
                 email = EmailMessage(subject, message, from_email, [recipient]) 
                 email.send()
@@ -280,7 +280,7 @@ class FinancialTransport(View):
                                     from_email = "sistemaApoyoFinanciero@gmail.com"
                                     email = EmailMessage(subject, message, from_email, [recipient]) 
                                     email.send()
-                                    notification = Notification(name="Cuidado", student= student , description=" Se estan Acabando los recursos de Transporte utiles para la Beca Asociada al estudiante")
+                                    notification = Notification(name="Cuidado", student= student_pivot , description=" Se estan Acabando los recursos de Transporte utiles para la Beca Asociada al estudiante")
                                     notification.save()
 
                             else:

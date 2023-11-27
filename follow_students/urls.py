@@ -21,8 +21,7 @@ from follow_students.views.menuCancelation import MenuCancelation
 from follow_students.views.cancelationSection import CancelationSection
 from follow_students.views.notification import Notifications
 from follow_students.views.goalEvaluation import GoalEvaluation
-
-
+from follow_students.views.donors_scholarships import DonorAndScholarships
 
 urlpatterns = [
     # Here the paths are added
@@ -49,5 +48,6 @@ urlpatterns = [
     path('cancelationSection/<int:code>/', CancelationSection.as_view(), name="cancelation"),
     path('notification/', Notifications.as_view(), name = "notis"),
     path('notification/', Notifications.as_view(), name = "clean"),
+    path('donorsAndScholarships/', DonorAndScholarships.as_view(), name = "donorsAndScholarships"),
     path('logout/', Logout.as_view(), name = "logout")
 ]

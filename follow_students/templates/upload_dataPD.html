@@ -81,12 +81,14 @@
                         <tr>
                             <th>Estudiante</th>
                             <th>Curso</th>
+                            <th>Nombre</th>
                             <th>Nota</th>
                         </tr>
                         {% for grade in grades %}
                         <tr class="student">
                             <td class="student-code">{{ grade.student }}</td>
                             <td>{{ grade.course }}</td>
+                            <td>{{ grade.course.name }}</td>
                             <td>{{ grade.grade }}</td>
                         </tr>
                         {% endfor %}

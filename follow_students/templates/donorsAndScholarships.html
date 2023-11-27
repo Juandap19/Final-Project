@@ -1,0 +1,45 @@
+{% extends 'layouts/navbar_sidebar.html' %}
+{% load static %}
+
+{% block title_page %}
+
+    <title>Becas y Donadores</title>
+
+{% endblock %}
+
+{% block main_content %}
+
+    <h3>Donadores & Becas</h3>
+
+    <div class="d-flex justify-content-end mx-auto" style="width: 90%;">
+        <a href="/dashboard/" class="btn btn-danger">Volver</a>
+    </div>
+
+    <h4 class="mx-auto mt-5" style="width: 90%;">Donadores</h4>
+    <div class="d-flex flex-wrap gap-5 mx-auto justify-content-center mt-3" style="width: 90%;">
+        {% for d in donors %}
+            <div class="card" style="width: 14rem;">
+                <img src="../static/images/{{d.name}}.png" alt="campito" class="align-self-center mb-2 mt-3" style="width: 4em; height: 4em;">
+                <div class="card-body">
+                <h5 class="card-title">{{d.name}}</h5>
+                <p class="card-text">{{d.description}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="mx-auto mt-5" style="width: 90%;">Becas</h4>
+    <div class="d-flex flex-wrap gap-5 mx-auto justify-content-center mt-3" style="width: 90%;">
+        {% for s in scholarships %}
+            <div class="card" style="width: 14rem;">
+                <img src="../static/images/{{s.image}}" alt="campito" class="align-self-center mb-2 mt-3" style="width: 4em; height: 4em;">
+                <div class="card-body">
+                <h5 class="card-title">{{ s.code }}</h5>
+                <p class="card-text">{{ s.name }}</p>
+                <p class="card-text">Estudiantes asignados: {{ s.assigned_students }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

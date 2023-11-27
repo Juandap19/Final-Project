@@ -1,9 +1,9 @@
 from django import forms
 
 time_options = [
-    ('Days', 'Dias'),
-    ('Month', 'Mes'),
-    ('Year', 'Año'),
+    ('Dias', 'Dias'),
+    ('Mes', 'Mes'),
+    ('Año', 'Año'),
 ]
 
 class FinancialForm(forms.Form):

@@ -8,11 +8,14 @@ from follow_students.models import Student
 
 class MenuCancelation(View):
     ides=[]
-    
+    flag=False
     def get(self, request):
+        flagt=self.flag
+        self.flag=False
         studentlist=Student.objects.all()
         return render(request, 'menuCancelation.html', {
-            "students" : studentlist
+            "students" : studentlist,
+            "studentUpdate": flagt
         })
     
     def post(self, request ,  code):

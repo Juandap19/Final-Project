@@ -13,83 +13,150 @@
 
     <style type="text/css">
         
-        h3 {
-            display: block;
-            width: 100%;
-            height: 50%;
-            background-color: #0866ad;
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #0c5cd3;
+            font-weight: bolder;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 25%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 4px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            font-weight: bolder;
+            color: #0c5cd3;
         }
 
     </style>
 </head>
 <body>
 
-    <h3 class="d-flex justify-content-center">Informe de Estudiante</h3>
-    <p>Código: {{ student.code }}</p>
-    <p>Nombre: {{ student.name }}</p>
+    <h1>REPORTE ESTUDIANTE</h1>
+    <h3>Estudiante: {{student.code}} - {{student.name}}</h3>
+    <h3>Programa: {{student.major.name}}</h3>
     
-    <h3>Notas:</h3>
-    <ul>
-        {% for grade in gradesList %}
-            <li>Curso: {{ grade.course.code }}, Nota: {{ grade.grade }}</li>
-        {% endfor %}
-    </ul>
+    <h2>NOTAS</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade in gradesList %}
+                <tr>
+                    <td>{{ grade.course.name }}</td>
+                    <td>{{ grade.grade }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td>Promedio</td>
+                <td>{{ avg }}</td>
+            </tr>
+        </tbody>
+    </table>
     
-    <h3>Consultas:</h3>
-    <ul>
-        {% for consulta in consultaList %}
-            <li>Centro de apoyo: {{ consulta.support_center }}</li>
-            <li>Fecha: {{ consulta.date }}</li>
-            <li>Hora: {{ consulta.time }}</li>
-            <li>Motivo: {{ consulta.reason }}</li>
-            <li>Resultado: {{ consulta.outcome }}</li>
-        {% endfor %}
-    </ul>
+    <h2>CONSULTAS</h2>
 
-    <h3>Bienestar universitario</h3>
-    <ul>
-        {% for activity in bu %}
-            <li>Actividad: {{ activity.activity.name }}</li>
-            <li>Dias de asistencias: {{ activity.assistance_days }}</li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Centro de apoyo</th>
+                <th>Fecha y Hora</th>
+                <th style="width: 40%;">Motivo</th>
+                <th style="width: 25%;">Resultado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for consulta in consultaList %}
+                <tr>
+                    <td>{{ consulta.support_center }}</td>
+                    <td>{{ consulta.date }} {{ consulta.time }}</td>
+                    <td>{{ consulta.reason }}</td>
+                    <td>{{ consulta.outcome }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-    <h3>Gastos del Estudiante</h3>
-    <h4>Pagos de Alimentacion</h4>
-    <ul>
-        {% for expense in expenses %}
-            {% if expense.type_mount == 'Alimentación' %}
-                <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
-                <li>Tiempo: {{ expense.tiempo_acumulado }} </li>
-                <li>Beca Asociada: {{ expense.scholarship.name }}</li>
-                <hr>
-            {% endif %}
-        {% endfor %}
-    </ul>
-    
-    <h4>Pagos de Transporte</h4>
-    <ul>
-        {% for expense in expenses %}
-            {% if expense.type_mount == 'Transporte' %}
-                <li>Cantidad de dinero: {{ expense.cantidad_dinero }}</li>
-                <li>Tiempo: {{ expense.tiempo_acumulado }}</li>
-                <li>Beca Asociada: {{ expense.scholarship.name }}</li>
-                <hr>
-            {% endif %}
-        {% endfor %}
-    </ul>
-    
-    <h4>Pagos Academicos</h4>
-    <ul>
-        {% for expense in expenses %}
-            {% if expense.type_mount == 'Academico' %}
-                <li>Cantidad de dinero: {{ expense.money_quantity }}</li>
-                <li>Tiempo: {{ expense.accumulated_time }} {{expense.selected_time}}</li>
-                <li>Beca Asociada: {{ expense.scholarship.name }}</li>
-                <hr>
-            {% endif %}
-        {% endfor %}
-    </ul>
+    <h2>BIENESTAR UNIVERSITARIO</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Actividad</th>
+                <th>Dias de asistencias</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activity in bu  %}
+                <tr>
+                    <td>{{ activity.activity.name }}</td>
+                    <td>{{ activity.assistance_days }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>GASTOS DEL ESTUDIANTE</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Pagos de alimentacion</th>
+                <th>Pagos de transporte</th>
+                <th>Pagos academicos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {% for expense in expenses %}
+                        {% if expense.type_mount == 'Alimentación' %}
+                            <p>Cantidad de dinero: {{ expense.money_quantity }}</p>
+                            <p>Tiempo: {{ expense.accumulated_time }}  {{expense.selected_time}}</p>
+                            <p>Beca Asociada: {{ expense.scholarship.name }}</p>
+                            <hr>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for expense in expenses %}
+                        {% if expense.type_mount == 'Transporte' %}
+                            <p>Cantidad de dinero: {{ expense.money_quantity }}</p>
+                            <p>Tiempo: {{ expense.accumulated_time }}  {{expense.selected_time}}</p>
+                            <p>Beca Asociada: {{ expense.scholarship.name }}</p>
+                            <hr>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for expense in expenses %}
+                        {% if expense.type_mount == 'Academico' %}
+                            <p>Cantidad de dinero: {{ expense.money_quantity }}</p>
+                            <p>Tiempo: {{ expense.accumulated_time }} {{expense.selected_time}}</p>
+                            <p>Beca Asociada: {{ expense.scholarship.name }}</p>
+                            <hr>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>
